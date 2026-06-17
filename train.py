@@ -1,37 +1,69 @@
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
 import pandas as pd
 import joblib
 
-df = pd.read_csv('logistics_dataset_kathmandu.csv')
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report
 
-label_encoders = {}
+# Load dataset
+df = pd.read_csv("logistics_dataset_kathmandu.csv")
 
-for column in df.select_dtypes(include=['object', 'string']).columns:
-    le = LabelEncoder()
-    df[column] = le.fit_transform(df[column])
-    label_encoders[column] = le
+# Split features and target
+X = df.drop("delivery_failure", axis=1)
+y = df["delivery_failure"]
 
-# DEBUG
-print(df.head())
-print(df.dtypes)
+# Categorical columns (text features)
+categorical_cols = [
+    "delivery_time",
+    "address_clarity",
+    "payment_method",
+    "order_value",
+    "area_density",
+    "accessibility",
+    "weather_condition",
+    "traffic_level"
+]
 
-X = df.drop('delivery_failure', axis=1)
-y = df['delivery_failure']
+# Numerical columns
+numerical_cols = [
+    "address_length",
+    "contact_valid"
+]
 
+# Preprocessing (THIS fixes your error permanently)
+preprocessor = ColumnTransformer([
+    ("cat", OneHotEncoder(handle_unknown="ignore"), categorical_cols),
+    ("num", "passthrough", numerical_cols)
+])
+
+# Model
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Pipeline (CRITICAL PART)
+pipeline = Pipeline([
+    ("preprocessor", preprocessor),
+    ("model", model)
+])
+
+# Train/test split
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-model = RandomForestClassifier()
-model.fit(X_train, y_train)
+# Train model
+pipeline.fit(X_train, y_train)
 
-y_pred = model.predict(X_test)
+# Predictions
+y_pred = pipeline.predict(X_test)
 
+# Evaluation
 print("Accuracy:", accuracy_score(y_test, y_pred))
 print(classification_report(y_test, y_pred))
 
-joblib.dump(model, "delivery_model.pkl")
-print("Model saved successfully!")
+# Save FULL pipeline (not just model)
+joblib.dump(pipeline, "delivery_model.pkl")
+
+print("Model saved successfully as delivery_model.pkl")
