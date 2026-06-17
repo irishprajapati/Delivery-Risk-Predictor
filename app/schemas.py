@@ -1,5 +1,4 @@
 from pydantic import BaseModel, field_validator, Field
-from typing import Optional
 import re
 
 TIME_MAP = {
@@ -24,8 +23,6 @@ CLARITY_MAP = {
     "unclear": "unclear",
     "bad": "unclear"
 }
-
-
 class PredictionInput(BaseModel):
 
     delivery_time: str
@@ -43,31 +40,30 @@ class PredictionInput(BaseModel):
 
     @field_validator("*", mode="before")
     @classmethod
-    def strip_and_lower(cls, v):
+    def normalize_strings(cls, v):
         if isinstance(v, str):
             return v.strip().lower()
         return v
 
     @field_validator("delivery_time")
     @classmethod
-    def fix_time(cls, v):
+    def validate_time(cls, v):
         if v not in TIME_MAP:
-            raise ValueError("Invalid delivery_time")
+            raise ValueError("delivery_time must be morning/afternoon/evening or valid synonym")
         return TIME_MAP[v]
-
 
     @field_validator("payment_method")
     @classmethod
-    def fix_payment(cls, v):
+    def validate_payment(cls, v):
         if v not in PAYMENT_MAP:
-            raise ValueError("Invalid payment_method")
+            raise ValueError("payment_method must be COD or prepaid")
         return PAYMENT_MAP[v]
 
     @field_validator("address_clarity")
     @classmethod
-    def fix_clarity(cls, v):
+    def validate_clarity(cls, v):
         if v not in CLARITY_MAP:
-            raise ValueError("Invalid address_clarity")
+            raise ValueError("address_clarity must be clear or unclear")
         return CLARITY_MAP[v]
 
     @field_validator("phone_number")
@@ -75,5 +71,5 @@ class PredictionInput(BaseModel):
     def validate_phone(cls, v):
         pattern = r"^(\+977)?(98\d{8}|97\d{8}|01\d{7})$"
         if not re.match(pattern, v):
-            raise ValueError("Invalid Nepal phone number")
+            raise ValueError("Invalid Nepal phone number format")
         return v

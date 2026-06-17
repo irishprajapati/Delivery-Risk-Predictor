@@ -6,6 +6,7 @@ from fastapi import Request
 from fastapi.responses import JSONResponse
 from fastapi.exceptions import RequestValidationError
 from app.model import get_feature_importance
+from app.logging_service import save_log
 
 app = FastAPI()
 
@@ -18,8 +19,19 @@ def login(username: str, password: str):
     return fake_login(username, password) ## -> why fake_login? 
 
 @app.post("/predict")
-def make_prediction(data: PredictionInput):
+def predict_route(data: PredictionInput):
     result = predict(data)
+
+    # Log only successful predictions
+    if result.get("success"):
+        save_log({
+            "input": data.model_dump(),
+            "prediction": result["prediction"],
+            "probability": result["probability"],
+            "risk": result["risk"],
+            "reasons": result["reasons"]
+        })
+
     return result
 
 @app.exception_handler(RequestValidationError)
@@ -44,7 +56,16 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
 
 @app.get("/feature-importance")
 def feature_importance():
+    features = get_feature_importance()
+
+    if features is None:
+        return {
+            "success": False,
+            "error": "feature_importance_failed"
+        }
+
     return {
+        "success": True,
         "model_insight": "Global feature importance based on RandomForest impurity reduction",
-        "features": get_feature_importance()
+        "features": features[:10]
     }
