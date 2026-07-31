@@ -1,20 +1,21 @@
-from passlib.context import CryptContext
 from datetime import datetime, timedelta
-from jose import jwt, JWTError
-import os
+
+from jose import JWTError, jwt
+from passlib.context import CryptContext
+
+from app.core.config import SECRET_KEY
 
 # Password hashing setup
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-def get_password_hash(password: str) -> str:
+def get_password_hash(password: str) -> str:  # mostly used when creating the user
     return pwd_context.hash(password)
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     return pwd_context.verify(plain_password, hashed_password)
 
-SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")  
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 #need to relogin after 60 minutes
 

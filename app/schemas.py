@@ -1,74 +1,57 @@
-from pydantic import BaseModel, field_validator, Field
+from pydantic import BaseModel, Field, field_validator
 import re
 
-TIME_MAP = {
-    "morning": "morning",
-    "am": "morning",
-    "afternoon": "afternoon",
-    "noon": "afternoon",
-    "evening": "evening",
-    "pm": "evening"
-}
+from app.utils.feature_engineering import PAYMENT_MAP, WEATHER_MAP
 
-PAYMENT_MAP = {
-    "cod": "COD",
-    "cash": "COD",
-    "cash on delivery": "COD",
-    "prepaid": "prepaid",
-    "online": "prepaid"
-}
 
-CLARITY_MAP = {
-    "clear": "clear",
-    "unclear": "unclear",
-    "bad": "unclear"
-}
+class LoginRequest(BaseModel):
+    username: str
+    password: str
+
+
 class PredictionInput(BaseModel):
-
-    delivery_time: str
-    address_clarity: str
+    pickup_address: str = Field(..., min_length=1)
+    delivery_address: str = Field(..., min_length=1)
+    order_value: float = Field(..., gt=0)
     payment_method: str
-
-    order_value: str
-    area_density: str
-    accessibility: str
     weather_condition: str
-    traffic_level: str
-
-    address_length: int = Field(ge=1, le=200)
     phone_number: str
 
-    @field_validator("*", mode="before")
+    @field_validator("pickup_address", "delivery_address", "payment_method", "weather_condition", "phone_number")
     @classmethod
-    def normalize_strings(cls, v):
-        if isinstance(v, str):
-            return v.strip().lower()
-        return v
+    def strip_strings(cls, v: str) -> str:
+        return v.strip()
 
-    @field_validator("delivery_time")
+    @field_validator("pickup_address", "delivery_address")
     @classmethod
-    def validate_time(cls, v):
-        if v not in TIME_MAP:
-            raise ValueError("delivery_time must be morning/afternoon/evening or valid synonym")
-        return TIME_MAP[v]
+    def addresses_not_empty(cls, v: str) -> str:
+        if not v:
+            raise ValueError("Address must not be empty")
+        return v
 
     @field_validator("payment_method")
     @classmethod
-    def validate_payment(cls, v):
-        if v not in PAYMENT_MAP:
-            raise ValueError("payment_method must be COD or prepaid")
-        return PAYMENT_MAP[v]
+    def validate_payment(cls, v: str) -> str:
+        key = v.strip().lower()
+        if key not in PAYMENT_MAP:
+            raise ValueError(
+                f"payment_method must be one of {list(PAYMENT_MAP.keys())}"
+            )
+        return v
 
-    @field_validator("address_clarity")
+    @field_validator("weather_condition")
     @classmethod
-    def validate_clarity(cls, v):
-        if v not in CLARITY_MAP:
-            raise ValueError("address_clarity must be clear or unclear")
-        return CLARITY_MAP[v]
+    def validate_weather(cls, v: str) -> str:
+        key = v.strip().lower()
+        if key not in WEATHER_MAP:
+            raise ValueError(
+                f"weather_condition must be one of {list(WEATHER_MAP.keys())}"
+            )
+        return v
 
     @field_validator("phone_number")
     @classmethod
-    def validate_phone(cls, v):
+    def validate_phone(cls, v: str) -> str:
         pattern = r"^(\+977)?(98\d{8}|97\d{8}|01\d{7})$"
         if not re.match(pattern, v):
             raise ValueError("Invalid Nepal phone number format")

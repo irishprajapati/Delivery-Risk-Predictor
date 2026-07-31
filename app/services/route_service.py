@@ -120,13 +120,13 @@ def geocode(address: str):
 
 
 # ---------------- MAIN FUNCTION ---------------- #
-
+print("ROUTE FUNCTION HIT ")
 def get_route_data(pickup: str, delivery: str) -> dict:
     pickup_coords = geocode(pickup)
     delivery_coords = geocode(delivery)
 
-    print(f"[DEBUG] Pickup: {pickup_coords}")
-    print(f"[DEBUG] Delivery: {delivery_coords}")
+    print(f"[DEBUG] Pickup coords: {pickup_coords}")
+    print(f"[DEBUG] Delivery coords: {delivery_coords}")
 
     url = "https://api.openrouteservice.org/v2/directions/driving-car/geojson"
 
@@ -141,25 +141,50 @@ def get_route_data(pickup: str, delivery: str) -> dict:
 
     response = requests.post(url, json=body, headers=headers)
 
+    print(f"[DEBUG] ORS status: {response.status_code}")
+
     if response.status_code != 200:
-        print("[ERROR]", response.text)
+        print("[ERROR RESPONSE]", response.text)
         raise Exception(f"Route API error: {response.status_code}")
 
     data = response.json()
 
+    # 🔴 DEBUG: Raw response (first 500 chars only)
+    print("[DEBUG] RAW ORS RESPONSE (truncated):")
+    print(str(data)[:500])
+
     try:
         summary = data["features"][0]["properties"]["summary"]
 
-        distance_km = round(summary["distance"] / 1000, 2)
-        api_duration = round(summary["duration"] / 60, 2)
+        distance_m = summary["distance"]
+        duration_sec = summary["duration"]
 
-        # ✅ ML prediction added here
-        ml_duration = predict_ml_time(distance_km)
+        distance_km = round(distance_m / 1000, 2)
+        api_duration = round(duration_sec / 60, 2)
 
+        # 🔥 CRITICAL DEBUG (THIS IS WHAT YOU CARE ABOUT)
+        speed_mps = distance_m / duration_sec if duration_sec > 0 else 0
+        speed_kmph = speed_mps * 3.6
+
+        print(f"[DEBUG] Distance (m): {distance_m}")
+        print(f"[DEBUG] Duration (sec): {duration_sec}")
+        print(f"[DEBUG] Speed (m/s): {round(speed_mps, 2)}")
+        print(f"[DEBUG] Speed (km/h): {round(speed_kmph, 2)}")
+
+        # 🔥 TRAFFIC CLASSIFICATION DEBUG
+        if speed_mps < 5:
+            traffic = "HIGH"
+        elif speed_mps < 10:
+            traffic = "MEDIUM"
+        else:
+            traffic = "LOW"
+
+        print(f"[DEBUG] Derived traffic level: {traffic}")
         return {
-            "distance_km": distance_km,
-            "api_duration_min": api_duration,
-            "ml_predicted_duration_min": ml_duration
+        "distance_km": distance_km,
+        "api_duration_min": api_duration,
+        "debug_speed_kmph": round(speed_kmph, 2),
+        "derived_traffic": traffic
         }
 
     except (KeyError, IndexError):

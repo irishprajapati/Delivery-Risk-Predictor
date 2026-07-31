@@ -1,0 +1,2001 @@
+pickup_address,delivery_address,order_value,payment_method,weather_condition,phone_number,failed
+"Central Warehouse, Kathmandu","Ward 7, Main Road, Biratnagar",4591.56,online,foggy,9861698280,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1370.98,COD,clear,9837925692,1
+"Central Warehouse, Kathmandu","Ward 2, Jawalakhel, Lalitpur",3022.93,COD,rainy,9817427699,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2143.63,prepaid,clear,9895466855,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1434.28,online,foggy,9846907426,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4290.32,COD,clear,9888657142,0
+"Central Warehouse, Kathmandu","Ward 7, Patan Durbar Square, Lalitpur",3031.84,prepaid,rainy,9833419132,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",141.36,COD,foggy,9814784270,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1793.11,COD,clear,9871973133,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2772.77,COD,clear,9895088427,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1140.98,online,rainy,9859182232,0
+"Central Warehouse, Kathmandu","Ward 3, Thamel, Kathmandu",3005.46,online,clear,9815798469,0
+"Central Warehouse, Kathmandu","Ward 11, Jawalakhel, Lalitpur",1877.59,cod,normal,9834036194,0
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",1773.26,prepaid,rainy,9859294762,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2451.13,cod,foggy,9851869999,0
+"Central Warehouse, Kathmandu","Ward 27, Thamel, Kathmandu",4945.22,cod,rainy,9840554099,1
+"Central Warehouse, Kathmandu","Ward 2, Patan Durbar Square, Lalitpur",1518.7,prepaid,foggy,9824383292,0
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",805.13,COD,foggy,9877629091,0
+"Central Warehouse, Kathmandu","Ward 22, Patan Durbar Square, Lalitpur",4150.31,online,normal,9870295011,0
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",2252.72,prepaid,normal,9851187276,0
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",2605.16,online,foggy,9871898161,1
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",4970.23,cod,rainy,9892180330,1
+"Central Warehouse, Kathmandu","Ward 21, Baneshwor, Kathmandu",4121.23,online,normal,9864422437,0
+"Central Warehouse, Kathmandu","Ward 6, Baneshwor, Kathmandu",1689.67,COD,clear,9893353571,1
+"Central Warehouse, Kathmandu","Ward 13, Baneshwor, Kathmandu",3543.34,COD,foggy,9832309121,0
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",2766.64,cod,clear,9816178627,1
+"Central Warehouse, Kathmandu","Ward 5, Main Road, Biratnagar",1361.39,COD,clear,9873801196,0
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",3537.19,online,extreme,9821287170,1
+"Central Warehouse, Kathmandu","Ward 2, Patan Durbar Square, Lalitpur",3958.31,online,normal,9872909175,0
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",1747.82,cod,extreme,9868272942,1
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",2334.09,online,foggy,9896242547,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2153.33,cod,clear,9874676423,1
+"Central Warehouse, Kathmandu","Ward 17, Lakeside, Pokhara",3764.45,prepaid,normal,9819974559,1
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",501.68,online,foggy,9848799267,1
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",610.04,COD,foggy,9855374216,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2374.5,online,clear,9815220700,0
+"Central Warehouse, Kathmandu","Ward 2, Main Road, Biratnagar",939.51,cod,extreme,9855530096,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",971.12,prepaid,foggy,9818724944,0
+"Central Warehouse, Kathmandu","Ward 20, Durbar Square, Bhaktapur",3885.86,cod,normal,9881054440,0
+"Central Warehouse, Kathmandu","Ward 1, Thamel, Kathmandu",3770.49,online,clear,9845979997,0
+"Central Warehouse, Kathmandu","Ward 30, Patan Durbar Square, Lalitpur",4806.11,COD,foggy,9870271486,1
+"Central Warehouse, Kathmandu","Ward 27, Baneshwor, Kathmandu",2292.53,prepaid,foggy,9875578864,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1810.83,COD,extreme,9880451179,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2885.84,prepaid,normal,9854120681,0
+"Central Warehouse, Kathmandu","Ward 26, Patan Durbar Square, Lalitpur",2979.79,prepaid,normal,9826040607,0
+"Central Warehouse, Kathmandu","Ward 19, Main Road, Biratnagar",2379.77,cod,foggy,9882766564,1
+"Central Warehouse, Kathmandu","Ward 16, Thamel, Kathmandu",3318.33,COD,normal,9842748659,1
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",3412.53,prepaid,extreme,9875126854,1
+"Central Warehouse, Kathmandu","Ward 13, Jawalakhel, Lalitpur",4249.45,cod,foggy,9812262066,1
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",242.81,cod,rainy,9813401117,0
+"Central Warehouse, Kathmandu","Ward 13, Patan Durbar Square, Lalitpur",1595.36,online,clear,9887618230,0
+"Central Warehouse, Kathmandu","Ward 7, Thamel, Kathmandu",4558.93,prepaid,normal,9883049325,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4797.06,cod,clear,9834731081,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2538.36,COD,rainy,9895595645,1
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",3833.57,cod,normal,9828776496,0
+"Central Warehouse, Kathmandu","Ward 10, Thamel, Kathmandu",2444.88,prepaid,rainy,9896645432,1
+"Central Warehouse, Kathmandu","Ward 7, Patan Durbar Square, Lalitpur",4692.78,COD,normal,9819643647,0
+"Central Warehouse, Kathmandu","Ward 27, Thamel, Kathmandu",4781.92,COD,normal,9837809733,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",799.74,cod,rainy,9814437088,1
+"Central Warehouse, Kathmandu","Ward 2, Lakeside, Pokhara",4924.92,cod,normal,9883803366,1
+"Central Warehouse, Kathmandu","Ward 14, Lakeside, Pokhara",1710.82,COD,foggy,9875273722,1
+"Central Warehouse, Kathmandu","Ward 29, Main Road, Biratnagar",2262.4,prepaid,foggy,9835065076,1
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",4870.28,prepaid,rainy,9887962616,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",2394.88,online,clear,9857071908,0
+"Central Warehouse, Kathmandu","Ward 21, Lakeside, Pokhara",3709.03,prepaid,normal,9894057662,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4671.98,online,clear,9858875229,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1859.85,COD,foggy,9873977977,1
+"Central Warehouse, Kathmandu","Ward 14, Thamel, Kathmandu",2404.01,online,clear,9842232800,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1189.61,online,foggy,9899303843,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1407.19,prepaid,extreme,9845275707,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",676.91,online,normal,9839247519,1
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",1263.18,cod,rainy,9898939855,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3718.25,cod,rainy,9874552710,1
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",4294.77,online,rainy,9827232530,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4632.88,cod,clear,9882526128,1
+"Central Warehouse, Kathmandu","Ward 11, Main Road, Biratnagar",4173.79,prepaid,extreme,9866066133,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2115.25,cod,rainy,9878694159,1
+"Central Warehouse, Kathmandu","Ward 2, Patan Durbar Square, Lalitpur",1527.04,COD,normal,9854652320,1
+"Central Warehouse, Kathmandu","Ward 9, Jawalakhel, Lalitpur",858.39,prepaid,foggy,9831687358,1
+"Central Warehouse, Kathmandu","Ward 16, Jawalakhel, Lalitpur",4266.88,online,clear,9896040597,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",3696.31,cod,clear,9876964547,0
+"Central Warehouse, Kathmandu","Ward 17, Durbar Square, Bhaktapur",2493.46,online,clear,9883454399,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1051.59,prepaid,foggy,9825490710,1
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",4461.46,cod,rainy,9877697677,1
+"Central Warehouse, Kathmandu","Ward 26, Main Road, Biratnagar",2699.37,cod,foggy,9894816543,1
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",2782.56,prepaid,rainy,9894501487,0
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",3123.54,online,rainy,9838578822,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2714.53,prepaid,extreme,9812294862,1
+"Central Warehouse, Kathmandu","Ward 9, Durbar Square, Bhaktapur",4242.01,cod,clear,9879814002,1
+"Central Warehouse, Kathmandu","Ward 15, Thamel, Kathmandu",1646.69,prepaid,extreme,9866208976,0
+"Central Warehouse, Kathmandu","Ward 17, Jawalakhel, Lalitpur",3774.49,online,normal,9820961096,1
+"Central Warehouse, Kathmandu","Ward 16, Baneshwor, Kathmandu",3898.35,prepaid,clear,9863912500,0
+"Central Warehouse, Kathmandu","Ward 11, Jawalakhel, Lalitpur",227.7,online,extreme,9812098247,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",264.1,prepaid,rainy,9894717115,0
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",2567.8,prepaid,foggy,9822343742,0
+"Central Warehouse, Kathmandu","Ward 10, Patan Durbar Square, Lalitpur",4356.8,COD,clear,9881111235,0
+"Central Warehouse, Kathmandu","Ward 20, Lakeside, Pokhara",1657.43,online,rainy,9836450261,0
+"Central Warehouse, Kathmandu","Ward 11, Thamel, Kathmandu",2490.53,cod,extreme,9831725202,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3311.1,prepaid,clear,9880260993,0
+"Central Warehouse, Kathmandu","Ward 28, Durbar Square, Bhaktapur",2946.12,COD,foggy,9871567421,0
+"Central Warehouse, Kathmandu","Ward 27, Lakeside, Pokhara",558.17,COD,rainy,9880626460,0
+"Central Warehouse, Kathmandu","Ward 3, Jawalakhel, Lalitpur",4103.65,COD,normal,9884858821,0
+"Central Warehouse, Kathmandu","Ward 14, Baneshwor, Kathmandu",453.13,cod,foggy,9870610174,1
+"Central Warehouse, Kathmandu","Ward 22, Durbar Square, Bhaktapur",353.73,COD,rainy,9817962998,0
+"Central Warehouse, Kathmandu","Ward 30, Patan Durbar Square, Lalitpur",364.12,online,foggy,9816385059,0
+"Central Warehouse, Kathmandu","Ward 7, Jawalakhel, Lalitpur",1660.16,cod,extreme,9816757132,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",733.4,COD,normal,9857981901,0
+"Central Warehouse, Kathmandu","Ward 5, Thamel, Kathmandu",4406.87,prepaid,foggy,9898859456,1
+"Central Warehouse, Kathmandu","Ward 20, Jawalakhel, Lalitpur",937.83,COD,clear,9881538140,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3419.55,cod,clear,9827849045,1
+"Central Warehouse, Kathmandu","Ward 32, Main Road, Biratnagar",4190.05,online,normal,9888056695,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1533.23,cod,foggy,9831113190,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2451.39,prepaid,normal,9838705685,0
+"Central Warehouse, Kathmandu","Ward 27, Baneshwor, Kathmandu",4084.37,prepaid,extreme,9817832851,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3929.64,COD,rainy,9863131900,0
+"Central Warehouse, Kathmandu","Ward 16, Patan Durbar Square, Lalitpur",1433.47,online,normal,9848220496,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3774.95,COD,normal,9825374372,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3387.16,COD,rainy,9813825274,1
+"Central Warehouse, Kathmandu","Ward 22, Main Road, Biratnagar",3829.67,online,rainy,9840093697,0
+"Central Warehouse, Kathmandu","Ward 15, Lakeside, Pokhara",1775.17,COD,normal,9888089876,1
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",3503.53,COD,extreme,9811316889,1
+"Central Warehouse, Kathmandu","Ward 16, Patan Durbar Square, Lalitpur",4471.55,COD,extreme,9855495260,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3096.44,online,normal,9840337808,0
+"Central Warehouse, Kathmandu","Ward 11, Durbar Square, Bhaktapur",3838.85,COD,clear,9889121886,1
+"Central Warehouse, Kathmandu","Ward 10, Baneshwor, Kathmandu",934.59,prepaid,foggy,9842571892,0
+"Central Warehouse, Kathmandu","Ward 28, Thamel, Kathmandu",2308.4,cod,rainy,9899067961,1
+"Central Warehouse, Kathmandu","Ward 25, Main Road, Biratnagar",807.62,cod,extreme,9897345113,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1768.9,online,extreme,9873329257,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3808.88,online,clear,9836182108,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1345.1,prepaid,foggy,9857969152,0
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",3752.17,COD,foggy,9878801658,1
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",414.81,cod,normal,9843180215,1
+"Central Warehouse, Kathmandu","Ward 8, Lakeside, Pokhara",4509.37,cod,foggy,9872784087,1
+"Central Warehouse, Kathmandu","Ward 9, Jawalakhel, Lalitpur",2295.32,cod,extreme,9847474732,0
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",1768.61,COD,normal,9872166403,1
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",1008.64,cod,foggy,9888360642,1
+"Central Warehouse, Kathmandu","Ward 7, Patan Durbar Square, Lalitpur",1901.27,cod,extreme,9882713375,0
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",3156.34,cod,clear,9886307938,1
+"Central Warehouse, Kathmandu","Ward 11, Durbar Square, Bhaktapur",355.07,prepaid,rainy,9890054553,0
+"Central Warehouse, Kathmandu","Ward 12, Jawalakhel, Lalitpur",3593.35,online,foggy,9862056698,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",682.54,prepaid,extreme,9821149452,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1956.68,prepaid,normal,9892970821,0
+"Central Warehouse, Kathmandu","Ward 2, Baneshwor, Kathmandu",1507.52,prepaid,rainy,9849076735,1
+"Central Warehouse, Kathmandu","Ward 18, Thamel, Kathmandu",575.12,COD,extreme,9871848142,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2966.82,prepaid,extreme,9836975312,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1000.33,COD,clear,9869525650,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4503.08,cod,rainy,9892912365,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1288.94,online,rainy,9839731349,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4965.3,online,clear,9839450898,1
+"Central Warehouse, Kathmandu","Ward 3, Main Road, Biratnagar",4881.53,cod,normal,9845320475,1
+"Central Warehouse, Kathmandu","Ward 11, Lakeside, Pokhara",3294.48,cod,rainy,9853937844,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3159.49,prepaid,rainy,9846807413,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1827.35,COD,clear,9825147950,0
+"Central Warehouse, Kathmandu","Ward 28, Patan Durbar Square, Lalitpur",909.91,COD,rainy,9864365964,0
+"Central Warehouse, Kathmandu","Ward 23, Patan Durbar Square, Lalitpur",762.32,prepaid,clear,9863129807,0
+"Central Warehouse, Kathmandu","Ward 32, Baneshwor, Kathmandu",4056.24,online,normal,9817341902,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",189.84,prepaid,rainy,9822940807,0
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",614.05,prepaid,foggy,9871139229,0
+"Central Warehouse, Kathmandu","Ward 29, Durbar Square, Bhaktapur",3596.74,cod,clear,9857151971,0
+"Central Warehouse, Kathmandu","Ward 29, Main Road, Biratnagar",4502.96,COD,rainy,9879092290,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4505.95,online,clear,9835156606,1
+"Central Warehouse, Kathmandu","Ward 16, Main Road, Biratnagar",4799.65,online,clear,9819127775,0
+"Central Warehouse, Kathmandu","Ward 7, Lakeside, Pokhara",4967.92,prepaid,foggy,9892371846,1
+"Central Warehouse, Kathmandu","Ward 6, Jawalakhel, Lalitpur",1977.67,COD,normal,9841545879,0
+"Central Warehouse, Kathmandu","Ward 4, Baneshwor, Kathmandu",4760.31,cod,foggy,9824371396,1
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",4493.71,cod,extreme,9850239690,1
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",3048.09,COD,rainy,9832919564,0
+"Central Warehouse, Kathmandu","Ward 5, Durbar Square, Bhaktapur",3587.52,prepaid,extreme,9866776106,1
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",937.08,cod,normal,9887633018,0
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",2881.57,cod,extreme,9879171249,0
+"Central Warehouse, Kathmandu","Ward 20, Jawalakhel, Lalitpur",4015.73,prepaid,foggy,9870163899,0
+"Central Warehouse, Kathmandu","Ward 26, Lakeside, Pokhara",3499.06,online,normal,9860952667,1
+"Central Warehouse, Kathmandu","Ward 11, Patan Durbar Square, Lalitpur",1428.76,prepaid,clear,9844080687,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",3057.39,prepaid,foggy,9891825435,0
+"Central Warehouse, Kathmandu","Ward 12, Main Road, Biratnagar",3273.47,prepaid,extreme,9827768470,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",428.45,prepaid,normal,9869320981,1
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",4038.36,online,foggy,9886123954,0
+"Central Warehouse, Kathmandu","Ward 27, Thamel, Kathmandu",1623.02,online,rainy,9851373756,0
+"Central Warehouse, Kathmandu","Ward 5, Baneshwor, Kathmandu",4634.38,online,clear,9849311834,0
+"Central Warehouse, Kathmandu","Ward 7, Main Road, Biratnagar",764.74,online,foggy,9852955397,0
+"Central Warehouse, Kathmandu","Ward 3, Main Road, Biratnagar",371.85,cod,rainy,9833275381,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1821.6,online,rainy,9847201296,0
+"Central Warehouse, Kathmandu","Ward 30, Jawalakhel, Lalitpur",4768.46,cod,foggy,9881810798,0
+"Central Warehouse, Kathmandu","Ward 27, Baneshwor, Kathmandu",4306.11,COD,rainy,9863564900,0
+"Central Warehouse, Kathmandu","Ward 21, Lakeside, Pokhara",2036.22,online,clear,9836806766,0
+"Central Warehouse, Kathmandu","Ward 13, Durbar Square, Bhaktapur",2436.42,cod,rainy,9819545245,0
+"Central Warehouse, Kathmandu","Ward 22, Main Road, Biratnagar",3217.92,cod,normal,9840270072,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1474.8,COD,foggy,9815236807,0
+"Central Warehouse, Kathmandu","Ward 29, Thamel, Kathmandu",2872.31,cod,extreme,9889524078,1
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",3277.32,online,clear,9860434958,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1428.06,prepaid,foggy,9813038523,1
+"Central Warehouse, Kathmandu","Ward 32, Durbar Square, Bhaktapur",338.05,prepaid,foggy,9818405439,0
+"Central Warehouse, Kathmandu","Ward 16, Thamel, Kathmandu",3749.11,prepaid,foggy,9820399026,0
+"Central Warehouse, Kathmandu","Ward 2, Lakeside, Pokhara",2446.69,online,rainy,9886717921,1
+"Central Warehouse, Kathmandu","Ward 17, Baneshwor, Kathmandu",2829.88,COD,foggy,9876282944,1
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",1665.04,COD,clear,9832410539,0
+"Central Warehouse, Kathmandu","Ward 21, Main Road, Biratnagar",3470.75,prepaid,rainy,9830445217,0
+"Central Warehouse, Kathmandu","Ward 24, Lakeside, Pokhara",2763.48,COD,extreme,9817585980,0
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",3870.95,prepaid,clear,9845339487,1
+"Central Warehouse, Kathmandu","Ward 10, Thamel, Kathmandu",2396.38,online,normal,9845217946,0
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",1673.43,online,clear,9894375359,0
+"Central Warehouse, Kathmandu","Ward 18, Main Road, Biratnagar",3809.44,online,normal,9866098249,0
+"Central Warehouse, Kathmandu","Ward 17, Durbar Square, Bhaktapur",2219.67,cod,clear,9877793644,1
+"Central Warehouse, Kathmandu","Ward 24, Patan Durbar Square, Lalitpur",2501.55,COD,clear,9814856597,0
+"Central Warehouse, Kathmandu","Ward 32, Lakeside, Pokhara",4766.22,prepaid,foggy,9820478458,1
+"Central Warehouse, Kathmandu","Ward 5, Main Road, Biratnagar",1454.72,online,foggy,9855508100,0
+"Central Warehouse, Kathmandu","Ward 24, Baneshwor, Kathmandu",1372.48,online,clear,9810989996,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4145.06,online,foggy,9872457558,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2857.92,COD,clear,9886644329,1
+"Central Warehouse, Kathmandu","Ward 23, Jawalakhel, Lalitpur",2582.66,cod,foggy,9870961027,1
+"Central Warehouse, Kathmandu","Ward 13, Patan Durbar Square, Lalitpur",1376.45,prepaid,clear,9844658711,1
+"Central Warehouse, Kathmandu","Ward 14, Patan Durbar Square, Lalitpur",3083.98,online,extreme,9898063225,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",664.78,online,foggy,9872883031,1
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",3702.41,COD,normal,9832227852,1
+"Central Warehouse, Kathmandu","Ward 5, Main Road, Biratnagar",3516.01,COD,foggy,9881061884,0
+"Central Warehouse, Kathmandu","Ward 27, Lakeside, Pokhara",524.93,COD,normal,9862591655,0
+"Central Warehouse, Kathmandu","Ward 2, Lakeside, Pokhara",1533.11,prepaid,clear,9882950063,0
+"Central Warehouse, Kathmandu","Ward 27, Main Road, Biratnagar",3579.35,cod,foggy,9823293095,0
+"Central Warehouse, Kathmandu","Ward 29, Durbar Square, Bhaktapur",1129.31,online,foggy,9896402111,1
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",1732.76,prepaid,clear,9886467633,0
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",402.88,cod,rainy,9819173344,0
+"Central Warehouse, Kathmandu","Ward 17, Baneshwor, Kathmandu",1685.17,prepaid,extreme,9890411036,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",390.87,cod,extreme,9826626316,1
+"Central Warehouse, Kathmandu","Ward 14, Main Road, Biratnagar",3471.27,cod,extreme,9893285696,1
+"Central Warehouse, Kathmandu","Ward 30, Baneshwor, Kathmandu",588.61,prepaid,extreme,9833459615,1
+"Central Warehouse, Kathmandu","Ward 23, Baneshwor, Kathmandu",2877.54,COD,foggy,9822123418,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2151.95,COD,rainy,9863196784,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2809.7,prepaid,foggy,9856747705,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",683.74,prepaid,normal,9852998086,0
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",3360.18,prepaid,clear,9820349783,0
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",4151.86,COD,normal,9837978407,1
+"Central Warehouse, Kathmandu","Ward 17, Lakeside, Pokhara",1678.76,cod,foggy,9826479885,0
+"Central Warehouse, Kathmandu","Ward 1, Jawalakhel, Lalitpur",2089.71,prepaid,foggy,9814251950,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3818.56,prepaid,foggy,9864010199,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4533.47,COD,foggy,9847621970,0
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",2837.54,COD,foggy,9834744175,0
+"Central Warehouse, Kathmandu","Ward 7, Durbar Square, Bhaktapur",4706.64,online,normal,9837253420,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2647.28,online,rainy,9856004510,1
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",3518.64,COD,normal,9817488890,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3660.61,online,extreme,9852537945,0
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",1166.3,cod,normal,9855131695,1
+"Central Warehouse, Kathmandu","Ward 4, Main Road, Biratnagar",2574.17,COD,foggy,9841257314,0
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",2050.66,COD,rainy,9863783523,0
+"Central Warehouse, Kathmandu","Ward 31, Patan Durbar Square, Lalitpur",3566.23,online,clear,9865825727,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4495.46,online,foggy,9834463519,0
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",2795.52,cod,rainy,9812252261,0
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",778.82,prepaid,extreme,9876784867,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2250.6,online,foggy,9891474044,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3518.52,cod,normal,9883828585,0
+"Central Warehouse, Kathmandu","Ward 27, Durbar Square, Bhaktapur",247.66,COD,normal,9868276762,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1221.89,cod,clear,9895483249,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3175.6,cod,clear,9852704331,0
+"Central Warehouse, Kathmandu","Ward 7, Lakeside, Pokhara",805.87,online,clear,9856352739,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1913.35,online,normal,9829792015,1
+"Central Warehouse, Kathmandu","Ward 29, Thamel, Kathmandu",1602.14,prepaid,clear,9839342212,1
+"Central Warehouse, Kathmandu","Ward 5, Thamel, Kathmandu",4080.64,prepaid,normal,9814337246,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3994.81,cod,foggy,9881667104,0
+"Central Warehouse, Kathmandu","Ward 10, Jawalakhel, Lalitpur",2337.66,COD,extreme,9880611411,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4033.52,prepaid,clear,9816609017,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",412.86,online,extreme,9867772651,0
+"Central Warehouse, Kathmandu","Ward 27, Durbar Square, Bhaktapur",1000.75,cod,clear,9867939109,1
+"Central Warehouse, Kathmandu","Ward 2, Baneshwor, Kathmandu",420.54,COD,foggy,9887726965,1
+"Central Warehouse, Kathmandu","Ward 6, Lakeside, Pokhara",3036.82,prepaid,foggy,9876796972,0
+"Central Warehouse, Kathmandu","Ward 8, Baneshwor, Kathmandu",4293.4,COD,extreme,9859118284,0
+"Central Warehouse, Kathmandu","Ward 15, Durbar Square, Bhaktapur",198.41,cod,extreme,9825810743,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4761.54,cod,extreme,9895385988,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3430.87,COD,clear,9872080552,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2724.6,cod,rainy,9837061110,0
+"Central Warehouse, Kathmandu","Ward 11, Durbar Square, Bhaktapur",3221.49,prepaid,clear,9890094124,0
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",4347.22,cod,extreme,9859641747,1
+"Central Warehouse, Kathmandu","Ward 24, Lakeside, Pokhara",2366.64,prepaid,clear,9836127399,0
+"Central Warehouse, Kathmandu","Ward 23, Jawalakhel, Lalitpur",4098.34,COD,clear,9839984970,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3306.41,prepaid,extreme,9829163893,1
+"Central Warehouse, Kathmandu","Ward 12, Jawalakhel, Lalitpur",3511.81,prepaid,normal,9875894460,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1718.01,online,foggy,9871743191,1
+"Central Warehouse, Kathmandu","Ward 13, Jawalakhel, Lalitpur",2494.08,COD,rainy,9875307089,0
+"Central Warehouse, Kathmandu","Ward 1, Patan Durbar Square, Lalitpur",426.03,cod,foggy,9824691452,1
+"Central Warehouse, Kathmandu","Ward 22, Lakeside, Pokhara",1904.29,prepaid,extreme,9839389879,0
+"Central Warehouse, Kathmandu","Ward 14, Lakeside, Pokhara",143.87,COD,rainy,9832703361,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4670.17,prepaid,rainy,9872568630,0
+"Central Warehouse, Kathmandu","Ward 15, Thamel, Kathmandu",307.76,COD,normal,9875176353,0
+"Central Warehouse, Kathmandu","Ward 9, Main Road, Biratnagar",4196.16,online,clear,9842281805,1
+"Central Warehouse, Kathmandu","Ward 15, Main Road, Biratnagar",2476.78,cod,clear,9823982085,0
+"Central Warehouse, Kathmandu","Ward 17, Lakeside, Pokhara",2729.65,online,normal,9879046765,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4351.36,online,foggy,9863872948,1
+"Central Warehouse, Kathmandu","Ward 14, Jawalakhel, Lalitpur",553.47,prepaid,foggy,9839549394,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1697.92,prepaid,foggy,9856668140,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1721.57,prepaid,clear,9858284898,0
+"Central Warehouse, Kathmandu","Ward 23, Durbar Square, Bhaktapur",459.63,cod,rainy,9813882502,0
+"Central Warehouse, Kathmandu","Ward 8, Patan Durbar Square, Lalitpur",1569.94,cod,foggy,9839904400,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",591.63,prepaid,rainy,9851765639,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",4326.64,prepaid,extreme,9891240633,1
+"Central Warehouse, Kathmandu","Ward 4, Thamel, Kathmandu",433.87,prepaid,foggy,9855879947,0
+"Central Warehouse, Kathmandu","Ward 19, Main Road, Biratnagar",139.07,cod,rainy,9874103821,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3104.4,prepaid,foggy,9823202034,1
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",3818.13,COD,foggy,9838945049,1
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",4902.03,prepaid,clear,9846862702,0
+"Central Warehouse, Kathmandu","Ward 21, Patan Durbar Square, Lalitpur",3496.54,online,clear,9877184665,0
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",2449.82,online,extreme,9870636195,0
+"Central Warehouse, Kathmandu","Ward 23, Patan Durbar Square, Lalitpur",4223.94,online,normal,9849204632,1
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",2495.92,online,rainy,9835939477,0
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",3618.53,online,extreme,9813228230,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2552.27,COD,normal,9862434675,0
+"Central Warehouse, Kathmandu","Ward 25, Main Road, Biratnagar",3634.74,prepaid,clear,9874110273,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4477.88,online,rainy,9815166373,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4397.52,prepaid,foggy,9878646555,1
+"Central Warehouse, Kathmandu","Ward 7, Main Road, Biratnagar",4548.49,cod,foggy,9828339448,0
+"Central Warehouse, Kathmandu","Ward 31, Jawalakhel, Lalitpur",212.98,COD,extreme,9826219926,0
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",1001.46,prepaid,foggy,9856059484,0
+"Central Warehouse, Kathmandu","Ward 1, Durbar Square, Bhaktapur",4354.91,prepaid,clear,9841729448,0
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",3569.82,COD,extreme,9830622042,1
+"Central Warehouse, Kathmandu","Ward 4, Baneshwor, Kathmandu",2837.89,COD,extreme,9872693599,1
+"Central Warehouse, Kathmandu","Ward 31, Main Road, Biratnagar",1118.21,cod,clear,9859428344,0
+"Central Warehouse, Kathmandu","Ward 6, Jawalakhel, Lalitpur",494.33,online,rainy,9894701398,1
+"Central Warehouse, Kathmandu","Ward 11, Jawalakhel, Lalitpur",2674.18,prepaid,foggy,9846233840,0
+"Central Warehouse, Kathmandu","Ward 11, Main Road, Biratnagar",3686.72,online,foggy,9819825065,0
+"Central Warehouse, Kathmandu","Ward 19, Durbar Square, Bhaktapur",4173.34,cod,rainy,9854675652,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",1708.79,COD,foggy,9884627791,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4765.45,prepaid,rainy,9876072969,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3340.92,prepaid,extreme,9828620652,0
+"Central Warehouse, Kathmandu","Ward 15, Jawalakhel, Lalitpur",1669.85,online,normal,9814689962,0
+"Central Warehouse, Kathmandu","Ward 13, Durbar Square, Bhaktapur",3757.68,prepaid,clear,9873037299,0
+"Central Warehouse, Kathmandu","Ward 22, Durbar Square, Bhaktapur",3694.52,prepaid,clear,9837310124,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",1707.55,prepaid,normal,9887224952,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1385.2,prepaid,normal,9857298083,0
+"Central Warehouse, Kathmandu","Ward 23, Patan Durbar Square, Lalitpur",1838.42,prepaid,foggy,9892226657,1
+"Central Warehouse, Kathmandu","Ward 1, Baneshwor, Kathmandu",3436.3,COD,rainy,9880140757,0
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",3500.2,COD,rainy,9891969034,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4280.44,online,normal,9858908914,0
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",1027.53,COD,clear,9864437777,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",186.12,COD,extreme,9892265435,1
+"Central Warehouse, Kathmandu","Ward 16, Durbar Square, Bhaktapur",492.24,prepaid,clear,9893948003,0
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",1534.38,COD,normal,9842745590,0
+"Central Warehouse, Kathmandu","Ward 14, Durbar Square, Bhaktapur",321.53,prepaid,clear,9817314191,0
+"Central Warehouse, Kathmandu","Ward 9, Patan Durbar Square, Lalitpur",3422.04,prepaid,extreme,9854421031,0
+"Central Warehouse, Kathmandu","Ward 19, Durbar Square, Bhaktapur",1089.63,COD,rainy,9851250841,0
+"Central Warehouse, Kathmandu","Ward 15, Lakeside, Pokhara",2004.88,prepaid,foggy,9855968001,0
+"Central Warehouse, Kathmandu","Ward 30, Main Road, Biratnagar",3898.72,online,foggy,9887637505,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3633.94,COD,foggy,9836971866,0
+"Central Warehouse, Kathmandu","Ward 21, Thamel, Kathmandu",4755.72,prepaid,foggy,9896632073,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2383.12,COD,extreme,9824847064,1
+"Central Warehouse, Kathmandu","Ward 17, Jawalakhel, Lalitpur",1709.85,prepaid,rainy,9854358322,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2921.83,prepaid,foggy,9813566689,1
+"Central Warehouse, Kathmandu","Ward 14, Thamel, Kathmandu",2604.2,COD,clear,9863825378,0
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",1748.64,prepaid,clear,9840522815,0
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",336.82,online,rainy,9871676409,0
+"Central Warehouse, Kathmandu","Ward 21, Patan Durbar Square, Lalitpur",2861.27,online,rainy,9828812985,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4165.42,cod,extreme,9876909452,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4538.43,COD,foggy,9843588744,1
+"Central Warehouse, Kathmandu","Ward 12, Jawalakhel, Lalitpur",3417.36,online,rainy,9852959862,1
+"Central Warehouse, Kathmandu","Ward 21, Durbar Square, Bhaktapur",3456.58,online,foggy,9822036170,1
+"Central Warehouse, Kathmandu","Ward 6, Jawalakhel, Lalitpur",3976.31,online,clear,9885951707,0
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",3893.78,online,clear,9885344909,1
+"Central Warehouse, Kathmandu","Ward 21, Durbar Square, Bhaktapur",1257.85,cod,extreme,9858010348,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3036.09,COD,foggy,9860767466,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3643.74,cod,extreme,9872977109,1
+"Central Warehouse, Kathmandu","Ward 14, Main Road, Biratnagar",2133.41,prepaid,extreme,9872343251,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2361.45,cod,clear,9880345746,0
+"Central Warehouse, Kathmandu","Ward 11, Durbar Square, Bhaktapur",1727.4,online,clear,9833272088,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1064.88,cod,rainy,9883515685,0
+"Central Warehouse, Kathmandu","Ward 10, Lakeside, Pokhara",2342.45,prepaid,foggy,9863977711,0
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",1951.57,cod,extreme,9835456886,0
+"Central Warehouse, Kathmandu","Ward 7, Thamel, Kathmandu",1371.53,COD,clear,9856891960,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2753.11,cod,foggy,9878295862,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",610.53,online,foggy,9884095831,0
+"Central Warehouse, Kathmandu","Ward 7, Lakeside, Pokhara",3666.23,COD,foggy,9877141923,1
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",421.67,prepaid,foggy,9835066101,1
+"Central Warehouse, Kathmandu","Ward 22, Durbar Square, Bhaktapur",3760.14,COD,normal,9862985973,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2700.67,prepaid,rainy,9850279149,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",748.21,online,foggy,9890196436,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2042.48,COD,clear,9832615630,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",2735.43,cod,rainy,9894568494,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2591.13,cod,normal,9876380966,1
+"Central Warehouse, Kathmandu","Ward 25, Thamel, Kathmandu",4274.04,online,normal,9878137476,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4795.44,cod,foggy,9836868465,1
+"Central Warehouse, Kathmandu","Ward 23, Baneshwor, Kathmandu",1124.3,prepaid,clear,9817630178,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2916.39,COD,foggy,9885639348,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",149.92,cod,rainy,9848623747,0
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",1333.31,COD,rainy,9890993237,1
+"Central Warehouse, Kathmandu","Ward 10, Main Road, Biratnagar",2745.69,COD,foggy,9832406760,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3557.69,online,normal,9834849323,0
+"Central Warehouse, Kathmandu","Ward 1, Patan Durbar Square, Lalitpur",559.31,cod,foggy,9845519471,1
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",2721.79,cod,clear,9874402225,0
+"Central Warehouse, Kathmandu","Ward 24, Thamel, Kathmandu",3353.33,cod,normal,9839806212,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2099.62,cod,rainy,9849661319,1
+"Central Warehouse, Kathmandu","Ward 20, Durbar Square, Bhaktapur",3339.38,online,rainy,9895728127,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4869.49,cod,extreme,9865800322,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4516.24,online,normal,9878664263,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3227.94,online,rainy,9847114196,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3123.75,cod,normal,9814585968,1
+"Central Warehouse, Kathmandu","Ward 15, Lakeside, Pokhara",4967.03,online,clear,9852264838,1
+"Central Warehouse, Kathmandu","Ward 21, Main Road, Biratnagar",2675.11,COD,clear,9836890270,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3111.46,COD,clear,9852143441,1
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",1920.96,cod,clear,9839823307,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1699.58,cod,normal,9838876331,1
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",4304.64,prepaid,extreme,9862775082,0
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",473.4,online,rainy,9879439428,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",593.15,prepaid,rainy,9829318823,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4672.47,cod,clear,9817071412,1
+"Central Warehouse, Kathmandu","Ward 14, Patan Durbar Square, Lalitpur",4304.27,online,rainy,9821442118,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4566.23,cod,foggy,9817590427,1
+"Central Warehouse, Kathmandu","Ward 16, Lakeside, Pokhara",3985.29,prepaid,rainy,9845046738,0
+"Central Warehouse, Kathmandu","Ward 32, Patan Durbar Square, Lalitpur",3312.86,COD,extreme,9897798490,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1020.86,prepaid,extreme,9885831101,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1270.95,cod,extreme,9810808485,0
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",2056.21,online,normal,9862058361,0
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",3427.24,cod,clear,9878769579,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",459.8,prepaid,normal,9836911376,0
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",1880.9,online,foggy,9852907314,0
+"Central Warehouse, Kathmandu","Ward 5, Durbar Square, Bhaktapur",3927.5,COD,foggy,9899778776,0
+"Central Warehouse, Kathmandu","Ward 3, Thamel, Kathmandu",507.98,online,foggy,9837517245,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",544.29,COD,clear,9832997808,0
+"Central Warehouse, Kathmandu","Ward 6, Lakeside, Pokhara",1463.4,COD,normal,9815280693,0
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",2911.12,prepaid,clear,9873773980,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",1948.57,online,normal,9886404249,0
+"Central Warehouse, Kathmandu","Ward 12, Patan Durbar Square, Lalitpur",1353.81,online,extreme,9820446344,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1377.28,online,foggy,9845590853,0
+"Central Warehouse, Kathmandu","Ward 15, Jawalakhel, Lalitpur",778.21,COD,foggy,9854132459,1
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",1440.16,online,normal,9814559788,1
+"Central Warehouse, Kathmandu","Ward 25, Jawalakhel, Lalitpur",4304.31,cod,foggy,9825163256,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3219.85,cod,foggy,9872088110,1
+"Central Warehouse, Kathmandu","Ward 20, Lakeside, Pokhara",235.32,cod,rainy,9868424693,1
+"Central Warehouse, Kathmandu","Ward 5, Main Road, Biratnagar",2080.98,COD,foggy,9825416969,1
+"Central Warehouse, Kathmandu","Ward 4, Patan Durbar Square, Lalitpur",2431.81,online,extreme,9874196731,0
+"Central Warehouse, Kathmandu","Ward 18, Jawalakhel, Lalitpur",1809.17,prepaid,extreme,9891128242,0
+"Central Warehouse, Kathmandu","Ward 8, Patan Durbar Square, Lalitpur",1268.56,prepaid,normal,9840624942,1
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",1051.75,prepaid,foggy,9867415031,0
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",4434.94,online,normal,9852233338,0
+"Central Warehouse, Kathmandu","Ward 13, Jawalakhel, Lalitpur",2002.4,COD,rainy,9828499584,1
+"Central Warehouse, Kathmandu","Ward 15, Durbar Square, Bhaktapur",4861.85,online,foggy,9876511297,0
+"Central Warehouse, Kathmandu","Ward 16, Main Road, Biratnagar",1834.82,prepaid,clear,9883810905,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2387.95,online,normal,9897605162,1
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",3459.21,online,clear,9866261649,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3575.32,online,rainy,9849971553,0
+"Central Warehouse, Kathmandu","Ward 13, Durbar Square, Bhaktapur",2991.86,COD,clear,9835595671,0
+"Central Warehouse, Kathmandu","Ward 9, Jawalakhel, Lalitpur",3540.24,online,foggy,9843614227,0
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",2210.19,online,clear,9882191212,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1700.5,prepaid,foggy,9884439915,0
+"Central Warehouse, Kathmandu","Ward 20, Jawalakhel, Lalitpur",4493.55,cod,normal,9882577874,1
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",4076.33,prepaid,normal,9821291225,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4078.28,cod,clear,9876137181,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4733.56,prepaid,normal,9851759212,0
+"Central Warehouse, Kathmandu","Ward 9, Lakeside, Pokhara",504.4,cod,foggy,9858701474,1
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",2318.14,prepaid,normal,9822070268,0
+"Central Warehouse, Kathmandu","Ward 4, Baneshwor, Kathmandu",1248.7,COD,extreme,9847038809,1
+"Central Warehouse, Kathmandu","Ward 32, Durbar Square, Bhaktapur",3912.9,COD,normal,9899611413,0
+"Central Warehouse, Kathmandu","Ward 12, Main Road, Biratnagar",1309.84,cod,rainy,9830832666,1
+"Central Warehouse, Kathmandu","Ward 27, Main Road, Biratnagar",3008.23,online,rainy,9896766492,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4664.78,COD,clear,9887803819,1
+"Central Warehouse, Kathmandu","Ward 19, Durbar Square, Bhaktapur",3471.25,online,clear,9844131007,0
+"Central Warehouse, Kathmandu","Ward 20, Durbar Square, Bhaktapur",586.89,online,normal,9846710261,0
+"Central Warehouse, Kathmandu","Ward 17, Patan Durbar Square, Lalitpur",388.69,cod,foggy,9848806230,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",434.1,prepaid,extreme,9869695968,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1400.77,online,clear,9869987640,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1391.82,cod,clear,9832958380,0
+"Central Warehouse, Kathmandu","Ward 27, Thamel, Kathmandu",2792.99,COD,foggy,9849272421,0
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",3567.99,prepaid,normal,9899630955,0
+"Central Warehouse, Kathmandu","Ward 15, Jawalakhel, Lalitpur",4038.92,online,extreme,9858509811,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3774.14,COD,clear,9891791900,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2830.91,online,foggy,9893040930,0
+"Central Warehouse, Kathmandu","Ward 17, Main Road, Biratnagar",4106.2,COD,normal,9853030285,1
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",153.15,prepaid,rainy,9892399378,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1844.41,online,rainy,9895565655,0
+"Central Warehouse, Kathmandu","Ward 18, Lakeside, Pokhara",337.51,COD,extreme,9837487313,0
+"Central Warehouse, Kathmandu","Ward 19, Main Road, Biratnagar",3345.33,COD,rainy,9859441684,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4178.42,prepaid,rainy,9885748750,1
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",345.71,prepaid,normal,9877126971,0
+"Central Warehouse, Kathmandu","Ward 3, Patan Durbar Square, Lalitpur",3852.87,cod,clear,9839477183,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3288.79,prepaid,normal,9849284314,0
+"Central Warehouse, Kathmandu","Ward 13, Thamel, Kathmandu",2625.5,COD,rainy,9873721441,1
+"Central Warehouse, Kathmandu","Ward 11, Main Road, Biratnagar",4354.89,prepaid,normal,9835467589,0
+"Central Warehouse, Kathmandu","Ward 3, Thamel, Kathmandu",4189.95,COD,foggy,9877959687,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2563.68,COD,normal,9833854303,1
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",2735.3,cod,clear,9862439007,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1746.68,COD,foggy,9816212033,1
+"Central Warehouse, Kathmandu","Ward 10, Jawalakhel, Lalitpur",4581.08,online,normal,9836969912,0
+"Central Warehouse, Kathmandu","Ward 21, Durbar Square, Bhaktapur",939.02,prepaid,extreme,9875519001,1
+"Central Warehouse, Kathmandu","Ward 28, Thamel, Kathmandu",2729.64,COD,extreme,9823595730,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1415.59,cod,rainy,9897850036,0
+"Central Warehouse, Kathmandu","Ward 10, Thamel, Kathmandu",2017.15,prepaid,normal,9826490092,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1503.97,online,normal,9852430145,0
+"Central Warehouse, Kathmandu","Ward 15, Main Road, Biratnagar",1522.56,prepaid,rainy,9890543315,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1046.08,cod,extreme,9895183915,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4198.92,COD,normal,9858790004,1
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",494.68,prepaid,clear,9819605760,0
+"Central Warehouse, Kathmandu","Ward 25, Main Road, Biratnagar",252.84,prepaid,foggy,9818590902,0
+"Central Warehouse, Kathmandu","Ward 20, Main Road, Biratnagar",108.95,online,normal,9854074861,0
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",168.14,COD,rainy,9823210869,1
+"Central Warehouse, Kathmandu","Ward 15, Durbar Square, Bhaktapur",1510.99,COD,extreme,9860703221,0
+"Central Warehouse, Kathmandu","Ward 31, Baneshwor, Kathmandu",1691.08,cod,clear,9876037009,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4470.82,COD,clear,9850820497,1
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",1143.77,cod,normal,9815062606,1
+"Central Warehouse, Kathmandu","Ward 6, Thamel, Kathmandu",3981.56,online,rainy,9830312745,0
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",1982.51,online,normal,9817746305,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2295.57,cod,clear,9865259780,0
+"Central Warehouse, Kathmandu","Ward 28, Durbar Square, Bhaktapur",372.57,cod,clear,9872740233,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",617.78,COD,clear,9887607106,0
+"Central Warehouse, Kathmandu","Ward 7, Patan Durbar Square, Lalitpur",4273.73,online,normal,9841939260,0
+"Central Warehouse, Kathmandu","Ward 4, Main Road, Biratnagar",2093.57,prepaid,clear,9838359121,0
+"Central Warehouse, Kathmandu","Ward 17, Main Road, Biratnagar",3224.91,prepaid,normal,9864161466,0
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",951.84,prepaid,rainy,9897068957,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1417.62,COD,normal,9813199084,0
+"Central Warehouse, Kathmandu","Ward 11, Jawalakhel, Lalitpur",715.29,cod,clear,9853923829,0
+"Central Warehouse, Kathmandu","Ward 10, Main Road, Biratnagar",511.91,prepaid,extreme,9868540371,0
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",3920.86,cod,foggy,9871414334,0
+"Central Warehouse, Kathmandu","Ward 18, Baneshwor, Kathmandu",1760.71,cod,normal,9820831253,1
+"Central Warehouse, Kathmandu","Ward 2, Main Road, Biratnagar",3268.49,COD,rainy,9812461142,1
+"Central Warehouse, Kathmandu","Ward 14, Patan Durbar Square, Lalitpur",364.55,online,clear,9888649635,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2919.89,prepaid,rainy,9843236846,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3726.81,online,extreme,9822143562,0
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",3353.86,online,rainy,9860396169,0
+"Central Warehouse, Kathmandu","Ward 23, Durbar Square, Bhaktapur",1373.88,cod,foggy,9866733040,0
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",1199.0,COD,clear,9862904264,0
+"Central Warehouse, Kathmandu","Ward 29, Patan Durbar Square, Lalitpur",1028.23,prepaid,foggy,9896704445,0
+"Central Warehouse, Kathmandu","Ward 31, Baneshwor, Kathmandu",4348.51,prepaid,rainy,9865149628,0
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",3004.24,prepaid,foggy,9858328181,0
+"Central Warehouse, Kathmandu","Ward 18, Lakeside, Pokhara",3026.8,cod,extreme,9840165812,1
+"Central Warehouse, Kathmandu","Ward 31, Jawalakhel, Lalitpur",4742.29,online,foggy,9830295916,1
+"Central Warehouse, Kathmandu","Ward 16, Jawalakhel, Lalitpur",1880.75,prepaid,extreme,9899317640,0
+"Central Warehouse, Kathmandu","Ward 30, Jawalakhel, Lalitpur",3653.44,online,clear,9898356911,0
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",549.09,COD,extreme,9860077395,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",1256.61,online,clear,9871042011,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1675.66,cod,foggy,9888711328,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1903.27,COD,normal,9821884656,0
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",4202.39,COD,normal,9890323484,0
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",1092.44,COD,foggy,9843675556,0
+"Central Warehouse, Kathmandu","Ward 31, Jawalakhel, Lalitpur",3362.07,online,normal,9823115449,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1888.98,COD,clear,9846010042,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4726.89,cod,clear,9860964420,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3059.16,cod,normal,9866661639,0
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",4617.7,COD,extreme,9814970121,1
+"Central Warehouse, Kathmandu","Ward 15, Jawalakhel, Lalitpur",3945.78,cod,normal,9886844497,0
+"Central Warehouse, Kathmandu","Ward 19, Durbar Square, Bhaktapur",4486.16,COD,extreme,9868279378,0
+"Central Warehouse, Kathmandu","Ward 20, Main Road, Biratnagar",3560.61,prepaid,clear,9810893318,0
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",1585.89,COD,extreme,9857824577,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2492.02,online,foggy,9815527430,0
+"Central Warehouse, Kathmandu","Ward 23, Lakeside, Pokhara",1278.33,online,extreme,9890769319,0
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",2394.46,COD,rainy,9861022113,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4714.71,cod,normal,9874300868,0
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",1266.7,COD,normal,9836679371,1
+"Central Warehouse, Kathmandu","Ward 2, Main Road, Biratnagar",2401.29,prepaid,extreme,9863269725,0
+"Central Warehouse, Kathmandu","Ward 18, Jawalakhel, Lalitpur",1393.8,cod,clear,9873811238,1
+"Central Warehouse, Kathmandu","Ward 17, Durbar Square, Bhaktapur",3890.62,COD,clear,9828293798,0
+"Central Warehouse, Kathmandu","Ward 6, Durbar Square, Bhaktapur",3733.86,prepaid,clear,9883997879,0
+"Central Warehouse, Kathmandu","Ward 15, Baneshwor, Kathmandu",2613.47,cod,clear,9832367104,0
+"Central Warehouse, Kathmandu","Ward 21, Patan Durbar Square, Lalitpur",4813.46,prepaid,normal,9857819795,0
+"Central Warehouse, Kathmandu","Ward 21, Patan Durbar Square, Lalitpur",2102.39,prepaid,normal,9827736379,0
+"Central Warehouse, Kathmandu","Ward 20, Durbar Square, Bhaktapur",1742.86,online,extreme,9829693030,1
+"Central Warehouse, Kathmandu","Ward 29, Durbar Square, Bhaktapur",1926.53,prepaid,extreme,9859477338,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",656.61,online,clear,9819024994,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4036.7,prepaid,foggy,9833907086,0
+"Central Warehouse, Kathmandu","Ward 2, Main Road, Biratnagar",113.14,COD,clear,9853545855,0
+"Central Warehouse, Kathmandu","Ward 18, Patan Durbar Square, Lalitpur",4799.87,online,extreme,9894535300,1
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",4266.6,cod,normal,9875616964,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3674.02,COD,foggy,9835861759,1
+"Central Warehouse, Kathmandu","Ward 27, Jawalakhel, Lalitpur",3784.45,COD,normal,9829763740,0
+"Central Warehouse, Kathmandu","Ward 12, Main Road, Biratnagar",4228.96,cod,normal,9817211881,0
+"Central Warehouse, Kathmandu","Ward 29, Patan Durbar Square, Lalitpur",3666.11,cod,rainy,9835055208,0
+"Central Warehouse, Kathmandu","Ward 23, Patan Durbar Square, Lalitpur",4410.28,COD,normal,9882198577,0
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",3278.91,prepaid,clear,9832305457,1
+"Central Warehouse, Kathmandu","Ward 1, Thamel, Kathmandu",2936.9,cod,clear,9867691120,0
+"Central Warehouse, Kathmandu","Ward 21, Durbar Square, Bhaktapur",1715.98,online,normal,9867650278,0
+"Central Warehouse, Kathmandu","Ward 32, Baneshwor, Kathmandu",2219.93,prepaid,extreme,9836413123,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4258.43,cod,extreme,9831968485,0
+"Central Warehouse, Kathmandu","Ward 25, Baneshwor, Kathmandu",2426.6,prepaid,rainy,9862611440,1
+"Central Warehouse, Kathmandu","Ward 16, Lakeside, Pokhara",465.49,cod,normal,9885611612,0
+"Central Warehouse, Kathmandu","Ward 24, Lakeside, Pokhara",4077.87,cod,rainy,9829451205,1
+"Central Warehouse, Kathmandu","Ward 5, Jawalakhel, Lalitpur",2385.97,COD,extreme,9890550278,1
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",4794.52,online,rainy,9849643692,0
+"Central Warehouse, Kathmandu","Ward 4, Patan Durbar Square, Lalitpur",4051.57,online,extreme,9843775852,0
+"Central Warehouse, Kathmandu","Ward 6, Thamel, Kathmandu",1908.63,prepaid,normal,9857851368,0
+"Central Warehouse, Kathmandu","Ward 2, Thamel, Kathmandu",2100.08,COD,clear,9850113737,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1210.29,online,extreme,9842443003,0
+"Central Warehouse, Kathmandu","Ward 14, Baneshwor, Kathmandu",3869.15,prepaid,rainy,9827342397,1
+"Central Warehouse, Kathmandu","Ward 21, Main Road, Biratnagar",1151.06,online,normal,9823434210,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3882.28,online,clear,9833090183,0
+"Central Warehouse, Kathmandu","Ward 25, Jawalakhel, Lalitpur",2128.76,cod,extreme,9886443875,1
+"Central Warehouse, Kathmandu","Ward 9, Durbar Square, Bhaktapur",1177.91,cod,normal,9816301725,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",714.24,cod,normal,9816678974,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",400.92,COD,foggy,9865706911,1
+"Central Warehouse, Kathmandu","Ward 3, Thamel, Kathmandu",4991.86,cod,clear,9875824763,1
+"Central Warehouse, Kathmandu","Ward 9, Durbar Square, Bhaktapur",3281.63,COD,foggy,9861755183,0
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",207.62,online,extreme,9874349091,0
+"Central Warehouse, Kathmandu","Ward 11, Jawalakhel, Lalitpur",288.93,prepaid,clear,9879204599,0
+"Central Warehouse, Kathmandu","Ward 29, Thamel, Kathmandu",4578.75,prepaid,extreme,9881952177,0
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",3839.71,cod,foggy,9830007465,1
+"Central Warehouse, Kathmandu","Ward 21, Main Road, Biratnagar",3195.09,online,rainy,9847513780,0
+"Central Warehouse, Kathmandu","Ward 6, Thamel, Kathmandu",4737.85,cod,clear,9847941598,0
+"Central Warehouse, Kathmandu","Ward 22, Jawalakhel, Lalitpur",4921.91,online,rainy,9898562408,0
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",2240.2,COD,clear,9897628304,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",464.94,online,normal,9895504622,1
+"Central Warehouse, Kathmandu","Ward 28, Durbar Square, Bhaktapur",1852.64,COD,clear,9813104721,0
+"Central Warehouse, Kathmandu","Ward 32, Jawalakhel, Lalitpur",4378.37,online,normal,9830636296,1
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",3588.86,COD,extreme,9814807063,1
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",2043.14,online,normal,9848347077,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",587.12,online,foggy,9880632876,0
+"Central Warehouse, Kathmandu","Ward 20, Patan Durbar Square, Lalitpur",2006.51,prepaid,foggy,9854170400,1
+"Central Warehouse, Kathmandu","Ward 6, Lakeside, Pokhara",1284.42,COD,normal,9867567214,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",426.32,online,extreme,9833695154,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3851.19,cod,extreme,9879730854,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4939.36,online,clear,9822363907,1
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",4921.65,prepaid,clear,9884097238,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1235.79,online,foggy,9849989186,0
+"Central Warehouse, Kathmandu","Ward 32, Patan Durbar Square, Lalitpur",2449.12,COD,normal,9862354563,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3139.72,prepaid,foggy,9824901822,0
+"Central Warehouse, Kathmandu","Ward 8, Main Road, Biratnagar",2022.64,online,rainy,9857651963,1
+"Central Warehouse, Kathmandu","Ward 5, Thamel, Kathmandu",4076.81,COD,clear,9853776361,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1355.57,cod,foggy,9833031580,1
+"Central Warehouse, Kathmandu","Ward 20, Jawalakhel, Lalitpur",2612.38,cod,foggy,9822751588,1
+"Central Warehouse, Kathmandu","Ward 20, Lakeside, Pokhara",4322.78,prepaid,rainy,9855466233,1
+"Central Warehouse, Kathmandu","Ward 30, Durbar Square, Bhaktapur",1463.73,online,normal,9894411806,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3592.97,COD,extreme,9871457373,1
+"Central Warehouse, Kathmandu","Ward 9, Lakeside, Pokhara",393.63,online,normal,9823501975,0
+"Central Warehouse, Kathmandu","Ward 20, Patan Durbar Square, Lalitpur",1691.98,prepaid,clear,9869778587,0
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",1272.13,COD,clear,9836600179,0
+"Central Warehouse, Kathmandu","Ward 13, Durbar Square, Bhaktapur",135.17,prepaid,foggy,9871999432,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",4511.47,COD,foggy,9841272989,0
+"Central Warehouse, Kathmandu","Ward 16, Patan Durbar Square, Lalitpur",3727.18,cod,rainy,9886236406,1
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",3102.6,online,clear,9835666667,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2148.1,cod,clear,9874080275,1
+"Central Warehouse, Kathmandu","Ward 28, Patan Durbar Square, Lalitpur",1225.82,prepaid,normal,9855240639,1
+"Central Warehouse, Kathmandu","Ward 7, Thamel, Kathmandu",2826.38,online,rainy,9824125058,1
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",3060.89,COD,normal,9879763492,0
+"Central Warehouse, Kathmandu","Ward 27, Patan Durbar Square, Lalitpur",4978.28,cod,normal,9886646854,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4055.85,cod,extreme,9884628729,1
+"Central Warehouse, Kathmandu","Ward 11, Lakeside, Pokhara",611.2,prepaid,foggy,9815809680,1
+"Central Warehouse, Kathmandu","Ward 16, Thamel, Kathmandu",1532.85,online,extreme,9875406167,0
+"Central Warehouse, Kathmandu","Ward 17, Durbar Square, Bhaktapur",2026.42,online,normal,9866927517,1
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",4351.62,COD,rainy,9819240662,1
+"Central Warehouse, Kathmandu","Ward 27, Durbar Square, Bhaktapur",3051.72,COD,foggy,9893816989,1
+"Central Warehouse, Kathmandu","Ward 23, Baneshwor, Kathmandu",4831.96,online,rainy,9859044656,0
+"Central Warehouse, Kathmandu","Ward 16, Durbar Square, Bhaktapur",396.7,prepaid,rainy,9859978948,1
+"Central Warehouse, Kathmandu","Ward 9, Main Road, Biratnagar",4060.73,cod,extreme,9873800707,0
+"Central Warehouse, Kathmandu","Ward 28, Lakeside, Pokhara",1990.75,COD,normal,9867259831,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4967.85,cod,rainy,9863658687,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4951.3,prepaid,foggy,9828103396,1
+"Central Warehouse, Kathmandu","Ward 25, Main Road, Biratnagar",733.86,cod,extreme,9862633863,0
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",2939.14,cod,normal,9861034594,1
+"Central Warehouse, Kathmandu","Ward 31, Jawalakhel, Lalitpur",3710.5,cod,rainy,9850320841,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3979.4,prepaid,foggy,9848710188,0
+"Central Warehouse, Kathmandu","Ward 15, Thamel, Kathmandu",2264.06,prepaid,foggy,9841324804,1
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",800.72,prepaid,extreme,9854411649,0
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",3452.38,online,normal,9888829778,0
+"Central Warehouse, Kathmandu","Ward 29, Baneshwor, Kathmandu",500.35,online,extreme,9875423527,1
+"Central Warehouse, Kathmandu","Ward 27, Jawalakhel, Lalitpur",3787.23,prepaid,rainy,9894746664,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2534.45,prepaid,clear,9866266137,0
+"Central Warehouse, Kathmandu","Ward 17, Thamel, Kathmandu",3946.23,COD,clear,9880408881,0
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",4209.38,cod,clear,9858255676,1
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",683.67,prepaid,rainy,9878691159,0
+"Central Warehouse, Kathmandu","Ward 30, Jawalakhel, Lalitpur",1835.05,online,foggy,9829576255,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4249.71,COD,extreme,9894033736,1
+"Central Warehouse, Kathmandu","Ward 5, Thamel, Kathmandu",1679.22,cod,rainy,9865305655,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3437.61,cod,rainy,9811362169,1
+"Central Warehouse, Kathmandu","Ward 18, Baneshwor, Kathmandu",1552.9,COD,extreme,9836102767,1
+"Central Warehouse, Kathmandu","Ward 21, Main Road, Biratnagar",316.09,COD,rainy,9833615493,0
+"Central Warehouse, Kathmandu","Ward 15, Thamel, Kathmandu",1071.15,prepaid,normal,9871469056,0
+"Central Warehouse, Kathmandu","Ward 31, Baneshwor, Kathmandu",1122.33,online,rainy,9843999983,0
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",1483.72,COD,extreme,9819460969,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1898.35,online,rainy,9818919050,0
+"Central Warehouse, Kathmandu","Ward 8, Main Road, Biratnagar",3860.94,COD,clear,9882236929,0
+"Central Warehouse, Kathmandu","Ward 15, Patan Durbar Square, Lalitpur",4077.55,cod,extreme,9868989944,1
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",3406.02,prepaid,foggy,9825369612,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3628.34,online,normal,9881708249,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1953.83,online,normal,9875113229,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3700.72,online,extreme,9846745729,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3337.43,COD,foggy,9857660834,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3137.22,cod,normal,9885855156,0
+"Central Warehouse, Kathmandu","Ward 1, Jawalakhel, Lalitpur",1719.6,online,clear,9816222868,0
+"Central Warehouse, Kathmandu","Ward 10, Jawalakhel, Lalitpur",2739.47,online,normal,9860088213,0
+"Central Warehouse, Kathmandu","Ward 13, Main Road, Biratnagar",1863.74,online,foggy,9826086761,0
+"Central Warehouse, Kathmandu","Ward 10, Jawalakhel, Lalitpur",3953.73,COD,clear,9866242787,0
+"Central Warehouse, Kathmandu","Ward 21, Baneshwor, Kathmandu",1133.09,prepaid,clear,9871695182,0
+"Central Warehouse, Kathmandu","Ward 8, Baneshwor, Kathmandu",3748.81,online,foggy,9812475211,1
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",2424.41,COD,rainy,9868188009,0
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",1413.94,COD,clear,9831988652,1
+"Central Warehouse, Kathmandu","Ward 2, Baneshwor, Kathmandu",3296.39,COD,normal,9828503559,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3592.07,online,foggy,9815848885,1
+"Central Warehouse, Kathmandu","Ward 28, Patan Durbar Square, Lalitpur",3631.74,online,extreme,9887693092,1
+"Central Warehouse, Kathmandu","Ward 10, Patan Durbar Square, Lalitpur",1651.99,cod,normal,9811522278,0
+"Central Warehouse, Kathmandu","Ward 32, Thamel, Kathmandu",4135.72,COD,normal,9887583358,1
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",4283.26,cod,rainy,9853362369,1
+"Central Warehouse, Kathmandu","Ward 30, Jawalakhel, Lalitpur",1241.41,prepaid,extreme,9873384454,0
+"Central Warehouse, Kathmandu","Ward 25, Jawalakhel, Lalitpur",919.62,COD,rainy,9822510894,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3914.34,COD,foggy,9894427772,1
+"Central Warehouse, Kathmandu","Ward 24, Baneshwor, Kathmandu",171.9,prepaid,normal,9829600606,0
+"Central Warehouse, Kathmandu","Ward 10, Patan Durbar Square, Lalitpur",422.85,online,foggy,9871305918,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3390.77,cod,foggy,9875348303,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",733.57,prepaid,extreme,9841399718,1
+"Central Warehouse, Kathmandu","Ward 18, Lakeside, Pokhara",4236.76,COD,foggy,9818873340,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2604.23,online,clear,9846880842,1
+"Central Warehouse, Kathmandu","Ward 9, Patan Durbar Square, Lalitpur",2110.65,online,foggy,9834235501,1
+"Central Warehouse, Kathmandu","Ward 28, Thamel, Kathmandu",3470.98,cod,normal,9895656612,1
+"Central Warehouse, Kathmandu","Ward 7, Patan Durbar Square, Lalitpur",2973.62,COD,rainy,9894711988,0
+"Central Warehouse, Kathmandu","Ward 26, Patan Durbar Square, Lalitpur",2935.44,online,rainy,9825996846,0
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",2811.15,online,normal,9891868839,0
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",863.83,COD,normal,9850726717,0
+"Central Warehouse, Kathmandu","Ward 13, Jawalakhel, Lalitpur",1506.54,online,clear,9837492257,0
+"Central Warehouse, Kathmandu","Ward 24, Patan Durbar Square, Lalitpur",3304.28,COD,extreme,9893552102,1
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",350.99,cod,foggy,9892048532,0
+"Central Warehouse, Kathmandu","Ward 32, Lakeside, Pokhara",603.42,prepaid,normal,9843805648,0
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",1025.31,prepaid,normal,9872659906,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4508.68,online,extreme,9831908073,1
+"Central Warehouse, Kathmandu","Ward 27, Thamel, Kathmandu",1644.11,online,clear,9855683161,1
+"Central Warehouse, Kathmandu","Ward 10, Main Road, Biratnagar",3387.35,online,normal,9882177104,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",784.09,online,foggy,9812576362,1
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",637.94,prepaid,rainy,9842904728,1
+"Central Warehouse, Kathmandu","Ward 13, Jawalakhel, Lalitpur",410.79,COD,extreme,9897153080,1
+"Central Warehouse, Kathmandu","Ward 23, Baneshwor, Kathmandu",1461.07,online,foggy,9867043780,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4148.52,online,extreme,9863449031,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2950.42,online,normal,9849026890,1
+"Central Warehouse, Kathmandu","Ward 26, Baneshwor, Kathmandu",2421.11,online,normal,9861570039,0
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",2233.8,COD,clear,9899098606,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3712.69,online,foggy,9855756194,1
+"Central Warehouse, Kathmandu","Ward 1, Thamel, Kathmandu",4711.95,online,normal,9837898988,0
+"Central Warehouse, Kathmandu","Ward 19, Jawalakhel, Lalitpur",4827.48,COD,normal,9818124526,1
+"Central Warehouse, Kathmandu","Ward 26, Main Road, Biratnagar",4230.7,COD,extreme,9841372526,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3722.96,prepaid,rainy,9810297666,1
+"Central Warehouse, Kathmandu","Ward 11, Patan Durbar Square, Lalitpur",3800.69,online,normal,9892565822,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2175.71,online,rainy,9892140074,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4020.3,prepaid,rainy,9839590837,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1874.4,online,extreme,9860854148,0
+"Central Warehouse, Kathmandu","Ward 12, Jawalakhel, Lalitpur",2358.18,online,normal,9879505394,0
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",1095.36,online,extreme,9850734009,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3082.75,cod,normal,9814343125,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",581.02,cod,clear,9827322154,0
+"Central Warehouse, Kathmandu","Ward 28, Main Road, Biratnagar",3649.09,COD,foggy,9820926054,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3708.93,prepaid,rainy,9836856220,0
+"Central Warehouse, Kathmandu","Ward 4, Baneshwor, Kathmandu",1136.15,COD,rainy,9812638133,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3031.15,COD,foggy,9831027307,1
+"Central Warehouse, Kathmandu","Ward 30, Main Road, Biratnagar",4854.77,online,foggy,9883500402,0
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",4159.46,online,normal,9856402625,0
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",3898.27,online,rainy,9858238737,1
+"Central Warehouse, Kathmandu","Ward 10, Baneshwor, Kathmandu",3676.3,cod,foggy,9843034530,1
+"Central Warehouse, Kathmandu","Ward 3, Thamel, Kathmandu",1522.65,online,foggy,9831705020,0
+"Central Warehouse, Kathmandu","Ward 1, Jawalakhel, Lalitpur",992.04,COD,clear,9896078691,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",516.83,COD,foggy,9875318439,0
+"Central Warehouse, Kathmandu","Ward 27, Thamel, Kathmandu",3264.5,prepaid,rainy,9843478155,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2319.41,prepaid,rainy,9879113224,0
+"Central Warehouse, Kathmandu","Ward 31, Patan Durbar Square, Lalitpur",2408.84,online,normal,9835852561,0
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",3583.32,COD,extreme,9874679591,0
+"Central Warehouse, Kathmandu","Ward 22, Lakeside, Pokhara",3189.24,online,normal,9840673825,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4953.32,online,rainy,9855350888,0
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",3059.16,prepaid,rainy,9879148836,1
+"Central Warehouse, Kathmandu","Ward 30, Main Road, Biratnagar",1144.68,COD,extreme,9866421154,1
+"Central Warehouse, Kathmandu","Ward 8, Baneshwor, Kathmandu",3917.12,prepaid,clear,9817370124,0
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",4967.52,online,rainy,9889700123,1
+"Central Warehouse, Kathmandu","Ward 8, Baneshwor, Kathmandu",4904.18,cod,extreme,9869349981,1
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",1904.82,prepaid,rainy,9864407042,0
+"Central Warehouse, Kathmandu","Ward 18, Patan Durbar Square, Lalitpur",4797.16,COD,rainy,9829480227,0
+"Central Warehouse, Kathmandu","Ward 32, Thamel, Kathmandu",2332.13,prepaid,extreme,9834543883,0
+"Central Warehouse, Kathmandu","Ward 18, Durbar Square, Bhaktapur",616.62,cod,normal,9883049905,0
+"Central Warehouse, Kathmandu","Ward 18, Patan Durbar Square, Lalitpur",2585.47,COD,normal,9881142784,0
+"Central Warehouse, Kathmandu","Ward 24, Jawalakhel, Lalitpur",2018.87,COD,extreme,9817353523,1
+"Central Warehouse, Kathmandu","Ward 30, Baneshwor, Kathmandu",3841.82,COD,normal,9849027010,1
+"Central Warehouse, Kathmandu","Ward 18, Thamel, Kathmandu",393.19,COD,rainy,9810119964,0
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",2540.13,cod,normal,9886333173,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4777.82,prepaid,foggy,9850280053,0
+"Central Warehouse, Kathmandu","Ward 30, Main Road, Biratnagar",2934.53,prepaid,foggy,9847071112,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",840.04,COD,foggy,9839690518,1
+"Central Warehouse, Kathmandu","Ward 7, Lakeside, Pokhara",3347.19,COD,normal,9813669581,0
+"Central Warehouse, Kathmandu","Ward 15, Baneshwor, Kathmandu",1087.65,prepaid,extreme,9846749823,1
+"Central Warehouse, Kathmandu","Ward 28, Lakeside, Pokhara",3785.57,cod,rainy,9889940132,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3771.8,COD,foggy,9876031037,1
+"Central Warehouse, Kathmandu","Ward 16, Baneshwor, Kathmandu",4469.15,online,extreme,9837843296,1
+"Central Warehouse, Kathmandu","Ward 1, Durbar Square, Bhaktapur",921.58,cod,rainy,9874391165,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2688.45,cod,rainy,9865255704,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2045.32,cod,rainy,9861442975,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1726.92,online,foggy,9858620565,1
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",2937.42,online,clear,9820311909,0
+"Central Warehouse, Kathmandu","Ward 28, Patan Durbar Square, Lalitpur",4673.67,online,extreme,9884518086,1
+"Central Warehouse, Kathmandu","Ward 20, Durbar Square, Bhaktapur",2406.29,COD,rainy,9866711181,0
+"Central Warehouse, Kathmandu","Ward 12, Main Road, Biratnagar",2315.12,prepaid,clear,9854057732,1
+"Central Warehouse, Kathmandu","Ward 5, Main Road, Biratnagar",1953.16,COD,clear,9879201050,0
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",2355.84,cod,normal,9863585903,1
+"Central Warehouse, Kathmandu","Ward 17, Jawalakhel, Lalitpur",3361.05,prepaid,normal,9817271731,0
+"Central Warehouse, Kathmandu","Ward 9, Jawalakhel, Lalitpur",2031.39,online,clear,9896261799,0
+"Central Warehouse, Kathmandu","Ward 29, Patan Durbar Square, Lalitpur",3074.47,COD,normal,9814416508,1
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",4294.35,cod,normal,9867050489,1
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",3605.98,prepaid,foggy,9841655550,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1187.26,online,normal,9814141486,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1972.14,COD,clear,9814589575,0
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",3072.91,cod,rainy,9842348063,1
+"Central Warehouse, Kathmandu","Ward 5, Thamel, Kathmandu",3758.12,online,foggy,9834684797,0
+"Central Warehouse, Kathmandu","Ward 14, Baneshwor, Kathmandu",2532.56,online,normal,9823836113,1
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",4601.71,online,clear,9830530026,0
+"Central Warehouse, Kathmandu","Ward 16, Durbar Square, Bhaktapur",3662.11,COD,normal,9856438062,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3767.99,online,rainy,9843993672,1
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",872.97,prepaid,clear,9843656994,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",908.23,online,extreme,9853323317,0
+"Central Warehouse, Kathmandu","Ward 18, Patan Durbar Square, Lalitpur",2959.77,online,rainy,9862883903,0
+"Central Warehouse, Kathmandu","Ward 4, Jawalakhel, Lalitpur",350.8,cod,foggy,9873035337,1
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",4726.78,cod,foggy,9884283119,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4353.08,online,foggy,9886380859,0
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",3789.43,cod,extreme,9816794360,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3702.97,COD,rainy,9856038759,0
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",2716.58,cod,normal,9874920316,1
+"Central Warehouse, Kathmandu","Ward 21, Lakeside, Pokhara",2761.63,COD,clear,9874162380,1
+"Central Warehouse, Kathmandu","Ward 2, Main Road, Biratnagar",3308.02,cod,foggy,9888059604,0
+"Central Warehouse, Kathmandu","Ward 22, Baneshwor, Kathmandu",403.55,cod,extreme,9857847580,1
+"Central Warehouse, Kathmandu","Ward 28, Main Road, Biratnagar",3892.35,prepaid,clear,9899469851,0
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",3017.74,prepaid,rainy,9891206594,1
+"Central Warehouse, Kathmandu","Ward 30, Patan Durbar Square, Lalitpur",148.71,online,clear,9873073852,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2271.95,prepaid,foggy,9894343394,0
+"Central Warehouse, Kathmandu","Ward 10, Baneshwor, Kathmandu",4586.49,COD,rainy,9815828779,1
+"Central Warehouse, Kathmandu","Ward 10, Main Road, Biratnagar",2982.41,cod,clear,9843790587,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3993.37,prepaid,clear,9831753789,0
+"Central Warehouse, Kathmandu","Ward 20, Patan Durbar Square, Lalitpur",4870.72,COD,foggy,9852686099,0
+"Central Warehouse, Kathmandu","Ward 26, Lakeside, Pokhara",2410.84,prepaid,rainy,9867272295,1
+"Central Warehouse, Kathmandu","Ward 7, Baneshwor, Kathmandu",2094.84,cod,normal,9848700082,1
+"Central Warehouse, Kathmandu","Ward 1, Baneshwor, Kathmandu",2919.05,COD,foggy,9813874761,1
+"Central Warehouse, Kathmandu","Ward 9, Durbar Square, Bhaktapur",3453.53,cod,extreme,9883602269,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1179.69,cod,extreme,9829049990,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3822.98,online,extreme,9828806778,0
+"Central Warehouse, Kathmandu","Ward 1, Thamel, Kathmandu",4313.5,prepaid,rainy,9857937214,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2613.87,online,normal,9859725293,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4409.39,online,normal,9836802918,0
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",1348.61,COD,normal,9837637386,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",881.54,online,rainy,9854112735,0
+"Central Warehouse, Kathmandu","Ward 24, Thamel, Kathmandu",3300.6,online,normal,9817318541,1
+"Central Warehouse, Kathmandu","Ward 20, Durbar Square, Bhaktapur",1870.81,online,extreme,9826178934,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1112.72,prepaid,foggy,9849057523,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1562.93,cod,rainy,9812914540,1
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",4578.76,cod,foggy,9830072120,1
+"Central Warehouse, Kathmandu","Ward 12, Main Road, Biratnagar",159.44,prepaid,rainy,9825098462,0
+"Central Warehouse, Kathmandu","Ward 32, Baneshwor, Kathmandu",1015.06,prepaid,normal,9868511349,0
+"Central Warehouse, Kathmandu","Ward 28, Thamel, Kathmandu",1882.5,cod,rainy,9848186108,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1961.94,online,extreme,9887693664,0
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",3508.72,cod,extreme,9832768537,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3940.22,cod,foggy,9849055132,1
+"Central Warehouse, Kathmandu","Ward 7, Durbar Square, Bhaktapur",1578.41,online,foggy,9817953352,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1413.66,cod,extreme,9820195497,1
+"Central Warehouse, Kathmandu","Ward 8, Main Road, Biratnagar",3907.04,prepaid,foggy,9860043388,1
+"Central Warehouse, Kathmandu","Ward 4, Lakeside, Pokhara",4055.22,prepaid,clear,9862067956,0
+"Central Warehouse, Kathmandu","Ward 29, Lakeside, Pokhara",3910.77,online,clear,9818206603,0
+"Central Warehouse, Kathmandu","Ward 23, Jawalakhel, Lalitpur",4313.54,COD,clear,9868768432,1
+"Central Warehouse, Kathmandu","Ward 21, Lakeside, Pokhara",4476.75,cod,foggy,9822889473,0
+"Central Warehouse, Kathmandu","Ward 29, Thamel, Kathmandu",2903.33,cod,normal,9817962416,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4595.26,cod,clear,9880720613,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4800.43,online,foggy,9814004395,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3812.73,online,normal,9816112350,1
+"Central Warehouse, Kathmandu","Ward 22, Main Road, Biratnagar",1065.27,prepaid,extreme,9840517210,0
+"Central Warehouse, Kathmandu","Ward 22, Main Road, Biratnagar",4274.42,prepaid,clear,9867986739,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",607.58,online,extreme,9844313967,1
+"Central Warehouse, Kathmandu","Ward 26, Lakeside, Pokhara",4311.05,cod,extreme,9837294108,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4819.79,online,rainy,9893491329,1
+"Central Warehouse, Kathmandu","Ward 1, Baneshwor, Kathmandu",595.76,online,foggy,9824950775,0
+"Central Warehouse, Kathmandu","Ward 10, Jawalakhel, Lalitpur",4170.75,prepaid,rainy,9845870257,0
+"Central Warehouse, Kathmandu","Ward 6, Baneshwor, Kathmandu",2310.1,prepaid,extreme,9866423530,0
+"Central Warehouse, Kathmandu","Ward 5, Baneshwor, Kathmandu",516.67,COD,clear,9886179412,0
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",599.9,cod,extreme,9825281199,0
+"Central Warehouse, Kathmandu","Ward 27, Patan Durbar Square, Lalitpur",2089.24,cod,extreme,9888260720,1
+"Central Warehouse, Kathmandu","Ward 25, Baneshwor, Kathmandu",2267.79,prepaid,extreme,9813214686,0
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",2347.06,prepaid,clear,9858012088,0
+"Central Warehouse, Kathmandu","Ward 7, Baneshwor, Kathmandu",541.66,online,rainy,9897711521,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3430.87,COD,clear,9859524875,0
+"Central Warehouse, Kathmandu","Ward 32, Durbar Square, Bhaktapur",681.51,COD,foggy,9825754211,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3078.64,online,clear,9870908958,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4307.21,COD,clear,9811994058,0
+"Central Warehouse, Kathmandu","Ward 7, Patan Durbar Square, Lalitpur",4388.18,COD,clear,9889650855,1
+"Central Warehouse, Kathmandu","Ward 22, Lakeside, Pokhara",2265.09,prepaid,normal,9885413485,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2462.76,COD,foggy,9895399471,0
+"Central Warehouse, Kathmandu","Ward 9, Durbar Square, Bhaktapur",466.64,online,rainy,9857447342,1
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",1302.82,prepaid,rainy,9870564724,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",866.51,prepaid,normal,9866021342,0
+"Central Warehouse, Kathmandu","Ward 24, Patan Durbar Square, Lalitpur",394.37,online,rainy,9876579071,0
+"Central Warehouse, Kathmandu","Ward 25, Thamel, Kathmandu",2567.59,online,foggy,9846666690,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2629.28,COD,clear,9867797160,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1206.14,cod,normal,9848487960,0
+"Central Warehouse, Kathmandu","Ward 1, Jawalakhel, Lalitpur",3807.11,prepaid,normal,9888235438,0
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",2338.57,COD,foggy,9886103850,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",397.04,prepaid,extreme,9894699131,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",154.32,cod,extreme,9865842229,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2609.97,prepaid,normal,9882345553,0
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",4477.03,cod,rainy,9866660480,0
+"Central Warehouse, Kathmandu","Ward 6, Baneshwor, Kathmandu",1396.03,COD,rainy,9873848674,1
+"Central Warehouse, Kathmandu","Ward 24, Jawalakhel, Lalitpur",698.58,online,rainy,9820312524,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",131.3,COD,foggy,9894115869,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4737.72,prepaid,extreme,9894968762,1
+"Central Warehouse, Kathmandu","Ward 25, Jawalakhel, Lalitpur",823.95,cod,normal,9827514944,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2990.24,cod,clear,9896895700,0
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",2717.43,prepaid,clear,9831254362,0
+"Central Warehouse, Kathmandu","Ward 12, Durbar Square, Bhaktapur",972.05,COD,foggy,9850401474,1
+"Central Warehouse, Kathmandu","Ward 5, Jawalakhel, Lalitpur",1000.44,cod,normal,9896919393,0
+"Central Warehouse, Kathmandu","Ward 4, Main Road, Biratnagar",4040.28,prepaid,extreme,9857910077,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4642.59,prepaid,clear,9837765881,0
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",2083.5,cod,rainy,9846324408,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2516.21,prepaid,normal,9894316303,1
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",2653.37,prepaid,normal,9869740531,0
+"Central Warehouse, Kathmandu","Ward 17, Baneshwor, Kathmandu",2774.39,online,extreme,9839094001,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3970.9,online,normal,9861825376,0
+"Central Warehouse, Kathmandu","Ward 3, Patan Durbar Square, Lalitpur",3469.37,online,foggy,9841336638,0
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",225.27,prepaid,extreme,9851454103,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",710.54,online,foggy,9828602928,0
+"Central Warehouse, Kathmandu","Ward 11, Durbar Square, Bhaktapur",1102.1,cod,rainy,9861550745,1
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",276.5,online,normal,9866837087,0
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",2694.64,cod,extreme,9839435000,1
+"Central Warehouse, Kathmandu","Ward 29, Durbar Square, Bhaktapur",4746.1,cod,normal,9841746777,1
+"Central Warehouse, Kathmandu","Ward 3, Patan Durbar Square, Lalitpur",1525.37,prepaid,clear,9833802137,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1717.45,prepaid,clear,9860310945,0
+"Central Warehouse, Kathmandu","Ward 22, Main Road, Biratnagar",455.17,COD,extreme,9893061449,1
+"Central Warehouse, Kathmandu","Ward 18, Lakeside, Pokhara",4554.71,cod,normal,9854927010,1
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",628.39,online,clear,9847188753,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2658.44,COD,rainy,9818283720,0
+"Central Warehouse, Kathmandu","Ward 12, Durbar Square, Bhaktapur",1885.17,online,clear,9886293478,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1110.53,prepaid,extreme,9883299087,0
+"Central Warehouse, Kathmandu","Ward 12, Jawalakhel, Lalitpur",1069.1,COD,foggy,9850721623,0
+"Central Warehouse, Kathmandu","Ward 5, Thamel, Kathmandu",4236.99,cod,foggy,9848872496,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3493.0,prepaid,normal,9826061745,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1979.11,COD,foggy,9863855085,1
+"Central Warehouse, Kathmandu","Ward 6, Thamel, Kathmandu",4384.19,prepaid,clear,9819739275,0
+"Central Warehouse, Kathmandu","Ward 24, Thamel, Kathmandu",316.26,COD,clear,9830529993,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3369.69,cod,rainy,9811917098,1
+"Central Warehouse, Kathmandu","Ward 15, Durbar Square, Bhaktapur",2490.41,cod,clear,9831402497,0
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",656.75,online,rainy,9898534765,0
+"Central Warehouse, Kathmandu","Ward 10, Baneshwor, Kathmandu",4964.69,prepaid,clear,9853915154,0
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",2503.24,cod,clear,9852035011,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",596.59,COD,extreme,9826578643,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",651.0,COD,foggy,9886421986,1
+"Central Warehouse, Kathmandu","Ward 28, Main Road, Biratnagar",663.48,COD,extreme,9886555813,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4193.63,cod,foggy,9818884322,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1441.93,prepaid,normal,9857339882,1
+"Central Warehouse, Kathmandu","Ward 25, Jawalakhel, Lalitpur",4947.02,prepaid,foggy,9877860511,1
+"Central Warehouse, Kathmandu","Ward 16, Main Road, Biratnagar",4036.96,online,rainy,9881676318,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3360.18,online,normal,9835363512,1
+"Central Warehouse, Kathmandu","Ward 29, Lakeside, Pokhara",1926.03,COD,extreme,9879276769,1
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",3151.06,cod,extreme,9854068075,0
+"Central Warehouse, Kathmandu","Ward 5, Main Road, Biratnagar",2391.49,COD,normal,9876565965,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1428.95,COD,normal,9819215508,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2294.84,online,rainy,9815355336,0
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",4947.65,cod,normal,9863436256,0
+"Central Warehouse, Kathmandu","Ward 23, Lakeside, Pokhara",1130.66,cod,foggy,9868336984,0
+"Central Warehouse, Kathmandu","Ward 20, Jawalakhel, Lalitpur",2187.87,COD,foggy,9810797761,0
+"Central Warehouse, Kathmandu","Ward 24, Baneshwor, Kathmandu",3486.33,online,clear,9817895665,0
+"Central Warehouse, Kathmandu","Ward 29, Patan Durbar Square, Lalitpur",2003.96,COD,rainy,9842797595,1
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",2572.11,cod,rainy,9852386223,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1824.41,online,extreme,9874625224,0
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",2962.48,online,normal,9860403607,0
+"Central Warehouse, Kathmandu","Ward 32, Baneshwor, Kathmandu",4720.58,prepaid,extreme,9814960252,1
+"Central Warehouse, Kathmandu","Ward 24, Thamel, Kathmandu",2630.55,online,clear,9812694629,0
+"Central Warehouse, Kathmandu","Ward 23, Jawalakhel, Lalitpur",2662.1,COD,clear,9890515343,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",710.02,online,clear,9875016576,0
+"Central Warehouse, Kathmandu","Ward 2, Main Road, Biratnagar",162.44,prepaid,rainy,9848189767,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3782.47,prepaid,clear,9822687898,0
+"Central Warehouse, Kathmandu","Ward 7, Lakeside, Pokhara",4912.74,cod,rainy,9833902740,0
+"Central Warehouse, Kathmandu","Ward 14, Lakeside, Pokhara",3914.34,online,rainy,9812462647,0
+"Central Warehouse, Kathmandu","Ward 21, Patan Durbar Square, Lalitpur",2003.66,prepaid,extreme,9875207203,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4171.87,online,rainy,9841689467,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2786.31,online,normal,9891916972,1
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",3874.24,COD,extreme,9837979448,0
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",1521.22,COD,clear,9881129107,0
+"Central Warehouse, Kathmandu","Ward 23, Patan Durbar Square, Lalitpur",3738.05,COD,rainy,9817006026,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2394.03,COD,extreme,9861174926,1
+"Central Warehouse, Kathmandu","Ward 16, Durbar Square, Bhaktapur",2858.57,COD,extreme,9889972030,0
+"Central Warehouse, Kathmandu","Ward 3, Patan Durbar Square, Lalitpur",1449.04,COD,normal,9856212472,0
+"Central Warehouse, Kathmandu","Ward 1, Thamel, Kathmandu",4329.33,online,extreme,9828721776,1
+"Central Warehouse, Kathmandu","Ward 26, Main Road, Biratnagar",2154.74,COD,rainy,9849601940,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2527.46,prepaid,normal,9837383352,0
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",709.34,COD,foggy,9880184416,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",913.43,COD,foggy,9821813541,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",360.14,cod,normal,9834791590,0
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",381.96,online,rainy,9873987301,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2545.91,cod,foggy,9861772320,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3821.64,cod,clear,9893848601,0
+"Central Warehouse, Kathmandu","Ward 24, Jawalakhel, Lalitpur",1346.73,prepaid,clear,9839675118,0
+"Central Warehouse, Kathmandu","Ward 18, Durbar Square, Bhaktapur",283.48,COD,foggy,9810873292,1
+"Central Warehouse, Kathmandu","Ward 5, Jawalakhel, Lalitpur",2781.64,cod,clear,9846878094,1
+"Central Warehouse, Kathmandu","Ward 12, Durbar Square, Bhaktapur",2394.44,online,rainy,9816275716,1
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",1540.24,prepaid,foggy,9827165746,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3906.27,COD,clear,9850530885,0
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",2353.86,online,clear,9863851238,1
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",3366.69,COD,rainy,9878084434,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",243.9,cod,extreme,9846558678,0
+"Central Warehouse, Kathmandu","Ward 14, Thamel, Kathmandu",3893.42,cod,normal,9870833796,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2178.97,prepaid,rainy,9847281668,1
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",3529.48,prepaid,rainy,9852296939,0
+"Central Warehouse, Kathmandu","Ward 1, Patan Durbar Square, Lalitpur",4778.2,online,foggy,9864963630,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3535.12,prepaid,clear,9842429372,0
+"Central Warehouse, Kathmandu","Ward 30, Main Road, Biratnagar",2778.17,online,extreme,9899029923,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",351.27,prepaid,extreme,9825018424,0
+"Central Warehouse, Kathmandu","Ward 13, Thamel, Kathmandu",1624.68,online,rainy,9852097920,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4025.89,online,foggy,9848363696,1
+"Central Warehouse, Kathmandu","Ward 4, Baneshwor, Kathmandu",2552.73,cod,normal,9890734104,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",602.45,prepaid,clear,9868405801,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1779.05,cod,clear,9876424801,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1873.08,online,rainy,9816771595,1
+"Central Warehouse, Kathmandu","Ward 7, Durbar Square, Bhaktapur",3314.31,prepaid,foggy,9827653515,0
+"Central Warehouse, Kathmandu","Ward 20, Patan Durbar Square, Lalitpur",2155.58,cod,clear,9853528835,0
+"Central Warehouse, Kathmandu","Ward 29, Baneshwor, Kathmandu",3643.61,COD,normal,9863506877,1
+"Central Warehouse, Kathmandu","Ward 1, Jawalakhel, Lalitpur",982.82,COD,extreme,9832805428,1
+"Central Warehouse, Kathmandu","Ward 16, Main Road, Biratnagar",3352.19,cod,foggy,9843000962,1
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",1115.33,COD,normal,9834521888,0
+"Central Warehouse, Kathmandu","Ward 16, Patan Durbar Square, Lalitpur",2911.03,online,clear,9879641742,1
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",1794.49,COD,rainy,9821818770,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4595.42,COD,normal,9863764998,1
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",1968.26,prepaid,foggy,9895150763,0
+"Central Warehouse, Kathmandu","Ward 16, Patan Durbar Square, Lalitpur",1431.16,cod,extreme,9855614163,0
+"Central Warehouse, Kathmandu","Ward 16, Jawalakhel, Lalitpur",1419.01,prepaid,normal,9875123826,1
+"Central Warehouse, Kathmandu","Ward 20, Baneshwor, Kathmandu",387.07,COD,extreme,9828006240,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1269.72,cod,clear,9863169687,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",906.16,prepaid,clear,9885900525,1
+"Central Warehouse, Kathmandu","Ward 20, Main Road, Biratnagar",4353.87,online,extreme,9822249490,0
+"Central Warehouse, Kathmandu","Ward 17, Lakeside, Pokhara",1767.7,prepaid,foggy,9895447826,1
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",4822.0,prepaid,normal,9870222609,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1308.78,online,foggy,9862860664,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1959.27,cod,rainy,9812896706,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4000.85,COD,normal,9885135916,0
+"Central Warehouse, Kathmandu","Ward 23, Main Road, Biratnagar",3548.24,online,clear,9887075359,0
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",2487.24,online,rainy,9811171971,1
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",2291.99,prepaid,extreme,9871754402,1
+"Central Warehouse, Kathmandu","Ward 6, Baneshwor, Kathmandu",661.31,prepaid,clear,9873417631,0
+"Central Warehouse, Kathmandu","Ward 17, Patan Durbar Square, Lalitpur",2328.01,cod,clear,9869664166,1
+"Central Warehouse, Kathmandu","Ward 8, Main Road, Biratnagar",1307.89,cod,clear,9877872203,0
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",1078.79,prepaid,normal,9832357605,0
+"Central Warehouse, Kathmandu","Ward 22, Lakeside, Pokhara",1211.77,online,rainy,9821004047,0
+"Central Warehouse, Kathmandu","Ward 31, Main Road, Biratnagar",1488.01,COD,normal,9888822721,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",3444.8,prepaid,rainy,9896304839,0
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",1356.03,COD,extreme,9886708696,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",1674.72,cod,extreme,9874212472,1
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",3766.72,prepaid,extreme,9868933918,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",734.52,COD,foggy,9886325091,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1958.64,prepaid,normal,9865337675,1
+"Central Warehouse, Kathmandu","Ward 19, Main Road, Biratnagar",3489.41,prepaid,clear,9844217808,0
+"Central Warehouse, Kathmandu","Ward 17, Patan Durbar Square, Lalitpur",2203.4,online,foggy,9862783843,0
+"Central Warehouse, Kathmandu","Ward 13, Patan Durbar Square, Lalitpur",3976.69,cod,clear,9863511151,0
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",4792.74,cod,clear,9844055202,1
+"Central Warehouse, Kathmandu","Ward 31, Durbar Square, Bhaktapur",728.5,cod,clear,9845513014,1
+"Central Warehouse, Kathmandu","Ward 11, Jawalakhel, Lalitpur",4893.77,COD,foggy,9860156487,0
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",3519.4,cod,normal,9888736212,1
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",4554.66,online,foggy,9815925153,0
+"Central Warehouse, Kathmandu","Ward 13, Thamel, Kathmandu",475.16,COD,clear,9891106536,0
+"Central Warehouse, Kathmandu","Ward 22, Durbar Square, Bhaktapur",4787.94,cod,clear,9878417685,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1262.4,cod,clear,9834594293,0
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",2456.71,prepaid,clear,9810018967,0
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",1185.92,prepaid,extreme,9878858700,1
+"Central Warehouse, Kathmandu","Ward 19, Jawalakhel, Lalitpur",4210.12,online,foggy,9828024925,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4207.66,cod,extreme,9817048801,1
+"Central Warehouse, Kathmandu","Ward 15, Main Road, Biratnagar",3549.18,prepaid,extreme,9859172839,0
+"Central Warehouse, Kathmandu","Ward 10, Main Road, Biratnagar",4873.88,online,foggy,9814506401,1
+"Central Warehouse, Kathmandu","Ward 32, Patan Durbar Square, Lalitpur",1167.63,cod,normal,9831129949,1
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",3167.37,cod,normal,9885029429,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",385.36,COD,normal,9818545573,0
+"Central Warehouse, Kathmandu","Ward 31, Jawalakhel, Lalitpur",3433.23,online,extreme,9851471380,1
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",2959.24,online,foggy,9810322303,0
+"Central Warehouse, Kathmandu","Ward 18, Patan Durbar Square, Lalitpur",3819.3,prepaid,extreme,9870214769,1
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",555.06,prepaid,normal,9823347934,0
+"Central Warehouse, Kathmandu","Ward 31, Main Road, Biratnagar",1358.54,cod,normal,9893270687,0
+"Central Warehouse, Kathmandu","Ward 16, Lakeside, Pokhara",1032.36,prepaid,foggy,9816407276,1
+"Central Warehouse, Kathmandu","Ward 19, Jawalakhel, Lalitpur",955.0,prepaid,normal,9876236814,0
+"Central Warehouse, Kathmandu","Ward 26, Jawalakhel, Lalitpur",1603.48,COD,foggy,9896029606,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3562.95,cod,foggy,9893935543,0
+"Central Warehouse, Kathmandu","Ward 5, Jawalakhel, Lalitpur",260.33,online,extreme,9893563032,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1533.09,online,rainy,9893156176,0
+"Central Warehouse, Kathmandu","Ward 12, Durbar Square, Bhaktapur",2450.88,COD,foggy,9820252065,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3149.38,prepaid,clear,9890496929,0
+"Central Warehouse, Kathmandu","Ward 3, Jawalakhel, Lalitpur",1921.25,COD,extreme,9836087398,1
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",4213.23,cod,foggy,9869983503,1
+"Central Warehouse, Kathmandu","Ward 6, Lakeside, Pokhara",2298.25,prepaid,normal,9865608954,0
+"Central Warehouse, Kathmandu","Ward 5, Main Road, Biratnagar",604.14,prepaid,extreme,9891332458,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3490.61,prepaid,extreme,9897702750,1
+"Central Warehouse, Kathmandu","Ward 22, Baneshwor, Kathmandu",860.72,cod,extreme,9810133651,1
+"Central Warehouse, Kathmandu","Ward 31, Baneshwor, Kathmandu",179.87,online,extreme,9878329479,1
+"Central Warehouse, Kathmandu","Ward 27, Main Road, Biratnagar",2684.74,COD,rainy,9843958258,1
+"Central Warehouse, Kathmandu","Ward 30, Patan Durbar Square, Lalitpur",3568.6,cod,rainy,9825880940,0
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",649.73,cod,clear,9870261053,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",3820.36,cod,extreme,9870616030,0
+"Central Warehouse, Kathmandu","Ward 7, Jawalakhel, Lalitpur",467.69,online,foggy,9856952582,1
+"Central Warehouse, Kathmandu","Ward 15, Thamel, Kathmandu",3839.29,online,extreme,9853818953,0
+"Central Warehouse, Kathmandu","Ward 4, Main Road, Biratnagar",813.61,online,clear,9826130910,0
+"Central Warehouse, Kathmandu","Ward 18, Baneshwor, Kathmandu",3067.26,online,foggy,9888844831,0
+"Central Warehouse, Kathmandu","Ward 6, Durbar Square, Bhaktapur",4807.86,online,normal,9840667055,0
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",3795.76,prepaid,clear,9854550211,0
+"Central Warehouse, Kathmandu","Ward 13, Patan Durbar Square, Lalitpur",3450.35,COD,foggy,9812067921,1
+"Central Warehouse, Kathmandu","Ward 9, Patan Durbar Square, Lalitpur",3424.33,COD,rainy,9871379243,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",769.41,COD,normal,9837259600,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2049.16,COD,foggy,9844486714,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3422.89,COD,clear,9817631679,0
+"Central Warehouse, Kathmandu","Ward 23, Main Road, Biratnagar",4604.81,online,foggy,9829459438,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",590.73,online,foggy,9834083350,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1266.44,prepaid,rainy,9872695011,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4991.86,online,foggy,9842013477,0
+"Central Warehouse, Kathmandu","Ward 31, Jawalakhel, Lalitpur",2873.49,prepaid,foggy,9839982790,1
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",3977.1,online,normal,9843610422,0
+"Central Warehouse, Kathmandu","Ward 14, Lakeside, Pokhara",3348.5,COD,clear,9896488151,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3252.64,COD,foggy,9861509003,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3602.8,cod,extreme,9886472225,1
+"Central Warehouse, Kathmandu","Ward 29, Patan Durbar Square, Lalitpur",4879.29,online,extreme,9877221785,0
+"Central Warehouse, Kathmandu","Ward 6, Jawalakhel, Lalitpur",1045.7,online,normal,9825025113,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3676.83,online,foggy,9887107911,1
+"Central Warehouse, Kathmandu","Ward 21, Baneshwor, Kathmandu",2213.67,COD,extreme,9850027654,1
+"Central Warehouse, Kathmandu","Ward 29, Main Road, Biratnagar",3063.71,online,normal,9895425854,0
+"Central Warehouse, Kathmandu","Ward 22, Patan Durbar Square, Lalitpur",3856.88,COD,normal,9885368241,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4368.52,prepaid,normal,9879434044,0
+"Central Warehouse, Kathmandu","Ward 14, Thamel, Kathmandu",2133.08,online,extreme,9815967577,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4840.48,COD,foggy,9886207712,1
+"Central Warehouse, Kathmandu","Ward 7, Durbar Square, Bhaktapur",2861.51,prepaid,foggy,9848473473,0
+"Central Warehouse, Kathmandu","Ward 9, Patan Durbar Square, Lalitpur",1075.58,prepaid,normal,9817571523,0
+"Central Warehouse, Kathmandu","Ward 2, Lakeside, Pokhara",672.0,cod,extreme,9885224890,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",859.56,cod,foggy,9894594906,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2935.13,COD,foggy,9844792590,1
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",4586.91,cod,extreme,9864849753,1
+"Central Warehouse, Kathmandu","Ward 13, Durbar Square, Bhaktapur",2472.37,cod,foggy,9815914221,1
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",4706.82,prepaid,foggy,9854123659,1
+"Central Warehouse, Kathmandu","Ward 17, Patan Durbar Square, Lalitpur",2839.22,cod,foggy,9849308382,1
+"Central Warehouse, Kathmandu","Ward 27, Patan Durbar Square, Lalitpur",1565.37,online,foggy,9844284441,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3797.07,cod,normal,9857555493,1
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",3362.97,prepaid,normal,9838258804,0
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",4706.56,COD,normal,9840171168,0
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",1683.5,COD,normal,9826686190,0
+"Central Warehouse, Kathmandu","Ward 19, Main Road, Biratnagar",2767.75,online,clear,9868097507,0
+"Central Warehouse, Kathmandu","Ward 7, Main Road, Biratnagar",891.87,cod,extreme,9819993870,0
+"Central Warehouse, Kathmandu","Ward 5, Durbar Square, Bhaktapur",2270.55,prepaid,extreme,9825105746,1
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",2497.48,cod,normal,9820361236,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2831.85,cod,foggy,9852754463,1
+"Central Warehouse, Kathmandu","Ward 30, Jawalakhel, Lalitpur",1424.86,cod,extreme,9827692503,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4835.24,COD,rainy,9885796239,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4714.49,prepaid,rainy,9890759511,1
+"Central Warehouse, Kathmandu","Ward 25, Thamel, Kathmandu",4866.93,prepaid,extreme,9854043903,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1491.72,online,extreme,9834667763,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",855.84,online,extreme,9865771064,0
+"Central Warehouse, Kathmandu","Ward 18, Durbar Square, Bhaktapur",2813.05,COD,rainy,9875981129,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3761.78,cod,extreme,9866527373,0
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",2264.32,cod,foggy,9842942229,1
+"Central Warehouse, Kathmandu","Ward 32, Durbar Square, Bhaktapur",4096.52,COD,rainy,9882206000,1
+"Central Warehouse, Kathmandu","Ward 15, Main Road, Biratnagar",4471.82,online,foggy,9877017326,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1721.81,cod,extreme,9848879313,0
+"Central Warehouse, Kathmandu","Ward 15, Thamel, Kathmandu",759.3,COD,rainy,9849266953,1
+"Central Warehouse, Kathmandu","Ward 5, Jawalakhel, Lalitpur",895.47,online,normal,9889160643,1
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",758.66,prepaid,foggy,9848031385,0
+"Central Warehouse, Kathmandu","Ward 3, Thamel, Kathmandu",3437.84,cod,foggy,9843895604,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",229.11,online,foggy,9839855612,1
+"Central Warehouse, Kathmandu","Ward 18, Main Road, Biratnagar",1729.97,prepaid,extreme,9863704026,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4414.31,COD,rainy,9819515499,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1489.07,prepaid,foggy,9897588334,1
+"Central Warehouse, Kathmandu","Ward 20, Main Road, Biratnagar",717.99,online,foggy,9814378404,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1992.03,cod,rainy,9814323754,1
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",2265.61,prepaid,extreme,9810462249,0
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",544.64,COD,clear,9860267529,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3631.24,cod,foggy,9812015620,0
+"Central Warehouse, Kathmandu","Ward 22, Lakeside, Pokhara",2407.42,COD,clear,9880337397,1
+"Central Warehouse, Kathmandu","Ward 6, Lakeside, Pokhara",1559.81,cod,extreme,9892039351,0
+"Central Warehouse, Kathmandu","Ward 23, Durbar Square, Bhaktapur",689.55,COD,clear,9866299818,0
+"Central Warehouse, Kathmandu","Ward 26, Main Road, Biratnagar",1644.8,prepaid,clear,9819015482,0
+"Central Warehouse, Kathmandu","Ward 4, Lakeside, Pokhara",1252.61,cod,foggy,9886076559,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",954.87,online,foggy,9847415354,0
+"Central Warehouse, Kathmandu","Ward 7, Lakeside, Pokhara",2220.22,cod,extreme,9875953952,1
+"Central Warehouse, Kathmandu","Ward 9, Main Road, Biratnagar",1667.81,cod,extreme,9853821859,1
+"Central Warehouse, Kathmandu","Ward 10, Baneshwor, Kathmandu",2914.12,COD,extreme,9818916683,1
+"Central Warehouse, Kathmandu","Ward 4, Baneshwor, Kathmandu",4645.12,COD,foggy,9885215134,1
+"Central Warehouse, Kathmandu","Ward 18, Baneshwor, Kathmandu",152.82,COD,extreme,9844258544,1
+"Central Warehouse, Kathmandu","Ward 17, Lakeside, Pokhara",3412.43,online,extreme,9892075392,1
+"Central Warehouse, Kathmandu","Ward 18, Main Road, Biratnagar",2136.76,cod,foggy,9839693127,0
+"Central Warehouse, Kathmandu","Ward 20, Jawalakhel, Lalitpur",2555.38,online,rainy,9841591591,1
+"Central Warehouse, Kathmandu","Ward 3, Jawalakhel, Lalitpur",1783.81,COD,foggy,9833500802,0
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",1671.67,prepaid,rainy,9828498114,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1949.06,online,clear,9848117765,1
+"Central Warehouse, Kathmandu","Ward 4, Jawalakhel, Lalitpur",2010.63,prepaid,foggy,9829781928,1
+"Central Warehouse, Kathmandu","Ward 2, Lakeside, Pokhara",229.2,COD,extreme,9889964354,1
+"Central Warehouse, Kathmandu","Ward 15, Lakeside, Pokhara",1734.15,COD,clear,9836465660,1
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",2018.36,prepaid,foggy,9839072047,1
+"Central Warehouse, Kathmandu","Ward 26, Jawalakhel, Lalitpur",4491.68,COD,extreme,9881188651,0
+"Central Warehouse, Kathmandu","Ward 14, Jawalakhel, Lalitpur",1808.65,COD,rainy,9892792203,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",447.05,cod,foggy,9847497799,1
+"Central Warehouse, Kathmandu","Ward 15, Patan Durbar Square, Lalitpur",2306.72,cod,rainy,9844104116,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3889.82,COD,normal,9811907921,0
+"Central Warehouse, Kathmandu","Ward 4, Baneshwor, Kathmandu",1439.72,online,foggy,9813828516,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2436.57,online,foggy,9872290202,1
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",1383.72,cod,foggy,9818505311,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2136.54,cod,extreme,9880030472,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",145.54,cod,normal,9863301737,0
+"Central Warehouse, Kathmandu","Ward 10, Thamel, Kathmandu",2485.57,COD,clear,9885577389,1
+"Central Warehouse, Kathmandu","Ward 24, Thamel, Kathmandu",1536.44,COD,normal,9843336501,0
+"Central Warehouse, Kathmandu","Ward 14, Jawalakhel, Lalitpur",3849.55,cod,rainy,9871537854,1
+"Central Warehouse, Kathmandu","Ward 3, Jawalakhel, Lalitpur",2519.21,prepaid,clear,9894313912,1
+"Central Warehouse, Kathmandu","Ward 14, Lakeside, Pokhara",1203.66,online,rainy,9823881753,0
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",968.67,cod,clear,9893855098,0
+"Central Warehouse, Kathmandu","Ward 15, Main Road, Biratnagar",711.12,COD,foggy,9891039761,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",2732.04,prepaid,normal,9896808918,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1183.83,online,rainy,9885335792,0
+"Central Warehouse, Kathmandu","Ward 18, Patan Durbar Square, Lalitpur",177.08,prepaid,extreme,9856418961,0
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",1060.79,prepaid,normal,9825327235,0
+"Central Warehouse, Kathmandu","Ward 22, Thamel, Kathmandu",1140.01,COD,rainy,9819713708,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4366.43,prepaid,normal,9847701770,0
+"Central Warehouse, Kathmandu","Ward 5, Jawalakhel, Lalitpur",1448.62,COD,rainy,9884582996,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1814.48,COD,normal,9875943938,0
+"Central Warehouse, Kathmandu","Ward 27, Lakeside, Pokhara",3100.78,online,extreme,9842254194,0
+"Central Warehouse, Kathmandu","Ward 25, Thamel, Kathmandu",1983.55,COD,normal,9871926934,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2334.02,prepaid,extreme,9863700684,1
+"Central Warehouse, Kathmandu","Ward 30, Jawalakhel, Lalitpur",3437.37,cod,foggy,9868244015,0
+"Central Warehouse, Kathmandu","Ward 18, Main Road, Biratnagar",4935.37,prepaid,normal,9817668451,0
+"Central Warehouse, Kathmandu","Ward 28, Patan Durbar Square, Lalitpur",612.24,cod,extreme,9886780875,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1283.35,cod,foggy,9870330019,1
+"Central Warehouse, Kathmandu","Ward 17, Jawalakhel, Lalitpur",4016.06,COD,normal,9823211105,1
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",2056.89,online,foggy,9826712437,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3277.3,cod,normal,9817909361,1
+"Central Warehouse, Kathmandu","Ward 6, Durbar Square, Bhaktapur",2990.48,COD,rainy,9854251461,1
+"Central Warehouse, Kathmandu","Ward 8, Baneshwor, Kathmandu",2246.45,prepaid,rainy,9819661303,1
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",1775.66,prepaid,clear,9871022363,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",467.27,cod,rainy,9818866521,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1089.91,online,foggy,9837081722,0
+"Central Warehouse, Kathmandu","Ward 18, Patan Durbar Square, Lalitpur",2348.56,online,rainy,9838907833,0
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",3934.31,prepaid,foggy,9856167722,1
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",1324.67,online,foggy,9841316382,0
+"Central Warehouse, Kathmandu","Ward 2, Patan Durbar Square, Lalitpur",974.34,cod,normal,9813313704,0
+"Central Warehouse, Kathmandu","Ward 27, Baneshwor, Kathmandu",1622.64,online,rainy,9891800964,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1365.65,prepaid,rainy,9840936683,1
+"Central Warehouse, Kathmandu","Ward 20, Baneshwor, Kathmandu",4217.32,COD,rainy,9892278848,0
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",1965.96,online,foggy,9895488396,0
+"Central Warehouse, Kathmandu","Ward 20, Patan Durbar Square, Lalitpur",3363.65,cod,clear,9857730469,0
+"Central Warehouse, Kathmandu","Ward 1, Jawalakhel, Lalitpur",1619.02,online,foggy,9815155800,0
+"Central Warehouse, Kathmandu","Ward 25, Thamel, Kathmandu",898.19,cod,rainy,9844680681,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4108.54,cod,extreme,9854194394,1
+"Central Warehouse, Kathmandu","Ward 26, Patan Durbar Square, Lalitpur",3260.37,COD,foggy,9896265057,1
+"Central Warehouse, Kathmandu","Ward 8, Main Road, Biratnagar",4910.15,cod,rainy,9877832720,0
+"Central Warehouse, Kathmandu","Ward 23, Jawalakhel, Lalitpur",1999.51,cod,extreme,9836287266,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2480.7,online,rainy,9876597954,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1127.57,prepaid,normal,9825781410,0
+"Central Warehouse, Kathmandu","Ward 14, Main Road, Biratnagar",712.45,prepaid,extreme,9829406982,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",664.0,prepaid,clear,9823136577,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2260.24,prepaid,clear,9871435922,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3173.21,COD,rainy,9864750427,0
+"Central Warehouse, Kathmandu","Ward 18, Main Road, Biratnagar",126.64,online,clear,9831668210,0
+"Central Warehouse, Kathmandu","Ward 22, Lakeside, Pokhara",4823.59,COD,foggy,9875053054,0
+"Central Warehouse, Kathmandu","Ward 32, Patan Durbar Square, Lalitpur",418.89,online,foggy,9892551658,0
+"Central Warehouse, Kathmandu","Ward 30, Main Road, Biratnagar",3384.35,cod,foggy,9838807539,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1185.91,cod,foggy,9883017169,0
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",4292.2,COD,clear,9853347591,0
+"Central Warehouse, Kathmandu","Ward 5, Thamel, Kathmandu",742.65,cod,foggy,9899223658,0
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",2609.52,cod,foggy,9892987154,0
+"Central Warehouse, Kathmandu","Ward 18, Jawalakhel, Lalitpur",3726.69,COD,rainy,9816619422,1
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",1038.5,prepaid,rainy,9842439520,0
+"Central Warehouse, Kathmandu","Ward 16, Thamel, Kathmandu",298.24,COD,extreme,9883446761,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1422.08,cod,foggy,9878948904,1
+"Central Warehouse, Kathmandu","Ward 24, Baneshwor, Kathmandu",1995.81,online,foggy,9826003861,0
+"Central Warehouse, Kathmandu","Ward 1, Durbar Square, Bhaktapur",1929.92,COD,extreme,9847362440,1
+"Central Warehouse, Kathmandu","Ward 24, Baneshwor, Kathmandu",4500.19,cod,extreme,9836473849,1
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",2980.37,online,normal,9845186218,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",4854.79,prepaid,clear,9853933829,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4692.04,prepaid,foggy,9853123484,1
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",897.7,prepaid,extreme,9812286877,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",728.1,COD,rainy,9843748900,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1635.75,COD,rainy,9858345437,0
+"Central Warehouse, Kathmandu","Ward 30, Durbar Square, Bhaktapur",2823.85,COD,clear,9835385304,1
+"Central Warehouse, Kathmandu","Ward 13, Main Road, Biratnagar",2568.51,prepaid,extreme,9879373288,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",630.13,COD,clear,9889532028,0
+"Central Warehouse, Kathmandu","Ward 5, Baneshwor, Kathmandu",338.25,COD,normal,9863222171,0
+"Central Warehouse, Kathmandu","Ward 30, Baneshwor, Kathmandu",3464.56,COD,clear,9882800378,0
+"Central Warehouse, Kathmandu","Ward 26, Jawalakhel, Lalitpur",176.71,cod,rainy,9857165781,1
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",3186.68,prepaid,clear,9816042768,0
+"Central Warehouse, Kathmandu","Ward 13, Jawalakhel, Lalitpur",3780.8,cod,clear,9837305254,0
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",3755.64,online,normal,9811256078,0
+"Central Warehouse, Kathmandu","Ward 31, Thamel, Kathmandu",1343.06,online,rainy,9885338216,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4376.1,online,clear,9848059320,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3127.69,online,clear,9897724154,0
+"Central Warehouse, Kathmandu","Ward 16, Thamel, Kathmandu",3164.44,online,rainy,9870783957,0
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",2026.71,online,normal,9849451992,0
+"Central Warehouse, Kathmandu","Ward 8, Durbar Square, Bhaktapur",3276.95,online,extreme,9822239290,0
+"Central Warehouse, Kathmandu","Ward 18, Thamel, Kathmandu",4601.17,cod,extreme,9897305677,1
+"Central Warehouse, Kathmandu","Ward 32, Baneshwor, Kathmandu",2363.78,prepaid,rainy,9831186329,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2430.58,cod,rainy,9821054568,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",309.26,COD,normal,9858290689,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3927.09,prepaid,clear,9895576292,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",914.78,COD,normal,9863148827,1
+"Central Warehouse, Kathmandu","Ward 6, Jawalakhel, Lalitpur",2761.31,prepaid,extreme,9899768938,1
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",905.66,prepaid,foggy,9858734820,0
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",694.38,online,extreme,9823038716,0
+"Central Warehouse, Kathmandu","Ward 9, Lakeside, Pokhara",2898.64,prepaid,foggy,9890653916,1
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",611.72,prepaid,clear,9811130308,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1570.38,prepaid,clear,9860279192,0
+"Central Warehouse, Kathmandu","Ward 20, Patan Durbar Square, Lalitpur",970.79,online,rainy,9888410390,0
+"Central Warehouse, Kathmandu","Ward 16, Baneshwor, Kathmandu",1649.42,online,foggy,9830480858,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3778.94,prepaid,foggy,9839900738,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3363.01,cod,normal,9812196263,0
+"Central Warehouse, Kathmandu","Ward 21, Thamel, Kathmandu",4781.56,cod,normal,9858221607,1
+"Central Warehouse, Kathmandu","Ward 13, Jawalakhel, Lalitpur",331.74,online,extreme,9876003538,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1675.56,COD,rainy,9853920577,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3713.31,prepaid,foggy,9880604967,1
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",313.86,COD,foggy,9841483533,0
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",2767.76,prepaid,normal,9871619919,1
+"Central Warehouse, Kathmandu","Ward 9, Durbar Square, Bhaktapur",4383.03,prepaid,normal,9890042515,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3503.67,prepaid,clear,9855424734,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4104.0,prepaid,clear,9820722672,0
+"Central Warehouse, Kathmandu","Ward 10, Main Road, Biratnagar",966.93,prepaid,rainy,9889196949,0
+"Central Warehouse, Kathmandu","Ward 17, Thamel, Kathmandu",4626.26,cod,normal,9899650284,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3692.79,COD,normal,9825899358,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3977.33,COD,extreme,9820979569,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1136.27,prepaid,foggy,9811504780,0
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",1716.92,prepaid,clear,9827368280,0
+"Central Warehouse, Kathmandu","Ward 26, Main Road, Biratnagar",1158.83,prepaid,rainy,9842913238,0
+"Central Warehouse, Kathmandu","Ward 5, Baneshwor, Kathmandu",4283.89,online,normal,9872093781,0
+"Central Warehouse, Kathmandu","Ward 16, Main Road, Biratnagar",2317.56,COD,extreme,9834327920,1
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",3268.3,online,clear,9876362627,0
+"Central Warehouse, Kathmandu","Ward 27, Durbar Square, Bhaktapur",4637.58,online,extreme,9871157216,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3158.66,cod,clear,9875022789,1
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",3190.32,online,extreme,9854488482,1
+"Central Warehouse, Kathmandu","Ward 16, Durbar Square, Bhaktapur",2694.16,COD,foggy,9848889256,1
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",1107.1,online,foggy,9855863812,0
+"Central Warehouse, Kathmandu","Ward 13, Patan Durbar Square, Lalitpur",3881.66,cod,foggy,9836621730,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2836.13,COD,normal,9897439795,0
+"Central Warehouse, Kathmandu","Ward 23, Durbar Square, Bhaktapur",793.48,prepaid,foggy,9850878211,0
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",4337.07,cod,normal,9838206138,1
+"Central Warehouse, Kathmandu","Ward 1, Baneshwor, Kathmandu",214.18,cod,rainy,9814689995,0
+"Central Warehouse, Kathmandu","Ward 16, Patan Durbar Square, Lalitpur",783.49,cod,normal,9883629254,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1017.21,prepaid,rainy,9829543956,0
+"Central Warehouse, Kathmandu","Ward 17, Jawalakhel, Lalitpur",1695.84,cod,rainy,9839738743,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2046.69,online,extreme,9812740214,1
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",4710.16,cod,clear,9814186169,0
+"Central Warehouse, Kathmandu","Ward 30, Jawalakhel, Lalitpur",2042.41,online,rainy,9892884708,0
+"Central Warehouse, Kathmandu","Ward 23, Durbar Square, Bhaktapur",823.79,cod,rainy,9861257457,0
+"Central Warehouse, Kathmandu","Ward 27, Jawalakhel, Lalitpur",2153.21,COD,normal,9824992237,0
+"Central Warehouse, Kathmandu","Ward 15, Durbar Square, Bhaktapur",1606.04,online,clear,9832240896,0
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",3665.91,cod,rainy,9863036598,1
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",1854.72,cod,normal,9829920953,0
+"Central Warehouse, Kathmandu","Ward 31, Durbar Square, Bhaktapur",3972.28,online,rainy,9812959507,0
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",1111.65,COD,normal,9838693592,0
+"Central Warehouse, Kathmandu","Ward 10, Baneshwor, Kathmandu",1419.05,prepaid,foggy,9880974300,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2058.97,online,normal,9892513501,1
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",4430.37,cod,extreme,9828148023,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3144.48,online,normal,9825113829,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",867.18,COD,rainy,9894135413,1
+"Central Warehouse, Kathmandu","Ward 26, Patan Durbar Square, Lalitpur",3140.34,cod,rainy,9836093996,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2447.46,COD,foggy,9833727031,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3970.54,COD,normal,9868965579,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4445.77,COD,normal,9882260508,0
+"Central Warehouse, Kathmandu","Ward 14, Baneshwor, Kathmandu",403.64,COD,normal,9820420430,0
+"Central Warehouse, Kathmandu","Ward 20, Lakeside, Pokhara",509.75,online,normal,9831955341,0
+"Central Warehouse, Kathmandu","Ward 24, Durbar Square, Bhaktapur",1190.04,COD,extreme,9852979655,0
+"Central Warehouse, Kathmandu","Ward 7, Main Road, Biratnagar",4159.12,online,extreme,9824081747,0
+"Central Warehouse, Kathmandu","Ward 11, Thamel, Kathmandu",1156.89,cod,rainy,9879524654,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",112.63,online,clear,9851777041,0
+"Central Warehouse, Kathmandu","Ward 2, Jawalakhel, Lalitpur",1452.8,online,normal,9868328882,0
+"Central Warehouse, Kathmandu","Ward 29, Thamel, Kathmandu",4730.7,prepaid,clear,9844422397,0
+"Central Warehouse, Kathmandu","Ward 22, Thamel, Kathmandu",3115.43,prepaid,normal,9826808794,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4609.22,COD,clear,9882502843,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4763.9,online,foggy,9817271896,1
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",2627.61,cod,foggy,9841183635,1
+"Central Warehouse, Kathmandu","Ward 27, Thamel, Kathmandu",1848.6,online,rainy,9845922582,0
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",3837.73,cod,normal,9852529812,0
+"Central Warehouse, Kathmandu","Ward 15, Jawalakhel, Lalitpur",1455.12,prepaid,foggy,9861563814,0
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",1363.63,COD,rainy,9881787958,0
+"Central Warehouse, Kathmandu","Ward 24, Patan Durbar Square, Lalitpur",2980.09,cod,normal,9881255930,0
+"Central Warehouse, Kathmandu","Ward 8, Baneshwor, Kathmandu",1110.62,prepaid,foggy,9856611496,1
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",1766.47,online,extreme,9882228072,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1638.52,prepaid,extreme,9829010587,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2842.41,COD,clear,9868000767,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4208.36,online,extreme,9859724127,1
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",4176.06,online,foggy,9816533478,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2965.76,prepaid,foggy,9841281539,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",1599.48,cod,clear,9878973780,0
+"Central Warehouse, Kathmandu","Ward 13, Baneshwor, Kathmandu",3687.36,COD,clear,9839484280,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1887.21,prepaid,normal,9842943805,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4115.62,COD,normal,9868217488,1
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",541.63,COD,normal,9896090909,0
+"Central Warehouse, Kathmandu","Ward 22, Patan Durbar Square, Lalitpur",1727.45,prepaid,normal,9886951519,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",239.03,COD,rainy,9851813728,0
+"Central Warehouse, Kathmandu","Ward 25, Main Road, Biratnagar",2827.65,prepaid,foggy,9875978877,1
+"Central Warehouse, Kathmandu","Ward 22, Baneshwor, Kathmandu",2239.47,COD,extreme,9860877053,1
+"Central Warehouse, Kathmandu","Ward 25, Jawalakhel, Lalitpur",1943.05,COD,rainy,9814007135,0
+"Central Warehouse, Kathmandu","Ward 5, Durbar Square, Bhaktapur",582.2,online,foggy,9890952701,0
+"Central Warehouse, Kathmandu","Ward 22, Thamel, Kathmandu",2393.16,prepaid,foggy,9811937580,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2243.11,online,rainy,9882651995,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3757.74,COD,foggy,9828347866,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2037.29,online,clear,9898483970,0
+"Central Warehouse, Kathmandu","Ward 7, Jawalakhel, Lalitpur",2905.52,prepaid,foggy,9849034517,0
+"Central Warehouse, Kathmandu","Ward 14, Main Road, Biratnagar",3719.28,COD,normal,9882567935,0
+"Central Warehouse, Kathmandu","Ward 28, Thamel, Kathmandu",2207.12,cod,extreme,9852600397,0
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",713.48,prepaid,foggy,9886536069,1
+"Central Warehouse, Kathmandu","Ward 17, Baneshwor, Kathmandu",2595.43,prepaid,extreme,9821030862,0
+"Central Warehouse, Kathmandu","Ward 3, Jawalakhel, Lalitpur",4709.07,COD,rainy,9839676949,1
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",4476.34,online,foggy,9880711671,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3844.22,cod,normal,9811599240,1
+"Central Warehouse, Kathmandu","Ward 22, Durbar Square, Bhaktapur",4223.28,cod,clear,9812518926,0
+"Central Warehouse, Kathmandu","Ward 21, Thamel, Kathmandu",1995.67,cod,foggy,9814970490,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3432.54,online,rainy,9848748650,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",2903.3,prepaid,rainy,9873296145,0
+"Central Warehouse, Kathmandu","Ward 15, Main Road, Biratnagar",3446.49,online,extreme,9844740370,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",590.71,COD,rainy,9871353301,0
+"Central Warehouse, Kathmandu","Ward 16, Baneshwor, Kathmandu",4379.71,prepaid,rainy,9843120264,0
+"Central Warehouse, Kathmandu","Ward 2, Lakeside, Pokhara",954.45,prepaid,extreme,9855270951,0
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",1479.01,cod,extreme,9833356997,0
+"Central Warehouse, Kathmandu","Ward 16, Lakeside, Pokhara",1753.06,cod,rainy,9856946100,1
+"Central Warehouse, Kathmandu","Ward 25, Jawalakhel, Lalitpur",3101.76,COD,rainy,9860079203,0
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",4212.39,cod,normal,9891320769,0
+"Central Warehouse, Kathmandu","Ward 1, Baneshwor, Kathmandu",2098.19,cod,foggy,9851117298,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3197.91,COD,extreme,9870776185,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",119.69,online,rainy,9863834599,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1261.14,prepaid,foggy,9871552398,0
+"Central Warehouse, Kathmandu","Ward 15, Durbar Square, Bhaktapur",2086.69,cod,normal,9878251040,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",3953.24,online,foggy,9833369046,0
+"Central Warehouse, Kathmandu","Ward 27, Baneshwor, Kathmandu",2927.52,prepaid,foggy,9810681182,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",216.59,online,foggy,9861551646,0
+"Central Warehouse, Kathmandu","Ward 9, Patan Durbar Square, Lalitpur",206.39,COD,rainy,9817777139,1
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",2714.25,cod,clear,9879875996,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1509.13,prepaid,clear,9876508698,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3117.24,online,foggy,9884998194,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3989.7,cod,rainy,9876741568,1
+"Central Warehouse, Kathmandu","Ward 17, Patan Durbar Square, Lalitpur",1455.67,prepaid,foggy,9824753159,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1484.79,online,normal,9820953605,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4530.52,online,clear,9865994221,0
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",3246.4,online,foggy,9873669511,0
+"Central Warehouse, Kathmandu","Ward 13, Patan Durbar Square, Lalitpur",3530.26,cod,extreme,9899202113,1
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",1325.04,cod,clear,9894437972,0
+"Central Warehouse, Kathmandu","Ward 16, Thamel, Kathmandu",2868.54,online,normal,9813589646,1
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",1612.92,cod,clear,9881103636,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",580.42,online,rainy,9812984460,0
+"Central Warehouse, Kathmandu","Ward 23, Main Road, Biratnagar",3708.45,online,foggy,9894443539,1
+"Central Warehouse, Kathmandu","Ward 20, Baneshwor, Kathmandu",4013.21,prepaid,rainy,9853607566,0
+"Central Warehouse, Kathmandu","Ward 19, Main Road, Biratnagar",2616.64,COD,extreme,9876637230,1
+"Central Warehouse, Kathmandu","Ward 6, Thamel, Kathmandu",3766.41,cod,normal,9830604707,0
+"Central Warehouse, Kathmandu","Ward 14, Baneshwor, Kathmandu",1939.67,COD,normal,9825376280,1
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",1836.64,cod,clear,9882948966,0
+"Central Warehouse, Kathmandu","Ward 7, Main Road, Biratnagar",319.1,prepaid,normal,9878056180,0
+"Central Warehouse, Kathmandu","Ward 21, Lakeside, Pokhara",1461.3,COD,foggy,9854665647,1
+"Central Warehouse, Kathmandu","Ward 2, Lakeside, Pokhara",4791.19,COD,normal,9848108717,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1275.7,prepaid,foggy,9855427504,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4407.37,COD,normal,9842183277,1
+"Central Warehouse, Kathmandu","Ward 4, Thamel, Kathmandu",913.12,prepaid,normal,9839047013,0
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",3867.53,prepaid,foggy,9889967091,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1287.12,online,clear,9894228816,0
+"Central Warehouse, Kathmandu","Ward 24, Thamel, Kathmandu",3380.44,cod,foggy,9832770983,1
+"Central Warehouse, Kathmandu","Ward 23, Durbar Square, Bhaktapur",4030.07,cod,rainy,9868396872,0
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",508.26,COD,clear,9831566603,0
+"Central Warehouse, Kathmandu","Ward 20, Patan Durbar Square, Lalitpur",4261.17,COD,foggy,9821655712,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3393.27,prepaid,foggy,9847882173,0
+"Central Warehouse, Kathmandu","Ward 27, Jawalakhel, Lalitpur",3288.81,cod,rainy,9814106921,1
+"Central Warehouse, Kathmandu","Ward 24, Lakeside, Pokhara",1869.4,cod,extreme,9864888723,0
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",4291.09,prepaid,foggy,9844823205,0
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",3596.33,cod,extreme,9831232439,1
+"Central Warehouse, Kathmandu","Ward 9, Thamel, Kathmandu",1713.96,COD,extreme,9845624594,1
+"Central Warehouse, Kathmandu","Ward 20, Lakeside, Pokhara",2021.84,COD,foggy,9879085328,0
+"Central Warehouse, Kathmandu","Ward 29, Lakeside, Pokhara",4072.35,online,normal,9832778314,0
+"Central Warehouse, Kathmandu","Ward 20, Lakeside, Pokhara",2813.01,COD,rainy,9891688931,0
+"Central Warehouse, Kathmandu","Ward 18, Jawalakhel, Lalitpur",2296.81,prepaid,extreme,9864906920,0
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",3852.43,prepaid,extreme,9831712862,1
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",4852.64,cod,clear,9835131068,1
+"Central Warehouse, Kathmandu","Ward 13, Baneshwor, Kathmandu",3494.33,COD,normal,9890097991,1
+"Central Warehouse, Kathmandu","Ward 20, Durbar Square, Bhaktapur",3940.59,prepaid,rainy,9816805858,0
+"Central Warehouse, Kathmandu","Ward 29, Lakeside, Pokhara",2965.71,COD,rainy,9865853034,1
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",3146.47,COD,clear,9893686499,1
+"Central Warehouse, Kathmandu","Ward 13, Main Road, Biratnagar",1031.18,COD,clear,9842743081,0
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",2145.03,COD,normal,9816938787,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4811.85,prepaid,normal,9866535966,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",4865.66,cod,extreme,9821981764,0
+"Central Warehouse, Kathmandu","Ward 30, Baneshwor, Kathmandu",4261.51,cod,rainy,9842310900,0
+"Central Warehouse, Kathmandu","Ward 27, Patan Durbar Square, Lalitpur",147.43,prepaid,clear,9821927064,0
+"Central Warehouse, Kathmandu","Ward 4, Durbar Square, Bhaktapur",2202.75,COD,normal,9841994573,0
+"Central Warehouse, Kathmandu","Ward 29, Lakeside, Pokhara",3975.09,COD,foggy,9837946766,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3600.16,online,normal,9845342945,0
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",4664.79,COD,clear,9848255785,1
+"Central Warehouse, Kathmandu","Ward 5, Main Road, Biratnagar",1484.27,COD,normal,9845990944,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4438.57,online,rainy,9836858550,0
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",2825.39,COD,foggy,9820485923,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4957.27,COD,foggy,9856250473,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1572.28,COD,rainy,9814032759,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4925.68,COD,extreme,9810498613,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2304.37,prepaid,clear,9850912496,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4211.26,prepaid,normal,9814459113,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4397.8,cod,normal,9852014953,1
+"Central Warehouse, Kathmandu","Ward 12, Patan Durbar Square, Lalitpur",2563.81,online,foggy,9872010601,0
+"Central Warehouse, Kathmandu","Ward 16, Jawalakhel, Lalitpur",4343.71,online,extreme,9860026940,0
+"Central Warehouse, Kathmandu","Ward 1, Patan Durbar Square, Lalitpur",4556.35,prepaid,normal,9828935590,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3333.06,prepaid,clear,9810726528,0
+"Central Warehouse, Kathmandu","Ward 4, Main Road, Biratnagar",4212.01,online,foggy,9858172030,0
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",1662.71,prepaid,normal,9811484964,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",317.32,online,foggy,9889134639,0
+"Central Warehouse, Kathmandu","Ward 26, Jawalakhel, Lalitpur",1432.27,online,rainy,9828297834,0
+"Central Warehouse, Kathmandu","Ward 30, Patan Durbar Square, Lalitpur",1607.07,COD,foggy,9859276062,1
+"Central Warehouse, Kathmandu","Ward 24, Lakeside, Pokhara",2052.7,COD,clear,9844905463,0
+"Central Warehouse, Kathmandu","Ward 5, Baneshwor, Kathmandu",851.85,prepaid,rainy,9879160751,0
+"Central Warehouse, Kathmandu","Ward 13, Durbar Square, Bhaktapur",3980.79,online,clear,9858343765,1
+"Central Warehouse, Kathmandu","Ward 21, Patan Durbar Square, Lalitpur",2708.84,online,foggy,9899790566,1
+"Central Warehouse, Kathmandu","Ward 20, Durbar Square, Bhaktapur",4829.78,COD,extreme,9892950495,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",879.0,COD,normal,9823461142,0
+"Central Warehouse, Kathmandu","Ward 9, Durbar Square, Bhaktapur",4428.53,prepaid,rainy,9854981185,0
+"Central Warehouse, Kathmandu","Ward 32, Baneshwor, Kathmandu",761.33,COD,clear,9866628729,0
+"Central Warehouse, Kathmandu","Ward 18, Lakeside, Pokhara",4094.1,prepaid,normal,9837381461,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1045.74,cod,clear,9821093894,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2938.52,cod,foggy,9884163756,0
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",638.85,COD,normal,9856081130,0
+"Central Warehouse, Kathmandu","Ward 11, Main Road, Biratnagar",878.39,COD,normal,9837485007,0
+"Central Warehouse, Kathmandu","Ward 20, Baneshwor, Kathmandu",3776.02,online,normal,9895030964,0
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",4380.68,prepaid,rainy,9834963476,0
+"Central Warehouse, Kathmandu","Ward 20, Main Road, Biratnagar",3020.41,prepaid,clear,9820421590,0
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",3854.47,prepaid,extreme,9838327732,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",856.69,prepaid,clear,9878038981,0
+"Central Warehouse, Kathmandu","Ward 3, Jawalakhel, Lalitpur",3654.12,COD,clear,9873554739,0
+"Central Warehouse, Kathmandu","Ward 4, Lakeside, Pokhara",1031.85,prepaid,extreme,9881687227,0
+"Central Warehouse, Kathmandu","Ward 26, Lakeside, Pokhara",2771.22,online,clear,9843094092,1
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",4823.49,prepaid,foggy,9854918293,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",2740.31,prepaid,normal,9811645949,0
+"Central Warehouse, Kathmandu","Ward 13, Thamel, Kathmandu",4606.89,online,normal,9815099286,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4021.78,COD,clear,9815679282,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",411.08,prepaid,clear,9846163891,0
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",1022.07,online,normal,9820250814,0
+"Central Warehouse, Kathmandu","Ward 21, Lakeside, Pokhara",585.52,cod,extreme,9883780130,1
+"Central Warehouse, Kathmandu","Ward 3, Jawalakhel, Lalitpur",837.15,online,extreme,9833721099,0
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",1122.27,COD,extreme,9825891957,0
+"Central Warehouse, Kathmandu","Ward 32, Lakeside, Pokhara",3294.58,cod,normal,9888586059,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3979.59,COD,clear,9818079987,1
+"Central Warehouse, Kathmandu","Ward 12, Jawalakhel, Lalitpur",2763.23,online,rainy,9824893512,1
+"Central Warehouse, Kathmandu","Ward 12, Patan Durbar Square, Lalitpur",3481.47,COD,foggy,9853220812,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4684.76,prepaid,foggy,9822200374,0
+"Central Warehouse, Kathmandu","Ward 8, Lakeside, Pokhara",2276.77,online,rainy,9888155534,1
+"Central Warehouse, Kathmandu","Ward 6, Patan Durbar Square, Lalitpur",4559.35,COD,clear,9861907702,0
+"Central Warehouse, Kathmandu","Ward 13, Lakeside, Pokhara",2231.85,online,normal,9841264107,0
+"Central Warehouse, Kathmandu","Ward 12, Durbar Square, Bhaktapur",2047.96,prepaid,foggy,9833104379,1
+"Central Warehouse, Kathmandu","Ward 11, Lakeside, Pokhara",2821.25,COD,clear,9830037613,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",555.96,prepaid,extreme,9849447509,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4333.72,cod,normal,9886670017,0
+"Central Warehouse, Kathmandu","Ward 31, Jawalakhel, Lalitpur",1335.58,online,extreme,9884034719,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1919.45,prepaid,foggy,9884037757,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4902.32,cod,extreme,9812366585,1
+"Central Warehouse, Kathmandu","Ward 29, Main Road, Biratnagar",1054.93,online,foggy,9887163324,0
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",3269.83,cod,clear,9873935991,1
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",3504.89,online,rainy,9834250173,0
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",3048.97,cod,foggy,9872565313,1
+"Central Warehouse, Kathmandu","Ward 10, Durbar Square, Bhaktapur",3199.04,COD,extreme,9824761347,0
+"Central Warehouse, Kathmandu","Ward 23, Thamel, Kathmandu",329.01,COD,rainy,9865244360,1
+"Central Warehouse, Kathmandu","Ward 24, Jawalakhel, Lalitpur",604.68,online,foggy,9897482731,0
+"Central Warehouse, Kathmandu","Ward 8, Durbar Square, Bhaktapur",1093.29,prepaid,extreme,9870062504,0
+"Central Warehouse, Kathmandu","Ward 5, Thamel, Kathmandu",3048.75,cod,normal,9862306107,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3978.99,cod,normal,9845683515,0
+"Central Warehouse, Kathmandu","Ward 21, Patan Durbar Square, Lalitpur",1608.01,COD,foggy,9814389059,0
+"Central Warehouse, Kathmandu","Ward 6, Durbar Square, Bhaktapur",2688.23,COD,rainy,9889901109,1
+"Central Warehouse, Kathmandu","Ward 13, Baneshwor, Kathmandu",2709.68,COD,extreme,9811792844,1
+"Central Warehouse, Kathmandu","Ward 20, Baneshwor, Kathmandu",3719.24,cod,clear,9810565324,0
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",4683.97,COD,normal,9847679237,0
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",3554.82,online,extreme,9825117686,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3549.85,cod,rainy,9819591508,1
+"Central Warehouse, Kathmandu","Ward 18, Thamel, Kathmandu",260.65,cod,normal,9887637112,0
+"Central Warehouse, Kathmandu","Ward 32, Thamel, Kathmandu",1372.69,prepaid,extreme,9859084360,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1572.82,COD,normal,9843019971,0
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",3026.88,COD,extreme,9864804646,1
+"Central Warehouse, Kathmandu","Ward 25, Jawalakhel, Lalitpur",2567.36,prepaid,foggy,9829088984,1
+"Central Warehouse, Kathmandu","Ward 16, Thamel, Kathmandu",2913.96,online,rainy,9892226295,1
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",1758.21,COD,rainy,9881488385,1
+"Central Warehouse, Kathmandu","Ward 13, Patan Durbar Square, Lalitpur",3054.78,COD,normal,9835730811,0
+"Central Warehouse, Kathmandu","Ward 16, Baneshwor, Kathmandu",3871.32,online,extreme,9831492837,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2735.93,COD,normal,9863321230,1
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",3919.05,prepaid,rainy,9898908158,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2755.42,COD,normal,9817349122,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2611.97,cod,extreme,9896683021,1
+"Central Warehouse, Kathmandu","Ward 24, Thamel, Kathmandu",4425.57,prepaid,foggy,9810787680,0
+"Central Warehouse, Kathmandu","Ward 13, Durbar Square, Bhaktapur",1795.19,cod,foggy,9846165652,0
+"Central Warehouse, Kathmandu","Ward 24, Baneshwor, Kathmandu",3226.13,cod,extreme,9891715306,1
+"Central Warehouse, Kathmandu","Ward 4, Jawalakhel, Lalitpur",4693.44,online,foggy,9894732500,1
+"Central Warehouse, Kathmandu","Ward 16, Main Road, Biratnagar",4440.58,cod,clear,9847205195,0
+"Central Warehouse, Kathmandu","Ward 18, Main Road, Biratnagar",3623.5,prepaid,rainy,9810894591,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2909.84,online,normal,9821787399,0
+"Central Warehouse, Kathmandu","Ward 25, Baneshwor, Kathmandu",3092.49,cod,extreme,9850203419,1
+"Central Warehouse, Kathmandu","Ward 28, Lakeside, Pokhara",3091.92,online,normal,9818687836,0
+"Central Warehouse, Kathmandu","Ward 32, Main Road, Biratnagar",1505.01,COD,rainy,9842573540,0
+"Central Warehouse, Kathmandu","Ward 31, Thamel, Kathmandu",1643.23,COD,rainy,9827536199,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4549.76,online,foggy,9875282585,0
+"Central Warehouse, Kathmandu","Ward 4, Thamel, Kathmandu",927.25,online,clear,9838856477,1
+"Central Warehouse, Kathmandu","Ward 12, Jawalakhel, Lalitpur",415.34,prepaid,normal,9890485475,0
+"Central Warehouse, Kathmandu","Ward 31, Baneshwor, Kathmandu",3669.37,prepaid,foggy,9851191090,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2714.29,COD,extreme,9813419709,0
+"Central Warehouse, Kathmandu","Ward 22, Patan Durbar Square, Lalitpur",1526.85,cod,rainy,9844353477,1
+"Central Warehouse, Kathmandu","Ward 15, Baneshwor, Kathmandu",1070.96,cod,clear,9876343244,0
+"Central Warehouse, Kathmandu","Ward 6, Baneshwor, Kathmandu",968.65,COD,foggy,9873070814,0
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",2454.16,cod,normal,9878011152,0
+"Central Warehouse, Kathmandu","Ward 4, Baneshwor, Kathmandu",3903.01,cod,clear,9840857513,0
+"Central Warehouse, Kathmandu","Ward 2, Thamel, Kathmandu",4390.94,prepaid,normal,9875265663,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4804.33,online,extreme,9861841902,0
+"Central Warehouse, Kathmandu","Ward 24, Jawalakhel, Lalitpur",2127.23,prepaid,normal,9889250032,0
+"Central Warehouse, Kathmandu","Ward 28, Main Road, Biratnagar",342.68,prepaid,normal,9826355820,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4054.36,prepaid,foggy,9811402442,1
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",794.59,COD,rainy,9865294190,0
+"Central Warehouse, Kathmandu","Ward 3, Thamel, Kathmandu",2723.31,COD,normal,9890402414,0
+"Central Warehouse, Kathmandu","Ward 28, Durbar Square, Bhaktapur",4685.71,prepaid,clear,9854672485,0
+"Central Warehouse, Kathmandu","Ward 25, Baneshwor, Kathmandu",1904.73,prepaid,normal,9812795222,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4837.58,prepaid,foggy,9826454850,1
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",690.49,cod,clear,9897258533,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1435.06,prepaid,extreme,9857807889,0
+"Central Warehouse, Kathmandu","Ward 17, Lakeside, Pokhara",797.29,prepaid,extreme,9847362885,1
+"Central Warehouse, Kathmandu","Ward 15, Durbar Square, Bhaktapur",2651.79,cod,clear,9866740123,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",394.96,prepaid,normal,9843210575,0
+"Central Warehouse, Kathmandu","Ward 27, Thamel, Kathmandu",4690.89,prepaid,normal,9888231067,0
+"Central Warehouse, Kathmandu","Ward 26, Main Road, Biratnagar",3001.45,prepaid,rainy,9858649613,1
+"Central Warehouse, Kathmandu","Ward 18, Jawalakhel, Lalitpur",3059.74,online,extreme,9840457407,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3531.94,prepaid,rainy,9886696713,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4385.25,cod,extreme,9833390438,1
+"Central Warehouse, Kathmandu","Ward 16, Main Road, Biratnagar",3345.42,prepaid,normal,9845306271,0
+"Central Warehouse, Kathmandu","Ward 25, Thamel, Kathmandu",822.7,COD,extreme,9857788073,0
+"Central Warehouse, Kathmandu","Ward 19, Baneshwor, Kathmandu",1639.08,online,extreme,9821211929,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3850.1,online,foggy,9899147026,1
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",1018.49,prepaid,clear,9882749268,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3989.38,COD,rainy,9832028889,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2202.98,prepaid,clear,9812890420,1
+"Central Warehouse, Kathmandu","Ward 28, Durbar Square, Bhaktapur",4555.02,cod,normal,9867332763,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",749.99,online,clear,9855410175,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3734.7,online,foggy,9834279291,0
+"Central Warehouse, Kathmandu","Ward 5, Jawalakhel, Lalitpur",1295.68,cod,rainy,9840358862,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1461.75,COD,foggy,9860476855,1
+"Central Warehouse, Kathmandu","Ward 2, Jawalakhel, Lalitpur",3522.92,prepaid,rainy,9845395221,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3788.14,prepaid,foggy,9888612002,0
+"Central Warehouse, Kathmandu","Ward 27, Jawalakhel, Lalitpur",4111.17,COD,foggy,9818937300,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4643.33,prepaid,extreme,9887473535,0
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",241.12,online,rainy,9860544867,0
+"Central Warehouse, Kathmandu","Ward 12, Durbar Square, Bhaktapur",865.45,cod,extreme,9814988957,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3497.28,cod,normal,9821937951,1
+"Central Warehouse, Kathmandu","Ward 28, Patan Durbar Square, Lalitpur",880.97,online,normal,9820244257,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2797.11,cod,normal,9865594951,0
+"Central Warehouse, Kathmandu","Ward 23, Baneshwor, Kathmandu",2583.29,cod,foggy,9831699091,1
+"Central Warehouse, Kathmandu","Ward 23, Main Road, Biratnagar",1093.0,COD,rainy,9869751025,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1952.54,cod,foggy,9872275221,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",974.85,cod,foggy,9893466195,0
+"Central Warehouse, Kathmandu","Ward 25, Thamel, Kathmandu",2305.74,prepaid,rainy,9867279337,1
+"Central Warehouse, Kathmandu","Ward 16, Baneshwor, Kathmandu",2239.08,cod,normal,9848649697,1
+"Central Warehouse, Kathmandu","Ward 27, Durbar Square, Bhaktapur",3680.36,cod,normal,9875862256,0
+"Central Warehouse, Kathmandu","Ward 13, Thamel, Kathmandu",141.94,prepaid,foggy,9895662525,1
+"Central Warehouse, Kathmandu","Ward 11, Patan Durbar Square, Lalitpur",4184.07,online,clear,9874759371,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",976.49,COD,rainy,9839777490,0
+"Central Warehouse, Kathmandu","Ward 26, Baneshwor, Kathmandu",2366.51,cod,normal,9826474244,0
+"Central Warehouse, Kathmandu","Ward 3, Patan Durbar Square, Lalitpur",3682.55,COD,foggy,9861760448,0
+"Central Warehouse, Kathmandu","Ward 13, Main Road, Biratnagar",916.79,online,rainy,9849842855,0
+"Central Warehouse, Kathmandu","Ward 23, Patan Durbar Square, Lalitpur",1268.17,prepaid,normal,9859899528,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",684.27,online,rainy,9819739895,0
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",2883.32,online,normal,9828828192,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4158.28,cod,rainy,9822536252,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2929.1,cod,extreme,9816371550,0
+"Central Warehouse, Kathmandu","Ward 2, Jawalakhel, Lalitpur",4861.7,prepaid,clear,9898145391,1
+"Central Warehouse, Kathmandu","Ward 11, Patan Durbar Square, Lalitpur",2285.92,cod,extreme,9868274699,1
+"Central Warehouse, Kathmandu","Ward 13, Baneshwor, Kathmandu",2177.65,prepaid,clear,9811621927,0
+"Central Warehouse, Kathmandu","Ward 5, Durbar Square, Bhaktapur",1550.21,COD,rainy,9847855417,1
+"Central Warehouse, Kathmandu","Ward 23, Baneshwor, Kathmandu",2184.36,online,normal,9833197009,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3480.54,prepaid,rainy,9846565837,0
+"Central Warehouse, Kathmandu","Ward 22, Baneshwor, Kathmandu",4175.51,prepaid,extreme,9865449720,0
+"Central Warehouse, Kathmandu","Ward 31, Patan Durbar Square, Lalitpur",2365.74,cod,rainy,9844659320,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",4571.91,cod,rainy,9894341905,0
+"Central Warehouse, Kathmandu","Ward 6, Baneshwor, Kathmandu",3276.49,cod,rainy,9886461736,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2157.16,COD,rainy,9865150902,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3811.37,prepaid,clear,9857065434,0
+"Central Warehouse, Kathmandu","Ward 7, Durbar Square, Bhaktapur",4408.83,cod,rainy,9821939749,1
+"Central Warehouse, Kathmandu","Ward 25, Main Road, Biratnagar",3115.75,COD,extreme,9895866573,1
+"Central Warehouse, Kathmandu","Ward 23, Lakeside, Pokhara",4027.92,cod,clear,9812365088,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3458.62,online,normal,9810618594,0
+"Central Warehouse, Kathmandu","Ward 15, Jawalakhel, Lalitpur",1635.36,COD,foggy,9851829818,1
+"Central Warehouse, Kathmandu","Ward 29, Thamel, Kathmandu",1351.55,online,clear,9892645654,0
+"Central Warehouse, Kathmandu","Ward 16, Main Road, Biratnagar",4230.52,COD,extreme,9885238823,1
+"Central Warehouse, Kathmandu","Ward 27, Baneshwor, Kathmandu",4523.48,online,rainy,9814962593,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1362.7,COD,foggy,9873396437,1
+"Central Warehouse, Kathmandu","Ward 9, Baneshwor, Kathmandu",3617.35,cod,clear,9869623240,1
+"Central Warehouse, Kathmandu","Ward 32, Patan Durbar Square, Lalitpur",1676.35,cod,rainy,9852054760,0
+"Central Warehouse, Kathmandu","Ward 22, Jawalakhel, Lalitpur",2048.11,prepaid,normal,9875538059,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3093.01,prepaid,clear,9851869199,0
+"Central Warehouse, Kathmandu","Ward 10, Main Road, Biratnagar",2721.41,COD,normal,9898326873,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1347.31,COD,foggy,9835634702,1
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",2147.2,cod,clear,9838841814,0
+"Central Warehouse, Kathmandu","Ward 1, Thamel, Kathmandu",301.26,COD,normal,9873254926,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",279.34,COD,foggy,9889245057,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4521.06,cod,extreme,9855131679,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4428.74,prepaid,foggy,9819304550,0
+"Central Warehouse, Kathmandu","Ward 31, Baneshwor, Kathmandu",2812.34,cod,foggy,9820461697,1
+"Central Warehouse, Kathmandu","Ward 10, Jawalakhel, Lalitpur",3477.49,online,extreme,9826697712,1
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",674.88,cod,normal,9858534683,0
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",4754.93,prepaid,rainy,9868303939,0
+"Central Warehouse, Kathmandu","Ward 25, Main Road, Biratnagar",601.35,cod,foggy,9823625935,1
+"Central Warehouse, Kathmandu","Ward 21, Main Road, Biratnagar",696.41,cod,clear,9824843210,1
+"Central Warehouse, Kathmandu","Ward 16, Baneshwor, Kathmandu",4024.83,online,rainy,9825560603,1
+"Central Warehouse, Kathmandu","Ward 24, Lakeside, Pokhara",2823.46,COD,normal,9830883293,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1729.51,COD,foggy,9827489141,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1442.85,cod,foggy,9859800799,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4378.02,prepaid,clear,9899145182,1
+"Central Warehouse, Kathmandu","Ward 4, Patan Durbar Square, Lalitpur",3428.43,cod,extreme,9819367313,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3154.66,prepaid,rainy,9823164881,0
+"Central Warehouse, Kathmandu","Ward 17, Durbar Square, Bhaktapur",1453.81,prepaid,rainy,9830628329,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",533.86,online,rainy,9885551530,0
+"Central Warehouse, Kathmandu","Ward 1, Baneshwor, Kathmandu",1708.48,online,normal,9896797534,0
+"Central Warehouse, Kathmandu","Ward 3, Thamel, Kathmandu",4522.87,cod,rainy,9835893620,0
+"Central Warehouse, Kathmandu","Ward 8, Lakeside, Pokhara",4263.34,COD,normal,9816844907,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2906.52,cod,rainy,9851660423,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4902.95,prepaid,normal,9819721312,0
+"Central Warehouse, Kathmandu","Ward 25, Baneshwor, Kathmandu",857.42,cod,normal,9877107970,1
+"Central Warehouse, Kathmandu","Ward 28, Lakeside, Pokhara",774.32,prepaid,clear,9869970980,1
+"Central Warehouse, Kathmandu","Ward 19, Durbar Square, Bhaktapur",1475.82,online,extreme,9817806813,0
+"Central Warehouse, Kathmandu","Ward 23, Jawalakhel, Lalitpur",3255.7,COD,foggy,9880403849,0
+"Central Warehouse, Kathmandu","Ward 6, Durbar Square, Bhaktapur",346.89,cod,foggy,9867662381,1
+"Central Warehouse, Kathmandu","Ward 21, Durbar Square, Bhaktapur",3959.62,prepaid,foggy,9825157167,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1245.68,online,rainy,9855770814,0
+"Central Warehouse, Kathmandu","Ward 15, Thamel, Kathmandu",2189.87,online,rainy,9842078847,0
+"Central Warehouse, Kathmandu","Ward 9, Main Road, Biratnagar",2188.89,COD,normal,9858798166,0
+"Central Warehouse, Kathmandu","Ward 15, Jawalakhel, Lalitpur",3899.02,online,extreme,9863587333,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2159.61,online,extreme,9889988312,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1864.39,cod,normal,9864498537,0
+"Central Warehouse, Kathmandu","Ward 17, Thamel, Kathmandu",4924.51,cod,rainy,9878657472,1
+"Central Warehouse, Kathmandu","Ward 19, Jawalakhel, Lalitpur",4478.48,prepaid,rainy,9888147282,0
+"Central Warehouse, Kathmandu","Ward 7, Baneshwor, Kathmandu",3356.13,cod,foggy,9812617404,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3244.32,prepaid,normal,9858904677,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4106.91,online,normal,9851523402,0
+"Central Warehouse, Kathmandu","Ward 32, Lakeside, Pokhara",1871.62,COD,foggy,9835760127,0
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",2385.23,cod,extreme,9886867751,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1124.47,online,extreme,9839743663,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2889.98,online,normal,9844901681,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2767.81,prepaid,rainy,9821742939,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",419.94,cod,normal,9818725220,0
+"Central Warehouse, Kathmandu","Ward 14, Lakeside, Pokhara",3615.39,online,normal,9853240347,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3822.93,cod,foggy,9868801550,1
+"Central Warehouse, Kathmandu","Ward 29, Patan Durbar Square, Lalitpur",2668.04,cod,rainy,9891761692,1
+"Central Warehouse, Kathmandu","Ward 17, Patan Durbar Square, Lalitpur",2342.78,prepaid,normal,9869587550,0
+"Central Warehouse, Kathmandu","Ward 4, Lakeside, Pokhara",2527.24,COD,normal,9872868060,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4473.07,online,rainy,9822364313,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4665.75,cod,extreme,9837016154,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2148.17,cod,rainy,9838799276,0
+"Central Warehouse, Kathmandu","Ward 24, Patan Durbar Square, Lalitpur",4359.74,prepaid,extreme,9872419348,0
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",146.23,prepaid,rainy,9832746361,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1269.94,online,extreme,9862774896,1
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",4155.84,COD,clear,9871152960,0
+"Central Warehouse, Kathmandu","Ward 18, Baneshwor, Kathmandu",4445.22,online,rainy,9853637189,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1290.33,prepaid,rainy,9885129917,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",4662.77,prepaid,rainy,9848845743,1
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",3326.56,COD,extreme,9849313499,0
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",4843.28,COD,clear,9827624232,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",271.74,cod,rainy,9815996484,1
+"Central Warehouse, Kathmandu","Ward 9, Jawalakhel, Lalitpur",4603.09,cod,normal,9867219678,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",1395.29,online,rainy,9866555630,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",196.35,online,normal,9871435771,1
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",506.67,cod,clear,9851904707,1
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",1131.03,prepaid,extreme,9879066584,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2484.72,COD,clear,9816070097,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2638.9,COD,extreme,9818283221,1
+"Central Warehouse, Kathmandu","Ward 7, Jawalakhel, Lalitpur",2046.46,online,rainy,9887123777,0
+"Central Warehouse, Kathmandu","Ward 24, Main Road, Biratnagar",3914.0,cod,normal,9898705226,1
+"Central Warehouse, Kathmandu","Ward 21, Thamel, Kathmandu",4508.81,cod,normal,9844958487,1
+"Central Warehouse, Kathmandu","Ward 4, Thamel, Kathmandu",2786.72,COD,extreme,9858670584,0
+"Central Warehouse, Kathmandu","Ward 17, Durbar Square, Bhaktapur",2505.63,COD,rainy,9863187654,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1596.69,online,rainy,9877164160,0
+"Central Warehouse, Kathmandu","Ward 3, Durbar Square, Bhaktapur",3797.68,prepaid,extreme,9834533313,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2858.46,online,extreme,9891447646,0
+"Central Warehouse, Kathmandu","Ward 21, Thamel, Kathmandu",439.52,COD,clear,9816523875,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4924.76,cod,extreme,9848374904,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2939.81,prepaid,foggy,9880095991,1
+"Central Warehouse, Kathmandu","Ward 30, Durbar Square, Bhaktapur",2515.24,COD,normal,9834529746,0
+"Central Warehouse, Kathmandu","Ward 6, Lakeside, Pokhara",755.4,online,clear,9814802717,0
+"Central Warehouse, Kathmandu","Ward 25, Durbar Square, Bhaktapur",1975.04,cod,clear,9892812079,0
+"Central Warehouse, Kathmandu","Ward 23, Patan Durbar Square, Lalitpur",4244.51,online,foggy,9861675343,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2243.95,COD,extreme,9872557661,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4339.66,prepaid,clear,9854208874,0
+"Central Warehouse, Kathmandu","Ward 11, Lakeside, Pokhara",2500.01,cod,clear,9850644648,0
+"Central Warehouse, Kathmandu","Ward 19, Durbar Square, Bhaktapur",4707.72,prepaid,rainy,9852572681,0
+"Central Warehouse, Kathmandu","Ward 23, Jawalakhel, Lalitpur",1690.66,prepaid,normal,9830946759,0
+"Central Warehouse, Kathmandu","Ward 5, Jawalakhel, Lalitpur",3366.43,online,normal,9832867772,1
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",233.35,COD,extreme,9821550881,0
+"Central Warehouse, Kathmandu","Ward 8, Thamel, Kathmandu",3816.2,prepaid,extreme,9843639377,0
+"Central Warehouse, Kathmandu","Ward 14, Patan Durbar Square, Lalitpur",2612.81,cod,foggy,9864729095,0
+"Central Warehouse, Kathmandu","Ward 5, Lakeside, Pokhara",1084.93,cod,extreme,9884382225,1
+"Central Warehouse, Kathmandu","Ward 18, Main Road, Biratnagar",1584.52,cod,foggy,9874414399,1
+"Central Warehouse, Kathmandu","Ward 32, Lakeside, Pokhara",1493.2,online,extreme,9873201575,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3107.93,COD,foggy,9875522311,1
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",1813.59,prepaid,normal,9889452563,0
+"Central Warehouse, Kathmandu","Ward 29, Lakeside, Pokhara",1775.2,COD,rainy,9837969306,1
+"Central Warehouse, Kathmandu","Ward 32, Baneshwor, Kathmandu",700.89,cod,clear,9870997847,0
+"Central Warehouse, Kathmandu","Ward 21, Thamel, Kathmandu",2793.16,cod,rainy,9890653302,0
+"Central Warehouse, Kathmandu","Ward 9, Durbar Square, Bhaktapur",3037.46,cod,rainy,9844179368,1
+"Central Warehouse, Kathmandu","Ward 32, Patan Durbar Square, Lalitpur",3310.9,prepaid,extreme,9813876062,0
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",2005.9,prepaid,extreme,9846365966,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2972.32,cod,extreme,9818418132,0
+"Central Warehouse, Kathmandu","Ward 1, Thamel, Kathmandu",1200.14,cod,foggy,9844453685,0
+"Central Warehouse, Kathmandu","Ward 15, Jawalakhel, Lalitpur",4385.96,online,foggy,9892654033,1
+"Central Warehouse, Kathmandu","Ward 29, Thamel, Kathmandu",2237.16,prepaid,normal,9851580137,0
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",830.79,prepaid,extreme,9861214945,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1529.42,COD,extreme,9867374949,0
+"Central Warehouse, Kathmandu","Ward 20, Main Road, Biratnagar",440.83,online,clear,9820790827,0
+"Central Warehouse, Kathmandu","Ward 20, Thamel, Kathmandu",4159.12,prepaid,foggy,9823509155,1
+"Central Warehouse, Kathmandu","Ward 30, Lakeside, Pokhara",254.26,prepaid,rainy,9892480851,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4880.9,online,rainy,9846959584,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4460.86,online,foggy,9811236615,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4216.95,prepaid,rainy,9839740527,0
+"Central Warehouse, Kathmandu","Ward 23, Main Road, Biratnagar",811.89,prepaid,clear,9842822763,0
+"Central Warehouse, Kathmandu","Ward 14, Patan Durbar Square, Lalitpur",310.74,COD,clear,9875450675,1
+"Central Warehouse, Kathmandu","Ward 19, Thamel, Kathmandu",4408.97,online,rainy,9855468513,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",3441.8,prepaid,foggy,9857307244,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",958.01,cod,extreme,9812657738,0
+"Central Warehouse, Kathmandu","Ward 5, Baneshwor, Kathmandu",4422.03,prepaid,rainy,9851581785,1
+"Central Warehouse, Kathmandu","Ward 6, Main Road, Biratnagar",3521.69,prepaid,foggy,9870259941,0
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",2141.83,online,rainy,9822652150,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3966.92,online,rainy,9843807362,0
+"Central Warehouse, Kathmandu","Ward 4, Lakeside, Pokhara",4785.69,online,foggy,9840388859,0
+"Central Warehouse, Kathmandu","Ward 31, Lakeside, Pokhara",758.82,COD,normal,9821519487,0
+"Central Warehouse, Kathmandu","Ward 27, Lakeside, Pokhara",3238.49,online,normal,9831423161,0
+"Central Warehouse, Kathmandu","Ward 26, Jawalakhel, Lalitpur",3458.24,cod,rainy,9846671787,1
+"Central Warehouse, Kathmandu","Ward 10, Jawalakhel, Lalitpur",4013.25,COD,clear,9857871130,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4568.68,cod,extreme,9868024952,0
+"Central Warehouse, Kathmandu","Ward 25, Main Road, Biratnagar",4362.71,prepaid,clear,9872849582,0
+"Central Warehouse, Kathmandu","Ward 11, Main Road, Biratnagar",1563.48,online,normal,9866483326,0
+"Central Warehouse, Kathmandu","Ward 19, Main Road, Biratnagar",3230.91,prepaid,extreme,9841742919,0
+"Central Warehouse, Kathmandu","Ward 21, Main Road, Biratnagar",4875.94,cod,foggy,9892158808,1
+"Central Warehouse, Kathmandu","Ward 14, Main Road, Biratnagar",2661.45,COD,clear,9849101725,0
+"Central Warehouse, Kathmandu","Ward 13, Main Road, Biratnagar",2965.29,COD,extreme,9879975463,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4040.35,cod,extreme,9876202445,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3669.87,prepaid,extreme,9892666247,0
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",2281.01,prepaid,extreme,9823091319,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",1671.14,prepaid,rainy,9843318528,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4140.53,prepaid,extreme,9864696085,1
+"Central Warehouse, Kathmandu","Ward 24, Lakeside, Pokhara",3679.85,prepaid,normal,9869905679,0
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",3902.43,online,extreme,9890341647,0
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",4177.16,cod,rainy,9831796875,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3447.72,cod,extreme,9845130016,1
+"Central Warehouse, Kathmandu","Ward 21, Jawalakhel, Lalitpur",2888.09,COD,extreme,9857906169,1
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",4756.35,online,clear,9810276934,1
+"Central Warehouse, Kathmandu","Ward 17, Durbar Square, Bhaktapur",2717.45,COD,clear,9819183671,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4883.38,COD,rainy,9872157471,0
+"Central Warehouse, Kathmandu","Ward 19, Jawalakhel, Lalitpur",1539.87,prepaid,rainy,9888331536,1
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",1815.45,COD,clear,9856986855,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1550.75,COD,normal,9857326681,0
+"Central Warehouse, Kathmandu","Ward 26, Durbar Square, Bhaktapur",412.91,cod,rainy,9888744030,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2932.97,online,normal,9859413910,1
+"Central Warehouse, Kathmandu","Ward 28, Thamel, Kathmandu",3132.75,cod,extreme,9848758181,1
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",1464.82,COD,rainy,9813878090,1
+"Central Warehouse, Kathmandu","Ward 13, Thamel, Kathmandu",3658.98,COD,rainy,9872148937,1
+"Central Warehouse, Kathmandu","Ward 30, Baneshwor, Kathmandu",2153.45,prepaid,normal,9865866580,1
+"Central Warehouse, Kathmandu","Ward 12, Lakeside, Pokhara",3466.1,COD,clear,9812298782,0
+"Central Warehouse, Kathmandu","Ward 6, Jawalakhel, Lalitpur",4457.49,prepaid,extreme,9875662174,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2420.99,cod,rainy,9874877570,0
+"Central Warehouse, Kathmandu","Ward 7, Thamel, Kathmandu",3290.53,COD,clear,9827320234,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1313.12,cod,clear,9859298400,1
+"Central Warehouse, Kathmandu","Ward 22, Patan Durbar Square, Lalitpur",3591.97,cod,normal,9830499031,1
+"Central Warehouse, Kathmandu","Ward 31, Durbar Square, Bhaktapur",868.23,cod,rainy,9854288603,0
+"Central Warehouse, Kathmandu","Ward 23, Lakeside, Pokhara",2098.17,online,foggy,9851114748,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4300.02,prepaid,normal,9860630633,0
+"Central Warehouse, Kathmandu","Ward 21, Thamel, Kathmandu",2193.24,online,clear,9848730377,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1477.06,prepaid,extreme,9872596055,1
+"Central Warehouse, Kathmandu","Ward 7, Patan Durbar Square, Lalitpur",3360.04,prepaid,clear,9843983656,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1760.79,COD,normal,9828464967,1
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",2824.92,online,rainy,9878507413,1
+"Central Warehouse, Kathmandu","Ward 21, Lakeside, Pokhara",4048.28,online,foggy,9868732984,0
+"Central Warehouse, Kathmandu","Ward 32, Thamel, Kathmandu",4813.96,prepaid,rainy,9844641051,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3574.01,prepaid,normal,9891819452,1
+"Central Warehouse, Kathmandu","Ward 18, Baneshwor, Kathmandu",2181.36,COD,rainy,9812649732,1
+"Central Warehouse, Kathmandu","Ward 14, Durbar Square, Bhaktapur",2893.8,online,rainy,9844118455,1
+"Central Warehouse, Kathmandu","Ward 31, Durbar Square, Bhaktapur",2152.33,online,normal,9845790170,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2553.21,COD,extreme,9827768288,1
+"Central Warehouse, Kathmandu","Ward 21, Baneshwor, Kathmandu",3200.32,online,foggy,9849914574,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",473.17,cod,clear,9895483323,1
+"Central Warehouse, Kathmandu","Ward 15, Thamel, Kathmandu",3391.81,prepaid,rainy,9881821180,1
+"Central Warehouse, Kathmandu","Ward 32, Durbar Square, Bhaktapur",101.25,COD,foggy,9883305196,0
+"Central Warehouse, Kathmandu","Ward 17, Jawalakhel, Lalitpur",3587.7,prepaid,foggy,9893012891,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",1443.22,COD,normal,9898650867,1
+"Central Warehouse, Kathmandu","Ward 5, Durbar Square, Bhaktapur",2406.7,COD,normal,9879195653,1
+"Central Warehouse, Kathmandu","Ward 19, Durbar Square, Bhaktapur",2859.13,cod,rainy,9873784142,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1818.72,prepaid,clear,9897984729,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3693.33,prepaid,foggy,9842029616,0
+"Central Warehouse, Kathmandu","Ward 27, Patan Durbar Square, Lalitpur",1033.03,COD,foggy,9882154339,1
+"Central Warehouse, Kathmandu","Ward 9, Main Road, Biratnagar",188.41,cod,clear,9854609901,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2397.09,online,clear,9888022317,1
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",1099.02,cod,normal,9867671488,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",2540.54,COD,extreme,9860998640,0
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",2617.58,COD,foggy,9821745935,1
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",4369.86,prepaid,clear,9843680857,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",3499.07,online,rainy,9844468394,0
+"Central Warehouse, Kathmandu","Ward 4, Lakeside, Pokhara",604.66,prepaid,extreme,9849781628,0
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",449.97,cod,extreme,9815609123,1
+"Central Warehouse, Kathmandu","Ward 4, Jawalakhel, Lalitpur",2470.14,cod,clear,9852401811,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4318.41,prepaid,rainy,9825403931,1
+"Central Warehouse, Kathmandu","Ward 26, Lakeside, Pokhara",1830.13,prepaid,extreme,9872392501,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",4261.22,COD,normal,9812357481,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",154.17,cod,normal,9889538628,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1974.28,COD,extreme,9856196021,0
+"Central Warehouse, Kathmandu","Ward 26, Jawalakhel, Lalitpur",3763.0,prepaid,clear,9896743846,0
+"Central Warehouse, Kathmandu","Ward 17, Durbar Square, Bhaktapur",303.37,COD,foggy,9862970668,1
+"Central Warehouse, Kathmandu","Ward 20, Lakeside, Pokhara",2356.0,COD,foggy,9838409424,1
+"Central Warehouse, Kathmandu","Ward 1, Patan Durbar Square, Lalitpur",3831.68,online,rainy,9827330865,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",3836.88,online,rainy,9837764486,0
+"Central Warehouse, Kathmandu","Ward 22, Thamel, Kathmandu",2800.55,cod,foggy,9828894910,1
+"Central Warehouse, Kathmandu","Ward 6, Baneshwor, Kathmandu",1390.44,COD,normal,9870204448,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4988.13,COD,normal,9869209478,1
+"Central Warehouse, Kathmandu","Ward 17, Jawalakhel, Lalitpur",4815.35,prepaid,normal,9839500472,0
+"Central Warehouse, Kathmandu","Ward 18, Durbar Square, Bhaktapur",273.23,COD,normal,9839346762,0
+"Central Warehouse, Kathmandu","Ward 26, Jawalakhel, Lalitpur",1483.64,prepaid,normal,9898690881,0
+"Central Warehouse, Kathmandu","Ward 13, Jawalakhel, Lalitpur",1184.39,online,extreme,9814604060,0
+"Central Warehouse, Kathmandu","Ward 14, Jawalakhel, Lalitpur",4113.57,cod,extreme,9830237232,1
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",4084.48,cod,rainy,9854311017,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4759.76,cod,extreme,9813924200,1
+"Central Warehouse, Kathmandu","Ward 17, Thamel, Kathmandu",4302.32,prepaid,normal,9881723550,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",768.74,prepaid,clear,9888775998,0
+"Central Warehouse, Kathmandu","Ward 25, Lakeside, Pokhara",600.66,prepaid,normal,9863024693,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4997.24,COD,extreme,9841380575,1
+"Central Warehouse, Kathmandu","Ward 6, Jawalakhel, Lalitpur",3363.89,online,clear,9849804639,0
+"Central Warehouse, Kathmandu","Ward 6, Baneshwor, Kathmandu",3442.97,COD,rainy,9821333317,0
+"Central Warehouse, Kathmandu","Ward 17, Patan Durbar Square, Lalitpur",4644.28,cod,clear,9818774273,0
+"Central Warehouse, Kathmandu","Ward 30, Jawalakhel, Lalitpur",3640.13,cod,normal,9837169208,0
+"Central Warehouse, Kathmandu","Ward 27, Baneshwor, Kathmandu",1498.54,cod,rainy,9832235868,0
+"Central Warehouse, Kathmandu","Ward 18, Thamel, Kathmandu",3080.96,online,rainy,9827039391,1
+"Central Warehouse, Kathmandu","Ward 23, Lakeside, Pokhara",4572.74,cod,clear,9856114527,0
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",1739.72,online,extreme,9863548565,0
+"Central Warehouse, Kathmandu","Ward 7, Thamel, Kathmandu",288.24,cod,clear,9817866874,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",110.48,prepaid,extreme,9895666676,1
+"Central Warehouse, Kathmandu","Ward 18, Thamel, Kathmandu",325.21,online,foggy,9832053037,0
+"Central Warehouse, Kathmandu","Ward 14, Durbar Square, Bhaktapur",1214.03,COD,foggy,9834819126,0
+"Central Warehouse, Kathmandu","Ward 23, Lakeside, Pokhara",4936.47,prepaid,extreme,9868598097,0
+"Central Warehouse, Kathmandu","Ward 22, Main Road, Biratnagar",1377.96,online,clear,9848214765,0
+"Central Warehouse, Kathmandu","Ward 26, Patan Durbar Square, Lalitpur",4921.85,cod,clear,9896327151,0
+"Central Warehouse, Kathmandu","Ward 12, Baneshwor, Kathmandu",2380.32,online,extreme,9834898362,1
+"Central Warehouse, Kathmandu","Ward 18, Durbar Square, Bhaktapur",3354.37,prepaid,foggy,9821013521,1
+"Central Warehouse, Kathmandu","Ward 32, Main Road, Biratnagar",2658.12,prepaid,clear,9861714149,0
+"Central Warehouse, Kathmandu","Ward 7, Durbar Square, Bhaktapur",916.15,cod,normal,9891756338,0
+"Central Warehouse, Kathmandu","Ward 26, Baneshwor, Kathmandu",1450.95,prepaid,foggy,9898954411,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2770.95,COD,clear,9855953565,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4554.04,prepaid,foggy,9812100020,1
+"Central Warehouse, Kathmandu","Ward 13, Main Road, Biratnagar",4599.02,COD,extreme,9875467968,1
+"Central Warehouse, Kathmandu","Ward 14, Lakeside, Pokhara",854.55,cod,rainy,9847712421,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",4081.62,COD,normal,9872830865,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",4010.21,COD,normal,9819694480,1
+"Central Warehouse, Kathmandu","Ward 12, Main Road, Biratnagar",738.55,prepaid,normal,9844380044,0
+"Central Warehouse, Kathmandu","Ward 25, Baneshwor, Kathmandu",1278.74,online,rainy,9878900787,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2087.36,COD,rainy,9827174853,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4566.47,prepaid,foggy,9855555851,0
+"Central Warehouse, Kathmandu","Ward 31, Durbar Square, Bhaktapur",4339.56,COD,foggy,9898529414,0
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1804.1,cod,rainy,9825910090,1
+"Central Warehouse, Kathmandu","Ward 13, Main Road, Biratnagar",4174.72,COD,foggy,9841701649,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",1086.25,cod,normal,9888109424,1
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",4235.22,prepaid,clear,9837007489,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3454.5,COD,normal,9815068447,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2688.36,COD,extreme,9858596155,0
+"Central Warehouse, Kathmandu","Ward 10, Patan Durbar Square, Lalitpur",227.99,cod,foggy,9870000313,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",2502.65,COD,extreme,9899488894,1
+"Central Warehouse, Kathmandu","Ward 26, Lakeside, Pokhara",4146.49,cod,clear,9894356325,0
+"Central Warehouse, Kathmandu","Ward 12, Thamel, Kathmandu",4195.71,prepaid,rainy,9819612185,0
+"Central Warehouse, Kathmandu","Ward 24, Patan Durbar Square, Lalitpur",3602.73,prepaid,normal,9857286491,0
+"Central Warehouse, Kathmandu","Ward 18, Patan Durbar Square, Lalitpur",3179.42,online,foggy,9837203277,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",2719.04,cod,extreme,9859405915,0
+"Central Warehouse, Kathmandu","Ward 5, Patan Durbar Square, Lalitpur",2327.69,online,rainy,9876733245,1
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2449.98,online,rainy,9845481139,0
+"Central Warehouse, Kathmandu","Ward 20, Main Road, Biratnagar",933.24,COD,foggy,9817682916,0
+"Central Warehouse, Kathmandu","Ward 8, Durbar Square, Bhaktapur",4083.43,cod,extreme,9857159299,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2699.1,cod,extreme,9832099372,1
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",3034.12,online,extreme,9829949501,0
+"Central Warehouse, Kathmandu","Ward 3, Lakeside, Pokhara",3119.7,online,extreme,9839329611,0
+"Central Warehouse, Kathmandu","Ward 1, Main Road, Biratnagar",2214.09,cod,extreme,9849705521,1
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",3588.96,online,foggy,9828423042,0
+"Central Warehouse, Kathmandu","Ward 15, Main Road, Biratnagar",3271.84,online,rainy,9899021292,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",4836.37,cod,foggy,9829548921,0
+"Central Warehouse, Kathmandu","Ward 19, Durbar Square, Bhaktapur",2150.57,COD,clear,9875493917,1
+"Central Warehouse, Kathmandu","Ward 2, Thamel, Kathmandu",3189.51,COD,normal,9887691407,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4299.57,prepaid,normal,9884486193,0
+"Central Warehouse, Kathmandu","Ward 28, Baneshwor, Kathmandu",4917.8,cod,foggy,9896620652,0
+"Central Warehouse, Kathmandu","Ward 18, Main Road, Biratnagar",1680.31,cod,foggy,9889534524,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",3982.71,COD,foggy,9877511453,1
+"Central Warehouse, Kathmandu","Ward 29, Jawalakhel, Lalitpur",2238.33,online,extreme,9898177725,0
+"Central Warehouse, Kathmandu","Ward 25, Patan Durbar Square, Lalitpur",1372.42,prepaid,rainy,9878184703,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",711.38,online,foggy,9841847236,0
+"Central Warehouse, Kathmandu","Ward 31, Patan Durbar Square, Lalitpur",3861.66,COD,normal,9853572401,1
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",2107.98,prepaid,normal,9883597675,0
+"Central Warehouse, Kathmandu","Ward 17, Thamel, Kathmandu",3229.44,cod,normal,9893999767,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",3768.72,cod,extreme,9855729566,1
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1969.42,prepaid,clear,9880619191,0
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",126.36,prepaid,foggy,9844832627,1
+"Central Warehouse, Kathmandu","Ward 28, Thamel, Kathmandu",2120.32,online,normal,9841679441,1
+"Central Warehouse, Kathmandu","Ward 27, Patan Durbar Square, Lalitpur",3162.93,prepaid,clear,9890397163,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2803.44,prepaid,foggy,9837191173,0
+"Central Warehouse, Kathmandu","Ward 14, Jawalakhel, Lalitpur",2738.08,COD,extreme,9857448571,1
+"Central Warehouse, Kathmandu","Ward 22, Patan Durbar Square, Lalitpur",3503.54,cod,extreme,9899329270,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",2235.03,online,clear,9857527866,1
+"Central Warehouse, Kathmandu","Ward 28, Patan Durbar Square, Lalitpur",108.13,COD,clear,9827751266,0
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",282.42,COD,normal,9863220333,0
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",4336.94,cod,foggy,9899295444,1
+"Central Warehouse, Kathmandu","Ward 8, Jawalakhel, Lalitpur",3884.81,online,foggy,9828662284,1
+"Central Warehouse, Kathmandu","Ward 19, Patan Durbar Square, Lalitpur",311.88,COD,extreme,9840297369,1
+"Central Warehouse, Kathmandu","Ward 26, Baneshwor, Kathmandu",1951.22,online,extreme,9842089075,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",1873.33,online,normal,9865920670,0
+"Central Warehouse, Kathmandu","Ward 1, Baneshwor, Kathmandu",4244.59,online,normal,9864595802,0
+"Central Warehouse, Kathmandu","Ward 7, Durbar Square, Bhaktapur",237.58,prepaid,normal,9834441516,0
+"Central Warehouse, Kathmandu","Ward 14, Lakeside, Pokhara",133.41,online,normal,9859854127,0
+"Central Warehouse, Kathmandu","Ward 29, Patan Durbar Square, Lalitpur",4610.22,prepaid,normal,9866928866,0
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",1349.41,prepaid,clear,9825122487,0
+"Central Warehouse, Kathmandu","Ward 30, Main Road, Biratnagar",3844.51,prepaid,foggy,9834507149,1
+"Central Warehouse, Kathmandu","Ward 19, Main Road, Biratnagar",2021.82,online,extreme,9856241100,0
+"Central Warehouse, Kathmandu","Ward 11, Baneshwor, Kathmandu",4907.76,COD,rainy,9835020495,0
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",3762.06,prepaid,foggy,9836047191,0
+"Central Warehouse, Kathmandu","Ward 11, Patan Durbar Square, Lalitpur",2987.8,prepaid,extreme,9810206625,1
+"Central Warehouse, Kathmandu","Ward 2, Durbar Square, Bhaktapur",717.96,COD,foggy,9894382130,1
+"Central Warehouse, Kathmandu","Ward 8, Durbar Square, Bhaktapur",3778.12,COD,foggy,9824966564,1
+"Central Warehouse, Kathmandu","Ward 27, Main Road, Biratnagar",1451.39,prepaid,foggy,9857635840,0
+"Central Warehouse, Kathmandu","Baneshwor, Kathmandu",636.45,online,normal,9870386589,0
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",2009.27,prepaid,clear,9842623609,1
+"Central Warehouse, Kathmandu","Ward 24, Baneshwor, Kathmandu",1659.4,online,extreme,9834732583,1
+"Central Warehouse, Kathmandu","Ward 6, Durbar Square, Bhaktapur",470.33,prepaid,extreme,9841131069,0
+"Central Warehouse, Kathmandu","Ward 12, Baneshwor, Kathmandu",554.83,online,rainy,9815608169,0
+"Central Warehouse, Kathmandu","Ward 30, Patan Durbar Square, Lalitpur",1805.18,online,clear,9890874223,0
+"Central Warehouse, Kathmandu","Ward 32, Patan Durbar Square, Lalitpur",2148.86,cod,clear,9854411696,0
+"Central Warehouse, Kathmandu","Ward 23, Jawalakhel, Lalitpur",1016.0,COD,normal,9849757521,0
+"Central Warehouse, Kathmandu","Ward 25, Baneshwor, Kathmandu",152.98,online,foggy,9871606242,0
+"Central Warehouse, Kathmandu","Ward 30, Thamel, Kathmandu",4524.1,COD,normal,9873356328,0
+"Central Warehouse, Kathmandu","Ward 27, Durbar Square, Bhaktapur",1788.2,cod,normal,9853165895,1
+"Central Warehouse, Kathmandu","Ward 28, Jawalakhel, Lalitpur",2481.17,prepaid,foggy,9863863177,0
+"Central Warehouse, Kathmandu","Ward 2, Thamel, Kathmandu",4475.52,cod,clear,9811260019,1
+"Central Warehouse, Kathmandu","Patan Durbar Square, Lalitpur",506.07,cod,foggy,9835836434,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2844.58,COD,extreme,9887769463,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",4956.22,prepaid,normal,9810789725,0
+"Central Warehouse, Kathmandu","Main Road, Biratnagar",4231.41,prepaid,foggy,9898633833,0
+"Central Warehouse, Kathmandu","Durbar Square, Bhaktapur",1512.61,COD,rainy,9857028100,0
+"Central Warehouse, Kathmandu","Lakeside, Pokhara",2151.55,online,foggy,9831329119,0
+"Central Warehouse, Kathmandu","Ward 26, Thamel, Kathmandu",2129.24,prepaid,clear,9824583201,0
+"Central Warehouse, Kathmandu","Ward 28, Thamel, Kathmandu",3072.63,cod,extreme,9877304191,1
+"Central Warehouse, Kathmandu","Thamel, Kathmandu",1568.61,COD,normal,9862695144,1
+"Central Warehouse, Kathmandu","Ward 26, Patan Durbar Square, Lalitpur",4086.49,COD,rainy,9851550461,0
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",2521.0,online,foggy,9897061460,1
+"Central Warehouse, Kathmandu","Jawalakhel, Lalitpur",2206.39,prepaid,foggy,9844349040,0
+"Central Warehouse, Kathmandu","Ward 8, Durbar Square, Bhaktapur",2531.23,COD,clear,9846505115,1
+"Central Warehouse, Kathmandu","Ward 3, Baneshwor, Kathmandu",3367.62,cod,clear,9851912892,0

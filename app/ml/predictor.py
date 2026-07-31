@@ -1,100 +1,85 @@
-import joblib
+import logging
 import pandas as pd
-import re
+import joblib
 import shap
 from pathlib import Path
 from typing import Dict, Any, List
 
-# ==============================
-# CONFIG
-# ==============================
+from app.utils.feature_engineering import (
+    MODEL_FEATURE_COLUMNS,
+    process_input,
+)
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
-MODEL_PATH = BASE_DIR / "delivery_model.pkl"
+logger = logging.getLogger(__name__)
+
+MODEL_PATH = Path(__file__).resolve().parent / "delivery_model.pkl"
+
 model = joblib.load(MODEL_PATH)
-
 preprocessor = model.named_steps["preprocessor"]
 model_step = model.named_steps["model"]
-print("TRANSFORMERS STRUCTURE:")
-print(preprocessor.transformers_)
 
-print("ORDER CHECK:")
-for name, transformer, cols in preprocessor.transformers_:
-    print(name)
-explainer = shap.TreeExplainer(model_step)
+explainer = shap.TreeExplainer(
+    model_step,
+    feature_perturbation="tree_path_dependent",
+)
 
-EXPECTED_COLUMNS = [
-    "delivery_time",
-    "address_clarity",
-    "payment_method",
-    "order_value",
-    "area_density",
-    "accessibility",
-    "weather_condition",
-    "traffic_level",
-    "address_length",
-    "contact_valid"
-]
+ALLOWED_VALUES = {
+    "address_clarity": ["low", "high"],
+    "area_density": ["low", "medium", "high"],
+    "order_value_category": ["low", "medium", "high"],
+    "weather_condition": ["normal", "rain", "extreme"],
+    "payment_method": ["COD", "prepaid"],
+}
 
-NUMERICAL_COLS = [
-    "address_length",
-    "contact_valid"
-]
+FEATURE_NAME_MAP = {
+    "cat__payment_method_COD": ("payment_method", "COD"),
+    "cat__payment_method_prepaid": ("payment_method", "prepaid"),
+    "cat__order_value_category_low": ("order_value_category", "low"),
+    "cat__order_value_category_medium": ("order_value_category", "medium"),
+    "cat__order_value_category_high": ("order_value_category", "high"),
+    "cat__area_density_low": ("area_density", "low"),
+    "cat__area_density_medium": ("area_density", "medium"),
+    "cat__area_density_high": ("area_density", "high"),
+    "cat__address_clarity_low": ("address_clarity", "low"),
+    "cat__address_clarity_high": ("address_clarity", "high"),
+    "cat__weather_condition_normal": ("weather_condition", "normal"),
+    "cat__weather_condition_rain": ("weather_condition", "rain"),
+    "cat__weather_condition_extreme": ("weather_condition", "extreme"),
+}
 
 MAX_REASONS = 3
 
-# ==============================
-# LOAD MODEL
-# ==============================
 
-model = joblib.load(MODEL_PATH)
-
-# Extract pipeline components ONCE (important for performance)
-preprocessor = model.named_steps["preprocessor"]
-model_step = model.named_steps["model"]
-
-# ==============================
-# UTIL FUNCTIONS
-# ==============================
-
-def is_valid_phone(phone: str) -> int:
-    pattern = r"^(\+977)?(98[0-9]{8}|97[0-9]{8}|01[0-9]{7})$"
-    return 1 if re.match(pattern, phone) else 0
+def validate_processed_features(processed: Dict[str, Any]) -> None:
+    for col, allowed in ALLOWED_VALUES.items():
+        if col not in processed:
+            raise ValueError(f"Missing field: {col}")
+        if processed[col] not in allowed:
+            raise ValueError(f"Invalid value '{processed[col]}' for {col}")
 
 
-def preprocess_input(data: Dict[str, Any]) -> pd.DataFrame:
-    input_dict = data.copy()
+def raw_to_model_dataframe(raw_input: Dict[str, Any]) -> pd.DataFrame:
+    processed = process_input(raw_input)
+    validate_processed_features(processed)
 
-    # Feature engineering
-    input_dict["contact_valid"] = is_valid_phone(input_dict.get("phone_number", ""))
-    input_dict.pop("phone_number", None)
+    logger.info("Transformed features: %s", processed)
+    logger.info("Prediction input columns: %s", MODEL_FEATURE_COLUMNS)
 
-    df = pd.DataFrame([input_dict])
+    df = pd.DataFrame([processed])
+    return df[MODEL_FEATURE_COLUMNS]
 
-    missing_cols = set(EXPECTED_COLUMNS) - set(df.columns)
-    if missing_cols:
-        raise ValueError(f"Missing columns: {missing_cols}")
-
-    return df[EXPECTED_COLUMNS]
-
-
-# ==============================
-# RISK CLASSIFICATION
-# ==============================
 
 def classify_risk(probability: float) -> str:
     if probability >= 0.7:
         return "HIGH"
-    elif probability > 0.4:
+    if probability > 0.4:
         return "MEDIUM"
     return "LOW"
 
 
-# ==============================
-# RULE-BASED EXPLANATION (HUMAN)
-# ==============================
-
-def generate_explanation(input_data: Dict[str, Any], probability: float, risk: str) -> List[str]:
+def generate_explanation(
+    processed_data: Dict[str, Any], probability: float, risk: str
+) -> List[str]:
     reasons = []
 
     try:
@@ -103,148 +88,119 @@ def generate_explanation(input_data: Dict[str, Any], probability: float, risk: s
         elif probability > 0.65:
             reasons.append("Elevated delivery risk detected")
 
-        if input_data.get("contact_valid") == 0:
-            reasons.append("Invalid or unreachable phone number")
+        if processed_data.get("address_clarity") == "low":
+            reasons.append("Delivery address is too short or unclear")
 
-        if input_data.get("address_clarity") == "unclear":
-            reasons.append("Unclear or incomplete address")
+        if processed_data.get("area_density") == "high":
+            reasons.append("High-density delivery area")
 
-        if input_data.get("traffic_level") == "high":
-            reasons.append("Heavy traffic may delay delivery")
-
-        if input_data.get("weather_condition") == "extreme":
+        if processed_data.get("weather_condition") == "extreme":
             reasons.append("Extreme weather conditions")
 
-        if input_data.get("accessibility") == "difficult":
-            reasons.append("Delivery location is hard to access")
-
-        if input_data.get("payment_method") == "COD":
+        if processed_data.get("payment_method") == "COD":
             reasons.append("Cash on Delivery orders have higher failure rates")
 
-        if input_data.get("delivery_time") == "evening":
-            reasons.append("Evening deliveries are less reliable")
+        if processed_data.get("order_value_category") == "high":
+            reasons.append("High-value order increases delivery risk")
 
         if risk == "LOW":
             return ["Low predicted risk based on stable delivery conditions"]
 
-        return reasons[:MAX_REASONS] if reasons else ["Risk detected but no dominant factor identified"]
+        return reasons[:MAX_REASONS] if reasons else [
+            "Risk detected but no dominant factor identified"
+        ]
 
     except Exception:
         return ["Explanation generation failed"]
 
 
-# ==============================
-# SHAP EXPLANATION (REAL ML)
-# ==============================
 def get_shap_explanation(df: pd.DataFrame):
     try:
-        # Step 1: Transform input
         transformed = preprocessor.transform(df)
-
-        # Step 2: Use pre-created explainer (DO NOT recreate every call)
         shap_values = explainer.shap_values(transformed)
 
-        # Step 3: Handle binary classification
         if isinstance(shap_values, list):
             shap_values = shap_values[1]
 
-        # Step 4: Robust shape handling (this is where your bug was)
-        values = shap_values
-
-        if hasattr(values, "shape"):
-            if len(values.shape) == 2:
-                values = values[0]
-
+        values = shap_values[0] if len(shap_values.shape) == 2 else shap_values
         values = values.flatten()
 
-        # Step 5: Get feature names safely (no manual stitching)
         feature_names = preprocessor.get_feature_names_out()
+        grouped_features = {}
 
-        # Step 6: Build explanation (no hacks like .item())
-        explanation = []
         for feature, val in zip(feature_names, values):
-            val = float(val)
+            if abs(val) < 0.02:
+                continue
 
-            explanation.append({
-                "feature": feature,
-                "impact": round(val, 4),
-                "effect": "increase" if val > 0 else "decrease"
-            })
+            if feature in FEATURE_NAME_MAP:
+                base_feature, actual_value = FEATURE_NAME_MAP[feature]
+                entry = {
+                    "feature": base_feature,
+                    "value": actual_value,
+                    "impact": round(float(val), 4),
+                    "effect": "increase" if val > 0 else "decrease",
+                }
+                if (
+                    base_feature not in grouped_features
+                    or abs(val) > abs(grouped_features[base_feature]["impact"])
+                ):
+                    grouped_features[base_feature] = entry
 
-        # Step 7: Sort by importance
-        explanation.sort(key=lambda x: abs(x["impact"]), reverse=True)
-
-        return explanation[:5]
+        cleaned_explanation = list(grouped_features.values())
+        cleaned_explanation.sort(key=lambda x: abs(x["impact"]), reverse=True)
+        return cleaned_explanation[:4]
 
     except Exception as e:
         return [{"error": str(e)}]
 
-# ==============================
-# MAIN PREDICT FUNCTION
-# ==============================
 
-def predict(data) -> Dict[str, Any]:
+def predict(raw_input: Dict[str, Any]) -> Dict[str, Any]:
     try:
-        input_dict = data.model_dump()
-
-        df = preprocess_input(input_dict)
+        df = raw_to_model_dataframe(raw_input)
+        processed_data = df.iloc[0].to_dict()
 
         prediction = int(model.predict(df)[0])
         probability = float(model.predict_proba(df)[0][1])
-
         risk = classify_risk(probability)
-
-        reasons = generate_explanation(input_dict, probability, risk)
-
+        reasons = generate_explanation(processed_data, probability, risk)
         shap_explanation = get_shap_explanation(df)
+
         return {
-        "success": True,
-        "prediction": prediction,
-        "probability": probability,
-        "risk": risk,
-        "reasons": reasons,
-        "shap_explanations": shap_explanation
-    }
+            "success": True,
+            "prediction": prediction,
+            "probability": probability,
+            "risk": risk,
+            "phone_number": raw_input["phone_number"],
+            "processed_features": processed_data,
+            "reasons": reasons,
+            "shap_explanations": shap_explanation,
+        }
 
     except Exception as e:
+        logger.exception("Prediction failed")
         return {
             "success": False,
             "error": "prediction_failed",
-            "detail": str(e)
+            "detail": str(e),
         }
 
-
-# ==============================
-# FEATURE IMPORTANCE (GLOBAL)
-# ==============================
 
 def get_feature_importance():
     try:
         cat_features = preprocessor.named_transformers_["cat"].get_feature_names_out()
-        all_features = list(cat_features) + list(NUMERICAL_COLS)
-
         importances = model_step.feature_importances_
 
         result = [
-            {
-                "feature": name,
-                "importance": round(float(score), 4)
-            }
-            for name, score in zip(all_features, importances)
+            {"feature": name, "importance": round(float(score), 4)}
+            for name, score in zip(cat_features, importances)
         ]
-
         result.sort(key=lambda x: x["importance"], reverse=True)
 
-        return {
-            "success": True,
-            "features": result
-        }
+        return {"success": True, "features": result}
 
     except Exception as e:
         return {
             "success": False,
             "error": "feature_importance_failed",
-            "detail": str(e)
+            "detail": str(e),
         }
-    
-print(preprocessor.transformers_)
