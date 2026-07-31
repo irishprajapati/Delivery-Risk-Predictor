@@ -75,6 +75,22 @@ def compute_order_value_category(order_value: float) -> str:
     return "high"
 
 
+def resolve_weather_condition(raw: dict) -> str:
+    """
+    Weather is derived from live route sampling (see weather_service).
+    Falls back to explicit weather_condition only for offline/training paths.
+    """
+    weather_info = raw.get("weather_info") or {}
+    model_weather = weather_info.get("model_weather_condition")
+    if model_weather in {"normal", "rain", "extreme"}:
+        return model_weather
+
+    if "weather_condition" in raw:
+        return normalize_weather(raw["weather_condition"])
+
+    raise ValueError("weather_info.model_weather_condition is required for inference")
+
+
 def build_model_features(raw: dict) -> dict:
     """
     Transform raw user input into model-ready features.
@@ -86,7 +102,7 @@ def build_model_features(raw: dict) -> dict:
         "address_clarity": compute_address_clarity(delivery_address),
         "area_density": compute_area_density(delivery_address),
         "order_value_category": compute_order_value_category(float(raw["order_value"])),
-        "weather_condition": normalize_weather(raw["weather_condition"]),
+        "weather_condition": resolve_weather_condition(raw),
         "payment_method": normalize_payment(raw["payment_method"]),
     }
 

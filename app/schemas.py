@@ -1,7 +1,7 @@
 from pydantic import BaseModel, Field, field_validator
 import re
 
-from app.utils.feature_engineering import PAYMENT_MAP, WEATHER_MAP
+from app.utils.feature_engineering import PAYMENT_MAP
 
 
 class LoginRequest(BaseModel):
@@ -14,10 +14,9 @@ class PredictionInput(BaseModel):
     delivery_address: str = Field(..., min_length=1)
     order_value: float = Field(..., gt=0)
     payment_method: str
-    weather_condition: str
     phone_number: str
 
-    @field_validator("pickup_address", "delivery_address", "payment_method", "weather_condition", "phone_number")
+    @field_validator("pickup_address", "delivery_address", "payment_method", "phone_number")
     @classmethod
     def strip_strings(cls, v: str) -> str:
         return v.strip()
@@ -36,16 +35,6 @@ class PredictionInput(BaseModel):
         if key not in PAYMENT_MAP:
             raise ValueError(
                 f"payment_method must be one of {list(PAYMENT_MAP.keys())}"
-            )
-        return v
-
-    @field_validator("weather_condition")
-    @classmethod
-    def validate_weather(cls, v: str) -> str:
-        key = v.strip().lower()
-        if key not in WEATHER_MAP:
-            raise ValueError(
-                f"weather_condition must be one of {list(WEATHER_MAP.keys())}"
             )
         return v
 

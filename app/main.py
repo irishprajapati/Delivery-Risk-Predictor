@@ -32,8 +32,7 @@ app = FastAPI()
 #     allow_headers=["*"],
 # )
 origins = [
-    "http://localhost:5174",
-    "http://127.0.0.1:5174",
+    "*"
 ]
 
 app.add_middleware(

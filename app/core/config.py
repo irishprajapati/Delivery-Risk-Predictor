@@ -10,6 +10,7 @@ _ENV_PATH = _PROJECT_ROOT / ".env"
 load_dotenv(_ENV_PATH)
 
 SECRET_KEY = os.getenv("SECRET_KEY")
+OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 if not SECRET_KEY:
     raise ValueError("SECRET_KEY not set")
