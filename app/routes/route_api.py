@@ -2,11 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from app.database import SessionLocal
-from app.model import Prediction, User
-from app.utils.dependencies import get_current_user
+from app.model import *
+from app.schemas import *
+from app.utils.dependencies import get_current_user, get_current_admin, get_current_customer
 from app.services.ors_service import LocationValidationError, ORSServiceError
 from app.utils.location import compute_route_info
-
+from app.services.action_engine import calculate_risk
 router = APIRouter()
 
 
@@ -107,3 +108,104 @@ def get_route_by_phone(
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     except ORSServiceError as exc:
         raise HTTPException(status_code=503, detail=str(exc)) from exc
+
+@router.get("/admin/dashboard")
+def admin_dashboard(admin=Depends(get_current_admin)):
+    return {"message": "Welcome Admin"}
+
+@router.get("/customer/profile")
+def customer_profile(customer=Depends(get_current_customer)):
+    return {"phone": customer.phone}
+
+@router.get("/categories")
+def get_categories(db: Session = Depends(get_db)):
+    return db.query(OrderCategory).all()
+
+@router.get("/items/{category_id}")
+def get_items(category_id: int, db: Session = Depends(get_db)):
+    return db.query(Item).filter(Item.category_id == category_id).all()
+
+@router.post("/place-order")
+def place_order(
+    data: OrderCreate,
+    db: Session = Depends(get_db),
+    current=Depends(get_current_customer)
+):
+    item = db.query(Item).filter(Item.id == data.item_id).first()
+
+    if not item:
+        raise HTTPException(status_code=404, detail="Item not found")
+
+    if data.quantity <= 0:
+        raise HTTPException(status_code=400, detail="Invalid quantity")
+
+    total_price = item.price * data.quantity
+
+    risk_score = calculate_risk(
+        db=db,
+        customer=current,
+        item=item,
+        quantity=data.quantity,
+        total_price=total_price,
+        is_cod=data.is_cod,
+        address_text=data.address
+    )
+
+    if risk_score >= 0.8:
+        status = "blocked"
+    elif risk_score >= 0.5:
+        status = "pending_review"
+    else:
+        status = "approved"
+
+    order = Order(
+        customer_id=current.id,
+        item_id=item.id,
+        quantity=data.quantity,
+        total_price=total_price,
+        status=status,
+        risk_score=risk_score
+    )
+
+    db.add(order)
+    db.commit()
+    db.refresh(order)
+
+    return {
+        "message": "Order placed",
+        "order_id": order.id,
+        "total_price": total_price,
+        "status": status,
+        "risk_score": risk_score
+    }
+
+@router.post("/create-item")
+def create_item(
+    name: str,
+    price: float,
+    db: Session = Depends(get_db),
+    admin=Depends(get_current_admin)
+):
+    item = Item(name=name, price=price)
+
+    db.add(item)
+    db.commit()
+    db.refresh(item)
+
+    return {
+        "message": "Item created",
+        "item_id": item.id
+    }
+
+@router.get("/items")
+def get_items(db: Session = Depends(get_db)):
+    items = db.query(Item).all()
+
+    return [
+        {
+            "id": item.id,
+            "name": item.name,
+            "price": item.price
+        }
+        for item in items
+    ]
