@@ -36,6 +36,7 @@ def calculate_address_score(address):
         score += 0.2
 
     return min(score, 1.0)
+
 def calculate_risk(
     db,
     customer,
@@ -45,55 +46,80 @@ def calculate_risk(
     is_cod,
     address_text
 ):
-    risk = 0
-
-    # ✅ Normalize bad DB values
     failed = customer.failed_deliveries or 0
     unreachable = getattr(customer, "unreachable_count", 0) or 0
 
-    # Quantity
-    if quantity > 5:
+    risk = 0
+
+    if quantity > 20:
         risk += 0.15
-    if quantity > 10:
-        risk += 0.25
+    elif quantity > 10:
+        risk += 0.10
+    elif quantity > 5:
+        risk += 0.05
 
-    # Price
-    if total_price > 1000:
+    if total_price > 50000:
         risk += 0.2
-    if total_price > 5000:
-        risk += 0.3
+    elif total_price > 10000:
+        risk += 0.1
+    elif total_price > 3000:
+        risk += 0.05
 
-    # Recent orders
+    if item.price > 50000:
+        risk += 0.1
+
+    # Category Risk (NEW SYSTEM)
+    if item.category and item.category.risk_score:
+        risk += item.category.risk_score
+
+    if getattr(customer, "total_orders", 0) == 0:
+        risk += 0.1
+
+    current_hour = datetime.utcnow().hour
+    if 2 <= current_hour <= 5:
+        risk += 0.05
+
     one_hour_ago = datetime.utcnow() - timedelta(hours=1)
+
     recent_orders = db.query(Order).filter(
         Order.customer_id == customer.id,
         Order.created_at >= one_hour_ago
     ).count()
 
-    if recent_orders > 3:
-        risk += 0.15
     if recent_orders > 6:
-        risk += 0.25
-
-    # Failed deliveries
-    if failed > 2:
-        risk += 0.2
-    if failed > 5:
-        risk += 0.35
-
-    # COD risk
-    if is_cod:
         risk += 0.15
+    elif recent_orders > 3:
+        risk += 0.1
+
+    if failed > 5:
+        risk += 0.2
+    elif failed > 2:
+        risk += 0.1
+    if is_cod:
         if failed > 2:
-            risk += 0.25
+            risk += 0.1
+        else:
+            risk += 0.05
 
-    # Address risk
     address_score = calculate_address_score(address_text)
-    if address_score < 0.5:
-        risk += 0.2
 
-    # Unreachable risk
-    if unreachable > 2:
-        risk += 0.2
+    if address_score < 0.3:
+        risk += 0.1
+    elif address_score < 0.6:
+        risk += 0.05
 
-    return min(risk, 1.0)
+    if unreachable > 5:
+        risk += 0.1
+    elif unreachable > 2:
+        risk += 0.05
+
+    print({
+        "customer": customer.id,
+        "risk": risk,
+        "price": total_price,
+        "quantity": quantity,
+        "recent_orders": recent_orders,
+        "category": item.category.name if item.category else None
+    })
+
+    return round(min(risk, 1.0), 2)
