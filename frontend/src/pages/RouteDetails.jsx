@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { getRouteDetails } from "../services/api";
+import { getRouteByPredictionId, getRouteDetails } from "../services/api";
 
 const pickupIcon = new L.Icon({
   iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
@@ -23,6 +23,16 @@ const deliveryIcon = new L.Icon({
   shadowSize: [41, 41],
 });
 
+function FitBounds({ bounds }) {
+  const map = useMap();
+  useEffect(() => {
+    if (bounds) {
+      map.fitBounds(bounds, { padding: [40, 40] });
+    }
+  }, [map, bounds]);
+  return null;
+}
+
 const formatRiskLevel = (risk) => String(risk ?? "UNKNOWN").toUpperCase();
 
 const formatDuration = (minutes) => {
@@ -34,7 +44,7 @@ const formatDuration = (minutes) => {
 };
 
 const RouteDetails = () => {
-  const { phone_number } = useParams();
+  const { prediction_id, phone_number } = useParams();
   const [route, setRoute] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -42,7 +52,9 @@ const RouteDetails = () => {
   useEffect(() => {
     const fetchRoute = async () => {
       try {
-        const data = await getRouteDetails(phone_number);
+        const data = prediction_id
+          ? await getRouteByPredictionId(prediction_id)
+          : await getRouteDetails(phone_number);
         setRoute(data);
       } catch (err) {
         setError(err.response?.data?.detail || "Failed to load route details");
@@ -52,7 +64,7 @@ const RouteDetails = () => {
     };
 
     fetchRoute();
-  }, [phone_number]);
+  }, [prediction_id, phone_number]);
 
   const polylinePositions = useMemo(() => {
     if (!route?.route_polyline?.length) return [];
@@ -90,7 +102,7 @@ const RouteDetails = () => {
   const centerLat = (pickup.lat + delivery.lat) / 2;
   const centerLng = (pickup.lng + delivery.lng) / 2;
   const highRisk = String(route.risk).toLowerCase() === "high";
-  const isGoogleRoute = route.route_source === "google";
+  const isDrivingRoute = route.route_source === "openrouteservice";
 
   return (
     <div>
@@ -123,11 +135,17 @@ const RouteDetails = () => {
           <span style={styles.addressLabel}>Pickup</span>
           <p style={styles.addressText}>{route.pickup_address}</p>
           <span style={styles.districtTag}>{route.pickup_district}</span>
+          {route.pickup_area && (
+            <span style={styles.areaTag}>{route.pickup_area}</span>
+          )}
         </div>
         <div style={{ ...styles.addressCard, borderLeft: "4px solid #ef4444" }}>
           <span style={styles.addressLabel}>Delivery</span>
           <p style={styles.addressText}>{route.delivery_address}</p>
           <span style={styles.districtTag}>{route.delivery_district}</span>
+          {route.delivery_area && (
+            <span style={styles.areaTag}>{route.delivery_area}</span>
+          )}
         </div>
       </div>
 
@@ -136,14 +154,13 @@ const RouteDetails = () => {
           center={[centerLat, centerLng]}
           zoom={13}
           style={{ height: "440px", width: "100%" }}
-          scrollWheelZoom={false}
-          bounds={mapBounds ?? undefined}
-          boundsOptions={{ padding: [40, 40] }}
+          scrollWheelZoom
         >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+          {mapBounds && <FitBounds bounds={mapBounds} />}
           <Marker position={[pickup.lat, pickup.lng]} icon={pickupIcon}>
             <Popup>
               <strong>Pickup</strong>
@@ -158,7 +175,7 @@ const RouteDetails = () => {
               {route.delivery_address}
             </Popup>
           </Marker>
-          {polylinePositions.length > 0 && (
+          {polylinePositions.length > 1 && (
             <Polyline
               positions={polylinePositions}
               color="#3b82f6"
@@ -170,9 +187,9 @@ const RouteDetails = () => {
       </div>
 
       <p style={styles.note}>
-        {isGoogleRoute
-          ? "Route calculated via Google Directions API (driving)."
-          : "Straight-line estimate shown. Set GOOGLE_MAPS_API_KEY for real driving routes."}
+        {isDrivingRoute
+          ? "Route calculated via OpenRouteService driving directions."
+          : "Route data unavailable — check ORS_API_KEY configuration."}
       </p>
     </div>
   );
@@ -255,6 +272,16 @@ const styles = {
     padding: "2px 8px",
     borderRadius: "4px",
     textTransform: "capitalize",
+  },
+  areaTag: {
+    display: "inline-block",
+    alignSelf: "flex-start",
+    background: "#f0fdf4",
+    color: "#16a34a",
+    fontSize: "0.75rem",
+    fontWeight: "600",
+    padding: "2px 8px",
+    borderRadius: "4px",
   },
   mapWrapper: {
     border: "1px solid #e2e8f0",

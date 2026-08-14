@@ -35,6 +35,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/predict" element={<Predict />} />
           <Route path="/history" element={<History />} />
+          <Route path="/route/prediction/:prediction_id" element={<RouteDetails />} />
           <Route path="/route/:phone_number" element={<RouteDetails />} />
         </Route>
       </Route>

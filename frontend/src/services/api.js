@@ -46,6 +46,17 @@ export const getHistory = async () => {
   return res.data;
 };
 
+export const getHistoryItem = async (predictionId) => {
+  const res = await API.get(`/history/${predictionId}`);
+  return res.data;
+};
+
+export const getRouteByPredictionId = async (predictionId) => {
+  const res = await API.get(`/route/prediction/${predictionId}`);
+  return res.data;
+};
+
+/** @deprecated Use getRouteByPredictionId for accurate per-prediction routes */
 export const getRouteDetails = async (phoneNumber) => {
   const res = await API.get(`/route/${encodeURIComponent(phoneNumber)}`);
   return res.data;

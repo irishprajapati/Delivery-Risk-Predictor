@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getHistory } from "../services/api";
 
 const getPhoneNumber = (item) =>
@@ -70,7 +71,6 @@ const Dashboard = () => {
       <h1 style={styles.title}>Dashboard</h1>
 
       <div style={styles.layout}>
-        {/* Left — 70% main prediction */}
         <section style={styles.leftPanel}>
           <h2 style={styles.panelHeading}>Latest Prediction</h2>
 
@@ -109,12 +109,18 @@ const Dashboard = () => {
                     {formatPrediction(latest.prediction)}
                   </span>
                 </div>
+
+                <Link
+                  to={`/history?selected=${latest.id}`}
+                  style={styles.viewLink}
+                >
+                  View in History →
+                </Link>
               </div>
             </div>
           )}
         </section>
 
-        {/* Right — 30% recent history */}
         <aside style={styles.rightPanel}>
           <h2 style={styles.panelHeading}>Recent History</h2>
 
@@ -125,24 +131,30 @@ const Dashboard = () => {
               </p>
             ) : (
               <ul style={styles.historyList}>
-                {recentHistory.map((item) => {
+                {recentHistory.map((item, index) => {
                   const high = isHighRisk(item.risk);
 
                   return (
-                    <li key={item.id} style={styles.historyItem}>
-                      <span style={styles.historyPhone}>
-                        {getPhoneNumber(item)}
-                      </span>
-                      <span style={styles.historyArrow}>→</span>
-                      <span
-                        style={{
-                          ...styles.historyRisk,
-                          color: high ? "#ef4444" : "#64748b",
-                          fontWeight: high ? "700" : "500",
-                        }}
+                    <li key={item.id}>
+                      <Link
+                        to={`/history?selected=${item.id}`}
+                        style={styles.historyItem}
                       >
-                        {formatRiskLevel(item.risk)}
-                      </span>
+                        <span style={styles.historyNumber}>{index + 1}</span>
+                        <span style={styles.historyPhone}>
+                          {getPhoneNumber(item)}
+                        </span>
+                        <span style={styles.historyArrow}>→</span>
+                        <span
+                          style={{
+                            ...styles.historyRisk,
+                            color: high ? "#ef4444" : "#64748b",
+                            fontWeight: high ? "700" : "500",
+                          }}
+                        >
+                          {formatRiskLevel(item.risk)}
+                        </span>
+                      </Link>
                     </li>
                   );
                 })}
@@ -250,6 +262,13 @@ const styles = {
     fontWeight: "600",
     color: "#334155",
   },
+  viewLink: {
+    marginTop: "8px",
+    fontSize: "0.875rem",
+    fontWeight: "600",
+    color: "#3b82f6",
+    textDecoration: "none",
+  },
   emptyMain: {
     textAlign: "center",
   },
@@ -295,6 +314,23 @@ const styles = {
     borderRadius: "6px",
     border: "1px solid #f1f5f9",
     fontSize: "0.875rem",
+    textDecoration: "none",
+    color: "inherit",
+    cursor: "pointer",
+    transition: "background 0.15s, border-color 0.15s",
+  },
+  historyNumber: {
+    flexShrink: 0,
+    width: "22px",
+    height: "22px",
+    borderRadius: "50%",
+    background: "#e2e8f0",
+    color: "#475569",
+    fontSize: "0.75rem",
+    fontWeight: "700",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   historyPhone: {
     fontWeight: "600",

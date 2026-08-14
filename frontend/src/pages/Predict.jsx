@@ -7,7 +7,18 @@ const INITIAL_FORM = {
   delivery_address: "",
   order_value: "",
   payment_method: "cod",
-  weather_condition: "normal",
+};
+
+const WEATHER_COLORS = {
+  RAIN: "#2563eb",
+  CLOUDY: "#64748b",
+  CLEAR: "#16a34a",
+};
+
+const RISK_COLORS = {
+  HIGH: "#ef4444",
+  MEDIUM: "#f59e0b",
+  LOW: "#16a34a",
 };
 
 const Predict = () => {
@@ -87,7 +98,7 @@ const Predict = () => {
               name="pickup_address"
               value={form.pickup_address}
               onChange={handleChange}
-              placeholder="Central Warehouse, Kathmandu"
+              placeholder="Lokanthali, Bhaktapur"
               required
               style={styles.input}
             />
@@ -98,7 +109,7 @@ const Predict = () => {
               name="delivery_address"
               value={form.delivery_address}
               onChange={handleChange}
-              placeholder="Thamel, Kathmandu"
+              placeholder="Dhapakhel, Lalitpur"
               required
               style={styles.input}
             />
@@ -115,24 +126,14 @@ const Predict = () => {
               <option value="prepaid">Prepaid</option>
             </select>
           </Field>
-
-          <Field label="Weather">
-            <select
-              name="weather_condition"
-              value={form.weather_condition}
-              onChange={handleChange}
-              style={styles.input}
-            >
-              <option value="normal">Normal</option>
-              <option value="rainy">Rainy</option>
-              <option value="foggy">Foggy</option>
-              <option value="clear">Clear</option>
-            </select>
-          </Field>
         </div>
 
+        <p style={styles.hint}>
+          Weather is fetched automatically from pickup, route midpoint, and delivery locations.
+        </p>
+
         <button type="submit" disabled={loading} style={styles.button}>
-          {loading ? "Predicting..." : "Run Prediction"}
+          {loading ? "Fetching route & weather..." : "Run Prediction"}
         </button>
       </form>
 
@@ -154,6 +155,26 @@ const Predict = () => {
               {String(result.risk).toUpperCase()}
             </span>
           </p>
+
+          <div style={styles.weatherSection}>
+            <h3 style={styles.weatherTitle}>Live Route Weather</h3>
+            <div style={styles.weatherGrid}>
+              <WeatherBadge label="Pickup Weather" value={result.pickup_weather} />
+              <WeatherBadge label="Route Weather" value={result.midpoint_weather} />
+              <WeatherBadge label="Delivery Weather" value={result.delivery_weather} />
+            </div>
+            {result.weather_risk_message && (
+              <p
+                style={{
+                  ...styles.weatherRiskMessage,
+                  color: RISK_COLORS[result.weather_risk] || "#334155",
+                }}
+              >
+                {result.weather_risk_message}
+              </p>
+            )}
+          </div>
+
           {result.actions?.length > 0 && (
             <div style={{ marginTop: "12px" }}>
               <strong>Recommended Actions:</strong>
@@ -169,6 +190,16 @@ const Predict = () => {
     </div>
   );
 };
+
+function WeatherBadge({ label, value }) {
+  const color = WEATHER_COLORS[value] || "#475569";
+  return (
+    <div style={styles.weatherBadge}>
+      <span style={styles.weatherLabel}>{label}</span>
+      <span style={{ ...styles.weatherValue, color }}>{value || "—"}</span>
+    </div>
+  );
+}
 
 function Field({ label, children, full }) {
   return (
@@ -215,6 +246,12 @@ const styles = {
     border: "1px solid #cbd5e1",
     fontSize: "0.95rem",
   },
+  hint: {
+    marginTop: "16px",
+    marginBottom: 0,
+    fontSize: "0.875rem",
+    color: "#64748b",
+  },
   button: {
     marginTop: "20px",
     background: "#2563eb",
@@ -250,6 +287,48 @@ const styles = {
   resultRow: {
     margin: "8px 0",
     color: "#334155",
+  },
+  weatherSection: {
+    marginTop: "16px",
+    padding: "16px",
+    background: "#f8fafc",
+    borderRadius: "8px",
+    border: "1px solid #e2e8f0",
+  },
+  weatherTitle: {
+    margin: "0 0 12px",
+    fontSize: "1rem",
+    color: "#1e293b",
+  },
+  weatherGrid: {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gap: "12px",
+  },
+  weatherBadge: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "4px",
+    padding: "10px 12px",
+    background: "#fff",
+    borderRadius: "6px",
+    border: "1px solid #e2e8f0",
+  },
+  weatherLabel: {
+    fontSize: "0.75rem",
+    fontWeight: "600",
+    color: "#64748b",
+    textTransform: "uppercase",
+    letterSpacing: "0.03em",
+  },
+  weatherValue: {
+    fontSize: "1rem",
+    fontWeight: "700",
+  },
+  weatherRiskMessage: {
+    margin: "12px 0 0",
+    fontWeight: "600",
+    fontSize: "0.95rem",
   },
 };
 
