@@ -1,26 +1,3 @@
-"""
-Train and compare delivery-failure classification models.
-
-Dataset:
-    app/data/delivery_data.csv
-
-Target:
-    delivery_failure
-
-Candidate models:
-    1. Logistic Regression
-    2. Random Forest
-    3. Gradient Boosting
-
-The best model is selected using:
-    1. F1 score
-    2. Recall
-    3. ROC-AUC
-
-The winning preprocessing + model pipeline is saved as:
-    app/ml/delivery_model.pkl
-"""
-
 from __future__ import annotations
 
 from pathlib import Path
@@ -52,7 +29,7 @@ from sklearn.model_selection import (
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-from app.utils.feature_engineering import MODEL_FEATURES
+from app.services.feature_engineering import MODEL_FEATURES
 
 
 # ============================================================
@@ -60,14 +37,31 @@ from app.utils.feature_engineering import MODEL_FEATURES
 # ============================================================
 
 # train_model.py is inside app/ml/
-# parents[1] = app/
+# parents[1] -> app/
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-DATA_PATH = PROJECT_ROOT / "data" / "delivery_data.csv"
-MODEL_PATH = PROJECT_ROOT / "ml" / "delivery_model.pkl"
-RESULTS_PATH = PROJECT_ROOT / "ml" / "model_comparison.csv"
+DATA_PATH = (
+    PROJECT_ROOT
+    / "data"
+    / "delivery_data.csv"
+)
+
+MODEL_PATH = (
+    PROJECT_ROOT
+    / "ml"
+    / "delivery_model.pkl"
+)
+
+RESULTS_PATH = (
+    PROJECT_ROOT
+    / "ml"
+    / "model_comparison.csv"
+)
+
 RF_IMPORTANCE_PATH = (
-    PROJECT_ROOT / "ml" / "random_forest_feature_importance.csv"
+    PROJECT_ROOT
+    / "ml"
+    / "random_forest_feature_importance.csv"
 )
 
 
@@ -86,19 +80,79 @@ CV_FOLDS = 5
 # FEATURE GROUPS
 # ============================================================
 
+# Categorical values are kept as strings in feature_engineering.py
+# and encoded here using OneHotEncoder.
+
 CATEGORICAL_FEATURES = [
     "payment_method",
+
+    "day_type",
+    "time_period",
+
     "weather",
     "traffic_level",
+
     "route_status",
     "vehicle_status",
 ]
 
+
+# Everything else in MODEL_FEATURES is numeric.
 NUMERICAL_FEATURES = [
     feature
     for feature in MODEL_FEATURES
     if feature not in CATEGORICAL_FEATURES
 ]
+
+
+# ============================================================
+# CONTRACT VALIDATION
+# ============================================================
+
+def validate_feature_contract(
+    df: pd.DataFrame,
+) -> None:
+    """
+    Make sure the CSV exactly contains the current model feature
+    contract plus the target column.
+
+    This prevents silently training on an outdated CSV.
+    """
+
+    expected_columns = set(
+        MODEL_FEATURES
+        + [TARGET_COLUMN]
+    )
+
+    actual_columns = set(
+        df.columns
+    )
+
+    missing = sorted(
+        expected_columns - actual_columns
+    )
+
+    unexpected = sorted(
+        actual_columns - expected_columns
+    )
+
+    if missing:
+        raise ValueError(
+            "Dataset is missing required columns:\n"
+            + "\n".join(
+                f"  - {column}"
+                for column in missing
+            )
+        )
+
+    if unexpected:
+        raise ValueError(
+            "Dataset contains unexpected columns:\n"
+            + "\n".join(
+                f"  - {column}"
+                for column in unexpected
+            )
+        )
 
 
 # ============================================================
@@ -115,13 +169,18 @@ def build_preprocessor() -> ColumnTransformer:
     Categorical:
         missing values -> most frequent
         strings -> one-hot encoded
+
+    The output is dense so Logistic Regression, Random Forest,
+    and Gradient Boosting can use the exact same transformed data.
     """
 
     numeric_pipeline = Pipeline(
         steps=[
             (
                 "imputer",
-                SimpleImputer(strategy="median"),
+                SimpleImputer(
+                    strategy="median"
+                ),
             ),
         ]
     )
@@ -130,7 +189,9 @@ def build_preprocessor() -> ColumnTransformer:
         steps=[
             (
                 "imputer",
-                SimpleImputer(strategy="most_frequent"),
+                SimpleImputer(
+                    strategy="most_frequent"
+                ),
             ),
             (
                 "encoder",
@@ -165,9 +226,10 @@ def build_preprocessor() -> ColumnTransformer:
 
 def build_models() -> dict[str, Pipeline]:
     """
-    Create the three candidate ML pipelines.
+    Create candidate ML pipelines.
 
-    Every model receives the exact same features and preprocessing.
+    Every model receives exactly the same raw features and
+    preprocessing.
     """
 
     return {
@@ -179,7 +241,9 @@ def build_models() -> dict[str, Pipeline]:
                 ),
                 (
                     "scaler",
-                    StandardScaler(),
+                    StandardScaler(
+                        with_mean=True,
+                    ),
                 ),
                 (
                     "model",
@@ -244,70 +308,73 @@ def load_dataset() -> tuple[pd.DataFrame, pd.Series]:
     print("DELIVERY FAILURE MODEL TRAINING")
     print("=" * 70)
 
-    print(f"\n[INFO] Dataset: {DATA_PATH}")
+    print(
+        f"\n[INFO] Dataset: {DATA_PATH}"
+    )
 
     if not DATA_PATH.exists():
         raise FileNotFoundError(
             f"Dataset not found: {DATA_PATH}"
         )
 
-    df = pd.read_csv(DATA_PATH)
+    df = pd.read_csv(
+        DATA_PATH
+    )
 
-    print(f"[INFO] Dataset shape: {df.shape}")
-
-    # --------------------------------------------------------
-    # Target validation
-    # --------------------------------------------------------
-
-    if TARGET_COLUMN not in df.columns:
-        raise ValueError(
-            f"Target column '{TARGET_COLUMN}' "
-            f"not found in dataset."
-        )
+    print(
+        f"[INFO] Dataset shape: {df.shape}"
+    )
 
     # --------------------------------------------------------
-    # Feature validation
+    # Exact dataset contract
     # --------------------------------------------------------
 
-    missing_features = [
-        feature
-        for feature in MODEL_FEATURES
-        if feature not in df.columns
-    ]
-
-    if missing_features:
-        raise ValueError(
-            "Dataset is missing required model features:\n"
-            + "\n".join(
-                f"  - {feature}"
-                for feature in missing_features
-            )
-        )
-
-    X = df[MODEL_FEATURES].copy()
-    y = df[TARGET_COLUMN].copy()
+    validate_feature_contract(
+        df
+    )
 
     # --------------------------------------------------------
-    # Target validation
+    # Target
     # --------------------------------------------------------
+
+    y = df[
+        TARGET_COLUMN
+    ].copy()
 
     if y.isnull().any():
         raise ValueError(
             "Target column contains missing values."
         )
 
+    try:
+        y = y.astype(int)
+    except ValueError as exc:
+        raise ValueError(
+            "Target column must contain only 0 and 1."
+        ) from exc
+
     unique_targets = set(
-        y.astype(int).unique()
+        y.unique()
     )
 
-    if not unique_targets.issubset({0, 1}):
+    if not unique_targets.issubset(
+        {0, 1}
+    ):
         raise ValueError(
-            f"Target must contain only 0 and 1. "
+            "Target must contain only 0 and 1. "
             f"Found: {unique_targets}"
         )
 
     # --------------------------------------------------------
-    # Numerical values
+    # Features
+    # --------------------------------------------------------
+
+    X = df[
+        MODEL_FEATURES
+    ].copy()
+
+    # --------------------------------------------------------
+    # Numeric conversion
     # --------------------------------------------------------
 
     for column in NUMERICAL_FEATURES:
@@ -317,10 +384,11 @@ def load_dataset() -> tuple[pd.DataFrame, pd.Series]:
         )
 
     # --------------------------------------------------------
-    # Categorical values
+    # Categorical normalization
     # --------------------------------------------------------
 
     for column in CATEGORICAL_FEATURES:
+
         X[column] = (
             X[column]
             .astype("string")
@@ -328,23 +396,58 @@ def load_dataset() -> tuple[pd.DataFrame, pd.Series]:
             .str.upper()
         )
 
-    print("\n[INFO] Target distribution:")
-    print(y.value_counts())
+    # --------------------------------------------------------
+    # Output diagnostics
+    # --------------------------------------------------------
 
-    print("\n[INFO] Target proportion:")
+    print(
+        "\n[INFO] Target distribution:"
+    )
+    print(
+        y.value_counts()
+    )
+
+    print(
+        "\n[INFO] Target proportion:"
+    )
     print(
         y.value_counts(
             normalize=True
         ).round(4)
     )
 
-    print("\n[INFO] Categorical features:")
-    for feature in CATEGORICAL_FEATURES:
-        print(f"  - {feature}")
+    print(
+        "\n[INFO] Categorical features:"
+    )
 
-    print("\n[INFO] Numerical features:")
+    for feature in CATEGORICAL_FEATURES:
+        print(
+            f"  - {feature}"
+        )
+
+    print(
+        "\n[INFO] Numerical features:"
+    )
+
     for feature in NUMERICAL_FEATURES:
-        print(f"  - {feature}")
+        print(
+            f"  - {feature}"
+        )
+
+    print(
+        "\n[INFO] Model feature count:"
+        f" {len(MODEL_FEATURES)}"
+    )
+
+    print(
+        "[INFO] Categorical feature count:"
+        f" {len(CATEGORICAL_FEATURES)}"
+    )
+
+    print(
+        "[INFO] Numerical feature count:"
+        f" {len(NUMERICAL_FEATURES)}"
+    )
 
     return X, y
 
@@ -360,11 +463,18 @@ def evaluate_model(
     y_test: pd.Series,
 ) -> dict:
     """
-    Evaluate a trained model on the held-out test data.
+    Evaluate a fitted model on the held-out test set.
     """
 
-    y_pred = pipeline.predict(X_test)
-    y_probability = pipeline.predict_proba(X_test)[:, 1]
+    y_pred = pipeline.predict(
+        X_test
+    )
+
+    y_probability = (
+        pipeline.predict_proba(
+            X_test
+        )[:, 1]
+    )
 
     accuracy = accuracy_score(
         y_test,
@@ -394,17 +504,43 @@ def evaluate_model(
         y_probability,
     )
 
-    print("\n" + "-" * 70)
-    print(f"MODEL: {model_name.upper()}")
-    print("-" * 70)
+    print(
+        "\n"
+        + "-" * 70
+    )
 
-    print(f"Accuracy : {accuracy:.4f}")
-    print(f"Precision: {precision:.4f}")
-    print(f"Recall   : {recall:.4f}")
-    print(f"F1 Score : {f1:.4f}")
-    print(f"ROC-AUC  : {roc_auc:.4f}")
+    print(
+        f"MODEL: {model_name.upper()}"
+    )
 
-    print("\nClassification Report:")
+    print(
+        "-" * 70
+    )
+
+    print(
+        f"Accuracy : {accuracy:.4f}"
+    )
+
+    print(
+        f"Precision: {precision:.4f}"
+    )
+
+    print(
+        f"Recall   : {recall:.4f}"
+    )
+
+    print(
+        f"F1 Score : {f1:.4f}"
+    )
+
+    print(
+        f"ROC-AUC  : {roc_auc:.4f}"
+    )
+
+    print(
+        "\nClassification Report:"
+    )
+
     print(
         classification_report(
             y_test,
@@ -413,7 +549,10 @@ def evaluate_model(
         )
     )
 
-    print("Confusion Matrix:")
+    print(
+        "Confusion Matrix:"
+    )
+
     print(
         confusion_matrix(
             y_test,
@@ -440,12 +579,14 @@ def calculate_cross_validation(
     pipeline: Pipeline,
     X: pd.DataFrame,
     y: pd.Series,
-) -> tuple[float, float]:
+) -> tuple[float, float, float]:
     """
-    Five-fold stratified CV using F1 score.
+    Stratified five-fold cross-validation.
 
-    F1 is used because this project cares about correctly
-    identifying delivery failures, not only overall accuracy.
+    We calculate F1, recall, and ROC-AUC.
+
+    Model selection later uses CV F1 first, because the project
+    needs good identification of failed deliveries.
     """
 
     cv = StratifiedKFold(
@@ -454,7 +595,7 @@ def calculate_cross_validation(
         random_state=RANDOM_STATE,
     )
 
-    scores = cross_val_score(
+    f1_scores = cross_val_score(
         pipeline,
         X,
         y,
@@ -463,37 +604,78 @@ def calculate_cross_validation(
         n_jobs=1,
     )
 
-    mean_score = float(scores.mean())
-    std_score = float(scores.std())
+    recall_scores = cross_val_score(
+        pipeline,
+        X,
+        y,
+        cv=cv,
+        scoring="recall",
+        n_jobs=1,
+    )
+
+    roc_auc_scores = cross_val_score(
+        pipeline,
+        X,
+        y,
+        cv=cv,
+        scoring="roc_auc",
+        n_jobs=1,
+    )
+
+    f1_mean = float(
+        f1_scores.mean()
+    )
+
+    f1_std = float(
+        f1_scores.std()
+    )
+
+    recall_mean = float(
+        recall_scores.mean()
+    )
+
+    roc_auc_mean = float(
+        roc_auc_scores.mean()
+    )
 
     print(
         f"[CV] {model_name}: "
-        f"F1 = {mean_score:.4f} "
-        f"+/- {std_score:.4f}"
+        f"F1={f1_mean:.4f} +/- {f1_std:.4f}, "
+        f"Recall={recall_mean:.4f}, "
+        f"ROC-AUC={roc_auc_mean:.4f}"
     )
 
-    return mean_score, std_score
+    return (
+        f1_mean,
+        f1_std,
+        recall_mean,
+    )
 
 
 # ============================================================
-# BEST MODEL
+# MODEL SELECTION
 # ============================================================
 
-def select_best_model(results: list[dict]) -> dict:
+def select_best_model(
+    results: list[dict],
+) -> dict:
     """
-    Select the winner.
+    Select the model using validation results, not the test set.
 
     Priority:
-        1. Test F1
-        2. Test Recall
-        3. ROC-AUC
+        1. CV F1
+        2. CV Recall
+        3. Test ROC-AUC only as a final tie-breaker
+
+    This avoids selecting a model simply because it happened
+    to perform best on the held-out test set.
     """
 
     return max(
         results,
         key=lambda row: (
-            row["f1"],
-            row["recall"],
+            row["cv_f1_mean"],
+            row["cv_recall_mean"],
             row["roc_auc"],
         ),
     )
@@ -504,28 +686,35 @@ def select_best_model(results: list[dict]) -> dict:
 # ============================================================
 
 def main() -> None:
+
     X, y = load_dataset()
 
     # --------------------------------------------------------
     # Train/test split
     # --------------------------------------------------------
 
-    print("\n[INFO] Creating stratified train/test split...")
+    print(
+        "\n[INFO] Creating stratified train/test split..."
+    )
 
-    X_train, X_test, y_train, y_test = train_test_split(
-        X,
-        y,
-        test_size=TEST_SIZE,
-        random_state=RANDOM_STATE,
-        stratify=y,
+    X_train, X_test, y_train, y_test = (
+        train_test_split(
+            X,
+            y,
+            test_size=TEST_SIZE,
+            random_state=RANDOM_STATE,
+            stratify=y,
+        )
     )
 
     print(
-        f"[INFO] Training rows: {len(X_train)}"
+        f"[INFO] Training rows: "
+        f"{len(X_train)}"
     )
 
     print(
-        f"[INFO] Testing rows : {len(X_test)}"
+        f"[INFO] Testing rows : "
+        f"{len(X_test)}"
     )
 
     # --------------------------------------------------------
@@ -534,20 +723,36 @@ def main() -> None:
 
     models = build_models()
 
-    fitted_models: dict[str, Pipeline] = {}
-    results: list[dict] = []
+    fitted_models: dict[
+        str,
+        Pipeline,
+    ] = {}
+
+    results: list[
+        dict
+    ] = []
 
     # --------------------------------------------------------
-    # Train / evaluate every model
+    # Train and evaluate
     # --------------------------------------------------------
 
-    for model_name, pipeline in models.items():
+    for (
+        model_name,
+        pipeline,
+    ) in models.items():
 
-        print("\n" + "=" * 70)
+        print(
+            "\n"
+            + "=" * 70
+        )
+
         print(
             f"TRAINING {model_name.upper()}"
         )
-        print("=" * 70)
+
+        print(
+            "=" * 70
+        )
 
         pipeline.fit(
             X_train,
@@ -561,24 +766,44 @@ def main() -> None:
             y_test=y_test,
         )
 
-        cv_mean, cv_std = calculate_cross_validation(
+        (
+            cv_f1_mean,
+            cv_f1_std,
+            cv_recall_mean,
+        ) = calculate_cross_validation(
             model_name=model_name,
             pipeline=pipeline,
             X=X,
             y=y,
         )
 
-        test_results["cv_f1_mean"] = cv_mean
-        test_results["cv_f1_std"] = cv_std
+        test_results[
+            "cv_f1_mean"
+        ] = cv_f1_mean
 
-        results.append(test_results)
-        fitted_models[model_name] = pipeline
+        test_results[
+            "cv_f1_std"
+        ] = cv_f1_std
+
+        test_results[
+            "cv_recall_mean"
+        ] = cv_recall_mean
+
+        results.append(
+            test_results
+        )
+
+        fitted_models[
+            model_name
+        ] = pipeline
 
     # --------------------------------------------------------
     # Comparison
     # --------------------------------------------------------
 
-    results_df = pd.DataFrame(results)
+    results_df = pd.DataFrame(
+        results
+    )
 
     results_df = results_df[
         [
@@ -590,39 +815,65 @@ def main() -> None:
             "roc_auc",
             "cv_f1_mean",
             "cv_f1_std",
+            "cv_recall_mean",
         ]
     ]
 
-    print("\n" + "=" * 70)
-    print("MODEL COMPARISON")
-    print("=" * 70)
+    print(
+        "\n"
+        + "=" * 70
+    )
+
+    print(
+        "MODEL COMPARISON"
+    )
+
+    print(
+        "=" * 70
+    )
 
     print(
         results_df.to_string(
             index=False,
-            float_format=lambda value: f"{value:.4f}",
+            float_format=(
+                lambda value:
+                f"{value:.4f}"
+            ),
         )
     )
 
     # --------------------------------------------------------
-    # Select final model
+    # Final model selection
     # --------------------------------------------------------
 
     best_result = select_best_model(
         results
     )
 
-    best_model_name = best_result["model"]
+    best_model_name = (
+        best_result["model"]
+    )
+
     best_pipeline = fitted_models[
         best_model_name
     ]
 
-    print("\n" + "=" * 70)
-    print("FINAL MODEL SELECTION")
-    print("=" * 70)
+    print(
+        "\n"
+        + "=" * 70
+    )
 
     print(
-        f"Selected model : {best_model_name}"
+        "FINAL MODEL SELECTION"
+    )
+
+    print(
+        "=" * 70
+    )
+
+    print(
+        f"Selected model : "
+        f"{best_model_name}"
     )
 
     print(
@@ -650,6 +901,11 @@ def main() -> None:
         f"{best_result['cv_f1_mean']:.4f}"
     )
 
+    print(
+        f"CV Recall      : "
+        f"{best_result['cv_recall_mean']:.4f}"
+    )
+
     # --------------------------------------------------------
     # Save winning model
     # --------------------------------------------------------
@@ -664,11 +920,16 @@ def main() -> None:
         MODEL_PATH,
     )
 
-    print("\n[INFO] Winning model saved:")
-    print(MODEL_PATH)
+    print(
+        "\n[INFO] Winning model saved:"
+    )
+
+    print(
+        MODEL_PATH
+    )
 
     # --------------------------------------------------------
-    # Save comparison results
+    # Save comparison
     # --------------------------------------------------------
 
     results_df.to_csv(
@@ -677,15 +938,21 @@ def main() -> None:
     )
 
     print(
-        "[INFO] Model comparison saved:"
+        "\n[INFO] Model comparison saved:"
     )
-    print(RESULTS_PATH)
+
+    print(
+        RESULTS_PATH
+    )
 
     # --------------------------------------------------------
     # Random Forest feature importance
     # --------------------------------------------------------
 
-    if "random_forest" in fitted_models:
+    if (
+        "random_forest"
+        in fitted_models
+    ):
 
         rf_pipeline = fitted_models[
             "random_forest"
@@ -698,10 +965,13 @@ def main() -> None:
 
         rf_preprocessor = (
             rf_pipeline
-            .named_steps["preprocessor"]
+            .named_steps[
+                "preprocessor"
+            ]
         )
 
         try:
+
             feature_names = (
                 rf_preprocessor
                 .get_feature_names_out()
@@ -726,10 +996,13 @@ def main() -> None:
             )
 
             print(
-                "\n[INFO] Random Forest feature "
-                "importance saved:"
+                "\n[INFO] Random Forest "
+                "feature importance saved:"
             )
-            print(RF_IMPORTANCE_PATH)
+
+            print(
+                RF_IMPORTANCE_PATH
+            )
 
             print(
                 "\nTop 15 Random Forest features:"
@@ -738,17 +1011,28 @@ def main() -> None:
             print(
                 importance_df
                 .head(15)
-                .to_string(index=False)
+                .to_string(
+                    index=False
+                )
             )
 
         except Exception as exc:
+
             print(
                 "\n[WARNING] Could not calculate "
-                f"Random Forest feature importance: {exc}"
+                "Random Forest feature importance: "
+                f"{exc}"
             )
 
-    print("\n" + "=" * 70)
-    print("TRAINING COMPLETE")
+    print(
+        "\n"
+        + "=" * 70
+    )
+
+    print(
+        "TRAINING COMPLETE"
+    )
+
     print("=" * 70)
 
 
