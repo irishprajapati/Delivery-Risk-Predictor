@@ -1,67 +1,7 @@
-"""
-Location and baseline-routing integration for the delivery system.
-
-Responsibilities:
-
-1. Forward geocoding using HeiGIT/Pelias.
-2. Reverse geocoding for map-pin coordinates.
-3. Validate coordinates are inside Nepal.
-4. Validate the supported Kathmandu Valley service area.
-5. Validate address ↔ selected map-pin consistency.
-6. Calculate a baseline driving route using HeiGIT/OpenRouteService.
-7. Return route geometry for map rendering.
-
-Traffic is intentionally NOT handled here.
-
-Traffic belongs to:
-    app/services/traffic_service.py
-
-Location strategy:
-
-    MAP-PIN MODE
-        user selects map pin
-              ↓
-        latitude / longitude
-              ↓
-        reverse geocoding
-              ↓
-        service-area validation
-              ↓
-        optional address consistency validation
-              ↓
-        baseline route
-
-    ADDRESS MODE
-        user enters address
-              ↓
-        forward geocoding
-              ↓
-        candidate validation
-              ↓
-        baseline route
-
-Important:
-
-- No addresses are hardcoded.
-- No coordinates are hardcoded.
-- Coordinates are authoritative when supplied.
-- ORS/HeiGIT baseline routing does NOT provide live traffic.
-- Traffic estimation is handled separately by traffic_service.py.
-
-Environment variables:
-
-    ORS_API_KEY=...
-
-Current HeiGIT endpoints:
-
-    https://api.heigit.org/pelias/v1/search
-    https://api.heigit.org/pelias/v1/reverse
-    https://api.heigit.org/openrouteservice/v2/...
-"""
-
 from __future__ import annotations
 
 import logging
+import math
 import os
 import re
 from pathlib import Path
@@ -151,12 +91,25 @@ class ORSServiceError(Exception):
 # ============================================================
 
 def _require_ors_api_key() -> str:
+    """
+    Return the configured ORS API key.
+    """
+
     if not ORS_API_KEY:
         raise ORSServiceError(
             "ORS_API_KEY is not configured in .env"
         )
 
-    return ORS_API_KEY
+    key = str(
+        ORS_API_KEY
+    ).strip()
+
+    if not key:
+        raise ORSServiceError(
+            "ORS_API_KEY is empty in .env"
+        )
+
+    return key
 
 
 # ============================================================
@@ -166,12 +119,24 @@ def _require_ors_api_key() -> str:
 def _normalize_text(
     value: Any,
 ) -> str | None:
+    """
+    Normalize text to lowercase.
+
+    Returns None for empty values.
+    """
+
     if value is None:
         return None
 
-    value = str(value).strip()
+    value = str(
+        value
+    ).strip()
 
-    return value.lower() if value else None
+    return (
+        value.lower()
+        if value
+        else None
+    )
 
 
 def _normalize_query_for_matching(
@@ -183,7 +148,9 @@ def _normalize_query_for_matching(
     This normalized value is never sent to the geocoder.
     """
 
-    value = str(address).lower()
+    value = str(
+        address
+    ).lower()
 
     value = re.sub(
         r"[^a-z0-9\s]",
@@ -206,7 +173,7 @@ def _query_terms(
     """
     Extract meaningful terms from an address.
 
-    Administrative words are ignored.
+    Administrative and generic words are ignored.
 
     Example:
 
@@ -234,22 +201,28 @@ def _query_terms(
         "area",
         "main",
         "marg",
-        "road",
-        "street",
+        "lane",
+        "block",
+        "plot",
     }
 
-    normalized = _normalize_query_for_matching(
-        address
+    normalized = (
+        _normalize_query_for_matching(
+            address
+        )
     )
 
     terms: list[str] = []
 
     for word in normalized.split():
+
         if (
             len(word) >= 4
             and word not in ignored_terms
         ):
-            terms.append(word)
+            terms.append(
+                word
+            )
 
     return terms
 
@@ -260,8 +233,6 @@ def _extract_explicit_district(
     """
     Detect an explicitly written district in the user's
     address.
-
-    This is intentionally strict.
 
     Examples:
 
@@ -278,8 +249,10 @@ def _extract_explicit_district(
             -> None
     """
 
-    normalized = _normalize_query_for_matching(
-        address
+    normalized = (
+        _normalize_query_for_matching(
+            address
+        )
     )
 
     district_aliases = {
@@ -288,7 +261,10 @@ def _extract_explicit_district(
         "bhaktapur": "bhaktapur",
     }
 
-    for text, district in district_aliases.items():
+    for text, district in (
+        district_aliases.items()
+    ):
+
         if re.search(
             rf"\b{re.escape(text)}\b",
             normalized,
@@ -309,13 +285,44 @@ def _is_in_nepal_bounds(
     """
     Broad geographic sanity check.
 
-    This only confirms that coordinates are plausibly inside
-    Nepal. It does not determine district.
+    This is intentionally broader than the Kathmandu Valley.
+    District validation is performed separately.
+
+    These bounds are only a first-level geographic guard.
     """
 
+    try:
+        longitude = float(
+            longitude
+        )
+
+        latitude = float(
+            latitude
+        )
+
+    except (
+        TypeError,
+        ValueError,
+    ):
+        return False
+
+    if not (
+        math.isfinite(
+            latitude
+        )
+        and math.isfinite(
+            longitude
+        )
+    ):
+        return False
+
     return (
-        80.0 < longitude < 88.5
-        and 26.0 < latitude < 30.5
+        80.0
+        <= longitude
+        <= 88.5
+        and 26.0
+        <= latitude
+        <= 30.5
     )
 
 
@@ -325,11 +332,23 @@ def _validate_coordinates(
 ) -> None:
     """
     Validate a coordinate pair before using it.
+
+    Checks:
+
+    - finite numeric values
+    - global latitude/longitude ranges
+    - explicit (0, 0) rejection
+    - broad Nepal geographic bounds
     """
 
     try:
-        latitude = float(latitude)
-        longitude = float(longitude)
+        latitude = float(
+            latitude
+        )
+
+        longitude = float(
+            longitude
+        )
 
     except (
         TypeError,
@@ -339,6 +358,19 @@ def _validate_coordinates(
         raise LocationValidationError(
             "Invalid latitude or longitude."
         ) from exc
+
+    if not (
+        math.isfinite(
+            latitude
+        )
+        and math.isfinite(
+            longitude
+        )
+    ):
+        raise LocationValidationError(
+            "Latitude and longitude "
+            "must be finite numbers."
+        )
 
     if not (
         -90.0
@@ -360,6 +392,17 @@ def _validate_coordinates(
             "-180 and 180."
         )
 
+    # (0, 0) is not a valid delivery location
+    # and is commonly caused by frontend/default-value bugs.
+    if (
+        latitude == 0.0
+        and longitude == 0.0
+    ):
+        raise LocationValidationError(
+            "Latitude and longitude "
+            "cannot both be zero."
+        )
+
     if not _is_in_nepal_bounds(
         longitude,
         latitude,
@@ -373,10 +416,73 @@ def _validate_coordinates(
 def _is_allowed_district(
     district: str | None,
 ) -> bool:
-    return (
-        district is not None
-        and district in ALLOWED_DISTRICTS
+    """
+    Check whether the district is inside the supported
+    Kathmandu Valley service area.
+    """
+
+    normalized = _normalize_text(
+        district
     )
+
+    if not normalized:
+        return False
+
+    normalized = (
+        normalized
+        .replace(
+            " district",
+            "",
+        )
+        .strip()
+    )
+
+    return (
+        normalized
+        in ALLOWED_DISTRICTS
+    )
+
+
+def _normalize_district(
+    value: Any,
+) -> str | None:
+    """
+    Normalize district names returned by Pelias.
+
+    Handles values such as:
+
+        "Lalitpur"
+        "Lalitpur District"
+        "Lalitpur, Nepal"
+    """
+
+    normalized = _normalize_text(
+        value
+    )
+
+    if not normalized:
+        return None
+
+    normalized = (
+        normalized
+        .replace(
+            ", nepal",
+            "",
+        )
+        .replace(
+            " district",
+            "",
+        )
+        .strip()
+    )
+
+    if (
+        normalized
+        in ALLOWED_DISTRICTS
+    ):
+        return normalized
+
+    return normalized
 
 
 # ============================================================
@@ -387,25 +493,64 @@ def _extract_district(
     properties: dict,
 ) -> str | None:
     """
-    Extract district from Pelias properties.
+    Extract a supported district from Pelias properties.
+
+    Pelias may expose administrative information through
+    different fields depending on the result.
     """
 
-    for field in (
+    possible_fields = (
         "county",
         "localadmin",
         "locality",
         "region",
-    ):
-        value = _normalize_text(
-            properties.get(field)
+        "macrocounty",
+        "borough",
+        "neighbourhood",
+    )
+
+    values: list[str] = []
+
+    for field in possible_fields:
+
+        value = _normalize_district(
+            properties.get(
+                field
+            )
         )
 
-        if value in ALLOWED_DISTRICTS:
+        if value:
+            values.append(
+                value
+            )
+
+    # First prefer an exact supported district.
+    for value in values:
+
+        if (
+            value
+            in ALLOWED_DISTRICTS
+        ):
             return value
 
-    return _normalize_text(
-        properties.get("county")
-    )
+    # Some providers may return a longer administrative value.
+    # Check whether a supported district occurs as a full
+    # administrative token.
+    for value in values:
+
+        for district in (
+            "kathmandu",
+            "lalitpur",
+            "bhaktapur",
+        ):
+
+            if re.search(
+                rf"\b{re.escape(district)}\b",
+                value,
+            ):
+                return district
+
+    return None
 
 
 # ============================================================
@@ -417,26 +562,35 @@ def _parse_geocode_candidate(
     requested_address: str,
 ) -> dict | None:
     """
-    Convert one Pelias feature into our internal
-    candidate representation.
+    Convert one Pelias feature into our internal candidate
+    representation.
     """
 
     properties = (
-        feature.get("properties")
+        feature.get(
+            "properties"
+        )
         or {}
     )
 
     geometry = (
-        feature.get("geometry")
+        feature.get(
+            "geometry"
+        )
         or {}
     )
 
-    coordinates = geometry.get(
-        "coordinates"
+    coordinates = (
+        geometry.get(
+            "coordinates"
+        )
     )
 
     if (
-        not coordinates
+        not isinstance(
+            coordinates,
+            (list, tuple),
+        )
         or len(coordinates) < 2
     ):
         return None
@@ -456,6 +610,18 @@ def _parse_geocode_candidate(
     ):
         return None
 
+    # Reject invalid/non-finite values.
+    if not (
+        math.isfinite(
+            latitude
+        )
+        and math.isfinite(
+            longitude
+        )
+    ):
+        return None
+
+    # Reject locations outside Nepal.
     if not _is_in_nepal_bounds(
         longitude,
         latitude,
@@ -475,21 +641,35 @@ def _parse_geocode_candidate(
     )
 
     label = (
-        properties.get("label")
-        or properties.get("name")
+        properties.get(
+            "label"
+        )
+        or properties.get(
+            "name"
+        )
         or requested_address
     )
 
     matched_area = (
-        properties.get("name")
-        or properties.get("locality")
-        or properties.get("neighbourhood")
-        or properties.get("street")
+        properties.get(
+            "name"
+        )
+        or properties.get(
+            "locality"
+        )
+        or properties.get(
+            "neighbourhood"
+        )
+        or properties.get(
+            "street"
+        )
         or requested_address
     )
 
     layer = _normalize_text(
-        properties.get("layer")
+        properties.get(
+            "layer"
+        )
     )
 
     searchable_text = " ".join(
@@ -511,6 +691,12 @@ def _parse_geocode_candidate(
             str(
                 properties.get(
                     "street"
+                )
+                or ""
+            ),
+            str(
+                properties.get(
+                    "name"
                 )
                 or ""
             ),
@@ -541,6 +727,10 @@ def _candidate_matches_query(
     """
     Check whether a geocoder candidate actually contains
     meaningful terms from the requested address.
+
+    Returns:
+
+        (matches_query, matched_term_count)
     """
 
     terms = _query_terms(
@@ -548,11 +738,16 @@ def _candidate_matches_query(
     )
 
     if not terms:
-        return True, 0
+        return (
+            True,
+            0,
+        )
 
-    searchable = candidate[
-        "searchable_text"
-    ]
+    searchable = (
+        candidate[
+            "searchable_text"
+        ]
+    )
 
     matched_terms = sum(
         1
@@ -579,23 +774,17 @@ def _validate_address_against_pin(
     Validate an explicitly supplied address against a selected
     map-pin location.
 
-    IMPORTANT:
-
     Coordinates remain authoritative.
 
-    We do NOT require the reverse-geocoder's label to match every
-    word typed by the user because geocoding providers often use
-    different locality naming conventions.
-
-    We DO reject an explicit district contradiction.
+    We reject an explicit district contradiction.
 
     Example:
 
         address:
             "Jawalakhel, Kathmandu"
 
-        pin reverse-geocodes to:
-            district = "lalitpur"
+        pin:
+            Lalitpur
 
         Result:
             reject
@@ -621,23 +810,24 @@ def _validate_address_against_pin(
         )
     )
 
-    if (
-        explicit_district
-        and explicit_district
-        != resolved_location.get(
+    if not explicit_district:
+        return
+
+    actual_district = _normalize_district(
+        resolved_location.get(
             "district"
         )
-    ):
-        actual_district = (
-            resolved_location.get(
-                "district"
-            )
-            or "unknown"
-        )
+    )
 
+    if (
+        actual_district
+        and explicit_district
+        != actual_district
+    ):
         raise LocationValidationError(
-            f"The selected {location_name} "
-            f"map location is in "
+            f"The selected "
+            f"{location_name} map location "
+            f"is in "
             f"{actual_district.title()} district, "
             f"but the address says "
             f"{explicit_district.title()} district. "
@@ -659,7 +849,9 @@ def geocode_address(
     Used only when map coordinates were not supplied.
     """
 
-    api_key = _require_ors_api_key()
+    api_key = (
+        _require_ors_api_key()
+    )
 
     address = (
         address or ""
@@ -678,6 +870,7 @@ def geocode_address(
     }
 
     try:
+
         response = requests.get(
             GEOCODE_URL,
             params=params,
@@ -702,8 +895,23 @@ def geocode_address(
             f"{exc}"
         ) from exc
 
+    except ValueError as exc:
+
+        logger.error(
+            "Geocoding returned invalid JSON "
+            "for %r",
+            address,
+        )
+
+        raise ORSServiceError(
+            "Geocoding service returned "
+            "an invalid response."
+        ) from exc
+
     features = (
-        data.get("features")
+        data.get(
+            "features"
+        )
         or []
     )
 
@@ -713,7 +921,9 @@ def geocode_address(
             f"{address}"
         )
 
-    all_candidates: list[dict] = []
+    all_candidates: list[
+        dict[str, Any]
+    ] = []
 
     for feature in features:
 
@@ -727,8 +937,12 @@ def geocode_address(
         if candidate is None:
             continue
 
+        # A geocoded result is only usable for this application
+        # if we can identify it as one of our service districts.
         if not _is_allowed_district(
-            candidate["district"]
+            candidate[
+                "district"
+            ]
         ):
             continue
 
@@ -765,7 +979,10 @@ def geocode_address(
     # Debug logging
     # --------------------------------------------------------
 
-    for candidate in all_candidates:
+    for candidate in (
+        all_candidates
+    ):
+
         logger.info(
             "GEOCODE CANDIDATE | "
             "label=%s | district=%s | "
@@ -790,7 +1007,9 @@ def geocode_address(
     specific_candidates = [
         candidate
         for candidate in all_candidates
-        if candidate["matches_query"]
+        if candidate[
+            "matches_query"
+        ]
     ]
 
     query_terms = _query_terms(
@@ -822,8 +1041,10 @@ def geocode_address(
     # --------------------------------------------------------
 
     layer_priority = {
-        "address": 6,
-        "venue": 6,
+        "address": 7,
+        "venue": 7,
+        "building": 7,
+        "house": 7,
         "neighbourhood": 5,
         "street": 4,
         "locality": 3,
@@ -870,6 +1091,23 @@ def geocode_address(
     )
 
     best = candidates[0]
+
+    # --------------------------------------------------------
+    # Final candidate validation
+    # --------------------------------------------------------
+
+    if not _is_allowed_district(
+        best.get(
+            "district"
+        )
+    ):
+        raise LocationValidationError(
+            f"Resolved location for "
+            f"'{address}' is outside the "
+            f"supported Kathmandu Valley "
+            f"service area. "
+            f"{VALLEY_ONLY_MESSAGE}"
+        )
 
     # --------------------------------------------------------
     # Confidence validation
@@ -922,6 +1160,15 @@ def geocode_address(
                 "select a location on the map."
             )
 
+    # --------------------------------------------------------
+    # Final coordinate validation
+    # --------------------------------------------------------
+
+    _validate_coordinates(
+        latitude=best["lat"],
+        longitude=best["lng"],
+    )
+
     logger.info(
         "GEOCODE ACCEPTED | "
         "requested=%r | label=%s | "
@@ -955,21 +1202,33 @@ def reverse_geocode(
     This is the preferred location path.
     """
 
+    # Performs:
+    # - finite-value validation
+    # - valid latitude/longitude validation
+    # - (0, 0) rejection
+    # - Nepal bounds validation
     _validate_coordinates(
         latitude,
         longitude,
     )
 
-    api_key = _require_ors_api_key()
+    api_key = (
+        _require_ors_api_key()
+    )
 
     params = {
         "api_key": api_key,
-        "point.lat": latitude,
-        "point.lon": longitude,
+        "point.lat": float(
+            latitude
+        ),
+        "point.lon": float(
+            longitude
+        ),
         "size": 1,
     }
 
     try:
+
         response = requests.get(
             REVERSE_GEOCODE_URL,
             params=params,
@@ -995,8 +1254,24 @@ def reverse_geocode(
             "unavailable."
         ) from exc
 
+    except ValueError as exc:
+
+        logger.error(
+            "Reverse geocoding returned "
+            "invalid JSON for (%s, %s)",
+            latitude,
+            longitude,
+        )
+
+        raise ORSServiceError(
+            "Reverse geocoding service "
+            "returned an invalid response."
+        ) from exc
+
     features = (
-        data.get("features")
+        data.get(
+            "features"
+        )
         or []
     )
 
@@ -1009,7 +1284,9 @@ def reverse_geocode(
     feature = features[0]
 
     properties = (
-        feature.get("properties")
+        feature.get(
+            "properties"
+        )
         or {}
     )
 
@@ -1032,16 +1309,31 @@ def reverse_geocode(
         )
 
     label = (
-        properties.get("label")
-        or properties.get("name")
-        or f"{latitude}, {longitude}"
+        properties.get(
+            "label"
+        )
+        or properties.get(
+            "name"
+        )
+        or (
+            f"{float(latitude)}, "
+            f"{float(longitude)}"
+        )
     )
 
     matched_area = (
-        properties.get("name")
-        or properties.get("locality")
-        or properties.get("neighbourhood")
-        or properties.get("street")
+        properties.get(
+            "name"
+        )
+        or properties.get(
+            "locality"
+        )
+        or properties.get(
+            "neighbourhood"
+        )
+        or properties.get(
+            "street"
+        )
         or label
     )
 
@@ -1056,8 +1348,12 @@ def reverse_geocode(
     )
 
     return {
-        "lat": float(latitude),
-        "lng": float(longitude),
+        "lat": float(
+            latitude
+        ),
+        "lng": float(
+            longitude
+        ),
         "district": district,
         "label": label,
         "matched_area": matched_area,
@@ -1097,7 +1393,21 @@ def get_driving_route(
         dest_lng,
     )
 
-    api_key = _require_ors_api_key()
+    # Prevent accidental routing from/to the same location.
+    if (
+        float(origin_lat)
+        == float(dest_lat)
+        and float(origin_lng)
+        == float(dest_lng)
+    ):
+        raise LocationValidationError(
+            "Pickup and delivery "
+            "locations must be different."
+        )
+
+    api_key = (
+        _require_ors_api_key()
+    )
 
     headers = {
         "Authorization": api_key,
@@ -1118,6 +1428,7 @@ def get_driving_route(
     }
 
     try:
+
         response = requests.post(
             DIRECTIONS_URL,
             json=body,
@@ -1142,9 +1453,23 @@ def get_driving_route(
             f"{exc}"
         ) from exc
 
+    except ValueError as exc:
+
+        logger.error(
+            "ORS directions returned invalid JSON."
+        )
+
+        raise ORSServiceError(
+            "Routing service returned "
+            "an invalid response."
+        ) from exc
+
     try:
+
         feature = (
-            data["features"][0]
+            data[
+                "features"
+            ][0]
         )
 
         summary = (
@@ -1174,48 +1499,101 @@ def get_driving_route(
             "from OpenRouteService."
         ) from exc
 
-    polyline: list[dict] = []
+    polyline: list[
+        dict[str, float]
+    ] = []
 
     for coordinate in coordinates:
 
         if (
-            not coordinate
+            not isinstance(
+                coordinate,
+                (list, tuple),
+            )
             or len(coordinate) < 2
+        ):
+            continue
+
+        try:
+            route_longitude = float(
+                coordinate[0]
+            )
+
+            route_latitude = float(
+                coordinate[1]
+            )
+
+        except (
+            TypeError,
+            ValueError,
+        ):
+            continue
+
+        if not (
+            math.isfinite(
+                route_latitude
+            )
+            and math.isfinite(
+                route_longitude
+            )
         ):
             continue
 
         polyline.append(
             {
-                "lat": float(
-                    coordinate[1]
-                ),
-                "lng": float(
-                    coordinate[0]
-                ),
+                "lat": route_latitude,
+                "lng": route_longitude,
             }
         )
 
-    distance_km = round(
-        float(
-            summary["distance"]
-        ) / 1000,
-        2,
-    )
+    if not polyline:
+        raise ORSServiceError(
+            "Routing service returned "
+            "an empty route geometry."
+        )
 
-    duration_min = round(
-        float(
-            summary["duration"]
-        ) / 60,
-        1,
-    )
+    try:
 
-    if distance_km <= 0:
+        distance_km = round(
+            float(
+                summary[
+                    "distance"
+                ]
+            ) / 1000,
+            2,
+        )
+
+        duration_min = round(
+            float(
+                summary[
+                    "duration"
+                ]
+            ) / 60,
+            1,
+        )
+
+    except (
+        KeyError,
+        TypeError,
+        ValueError,
+    ) as exc:
+
+        raise ORSServiceError(
+            "Routing service returned "
+            "invalid distance or duration."
+        ) from exc
+
+    if not math.isfinite(
+        distance_km
+    ) or distance_km <= 0:
         raise ORSServiceError(
             "Routing service returned "
             "an invalid route distance."
         )
 
-    if duration_min <= 0:
+    if not math.isfinite(
+        duration_min
+    ) or duration_min <= 0:
         raise ORSServiceError(
             "Routing service returned "
             "an invalid route duration."
@@ -1306,7 +1684,9 @@ def build_route_info(
             pickup_address
         )
 
-        pickup_source = "geocoded_address"
+        pickup_source = (
+            "geocoded_address"
+        )
 
     # ========================================================
     # DELIVERY
@@ -1361,17 +1741,27 @@ def build_route_info(
             delivery_address
         )
 
-        delivery_source = "geocoded_address"
+        delivery_source = (
+            "geocoded_address"
+        )
 
     # ========================================================
     # PREVENT IDENTICAL LOCATIONS
     # ========================================================
 
     if (
-        pickup["lat"]
-        == delivery["lat"]
-        and pickup["lng"]
-        == delivery["lng"]
+        float(
+            pickup["lat"]
+        )
+        == float(
+            delivery["lat"]
+        )
+        and float(
+            pickup["lng"]
+        )
+        == float(
+            delivery["lng"]
+        )
     ):
         raise LocationValidationError(
             "Pickup and delivery locations "
@@ -1394,7 +1784,10 @@ def build_route_info(
     # ========================================================
 
     return {
+        # ----------------------------------------------------
         # Pickup
+        # ----------------------------------------------------
+
         "pickup_district": pickup[
             "district"
         ],
@@ -1407,8 +1800,10 @@ def build_route_info(
             "label"
         ],
 
-        "pickup_geocode_confidence": pickup.get(
-            "confidence"
+        "pickup_geocode_confidence": (
+            pickup.get(
+                "confidence"
+            )
         ),
 
         "pickup_coordinates": {
@@ -1420,7 +1815,10 @@ def build_route_info(
             pickup_source
         ),
 
+        # ----------------------------------------------------
         # Delivery
+        # ----------------------------------------------------
+
         "delivery_district": delivery[
             "district"
         ],
@@ -1433,8 +1831,10 @@ def build_route_info(
             "label"
         ],
 
-        "delivery_geocode_confidence": delivery.get(
-            "confidence"
+        "delivery_geocode_confidence": (
+            delivery.get(
+                "confidence"
+            )
         ),
 
         "delivery_coordinates": {
@@ -1446,7 +1846,10 @@ def build_route_info(
             delivery_source
         ),
 
+        # ----------------------------------------------------
         # Route
+        # ----------------------------------------------------
+
         "estimated_distance_km": driving[
             "distance_km"
         ],
@@ -1455,9 +1858,8 @@ def build_route_info(
             "duration_min"
         ],
 
-        # Keep this equal to baseline duration.
-        # Traffic service will provide the traffic-adjusted
-        # ETA separately.
+        # This intentionally remains the baseline duration.
+        # Traffic service supplies the traffic-adjusted ETA.
         "estimated_duration_min": driving[
             "duration_min"
         ],
