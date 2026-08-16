@@ -6,9 +6,11 @@ const API = axios.create({
 
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem("token");
+
   if (token) {
     req.headers.Authorization = `Bearer ${token}`;
   }
+
   return req;
 });
 
@@ -17,27 +19,197 @@ API.interceptors.response.use(
   (err) => {
     if (err.response?.status === 401) {
       localStorage.removeItem("token");
+      localStorage.removeItem("role");
+      localStorage.removeItem("phone");
+
       if (window.location.pathname !== "/login") {
         window.location.href = "/login";
       }
     }
+
     return Promise.reject(err);
   }
 );
 
-export const login = async (username, password) => {
-  const formData = new URLSearchParams();
-  formData.append("username", username);
-  formData.append("password", password);
+/* ============================================================
+   AUTH
+============================================================ */
 
-  const res = await API.post("/login", formData, {
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+export const login = async (role, identifier, password) => {
+  let endpoint;
+  let params;
+
+  if (role === "admin") {
+    endpoint = "/admin/login";
+    params = {
+      username: identifier,
+      password: password,
+    };
+  } else {
+    endpoint = "/customer/login";
+    params = {
+      phone: identifier,
+      password: password,
+    };
+  }
+
+  const res = await API.post(endpoint, null, {
+    params,
+  });
+
+  return res.data;
+};
+
+export const register = async (phone, password) => {
+  const res = await API.post("/register", {
+    phone,
+    password,
   });
   return res.data;
 };
 
+export const verifyOTP = async (phone, otp) => {
+  const res = await API.post("/verify-otp", {
+    phone,
+    otp,
+  });
+  return res.data;
+};
+
+/* ============================================================
+   CUSTOMER PORTAL
+============================================================ */
+
+export const getCustomerProfile = async () => {
+  const res = await API.get("/customer/profile");
+  return res.data;
+};
+
+export const getCustomerOrders = async () => {
+  const res = await API.get("/customer/orders");
+  return res.data;
+};
+
+export const getCustomerOrder = async (orderId) => {
+  const res = await API.get(`/customer/orders/${orderId}`);
+  return res.data;
+};
+
+export const getItems = async () => {
+  const res = await API.get("/items");
+  return res.data;
+};
+
+export const getCategories = async () => {
+  const res = await API.get("/categories");
+  return res.data;
+};
+
+export const placeOrder = async (orderData) => {
+  const res = await API.post("/place-order", orderData);
+  return res.data;
+};
+
+/* ============================================================
+   ADMIN OPERATIONS
+============================================================ */
+
+export const getAdminDashboard = async () => {
+  const res = await API.get("/admin/dashboard");
+  return res.data;
+};
+
+export const getAdminDeliveries = async () => {
+  const res = await API.get("/admin/deliveries");
+  return res.data;
+};
+
+export const getDeliverySummary = async (deliveryId) => {
+  const res = await API.get(`/admin/deliveries/${deliveryId}`);
+  return res.data;
+};
+
+export const getDeliveryRiderOptions = async (deliveryId, riskLevel = null) => {
+  const params = riskLevel ? { risk_level: riskLevel } : {};
+  const res = await API.get(`/admin/deliveries/${deliveryId}/rider-options`, { params });
+  return res.data;
+};
+
+export const assignDeliveryRider = async (deliveryId, riderId = null, riskLevel = null) => {
+  const params = {};
+  if (riderId !== null && riderId !== undefined) params.rider_id = riderId;
+  if (riskLevel) params.risk_level = riskLevel;
+
+  const res = await API.post(`/admin/deliveries/${deliveryId}/assign`, null, { params });
+  return res.data;
+};
+
+export const startDelivery = async (deliveryId) => {
+  const res = await API.post(`/admin/deliveries/${deliveryId}/start`);
+  return res.data;
+};
+
+export const markOutForDelivery = async (deliveryId) => {
+  const res = await API.post(`/admin/deliveries/${deliveryId}/out-for-delivery`);
+  return res.data;
+};
+
+export const completeDelivery = async (deliveryId, actualDuration = null) => {
+  const params = actualDuration ? { actual_duration: actualDuration } : {};
+  const res = await API.post(`/admin/deliveries/${deliveryId}/complete`, null, { params });
+  return res.data;
+};
+
+export const failDelivery = async (deliveryId, failureReason, unreachable = false) => {
+  const params = {
+    failure_reason: failureReason,
+    unreachable: unreachable,
+  };
+  const res = await API.post(`/admin/deliveries/${deliveryId}/fail`, null, { params });
+  return res.data;
+};
+
+export const reassignDelivery = async (deliveryId) => {
+  const res = await API.post(`/admin/deliveries/${deliveryId}/reassign`);
+  return res.data;
+};
+
+export const cancelDelivery = async (deliveryId, reason = "Cancelled by operations") => {
+  const params = { reason };
+  const res = await API.post(`/admin/deliveries/${deliveryId}/cancel`, null, { params });
+  return res.data;
+};
+
+/* ============================================================
+   RIDERS & CUSTOMERS
+============================================================ */
+
+export const getRiders = async () => {
+  const res = await API.get("/admin/riders");
+  return res.data;
+};
+
+export const getRiderDetail = async (riderId) => {
+  const res = await API.get(`/admin/riders/${riderId}`);
+  return res.data;
+};
+
+export const getAdminCustomers = async () => {
+  const res = await API.get("/admin/customers");
+  return res.data;
+};
+
+/* ============================================================
+   ML PREDICTION & EXPLANATIONS
+============================================================ */
+
 export const predict = async (data) => {
   const res = await API.post("/predict", data);
+  return res.data;
+};
+
+export const predictExplain = async (data) => {
+  const res = await API.post("/predict/explain", data);
   return res.data;
 };
 
@@ -56,7 +228,6 @@ export const getRouteByPredictionId = async (predictionId) => {
   return res.data;
 };
 
-/** @deprecated Use getRouteByPredictionId for accurate per-prediction routes */
 export const getRouteDetails = async (phoneNumber) => {
   const res = await API.get(`/route/${encodeURIComponent(phoneNumber)}`);
   return res.data;
