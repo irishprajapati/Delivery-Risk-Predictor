@@ -2537,10 +2537,41 @@ def get_delivery_summary(
             ),
         }
 
+    prediction_summary = None
+    if order is not None and order.predictions:
+        latest_p = sorted(
+            order.predictions,
+            key=lambda p: p.created_at or datetime.min,
+            reverse=True,
+        )[0]
+        prediction_summary = {
+            "id": latest_p.id,
+            "prediction": latest_p.prediction,
+            "predicted_class": (
+                "Delivery Failure Likely"
+                if latest_p.prediction == 1
+                else "Successful Delivery"
+            ),
+            "probability": latest_p.probability,
+            "risk": str(latest_p.risk or order.risk_level or "LOW").upper(),
+            "input_data": latest_p.input_data,
+            "reasons": (latest_p.input_data or {}).get("reasons", []),
+            "shap_factors": (latest_p.input_data or {}).get("shap_factors", []),
+            "created_at": (
+                latest_p.created_at.isoformat()
+                if latest_p.created_at
+                else None
+            ),
+        }
+
     return {
         "delivery_id": delivery.id,
         "order_id": delivery.order_id,
-
+        "risk_level": (
+            (prediction_summary.get("risk") if prediction_summary else None)
+            or delivery.risk_level
+            or (order.risk_level if order else "LOW")
+        ),
         "status": (
             delivery.status
         ),
@@ -2574,6 +2605,7 @@ def get_delivery_summary(
         ),
 
         "rider": rider_summary,
+        "prediction": prediction_summary,
 
         "location": (
             None
@@ -2605,14 +2637,23 @@ def get_delivery_summary(
             None
             if order is None
             else {
+                "id": order.id,
                 "customer_id": (
                     order.customer_id
                 ),
-
+                "customer_phone": (
+                    order.customer.phone
+                    if order.customer
+                    else None
+                ),
                 "item_id": (
                     order.item_id
                 ),
-
+                "item_name": (
+                    order.item.name
+                    if order.item
+                    else "Package"
+                ),
                 "quantity": (
                     order.quantity
                 ),
@@ -2629,12 +2670,33 @@ def get_delivery_summary(
                     order.prepaid_amount
                 ),
 
+                "address": (
+                    order.address
+                ),
+
+                "area": (
+                    _infer_delivery_area(
+                        order=order,
+                        delivery_location=location,
+                    )
+                ),
+
+                "latitude": (
+                    order.latitude
+                ),
+
+                "longitude": (
+                    order.longitude
+                ),
+
                 "status": (
                     order.status
                 ),
 
                 "created_at": (
-                    order.created_at
+                    order.created_at.isoformat()
+                    if order.created_at
+                    else None
                 ),
             }
         ),
