@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { login } from "../services/api";
+import { login, getErrorMessage } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
@@ -10,6 +10,7 @@ export default function Login() {
   const [role, setRole] = useState("customer");
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -38,11 +39,11 @@ export default function Login() {
       }
     } catch (err) {
       console.error("Login error:", err);
-      if (err.response) {
-        setError(err.response.data?.detail || "Invalid credentials. Please check your details.");
-      } else {
-        setError("Unable to connect to the backend server. Please verify FastAPI is running.");
-      }
+      const msg = getErrorMessage(
+        err,
+        "Invalid credentials. Please check your username/phone and password."
+      );
+      setError(msg);
     } finally {
       setLoading(false);
     }
@@ -57,7 +58,7 @@ export default function Login() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+        backgroundColor: "#f1f5f9",
         padding: "20px",
       }}
     >
@@ -65,19 +66,21 @@ export default function Login() {
         className="card-modern animate-fade-in"
         style={{
           width: "100%",
-          maxWidth: "420px",
-          padding: "36px 32px",
-          boxShadow: "0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1)",
+          maxWidth: "400px",
+          padding: "32px 28px",
+          background: "#ffffff",
+          border: "1px solid #cbd5e1",
+          borderRadius: "12px",
+          boxShadow: "0 4px 12px rgba(15, 23, 42, 0.08)",
         }}
       >
-        {/* Brand */}
-        <div style={{ textAlign: "center", marginBottom: "28px" }}>
-          <div style={{ fontSize: "2rem", marginBottom: "6px" }}>⚡</div>
-          <h1 style={{ fontSize: "1.6rem", fontWeight: "800", color: "#0f172a" }}>
-            LogiRisk Platform
+        {/* Project Header */}
+        <div style={{ textAlign: "center", marginBottom: "20px", borderBottom: "1px solid #f1f5f9", paddingBottom: "16px" }}>
+          <h1 style={{ fontSize: "1.35rem", fontWeight: "700", color: "#0f172a", margin: 0 }}>
+            Delivery Failure Prediction
           </h1>
-          <p style={{ color: "#64748b", fontSize: "0.875rem", margin: "4px 0 0" }}>
-            Delivery Risk Prediction & Operational Dispatch
+          <p style={{ color: "#475569", fontSize: "0.9rem", fontWeight: "600", marginTop: "4px" }}>
+            Login
           </p>
         </div>
 
@@ -89,8 +92,8 @@ export default function Login() {
             gap: "4px",
             background: "#f1f5f9",
             padding: "4px",
-            borderRadius: "10px",
-            marginBottom: "24px",
+            borderRadius: "8px",
+            marginBottom: "20px",
           }}
         >
           <button
@@ -99,17 +102,17 @@ export default function Login() {
             style={{
               padding: "8px 12px",
               fontSize: "0.875rem",
-              fontWeight: "700",
+              fontWeight: "600",
               border: "none",
-              borderRadius: "8px",
+              borderRadius: "6px",
               cursor: "pointer",
               background: !isAdmin ? "#ffffff" : "transparent",
               color: !isAdmin ? "#0f172a" : "#64748b",
-              boxShadow: !isAdmin ? "0 1px 3px rgba(0,0,0,0.1)" : "none",
+              boxShadow: !isAdmin ? "0 1px 2px rgba(0,0,0,0.08)" : "none",
               transition: "all 0.15s ease",
             }}
           >
-            Customer
+            Customer Login
           </button>
 
           <button
@@ -118,54 +121,93 @@ export default function Login() {
             style={{
               padding: "8px 12px",
               fontSize: "0.875rem",
-              fontWeight: "700",
+              fontWeight: "600",
               border: "none",
-              borderRadius: "8px",
+              borderRadius: "6px",
               cursor: "pointer",
               background: isAdmin ? "#ffffff" : "transparent",
               color: isAdmin ? "#0f172a" : "#64748b",
-              boxShadow: isAdmin ? "0 1px 3px rgba(0,0,0,0.1)" : "none",
+              boxShadow: isAdmin ? "0 1px 2px rgba(0,0,0,0.08)" : "none",
               transition: "all 0.15s ease",
             }}
           >
-            Admin Operations
+            Admin Login
           </button>
         </div>
 
         <form onSubmit={handleLogin} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          {/* Username / Phone Number */}
           <div className="form-group" style={{ margin: 0 }}>
-            <label className="form-label">
-              {isAdmin ? "Admin Username" : "Customer Phone Number"}
+            <label className="form-label" style={{ color: "#334155" }}>
+              {isAdmin ? "Username" : "Phone Number"}
             </label>
             <input
               type={isAdmin ? "text" : "tel"}
               className="form-control-modern"
-              placeholder={isAdmin ? "e.g. admin" : "e.g. 9841878273"}
+              placeholder={isAdmin ? "Enter admin username" : "Enter phone number (e.g. 9841878273)"}
               value={identifier}
               onChange={(e) => setIdentifier(e.target.value)}
               required
             />
           </div>
 
+          {/* Password with Eye Toggle Button */}
           <div className="form-group" style={{ margin: 0 }}>
-            <label className="form-label">Password</label>
-            <input
-              type="password"
-              className="form-control-modern"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+            <label className="form-label" style={{ color: "#334155" }}>
+              Password
+            </label>
+            <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+              <input
+                type={showPassword ? "text" : "password"}
+                className="form-control-modern"
+                placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                style={{ paddingRight: "42px" }}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{
+                  position: "absolute",
+                  right: "10px",
+                  background: "transparent",
+                  border: "none",
+                  cursor: "pointer",
+                  color: "#64748b",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "4px",
+                }}
+                title={showPassword ? "Hide password" : "Show password"}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+              >
+                {showPassword ? (
+                  /* Eye Off SVG */
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                  </svg>
+                ) : (
+                  /* Eye SVG */
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
 
           {error && (
             <div
               style={{
-                padding: "10px 14px",
+                padding: "10px 12px",
                 background: "#fef2f2",
                 border: "1px solid #fecaca",
-                borderRadius: "8px",
+                borderRadius: "6px",
                 color: "#dc2626",
                 fontSize: "0.85rem",
                 textAlign: "center",
@@ -178,17 +220,17 @@ export default function Login() {
           <button
             type="submit"
             disabled={loading}
-            className="btn-modern btn-modern-primary btn-modern-lg"
-            style={{ width: "100%", marginTop: "8px" }}
+            className="btn-modern btn-modern-primary"
+            style={{ width: "100%", marginTop: "6px", padding: "10px" }}
           >
-            {loading ? "Signing in..." : `Sign In as ${isAdmin ? "Admin" : "Customer"}`}
+            {loading ? "Logging in..." : `Login as ${isAdmin ? "Admin" : "Customer"}`}
           </button>
         </form>
 
         {!isAdmin && (
-          <div style={{ textAlign: "center", marginTop: "20px", fontSize: "0.875rem", color: "#64748b" }}>
-            Don't have a verified account?{" "}
-            <Link to="/register" style={{ fontWeight: "700", color: "#2563eb" }}>
+          <div style={{ textAlign: "center", marginTop: "18px", fontSize: "0.85rem", color: "#64748b" }}>
+            Don't have an account?{" "}
+            <Link to="/register" style={{ fontWeight: "600", color: "#2563eb" }}>
               Register & Verify OTP
             </Link>
           </div>

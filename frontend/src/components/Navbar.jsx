@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { phone, logout, switchRole, isAdmin, isCustomer } = useAuth();
+  const { phone, logout, isAdmin, isCustomer } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -27,11 +27,10 @@ const Navbar = () => {
         {/* Brand */}
         <div style={styles.brandGroup}>
           <Link to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"} style={styles.logo}>
-            <span style={styles.logoIcon}>⚡</span>
-            <span style={styles.logoText}>LogiRisk</span>
+            <span style={styles.logoText}>Delivery Failure Prediction</span>
           </Link>
           <span style={isAdmin ? styles.adminBadge : styles.customerBadge}>
-            {isAdmin ? "Admin Portal" : "Customer"}
+            {isAdmin ? "Admin" : "Customer"}
           </span>
         </div>
 
@@ -46,6 +45,15 @@ const Navbar = () => {
                   ...(isActive("/customer/dashboard") ? styles.activeLink : {}),
                 }}
               >
+                Dashboard
+              </Link>
+              <Link
+                to="/customer/orders"
+                style={{
+                  ...styles.link,
+                  ...(isActive("/customer/orders") ? styles.activeLink : {}),
+                }}
+              >
                 My Orders
               </Link>
               <Link
@@ -55,7 +63,16 @@ const Navbar = () => {
                   ...(isActive("/customer/order") ? styles.activeLink : {}),
                 }}
               >
-                + Place Order
+                Place Order
+              </Link>
+              <Link
+                to="/customer/profile"
+                style={{
+                  ...styles.link,
+                  ...(isActive("/customer/profile") ? styles.activeLink : {}),
+                }}
+              >
+                Profile
               </Link>
             </>
           )}
@@ -69,16 +86,16 @@ const Navbar = () => {
                   ...(isActive("/admin/dashboard") ? styles.activeLink : {}),
                 }}
               >
-                Operations
+                Dashboard
               </Link>
               <Link
-                to="/admin/prediction"
+                to="/admin/deliveries"
                 style={{
                   ...styles.link,
-                  ...(isActive("/admin/prediction") ? styles.activeLink : {}),
+                  ...(isActive("/admin/deliveries") ? styles.activeLink : {}),
                 }}
               >
-                ML Risk Analyzer
+                Deliveries
               </Link>
               <Link
                 to="/admin/dispatch"
@@ -99,6 +116,15 @@ const Navbar = () => {
                 Riders
               </Link>
               <Link
+                to="/admin/prediction"
+                style={{
+                  ...styles.link,
+                  ...(isActive("/admin/prediction") ? styles.activeLink : {}),
+                }}
+              >
+                Predictions
+              </Link>
+              <Link
                 to="/admin/predictions"
                 style={{
                   ...styles.link,
@@ -111,7 +137,7 @@ const Navbar = () => {
           )}
         </nav>
 
-        {/* Right side Profile & Actions */}
+        {/* Right side Profile & Logout */}
         <div style={styles.actions}>
           {isCustomer && phone && (
             <div style={styles.userPhoneBadge}>
@@ -120,25 +146,17 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* Quick Demo Switcher */}
-          <button
-            type="button"
-            onClick={() => {
-              const nextRole = isAdmin ? "customer" : "admin";
-              switchRole(nextRole);
-              navigate(nextRole === "admin" ? "/admin/dashboard" : "/customer/dashboard");
-            }}
-            style={styles.switchRoleBtn}
-            title="Switch view between Customer and Admin for testing"
-          >
-            Switch to {isAdmin ? "Customer" : "Admin"}
-          </button>
+          {isAdmin && (
+            <div style={styles.userPhoneBadge}>
+              <strong style={{ color: "#0f172a" }}>Admin Session</strong>
+            </div>
+          )}
 
           <button
             type="button"
             onClick={handleLogout}
             className="btn-modern btn-modern-sm btn-modern-secondary"
-            style={{ padding: "6px 12px", fontSize: "0.8rem" }}
+            style={{ padding: "6px 14px", fontSize: "0.825rem" }}
           >
             Logout
           </button>
@@ -154,18 +172,17 @@ const styles = {
     borderBottom: "1px solid #e2e8f0",
     position: "sticky",
     top: 0,
-    zIndex: 1000,
-    boxShadow: "0 1px 3px 0 rgba(15, 23, 42, 0.04)",
+    zIndex: 100,
   },
   container: {
-    maxWidth: "1280px",
+    maxWidth: "1240px",
     margin: "0 auto",
-    padding: "0 24px",
-    height: "64px",
+    padding: "10px 20px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     gap: "16px",
+    flexWrap: "wrap",
   },
   brandGroup: {
     display: "flex",
@@ -175,28 +192,20 @@ const styles = {
   logo: {
     display: "flex",
     alignItems: "center",
-    gap: "8px",
     textDecoration: "none",
   },
-  logoIcon: {
-    fontSize: "1.25rem",
-    background: "#eff6ff",
-    padding: "4px 8px",
-    borderRadius: "8px",
-  },
   logoText: {
-    fontSize: "1.15rem",
-    fontWeight: "800",
+    fontSize: "1.05rem",
+    fontWeight: "700",
     color: "#0f172a",
-    letterSpacing: "-0.03em",
+    letterSpacing: "-0.02em",
   },
   adminBadge: {
     fontSize: "0.7rem",
     fontWeight: "700",
     textTransform: "uppercase",
-    letterSpacing: "0.05em",
     padding: "2px 8px",
-    borderRadius: "999px",
+    borderRadius: "4px",
     background: "#f1f5f9",
     color: "#475569",
     border: "1px solid #e2e8f0",
@@ -205,9 +214,8 @@ const styles = {
     fontSize: "0.7rem",
     fontWeight: "700",
     textTransform: "uppercase",
-    letterSpacing: "0.05em",
     padding: "2px 8px",
-    borderRadius: "999px",
+    borderRadius: "4px",
     background: "#f0fdf4",
     color: "#16a34a",
     border: "1px solid #bbf7d0",
@@ -218,11 +226,11 @@ const styles = {
     gap: "4px",
   },
   link: {
-    padding: "8px 14px",
-    fontSize: "0.875rem",
+    padding: "6px 12px",
+    fontSize: "0.85rem",
     fontWeight: "600",
     color: "#64748b",
-    borderRadius: "8px",
+    borderRadius: "6px",
     textDecoration: "none",
     transition: "all 0.15s ease",
   },
@@ -236,24 +244,14 @@ const styles = {
     gap: "12px",
   },
   userPhoneBadge: {
-    fontSize: "0.85rem",
-    display: "flex",
-    alignItems: "center",
-    gap: "6px",
+    fontSize: "0.825rem",
     background: "#f8fafc",
-    padding: "6px 12px",
-    borderRadius: "8px",
-    border: "1px solid #e2e8f0",
-  },
-  switchRoleBtn: {
-    background: "transparent",
-    border: "1px dashed #94a3b8",
-    color: "#475569",
     padding: "5px 10px",
     borderRadius: "6px",
-    fontSize: "0.75rem",
-    fontWeight: "600",
-    cursor: "pointer",
+    border: "1px solid #e2e8f0",
+    display: "flex",
+    gap: "6px",
+    alignItems: "center",
   },
 };
 

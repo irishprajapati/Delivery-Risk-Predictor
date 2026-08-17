@@ -8,7 +8,7 @@ const AdminDashboard = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [filter, setFilter] = useState("all"); // 'all', 'unassigned', 'high_risk', 'active', 'delivered'
+  const [filter, setFilter] = useState("all"); // 'all', 'high_risk', 'unassigned', 'active', 'delivered'
 
   const fetchDashboard = async () => {
     try {
@@ -32,24 +32,24 @@ const AdminDashboard = () => {
     const status = String(op.status || "").toLowerCase();
     const risk = String(op.risk || "").toUpperCase();
 
-    if (filter === "unassigned") return status === "unassigned";
     if (filter === "high_risk") return risk === "HIGH";
+    if (filter === "unassigned") return status === "unassigned";
     if (filter === "active") return ["assigned", "picked_up", "out_for_delivery"].includes(status);
     if (filter === "delivered") return status === "delivered";
     return true;
   });
 
   return (
-    <div className="animate-fade-in" style={{ maxWidth: "1180px", margin: "0 auto", paddingBottom: "48px" }}>
-      {/* Title */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
+    <div className="animate-fade-in" style={{ maxWidth: "1200px", margin: "0 auto", paddingBottom: "48px" }}>
+      {/* Page Title & Actions */}
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
         <div>
-          <span style={{ fontSize: "0.8rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-            Realtime Dispatch & Risk Engine
-          </span>
-          <h1 style={{ fontSize: "1.85rem", fontWeight: "800", color: "#0f172a", marginTop: "2px" }}>
-            DELIVERY OPERATIONS
+          <h1 style={{ fontSize: "1.65rem", fontWeight: "700", color: "#0f172a", margin: 0 }}>
+            Operations Dashboard
           </h1>
+          <p style={{ fontSize: "0.875rem", color: "#64748b", margin: "3px 0 0" }}>
+            Real-time delivery status, ML failure risk assessment, and dispatch operations
+          </p>
         </div>
 
         <div style={{ display: "flex", gap: "10px" }}>
@@ -58,72 +58,83 @@ const AdminDashboard = () => {
             onClick={fetchDashboard}
             className="btn-modern btn-modern-secondary btn-modern-sm"
           >
-            ↻ Refresh Operations
+            ↻ Refresh
           </button>
           <Link to="/admin/prediction" className="btn-modern btn-modern-primary btn-modern-sm">
-            ⚡ Run ML Prediction
+            + Run ML Prediction
           </Link>
         </div>
       </div>
 
       {error && (
-        <div style={{ padding: "14px", background: "#fef2f2", color: "#dc2626", borderRadius: "8px", marginBottom: "20px" }}>
+        <div style={{ padding: "12px 16px", background: "#fef2f2", color: "#dc2626", borderRadius: "8px", border: "1px solid #fecaca", marginBottom: "20px" }}>
           {error}
         </div>
       )}
 
-      {/* Top 4 Real Operations KPI Metric Cards */}
+      {/* Top 5 Summary Cards */}
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-          gap: "16px",
-          marginBottom: "28px",
+          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
+          gap: "14px",
+          marginBottom: "24px",
         }}
       >
-        <div className="card-modern" style={{ borderLeft: "4px solid #2563eb" }}>
-          <span style={{ fontSize: "0.8rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-            Today's Orders
+        <div className="card-modern" style={{ borderLeft: "4px solid #2563eb", padding: "16px 18px" }}>
+          <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+            New Orders
           </span>
-          <div style={{ fontSize: "2.25rem", fontWeight: "800", color: "#0f172a", marginTop: "4px" }}>
-            {data?.today_orders ?? 0}
+          <div style={{ fontSize: "1.85rem", fontWeight: "800", color: "#0f172a", marginTop: "2px" }}>
+            {data?.new_orders ?? data?.today_orders ?? 0}
           </div>
-          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>Registered delivery requests</span>
+          <span style={{ fontSize: "0.75rem", color: "#64748b" }}>Registered requests</span>
         </div>
 
-        <div className="card-modern" style={{ borderLeft: "4px solid #16a34a" }}>
-          <span style={{ fontSize: "0.8rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-            Active Deliveries
-          </span>
-          <div style={{ fontSize: "2.25rem", fontWeight: "800", color: "#16a34a", marginTop: "4px" }}>
-            {data?.active_deliveries ?? 0}
-          </div>
-          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>Currently in transit or assigned</span>
-        </div>
-
-        <div className="card-modern" style={{ borderLeft: "4px solid #d97706" }}>
-          <span style={{ fontSize: "0.8rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.04em" }}>
-            Unassigned
-          </span>
-          <div style={{ fontSize: "2.25rem", fontWeight: "800", color: "#d97706", marginTop: "4px" }}>
-            {data?.unassigned ?? 0}
-          </div>
-          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>Awaiting rider dispatch</span>
-        </div>
-
-        <div className="card-modern" style={{ borderLeft: "4px solid #dc2626" }}>
-          <span style={{ fontSize: "0.8rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+        <div className="card-modern" style={{ borderLeft: "4px solid #dc2626", padding: "16px 18px" }}>
+          <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#dc2626", textTransform: "uppercase", letterSpacing: "0.04em" }}>
             High Risk
           </span>
-          <div style={{ fontSize: "2.25rem", fontWeight: "800", color: "#dc2626", marginTop: "4px" }}>
+          <div style={{ fontSize: "1.85rem", fontWeight: "800", color: "#dc2626", marginTop: "2px" }}>
             {data?.high_risk ?? 0}
           </div>
-          <span style={{ fontSize: "0.8rem", color: "#64748b" }}>Flagged by ML failure model</span>
+          <span style={{ fontSize: "0.75rem", color: "#64748b" }}>Requires admin review</span>
+        </div>
+
+        <div className="card-modern" style={{ borderLeft: "4px solid #d97706", padding: "16px 18px" }}>
+          <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#d97706", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+            Unassigned Deliveries
+          </span>
+          <div style={{ fontSize: "1.85rem", fontWeight: "800", color: "#d97706", marginTop: "2px" }}>
+            {data?.unassigned ?? 0}
+          </div>
+          <span style={{ fontSize: "0.75rem", color: "#64748b" }}>Pending rider dispatch</span>
+        </div>
+
+        <div className="card-modern" style={{ borderLeft: "4px solid #0284c7", padding: "16px 18px" }}>
+          <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#0284c7", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+            Active Deliveries
+          </span>
+          <div style={{ fontSize: "1.85rem", fontWeight: "800", color: "#0284c7", marginTop: "2px" }}>
+            {data?.active_deliveries ?? 0}
+          </div>
+          <span style={{ fontSize: "0.75rem", color: "#64748b" }}>In transit / assigned</span>
+        </div>
+
+        <div className="card-modern" style={{ borderLeft: "4px solid #16a34a", padding: "16px 18px" }}>
+          <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#16a34a", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+            Completed Today
+          </span>
+          <div style={{ fontSize: "1.85rem", fontWeight: "800", color: "#16a34a", marginTop: "2px" }}>
+            {data?.completed_today ?? 0}
+          </div>
+          <span style={{ fontSize: "0.75rem", color: "#64748b" }}>Successfully delivered</span>
         </div>
       </div>
 
-      {/* Active Operations Table Section */}
+      {/* Main Section: Delivery Operations */}
       <div className="card-modern" style={{ padding: "20px" }}>
+        {/* Table Title & Filter Tabs */}
         <div
           style={{
             display: "flex",
@@ -131,42 +142,43 @@ const AdminDashboard = () => {
             alignItems: "center",
             flexWrap: "wrap",
             gap: "12px",
-            marginBottom: "18px",
+            marginBottom: "16px",
             borderBottom: "1px solid #f1f5f9",
             paddingBottom: "14px",
           }}
         >
           <div>
-            <h2 style={{ fontSize: "1.15rem", fontWeight: "800", color: "#0f172a", textTransform: "uppercase", letterSpacing: "0.03em" }}>
-              ACTIVE DELIVERY OPERATIONS
+            <h2 style={{ fontSize: "1.2rem", fontWeight: "700", color: "#0f172a", margin: 0 }}>
+              Delivery Operations
             </h2>
-            <p style={{ fontSize: "0.85rem", color: "#64748b", margin: 0 }}>
-              Live lifecycle, risk status, and algorithmic rider assignment
-            </p>
+            <span style={{ fontSize: "0.825rem", color: "#64748b" }}>
+              Showing {filteredOperations.length} of {operations.length} deliveries
+            </span>
           </div>
 
-          {/* Filter Pills */}
+          {/* Filter tabs */}
           <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
             {[
               { id: "all", label: "All" },
-              { id: "unassigned", label: `Unassigned (${data?.unassigned ?? 0})` },
               { id: "high_risk", label: `High Risk (${data?.high_risk ?? 0})` },
-              { id: "active", label: "In Transit" },
-              { id: "delivered", label: "Delivered" },
+              { id: "unassigned", label: `Unassigned (${data?.unassigned ?? 0})` },
+              { id: "active", label: `In Transit (${data?.active_deliveries ?? 0})` },
+              { id: "delivered", label: `Delivered (${data?.completed_today ?? 0})` },
             ].map((tab) => (
               <button
                 key={tab.id}
                 type="button"
                 onClick={() => setFilter(tab.id)}
                 style={{
+                  padding: "5px 12px",
                   fontSize: "0.8rem",
                   fontWeight: "600",
-                  padding: "5px 12px",
                   borderRadius: "6px",
                   border: filter === tab.id ? "1px solid #2563eb" : "1px solid #e2e8f0",
                   backgroundColor: filter === tab.id ? "#eff6ff" : "#ffffff",
                   color: filter === tab.id ? "#2563eb" : "#64748b",
                   cursor: "pointer",
+                  transition: "all 0.15s ease",
                 }}
               >
                 {tab.label}
@@ -177,88 +189,125 @@ const AdminDashboard = () => {
 
         {/* Table */}
         {loading ? (
-          <p style={{ textAlign: "center", padding: "32px", color: "#64748b" }}>Loading operational deliveries...</p>
+          <p style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>
+            Loading operations queue...
+          </p>
         ) : filteredOperations.length === 0 ? (
           <div style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>
-            No operations match the selected filter.
+            <p>No delivery operations matching the selected filter.</p>
           </div>
         ) : (
           <div style={{ overflowX: "auto" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.9rem" }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.875rem" }}>
               <thead>
-                <tr style={{ borderBottom: "2px solid #e2e8f0", color: "#64748b", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                <tr
+                  style={{
+                    borderBottom: "2px solid #e2e8f0",
+                    color: "#64748b",
+                    fontSize: "0.75rem",
+                    textTransform: "uppercase",
+                    letterSpacing: "0.05em",
+                  }}
+                >
                   <th style={{ padding: "10px 12px" }}>Order</th>
                   <th style={{ padding: "10px 12px" }}>Customer</th>
-                  <th style={{ padding: "10px 12px" }}>Area</th>
+                  <th style={{ padding: "10px 12px" }}>Delivery Area</th>
                   <th style={{ padding: "10px 12px" }}>Risk</th>
+                  <th style={{ padding: "10px 12px" }}>Failure Probability</th>
                   <th style={{ padding: "10px 12px" }}>Rider</th>
-                  <th style={{ padding: "10px 12px" }}>Status</th>
-                  <th style={{ padding: "10px 12px", textAlign: "right" }}>Actions</th>
+                  <th style={{ padding: "10px 12px" }}>Delivery Status</th>
+                  <th style={{ padding: "10px 12px", textAlign: "right" }}>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredOperations.map((op) => {
-                  const isUnassigned = String(op.status || "").toLowerCase() === "unassigned";
+                  const probFormatted =
+                    op.probability != null ? `${(Number(op.probability) * 100).toFixed(1)}%` : "—";
+                  const isUnassigned = op.status === "unassigned";
 
                   return (
                     <tr
-                      key={op.delivery_id || op.order_id}
+                      key={op.delivery_id}
                       style={{
                         borderBottom: "1px solid #f1f5f9",
                         transition: "background 0.15s",
                       }}
-                      onMouseEnter={(e) => (e.currentTarget.style.background = "#f8fafc")}
-                      onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                      onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f8fafc")}
+                      onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
                     >
-                      <td style={{ padding: "12px", fontWeight: "700", color: "#0f172a" }}>
-                        #{op.order_id}
+                      {/* Order Column */}
+                      <td style={{ padding: "12px" }}>
+                        <div style={{ fontWeight: "700", color: "#0f172a" }}>
+                          Order #{op.order_id}
+                        </div>
+                        <span style={{ fontSize: "0.75rem", color: "#64748b" }}>
+                          {op.item_name} • Rs. {Number(op.total_price || 0).toLocaleString()}
+                        </span>
                       </td>
-                      <td style={{ padding: "12px", color: "#334155" }}>
-                        {op.customer_phone || "—"}
+
+                      {/* Customer Column */}
+                      <td style={{ padding: "12px", color: "#334155", fontWeight: "500" }}>
+                        {op.customer_phone}
                       </td>
-                      <td style={{ padding: "12px", color: "#334155" }}>
-                        <span style={{ fontWeight: "600" }}>{op.area}</span>
+
+                      {/* Delivery Area Column */}
+                      <td style={{ padding: "12px" }}>
+                        <div style={{ fontWeight: "600", color: "#0f172a" }}>{op.area}</div>
+                        <span style={{ fontSize: "0.75rem", color: "#64748b", display: "block", maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          {op.address}
+                        </span>
                       </td>
+
+                      {/* Risk Badge Column */}
                       <td style={{ padding: "12px" }}>
                         <RiskBadge risk={op.risk} size="small" />
                       </td>
-                      <td style={{ padding: "12px", color: op.rider ? "#0f172a" : "#94a3b8", fontWeight: op.rider ? "600" : "400" }}>
-                        {op.rider ? `🚴 ${op.rider}` : "—"}
+
+                      {/* Failure Probability Column */}
+                      <td style={{ padding: "12px", fontWeight: "700", color: "#0f172a" }}>
+                        {probFormatted}
                       </td>
+
+                      {/* Rider Column */}
                       <td style={{ padding: "12px" }}>
-                        <span
-                          className={`badge-modern ${
-                            op.status === "delivered"
-                              ? "badge-status success"
-                              : isUnassigned
-                              ? "badge-modern badge-medium"
-                              : "badge-status active"
-                          }`}
-                          style={{ fontSize: "0.725rem" }}
-                        >
-                          {String(op.status || "unassigned").replace(/_/g, " ")}
+                        {op.rider ? (
+                          <div style={{ fontWeight: "600", color: "#0f172a" }}>
+                            🚴 {op.rider}
+                          </div>
+                        ) : (
+                          <span style={{ color: "#d97706", fontWeight: "600", fontSize: "0.8rem" }}>
+                            Unassigned
+                          </span>
+                        )}
+                      </td>
+
+                      {/* Delivery Status Column */}
+                      <td style={{ padding: "12px" }}>
+                        <span className={`badge-modern badge-status ${op.status === "delivered" ? "success" : op.status === "unassigned" ? "neutral" : "active"}`}>
+                          {String(op.status).replace(/_/g, " ")}
                         </span>
                       </td>
+
+                      {/* Action Column */}
                       <td style={{ padding: "12px", textAlign: "right" }}>
-                        <div style={{ display: "inline-flex", gap: "8px" }}>
+                        <div style={{ display: "flex", justifyContent: "flex-end", gap: "6px" }}>
                           {isUnassigned && (
                             <button
                               type="button"
                               onClick={() => navigate(`/admin/dispatch?deliveryId=${op.delivery_id}`)}
                               className="btn-modern btn-modern-primary btn-modern-sm"
-                              style={{ padding: "4px 10px", fontSize: "0.75rem" }}
+                              style={{ padding: "4px 10px", fontSize: "0.775rem" }}
                             >
                               Dispatch
                             </button>
                           )}
-                          <button
-                            type="button"
-                            onClick={() => navigate(`/admin/deliveries/${op.delivery_id}`)}
+                          <Link
+                            to={`/admin/deliveries/${op.delivery_id}`}
                             className="btn-modern btn-modern-secondary btn-modern-sm"
-                            style={{ padding: "4px 10px", fontSize: "0.75rem" }}
+                            style={{ padding: "4px 10px", fontSize: "0.775rem" }}
                           >
-                            Lifecycle →
-                          </button>
+                            Details
+                          </Link>
                         </div>
                       </td>
                     </tr>

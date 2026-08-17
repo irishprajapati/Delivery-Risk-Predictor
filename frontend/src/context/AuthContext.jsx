@@ -3,9 +3,31 @@ import { getCustomerProfile } from "../services/api";
 
 const AuthContext = createContext(null);
 
+export const parseJwt = (token) => {
+  try {
+    if (!token) return null;
+    const base64Url = token.split(".")[1];
+    if (!base64Url) return null;
+    const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split("")
+        .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+        .join("")
+    );
+    return JSON.parse(jsonPayload);
+  } catch {
+    return null;
+  }
+};
+
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(() => localStorage.getItem("token"));
-  const [role, setRole] = useState(() => localStorage.getItem("role") || "customer");
+  const [role, setRole] = useState(() => {
+    const storedToken = localStorage.getItem("token");
+    const parsed = parseJwt(storedToken);
+    return parsed?.role || localStorage.getItem("role") || null;
+  });
   const [phone, setPhone] = useState(() => localStorage.getItem("phone") || "");
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -13,15 +35,22 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const initAuth = async () => {
       const storedToken = localStorage.getItem("token");
-      const storedRole = localStorage.getItem("role");
-      const storedPhone = localStorage.getItem("phone");
 
       if (storedToken) {
-        setToken(storedToken);
-        setRole(storedRole || "customer");
-        setPhone(storedPhone || "");
+        const parsed = parseJwt(storedToken);
 
-        if (storedRole === "customer") {
+        // Check if token is expired
+        if (parsed?.exp && parsed.exp * 1000 < Date.now()) {
+          logoutUser();
+          setLoading(false);
+          return;
+        }
+
+        const currentRole = parsed?.role || localStorage.getItem("role") || null;
+        setToken(storedToken);
+        setRole(currentRole);
+
+        if (currentRole === "customer") {
           try {
             const profile = await getCustomerProfile();
             setUser(profile);
@@ -29,11 +58,17 @@ export const AuthProvider = ({ children }) => {
               setPhone(profile.phone);
               localStorage.setItem("phone", profile.phone);
             }
-          } catch (e) {
-            console.warn("Could not fetch customer profile on init:", e);
+          } catch (err) {
+            console.warn("Could not fetch customer profile on init:", err);
+            if (err.response?.status === 401 || err.response?.status === 403) {
+              logoutUser();
+            }
           }
         }
+      } else {
+        logoutUser();
       }
+
       setLoading(false);
     };
 
@@ -41,13 +76,17 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const loginUser = (tokenVal, roleVal, phoneVal = "") => {
+    const parsed = parseJwt(tokenVal);
+    const verifiedRole = parsed?.role || roleVal;
+
     localStorage.setItem("token", tokenVal);
-    localStorage.setItem("role", roleVal);
+    localStorage.setItem("role", verifiedRole);
     if (phoneVal) {
       localStorage.setItem("phone", phoneVal);
     }
+
     setToken(tokenVal);
-    setRole(roleVal);
+    setRole(verifiedRole);
     setPhone(phoneVal);
   };
 
@@ -56,14 +95,9 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem("role");
     localStorage.removeItem("phone");
     setToken(null);
-    setRole("customer");
+    setRole(null);
     setPhone("");
     setUser(null);
-  };
-
-  const switchRole = (newRole) => {
-    localStorage.setItem("role", newRole);
-    setRole(newRole);
   };
 
   return (
@@ -74,11 +108,11 @@ export const AuthProvider = ({ children }) => {
         phone,
         user,
         loading,
+        isAuthenticated: Boolean(token && role),
         isAdmin: role === "admin",
         isCustomer: role === "customer",
         login: loginUser,
         logout: logoutUser,
-        switchRole,
         setUser,
       }}
     >

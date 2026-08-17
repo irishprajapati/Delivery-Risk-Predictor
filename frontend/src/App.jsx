@@ -11,9 +11,11 @@ import VerifyOTP from "./pages/VerifyOTP";
 import CustomerDashboard from "./pages/customer/CustomerDashboard";
 import PlaceOrder from "./pages/customer/PlaceOrder";
 import CustomerOrderDetail from "./pages/customer/CustomerOrderDetail";
+import CustomerProfile from "./pages/customer/CustomerProfile";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminDeliveries from "./pages/admin/AdminDeliveries";
 import AdminPrediction from "./pages/admin/AdminPrediction";
 import AdminDispatch from "./pages/admin/AdminDispatch";
 import AdminDeliveryLifecycle from "./pages/admin/AdminDeliveryLifecycle";
@@ -28,7 +30,7 @@ function ProtectedRoute() {
   if (loading) {
     return (
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "100vh" }}>
-        <p style={{ color: "#64748b" }}>Loading LogiRisk...</p>
+        <p style={{ color: "#64748b", fontSize: "0.95rem" }}>Loading session...</p>
       </div>
     );
   }
@@ -40,16 +42,45 @@ function ProtectedRoute() {
   return <Outlet />;
 }
 
+function CustomerRoute() {
+  const { isCustomer, loading } = useAuth();
+
+  if (loading) return null;
+
+  if (!isCustomer) {
+    return <Navigate to="/admin/dashboard" replace />;
+  }
+
+  return <Outlet />;
+}
+
+function AdminRoute() {
+  const { isAdmin, loading } = useAuth();
+
+  if (loading) return null;
+
+  if (!isAdmin) {
+    return <Navigate to="/customer/dashboard" replace />;
+  }
+
+  return <Outlet />;
+}
+
 function RoleRootRedirect() {
-  const { isAdmin } = useAuth();
-  return <Navigate to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"} replace />;
+  const { isAdmin, isCustomer, token } = useAuth();
+
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
+
+  return <Navigate to={isAdmin ? "/admin/dashboard" : isCustomer ? "/customer/dashboard" : "/login"} replace />;
 }
 
 function AppLayout() {
   return (
     <>
       <Navbar />
-      <main style={{ padding: "28px 24px", maxWidth: "1280px", margin: "0 auto", width: "100%" }}>
+      <main style={{ padding: "24px 20px", maxWidth: "1240px", margin: "0 auto", width: "100%" }}>
         <Outlet />
       </main>
     </>
@@ -69,25 +100,32 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<RoleRootRedirect />} />
 
-          {/* Customer Portal */}
-          <Route path="/customer/dashboard" element={<CustomerDashboard />} />
-          <Route path="/customer/order" element={<PlaceOrder />} />
-          <Route path="/customer/orders/:id" element={<CustomerOrderDetail />} />
+          {/* Customer Only Portal */}
+          <Route element={<CustomerRoute />}>
+            <Route path="/customer/dashboard" element={<CustomerDashboard />} />
+            <Route path="/customer/orders" element={<CustomerDashboard />} />
+            <Route path="/customer/order" element={<PlaceOrder />} />
+            <Route path="/customer/orders/:id" element={<CustomerOrderDetail />} />
+            <Route path="/customer/profile" element={<CustomerProfile />} />
+          </Route>
 
-          {/* Admin Operations Portal */}
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/prediction" element={<AdminPrediction />} />
-          <Route path="/admin/dispatch" element={<AdminDispatch />} />
-          <Route path="/admin/deliveries/:id" element={<AdminDeliveryLifecycle />} />
-          <Route path="/admin/riders" element={<AdminRiders />} />
-          <Route path="/admin/riders/:id" element={<AdminRiderDetail />} />
-          <Route path="/admin/predictions" element={<AdminPredictionsHistory />} />
-          <Route path="/route/prediction/:prediction_id" element={<RouteDetails />} />
-          <Route path="/route/:phone_number" element={<RouteDetails />} />
+          {/* Admin Only Portal */}
+          <Route element={<AdminRoute />}>
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/deliveries" element={<AdminDeliveries />} />
+            <Route path="/admin/deliveries/:id" element={<AdminDeliveryLifecycle />} />
+            <Route path="/admin/prediction" element={<AdminPrediction />} />
+            <Route path="/admin/dispatch" element={<AdminDispatch />} />
+            <Route path="/admin/riders" element={<AdminRiders />} />
+            <Route path="/admin/riders/:id" element={<AdminRiderDetail />} />
+            <Route path="/admin/predictions" element={<AdminPredictionsHistory />} />
+            <Route path="/route/prediction/:prediction_id" element={<RouteDetails />} />
+            <Route path="/route/:phone_number" element={<RouteDetails />} />
 
-          {/* Legacy Aliases */}
-          <Route path="/history" element={<AdminPredictionsHistory />} />
-          <Route path="/predict" element={<AdminPrediction />} />
+            {/* Legacy Aliases for admin */}
+            <Route path="/history" element={<AdminPredictionsHistory />} />
+            <Route path="/predict" element={<AdminPrediction />} />
+          </Route>
         </Route>
       </Route>
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import { verifyOTP } from "../services/api";
+import { verifyOTP, getErrorMessage } from "../services/api";
 
 export default function VerifyOTP() {
   const navigate = useNavigate();
@@ -32,11 +32,8 @@ export default function VerifyOTP() {
       }, 1200);
     } catch (err) {
       console.error("OTP verification error:", err);
-      if (err.response) {
-        setError(err.response.data?.detail || "Invalid OTP code. Please try again.");
-      } else {
-        setError("Backend server not responding.");
-      }
+      const msg = getErrorMessage(err, "Invalid OTP code. Please try again.");
+      setError(msg);
     } finally {
       setLoading(false);
     }
@@ -49,7 +46,7 @@ export default function VerifyOTP() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
+        backgroundColor: "#f1f5f9",
         padding: "20px",
       }}
     >
@@ -58,23 +55,28 @@ export default function VerifyOTP() {
         style={{
           width: "100%",
           maxWidth: "400px",
-          padding: "36px 32px",
-          boxShadow: "0 20px 25px -5px rgba(15, 23, 42, 0.1), 0 8px 10px -6px rgba(15, 23, 42, 0.1)",
+          padding: "32px 28px",
+          background: "#ffffff",
+          border: "1px solid #cbd5e1",
+          borderRadius: "12px",
+          boxShadow: "0 4px 12px rgba(15, 23, 42, 0.08)",
         }}
       >
-        <div style={{ textAlign: "center", marginBottom: "24px" }}>
-          <div style={{ fontSize: "2rem", marginBottom: "6px" }}>🔒</div>
-          <h1 style={{ fontSize: "1.5rem", fontWeight: "800", color: "#0f172a" }}>
-            Verify OTP Code
+        <div style={{ textAlign: "center", marginBottom: "20px", borderBottom: "1px solid #f1f5f9", paddingBottom: "16px" }}>
+          <h1 style={{ fontSize: "1.35rem", fontWeight: "700", color: "#0f172a", margin: 0 }}>
+            Delivery Failure Prediction
           </h1>
-          <p style={{ color: "#64748b", fontSize: "0.875rem", margin: "4px 0 0" }}>
-            Enter the code sent to <strong>{phone || "your phone"}</strong>
+          <p style={{ color: "#475569", fontSize: "0.9rem", fontWeight: "600", marginTop: "4px" }}>
+            Verify OTP Code
+          </p>
+          <p style={{ color: "#64748b", fontSize: "0.8rem", margin: "2px 0 0" }}>
+            Sent to: <strong>{phone || "your phone"}</strong>
           </p>
         </div>
 
         <form onSubmit={handleVerify} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
           <div className="form-group" style={{ margin: 0 }}>
-            <label className="form-label">Verification Code (OTP)</label>
+            <label className="form-label" style={{ color: "#334155" }}>Enter 6-Digit OTP</label>
             <input
               type="text"
               inputMode="numeric"
@@ -83,7 +85,10 @@ export default function VerifyOTP() {
               style={{ textAlign: "center", fontSize: "1.35rem", letterSpacing: "0.2em", fontWeight: "700" }}
               placeholder="••••••"
               value={otp}
-              onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
+              onChange={(e) => {
+                setOtp(e.target.value.replace(/\D/g, ""));
+                setError("");
+              }}
               required
             />
           </div>
@@ -91,10 +96,10 @@ export default function VerifyOTP() {
           {error && (
             <div
               style={{
-                padding: "10px 14px",
+                padding: "10px 12px",
                 background: "#fef2f2",
                 border: "1px solid #fecaca",
-                borderRadius: "8px",
+                borderRadius: "6px",
                 color: "#dc2626",
                 fontSize: "0.85rem",
                 textAlign: "center",
@@ -107,10 +112,10 @@ export default function VerifyOTP() {
           {success && (
             <div
               style={{
-                padding: "10px 14px",
+                padding: "10px 12px",
                 background: "#f0fdf4",
                 border: "1px solid #bbf7d0",
-                borderRadius: "8px",
+                borderRadius: "6px",
                 color: "#16a34a",
                 fontSize: "0.85rem",
                 textAlign: "center",
@@ -124,14 +129,14 @@ export default function VerifyOTP() {
           <button
             type="submit"
             disabled={loading}
-            className="btn-modern btn-modern-primary btn-modern-lg"
-            style={{ width: "100%", marginTop: "6px" }}
+            className="btn-modern btn-modern-primary"
+            style={{ width: "100%", marginTop: "6px", padding: "10px" }}
           >
             {loading ? "Verifying..." : "Verify & Complete"}
           </button>
         </form>
 
-        <div style={{ textAlign: "center", marginTop: "20px", fontSize: "0.875rem" }}>
+        <div style={{ textAlign: "center", marginTop: "18px", fontSize: "0.85rem" }}>
           <Link to="/register" style={{ color: "#64748b", textDecoration: "none" }}>
             ← Back to Registration
           </Link>

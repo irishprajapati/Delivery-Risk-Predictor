@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { getItems, placeOrder } from "../../services/api";
+import { getItems, placeOrder, getErrorMessage } from "../../services/api";
 import MapPinPicker from "../../components/MapPinPicker";
-
-const DEFAULT_ITEMS = [
-  { id: 1, name: "Laptop", price: 90000, category: "computers" },
-  { id: 2, name: "Smartphone", price: 45000, category: "mobile_phones" },
-  { id: 3, name: "Smart Watch", price: 15000, category: "watches" },
-  { id: 4, name: "Headphones", price: 8500, category: "gaming_consoles" },
-  { id: 5, name: "Gaming Console", price: 65000, category: "gaming_consoles" },
-];
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
@@ -35,13 +27,13 @@ const PlaceOrder = () => {
           setItems(data);
           setSelectedItemId(String(data[0].id));
         } else {
-          setItems(DEFAULT_ITEMS);
-          setSelectedItemId(String(DEFAULT_ITEMS[0].id));
+          setItems([]);
+          setError("No items are currently available in the catalog.");
         }
       } catch (err) {
-        console.warn("Could not load items from API, using fallback defaults:", err);
-        setItems(DEFAULT_ITEMS);
-        setSelectedItemId(String(DEFAULT_ITEMS[0].id));
+        console.error("Could not load items from API:", err);
+        setItems([]);
+        setError(getErrorMessage(err, "Failed to load product catalog."));
       } finally {
         setItemsLoading(false);
       }
@@ -50,7 +42,7 @@ const PlaceOrder = () => {
     fetchAvailableItems();
   }, []);
 
-  const selectedItem = items.find((i) => String(i.id) === String(selectedItemId)) || items[0] || DEFAULT_ITEMS[0];
+  const selectedItem = items.find((i) => String(i.id) === String(selectedItemId)) || items[0] || null;
   const unitPrice = selectedItem ? Number(selectedItem.price || 0) : 0;
   const totalPrice = unitPrice * Math.max(1, Number(quantity || 1));
 
@@ -102,249 +94,255 @@ const PlaceOrder = () => {
         navigate("/customer/dashboard");
       }
     } catch (err) {
-      console.error("Order error:", err);
-      const detail = err.response?.data?.detail;
-      if (Array.isArray(detail)) {
-        setError(detail.map((d) => d.msg || d.detail).join(", "));
-      } else if (typeof detail === "string") {
-        setError(detail);
-      } else {
-        setError("Failed to place order. Please check all fields and try again.");
-      }
+      console.error("Place order failed:", err);
+      setError(getErrorMessage(err, "Failed to place order. Please check your inputs and try again."));
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="animate-fade-in" style={{ maxWidth: "840px", margin: "0 auto", paddingBottom: "48px" }}>
-      {/* Header */}
-      <div style={{ marginBottom: "24px" }}>
-        <Link to="/customer/dashboard" style={{ fontSize: "0.85rem", color: "#2563eb", fontWeight: "600", textDecoration: "none" }}>
+    <div className="animate-fade-in" style={{ maxWidth: "860px", margin: "0 auto", paddingBottom: "48px" }}>
+      {/* Title */}
+      <div style={{ marginBottom: "20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <h1 style={{ fontSize: "1.65rem", fontWeight: "700", color: "#0f172a", margin: 0 }}>
+            Place New Order
+          </h1>
+          <p style={{ fontSize: "0.875rem", color: "#64748b", margin: "4px 0 0" }}>
+            Select your item, payment type, and delivery location pin on the map
+          </p>
+        </div>
+
+        <Link to="/customer/dashboard" style={{ fontSize: "0.85rem", color: "#2563eb", fontWeight: "600" }}>
           ← Back to Dashboard
         </Link>
-        <h1 style={{ fontSize: "1.75rem", fontWeight: "800", color: "#0f172a", marginTop: "8px" }}>
-          Place New Order
-        </h1>
-        <p style={{ color: "#64748b", fontSize: "0.95rem", margin: 0 }}>
-          Select an item and set your delivery pin on the map.
-        </p>
       </div>
 
       {error && (
-        <div
-          style={{
-            padding: "14px 18px",
-            background: "#fef2f2",
-            border: "1px solid #fecaca",
-            borderRadius: "8px",
-            color: "#dc2626",
-            marginBottom: "20px",
-            fontSize: "0.9rem",
-            fontWeight: "500",
-          }}
-        >
+        <div style={{ padding: "12px 16px", background: "#fef2f2", color: "#dc2626", borderRadius: "8px", border: "1px solid #fecaca", marginBottom: "20px" }}>
           {error}
         </div>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-          {/* Left Column: Inputs */}
-          <div className="card-modern" style={{ display: "flex", flexDirection: "column", gap: "18px" }}>
-            <h2 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#1e293b", borderBottom: "1px solid #f1f5f9", paddingBottom: "10px" }}>
-              Order Information
-            </h2>
+      <form onSubmit={handleSubmit} style={{ display: "grid", gridTemplateColumns: "1fr", gap: "20px" }}>
+        {/* Step 1: Item & Quantity */}
+        <div className="card-modern" style={{ padding: "24px" }}>
+          <h2 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0f172a", marginBottom: "16px" }}>
+            1. Select Item & Quantity
+          </h2>
 
-            {/* Item Selection */}
+          <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "16px" }}>
             <div className="form-group" style={{ margin: 0 }}>
               <label className="form-label">Item</label>
-              <select
-                className="form-control-modern"
-                value={selectedItemId}
-                onChange={(e) => setSelectedItemId(e.target.value)}
-                disabled={itemsLoading}
-                style={{ fontSize: "0.95rem", fontWeight: "500" }}
-              >
-                {items.map((it) => (
-                  <option key={it.id} value={it.id}>
-                    {it.name} (Rs. {Number(it.price).toLocaleString()})
-                  </option>
-                ))}
-              </select>
+              {itemsLoading ? (
+                <div style={{ padding: "10px", color: "#64748b" }}>Loading item inventory...</div>
+              ) : items.length === 0 ? (
+                <div style={{ padding: "10px", color: "#dc2626" }}>No items currently available in catalog.</div>
+              ) : (
+                <select
+                  className="form-control-modern"
+                  value={selectedItemId}
+                  onChange={(e) => {
+                    setSelectedItemId(e.target.value);
+                    const itm = items.find((i) => String(i.id) === e.target.value);
+                    if (itm && paymentMethod === "prepaid") {
+                      setPrepaidAmount(Number(itm.price || 0) * Math.max(1, Number(quantity)));
+                    }
+                  }}
+                  required
+                >
+                  {items.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.name} — Rs. {Number(item.price).toLocaleString()}
+                    </option>
+                  ))}
+                </select>
+              )}
             </div>
 
-            {/* Quantity */}
             <div className="form-group" style={{ margin: 0 }}>
               <label className="form-label">Quantity</label>
               <input
                 type="number"
                 min="1"
-                max="99"
+                max="50"
                 className="form-control-modern"
                 value={quantity}
                 onChange={(e) => {
-                  const val = Math.max(1, parseInt(e.target.value) || 1);
-                  setQuantity(val);
+                  const qty = Math.max(1, Number(e.target.value || 1));
+                  setQuantity(qty);
                   if (paymentMethod === "prepaid") {
-                    setPrepaidAmount(unitPrice * val);
+                    setPrepaidAmount(unitPrice * qty);
                   }
                 }}
                 required
               />
             </div>
-
-            {/* Payment Method */}
-            <div className="form-group" style={{ margin: 0 }}>
-              <label className="form-label">Payment</label>
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "2px" }}>
-                <label
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                    padding: "10px 14px",
-                    borderRadius: "8px",
-                    border: paymentMethod === "cod" ? "2px solid #2563eb" : "1px solid #e2e8f0",
-                    backgroundColor: paymentMethod === "cod" ? "#eff6ff" : "#ffffff",
-                    cursor: "pointer",
-                  }}
-                >
-                  <input
-                    type="radio"
-                    name="payment_method"
-                    value="cod"
-                    checked={paymentMethod === "cod"}
-                    onChange={() => handlePaymentChange("cod")}
-                  />
-                  <span style={{ fontSize: "0.925rem", fontWeight: "600", color: "#1e293b" }}>
-                    Cash on Delivery
-                  </span>
-                </label>
-
-                <label
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "10px",
-                    padding: "10px 14px",
-                    borderRadius: "8px",
-                    border: paymentMethod === "prepaid" ? "2px solid #2563eb" : "1px solid #e2e8f0",
-                    backgroundColor: paymentMethod === "prepaid" ? "#eff6ff" : "#ffffff",
-                    cursor: "pointer",
-                  }}
-                >
-                  <input
-                    type="radio"
-                    name="payment_method"
-                    value="prepaid"
-                    checked={paymentMethod === "prepaid"}
-                    onChange={() => handlePaymentChange("prepaid")}
-                  />
-                  <span style={{ fontSize: "0.925rem", fontWeight: "600", color: "#1e293b" }}>
-                    Prepaid
-                  </span>
-                </label>
-              </div>
-            </div>
-
-            {/* Prepaid Amount Input (if prepaid selected) */}
-            {paymentMethod === "prepaid" && (
-              <div className="form-group" style={{ margin: 0 }}>
-                <label className="form-label">Prepaid Amount (Rs.)</label>
-                <input
-                  type="number"
-                  className="form-control-modern"
-                  value={prepaidAmount}
-                  onChange={(e) => setPrepaidAmount(Number(e.target.value))}
-                  min="1"
-                  max={totalPrice}
-                  required
-                />
-              </div>
-            )}
-
-            {/* Delivery Address */}
-            <div className="form-group" style={{ margin: 0 }}>
-              <label className="form-label">Delivery Address</label>
-              <input
-                type="text"
-                className="form-control-modern"
-                placeholder="e.g. Jawalakhel, Lalitpur"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                required
-              />
-            </div>
           </div>
+        </div>
 
-          {/* Right Column: Map & Order Summary */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-            {/* Map Pin Picker Card */}
-            <div className="card-modern">
-              <MapPinPicker
-                initialLat={coordinates.lat}
-                initialLng={coordinates.lng}
-                onLocationSelect={handleLocationSelect}
-                label="Delivery Map Location"
-                height="230px"
-              />
-            </div>
+        {/* Step 2: Payment Method */}
+        <div className="card-modern" style={{ padding: "24px" }}>
+          <h2 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0f172a", marginBottom: "16px" }}>
+            2. Payment Method
+          </h2>
 
-            {/* Order Summary Card */}
-            <div
-              className="card-modern"
+          <div style={{ display: "flex", gap: "20px", marginBottom: "14px" }}>
+            <label
               style={{
-                backgroundColor: "#f8fafc",
-                borderColor: "#cbd5e1",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                cursor: "pointer",
+                padding: "10px 16px",
+                border: paymentMethod === "cod" ? "1px solid #2563eb" : "1px solid #e2e8f0",
+                borderRadius: "8px",
+                background: paymentMethod === "cod" ? "#eff6ff" : "#ffffff",
+                fontWeight: "600",
+                fontSize: "0.9rem",
               }}
             >
-              <h2 style={{ fontSize: "1.05rem", fontWeight: "700", color: "#0f172a", marginBottom: "14px" }}>
-                Order Summary
-              </h2>
+              <input
+                type="radio"
+                name="payment_method"
+                value="cod"
+                checked={paymentMethod === "cod"}
+                onChange={() => handlePaymentChange("cod")}
+              />
+              Cash on Delivery (COD)
+            </label>
 
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px", fontSize: "0.925rem" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", color: "#334155" }}>
-                  <span>{selectedItem?.name || "Item"}</span>
-                  <span style={{ fontWeight: "600" }}>Rs. {unitPrice.toLocaleString()}</span>
-                </div>
+            <label
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                cursor: "pointer",
+                padding: "10px 16px",
+                border: paymentMethod === "prepaid" ? "1px solid #2563eb" : "1px solid #e2e8f0",
+                borderRadius: "8px",
+                background: paymentMethod === "prepaid" ? "#eff6ff" : "#ffffff",
+                fontWeight: "600",
+                fontSize: "0.9rem",
+              }}
+            >
+              <input
+                type="radio"
+                name="payment_method"
+                value="prepaid"
+                checked={paymentMethod === "prepaid"}
+                onChange={() => handlePaymentChange("prepaid")}
+              />
+              Prepaid
+            </label>
+          </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", color: "#334155" }}>
-                  <span>Quantity</span>
-                  <span style={{ fontWeight: "600" }}>{quantity}</span>
-                </div>
+          {paymentMethod === "prepaid" && (
+            <div className="form-group" style={{ maxWidth: "280px", margin: 0 }}>
+              <label className="form-label">Prepaid Amount (Rs.)</label>
+              <input
+                type="number"
+                min="0"
+                max={totalPrice}
+                className="form-control-modern"
+                value={prepaidAmount}
+                onChange={(e) => setPrepaidAmount(Number(e.target.value))}
+                required
+              />
+              <span style={{ fontSize: "0.75rem", color: "#64748b", marginTop: "2px", display: "block" }}>
+                Full or partial prepayment
+              </span>
+            </div>
+          )}
+        </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", color: "#334155" }}>
-                  <span>Payment</span>
-                  <span style={{ fontWeight: "600" }}>{paymentMethod === "cod" ? "COD" : "Prepaid"}</span>
-                </div>
+        {/* Step 3: Location Pin Picker */}
+        <div className="card-modern" style={{ padding: "24px" }}>
+          <h2 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0f172a", marginBottom: "14px" }}>
+            3. Delivery Address & Map Location Pin
+          </h2>
 
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    paddingTop: "12px",
-                    borderTop: "2px solid #e2e8f0",
-                    fontSize: "1.15rem",
-                    fontWeight: "800",
-                    color: "#0f172a",
-                  }}
-                >
-                  <span>Total</span>
-                  <span>Rs. {totalPrice.toLocaleString()}</span>
-                </div>
-              </div>
+          <div className="form-group" style={{ marginBottom: "16px" }}>
+            <label className="form-label">Delivery Address / Landmark</label>
+            <input
+              type="text"
+              className="form-control-modern"
+              placeholder="e.g. Jawalakhel, near Zoo gate, Lalitpur"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              required
+            />
+          </div>
 
-              <button
-                type="submit"
-                disabled={loading}
-                className="btn-modern btn-modern-primary btn-modern-lg"
-                style={{ width: "100%", marginTop: "20px" }}
-              >
-                {loading ? "Placing Order..." : "Place Order"}
-              </button>
+          <MapPinPicker
+            initialLat={coordinates.lat}
+            initialLng={coordinates.lng}
+            onLocationSelect={handleLocationSelect}
+            label="Drag the marker or click on map to set your location pin:"
+            height="260px"
+          />
+        </div>
+
+        {/* Order Summary & Submit */}
+        <div className="card-modern" style={{ padding: "24px", background: "#f8fafc", border: "1px solid #cbd5e1" }}>
+          <h2 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0f172a", marginBottom: "14px" }}>
+            Order Summary
+          </h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "0.9rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <span style={{ color: "#64748b" }}>Selected Item:</span>
+              <strong style={{ color: "#0f172a" }}>{selectedItem?.name || "Item"}</strong>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <span style={{ color: "#64748b" }}>Unit Price:</span>
+              <span>Rs. {unitPrice.toLocaleString()}</span>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <span style={{ color: "#64748b" }}>Quantity:</span>
+              <span>{quantity}</span>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <span style={{ color: "#64748b" }}>Payment Mode:</span>
+              <span style={{ fontWeight: "600", color: "#0f172a" }}>
+                {paymentMethod === "cod" ? "Cash on Delivery" : "Prepaid"}
+              </span>
+            </div>
+
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <span style={{ color: "#64748b" }}>Delivery Address:</span>
+              <span style={{ textAlign: "right", maxWidth: "300px", fontWeight: "500", color: "#0f172a" }}>
+                {address || "Not specified"}
+              </span>
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                borderTop: "2px solid #e2e8f0",
+                paddingTop: "12px",
+                marginTop: "6px",
+                fontSize: "1.15rem",
+              }}
+            >
+              <strong style={{ color: "#0f172a" }}>Total Payable:</strong>
+              <strong style={{ color: "#2563eb" }}>Rs. {totalPrice.toLocaleString()}</strong>
             </div>
           </div>
+
+          <button
+            type="submit"
+            disabled={loading || itemsLoading}
+            className="btn-modern btn-modern-primary btn-modern-lg"
+            style={{ width: "100%", marginTop: "20px", padding: "12px" }}
+          >
+            {loading ? "Submitting Order..." : `[ Confirm & Place Order — Rs. ${totalPrice.toLocaleString()} ]`}
+          </button>
         </div>
       </form>
     </div>

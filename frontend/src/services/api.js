@@ -17,7 +17,13 @@ API.interceptors.request.use((req) => {
 API.interceptors.response.use(
   (res) => res,
   (err) => {
-    if (err.response?.status === 401) {
+    const status = err.response?.status;
+    const url = err.config?.url || "";
+    const isAuthEndpoint =
+      url.includes("/login") || url.includes("/register") || url.includes("/verify-otp");
+
+    // 401 Unauthorized: Session token is missing, invalid, or expired -> Log out and redirect to login
+    if (status === 401 && !isAuthEndpoint) {
       localStorage.removeItem("token");
       localStorage.removeItem("role");
       localStorage.removeItem("phone");
@@ -27,6 +33,7 @@ API.interceptors.response.use(
       }
     }
 
+    // 403 Forbidden: Permission error (e.g. access denied for current role) -> Return error to UI without logging out
     return Promise.reject(err);
   }
 );
@@ -231,6 +238,37 @@ export const getRouteByPredictionId = async (predictionId) => {
 export const getRouteDetails = async (phoneNumber) => {
   const res = await API.get(`/route/${encodeURIComponent(phoneNumber)}`);
   return res.data;
+};
+
+export const getErrorMessage = (err, fallback = "An error occurred") => {
+  if (!err) return fallback;
+  if (typeof err === "string") return err;
+
+  const detail = err.response?.data?.detail;
+  if (!detail) {
+    return err.response?.data?.message || err.message || fallback;
+  }
+
+  if (typeof detail === "string") {
+    return detail;
+  }
+
+  if (Array.isArray(detail)) {
+    return detail
+      .map((d) => {
+        if (typeof d === "string") return d;
+        const msg = d.msg || d.message || JSON.stringify(d);
+        return msg.replace(/^Value error,\s*/i, "");
+      })
+      .filter(Boolean)
+      .join(". ");
+  }
+
+  if (typeof detail === "object") {
+    return detail.msg || detail.message || JSON.stringify(detail);
+  }
+
+  return fallback;
 };
 
 export default API;

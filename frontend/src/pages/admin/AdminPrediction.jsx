@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { predictExplain, getAdminCustomers } from "../../services/api";
+import { predictExplain, getAdminCustomers, getErrorMessage } from "../../services/api";
 import MapPinPicker from "../../components/MapPinPicker";
 import RiskBadge from "../../components/RiskBadge";
 
@@ -96,14 +96,7 @@ const AdminPrediction = () => {
       setResult(data);
     } catch (err) {
       console.error("Prediction error:", err);
-      const detail = err.response?.data?.detail;
-      if (Array.isArray(detail)) {
-        setError(detail.map((d) => d.msg || d.detail).join(", "));
-      } else if (typeof detail === "string") {
-        setError(detail);
-      } else {
-        setError("Failed to execute ML risk prediction. Please verify inputs.");
-      }
+      setError(getErrorMessage(err, "Failed to execute ML risk prediction. Please verify inputs."));
     } finally {
       setLoading(false);
     }
@@ -130,29 +123,26 @@ const AdminPrediction = () => {
   return (
     <div className="animate-fade-in" style={{ maxWidth: "1140px", margin: "0 auto", paddingBottom: "48px" }}>
       {/* Title */}
-      <div style={{ marginBottom: "24px" }}>
-        <span style={{ fontSize: "0.8rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-          Machine Learning Failure Prediction & SHAP Analysis
-        </span>
-        <h1 style={{ fontSize: "1.85rem", fontWeight: "800", color: "#0f172a", marginTop: "2px" }}>
-          DELIVERY RISK PREDICTOR
+      <div style={{ marginBottom: "20px" }}>
+        <h1 style={{ fontSize: "1.65rem", fontWeight: "700", color: "#0f172a", margin: 0 }}>
+          Delivery Failure Prediction Engine
         </h1>
-        <p style={{ color: "#64748b", fontSize: "0.95rem", margin: 0 }}>
-          Simulate pre-dispatch conditions, extract route weather & traffic, and explain model factor weights.
+        <p style={{ color: "#64748b", fontSize: "0.875rem", margin: "3px 0 0" }}>
+          Machine learning failure probability calculation, SHAP feature importance analysis, and route factors
         </p>
       </div>
 
       {error && (
-        <div style={{ padding: "14px", background: "#fef2f2", color: "#dc2626", borderRadius: "8px", marginBottom: "20px" }}>
+        <div style={{ padding: "12px 16px", background: "#fef2f2", color: "#dc2626", borderRadius: "8px", border: "1px solid #fecaca", marginBottom: "20px" }}>
           {error}
         </div>
       )}
 
-      <div style={{ display: "grid", gridTemplateColumns: result ? "1fr 1fr" : "1fr", gap: "24px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: result ? "1fr 1fr" : "1fr", gap: "20px" }}>
         {/* Form Card */}
-        <div className="card-modern">
+        <div className="card-modern" style={{ padding: "24px" }}>
           <h2 style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0f172a", marginBottom: "16px", borderBottom: "1px solid #f1f5f9", paddingBottom: "10px" }}>
-            Prediction Parameters
+            Input Parameters
           </h2>
 
           <form onSubmit={handleAnalyze} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -286,7 +276,7 @@ const AdminPrediction = () => {
                   style={{
                     padding: "4px 10px",
                     fontSize: "0.75rem",
-                    fontWeight: "700",
+                    fontWeight: "600",
                     borderRadius: "6px",
                     border: activePinTab === "delivery" ? "1px solid #dc2626" : "1px solid #e2e8f0",
                     background: activePinTab === "delivery" ? "#fef2f2" : "#ffffff",
@@ -294,7 +284,7 @@ const AdminPrediction = () => {
                     cursor: "pointer",
                   }}
                 >
-                  📍 Delivery Pin
+                  Delivery Destination Pin
                 </button>
                 <button
                   type="button"
@@ -302,7 +292,7 @@ const AdminPrediction = () => {
                   style={{
                     padding: "4px 10px",
                     fontSize: "0.75rem",
-                    fontWeight: "700",
+                    fontWeight: "600",
                     borderRadius: "6px",
                     border: activePinTab === "pickup" ? "1px solid #16a34a" : "1px solid #e2e8f0",
                     background: activePinTab === "pickup" ? "#f0fdf4" : "#ffffff",
@@ -310,7 +300,7 @@ const AdminPrediction = () => {
                     cursor: "pointer",
                   }}
                 >
-                  🟢 Pickup Hub Pin
+                  Pickup Hub Pin
                 </button>
               </div>
 
@@ -340,146 +330,142 @@ const AdminPrediction = () => {
               type="submit"
               disabled={loading}
               className="btn-modern btn-modern-primary btn-modern-lg"
-              style={{ marginTop: "8px" }}
+              style={{ marginTop: "6px" }}
             >
-              {loading ? "Calculating Route, Weather & ML Risk..." : "Analyze Delivery Risk"}
+              {loading ? "Evaluating ML Model..." : "Run Delivery Failure Prediction"}
             </button>
           </form>
         </div>
 
-        {/* Results Card */}
+        {/* Results Panel */}
         {result && (
-          <div className="card-modern animate-fade-in" style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div className="card-modern animate-fade-in" style={{ padding: "24px", display: "flex", flexDirection: "column", gap: "18px" }}>
             {/* Risk Banner */}
             <div
               style={{
-                padding: "20px",
-                borderRadius: "12px",
-                background:
-                  String(result.risk).toUpperCase() === "HIGH"
-                    ? "#fef2f2"
-                    : String(result.risk).toUpperCase() === "MEDIUM"
-                    ? "#fffbeb"
-                    : "#f0fdf4",
-                border:
-                  String(result.risk).toUpperCase() === "HIGH"
-                    ? "1px solid #fecaca"
-                    : String(result.risk).toUpperCase() === "MEDIUM"
-                    ? "1px solid #fde68a"
-                    : "1px solid #bbf7d0",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                borderBottom: "1px solid #f1f5f9",
+                paddingBottom: "14px",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <div>
-                  <span style={{ fontSize: "0.75rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.06em", color: "#64748b" }}>
-                    DELIVERY RISK
-                  </span>
-                  <div style={{ fontSize: "2rem", fontWeight: "800", marginTop: "2px" }}>
-                    <RiskBadge risk={result.risk} />
-                  </div>
-                </div>
-
-                <div style={{ textAlign: "right" }}>
-                  <span style={{ fontSize: "0.8rem", color: "#64748b", fontWeight: "600" }}>
-                    Failure probability
-                  </span>
-                  <div style={{ fontSize: "1.75rem", fontWeight: "800", color: "#0f172a" }}>
-                    {(Number(result.probability || 0) * 100).toFixed(2)}%
-                  </div>
-                </div>
-              </div>
-
-              <p style={{ margin: "10px 0 0", fontSize: "0.95rem", fontWeight: "600", color: "#334155" }}>
-                Prediction:{" "}
-                <span style={{ color: result.prediction === 1 ? "#dc2626" : "#16a34a" }}>
-                  {result.prediction === 1 ? "Delivery Failure Likely" : "Successful delivery"}
+              <div>
+                <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase" }}>
+                  Delivery Failure Risk
                 </span>
-              </p>
-            </div>
+                <div style={{ marginTop: "4px" }}>
+                  <RiskBadge risk={result.risk} size="large" />
+                </div>
+              </div>
 
-            {/* Main Factors Breakdown */}
-            <div>
-              <h3 style={{ fontSize: "0.95rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.04em", color: "#475569", marginBottom: "10px" }}>
-                Main factors
-              </h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "0.9rem" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", padding: "8px 12px", background: "#f8fafc", borderRadius: "6px" }}>
-                  <span>Location success rate</span>
-                  <span style={{ color: "#16a34a", fontWeight: "700" }}>↑ Safe</span>
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-between", padding: "8px 12px", background: "#f8fafc", borderRadius: "6px" }}>
-                  <span>Address quality</span>
-                  <span style={{ color: "#16a34a", fontWeight: "700" }}>↑ High</span>
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-between", padding: "8px 12px", background: "#f8fafc", borderRadius: "6px" }}>
-                  <span>Prepaid ratio</span>
-                  <span style={{ color: result.features?.is_cod ? "#dc2626" : "#16a34a", fontWeight: "700" }}>
-                    {result.features?.is_cod ? "↓ COD (Elevates Risk)" : "↓ Prepaid (Reduces Risk)"}
-                  </span>
-                </div>
-                <div style={{ display: "flex", justifyContent: "space-between", padding: "8px 12px", background: "#f8fafc", borderRadius: "6px" }}>
-                  <span>Distance ({result.route?.distance_km ?? 0} km)</span>
-                  <span style={{ color: "#16a34a", fontWeight: "700" }}>↓ Short Route</span>
+              <div style={{ textAlign: "right" }}>
+                <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase" }}>
+                  Failure Probability
+                </span>
+                <div style={{ fontSize: "1.75rem", fontWeight: "800", color: "#0f172a" }}>
+                  {(result.probability * 100).toFixed(1)}%
                 </div>
               </div>
             </div>
 
-            {/* Why? section */}
-            <div style={{ padding: "16px", background: "#f8fafc", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
-              <h3 style={{ fontSize: "0.95rem", fontWeight: "700", color: "#0f172a", marginBottom: "8px" }}>
-                Why?
-              </h3>
-              <ul style={{ margin: 0, paddingLeft: "20px", display: "flex", flexDirection: "column", gap: "6px", fontSize: "0.875rem", color: "#334155" }}>
-                {result.explanations?.reasons?.length > 0 ? (
-                  result.explanations.reasons.map((r, i) => <li key={i}>{r}</li>)
-                ) : (
-                  <>
-                    <li>Current customer history is established with positive delivery rates.</li>
-                    <li>Prepaid payment structure reduces observed rejection risk.</li>
-                    <li>Short road route within Kathmandu valley reduces transit delays.</li>
-                    <li>Clear weather conditions detected along the route.</li>
-                  </>
-                )}
-              </ul>
+            {/* Verdict */}
+            <div style={{ padding: "12px", background: "#f8fafc", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+              <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase" }}>
+                Predicted Outcome
+              </span>
+              <div style={{ fontSize: "1.05rem", fontWeight: "700", color: result.prediction === 1 ? "#dc2626" : "#16a34a", marginTop: "2px" }}>
+                {result.prediction === 1 ? "Delivery Failure Likely (P > 0.50)" : "Successful Delivery Expected (P ≤ 0.50)"}
+              </div>
             </div>
 
-            {/* Map Preview */}
-            <div>
-              <h3 style={{ fontSize: "0.85rem", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.04em", color: "#475569", marginBottom: "8px" }}>
-                Route, Weather & Traffic
-              </h3>
-              <div style={{ height: "200px", borderRadius: "10px", overflow: "hidden", border: "1px solid #e2e8f0" }}>
-                <MapContainer
-                  center={[pickupCoords.lat, pickupCoords.lng]}
-                  zoom={13}
-                  style={{ height: "100%", width: "100%" }}
-                  scrollWheelZoom={false}
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-                  {mapBounds && <FitRouteBounds bounds={mapBounds} />}
-                  <Marker position={[pickupCoords.lat, pickupCoords.lng]} icon={pickupIcon}>
-                    <Popup>Pickup: {pickupAddress}</Popup>
-                  </Marker>
-                  <Marker position={[deliveryCoords.lat, deliveryCoords.lng]} icon={deliveryIcon}>
-                    <Popup>Delivery: {deliveryAddress}</Popup>
-                  </Marker>
-                  {polylinePoints.length > 1 && (
-                    <Polyline positions={polylinePoints} color="#2563eb" weight={4} opacity={0.8} />
+            {/* Top SHAP Contributors */}
+            {(() => {
+              const shapFactors = result.explanations?.shap || result.explanation?.factors || result.explanation?.shap || [];
+              const reasonsList = result.explanations?.reasons || result.explanation?.reasons || [];
+
+              return (
+                <>
+                  {shapFactors.length > 0 && (
+                    <div>
+                      <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", display: "block", marginBottom: "8px" }}>
+                        Top SHAP Feature Contributors
+                      </span>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                        {shapFactors.map((factor, idx) => {
+                          const isRiskIncrease =
+                            factor.direction === "increases_failure_risk" ||
+                            factor.impact === "increases_risk" ||
+                            factor.shap_value > 0;
+                          return (
+                            <div
+                              key={idx}
+                              style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                padding: "8px 12px",
+                                borderRadius: "6px",
+                                border: "1px solid #e2e8f0",
+                                backgroundColor: "#f8fafc",
+                                fontSize: "0.85rem",
+                              }}
+                            >
+                              <span style={{ fontWeight: "600", color: "#334155" }}>
+                                {String(factor.feature || "").replace(/_/g, " ")}:{" "}
+                                {typeof factor.value === "number" ? factor.value.toFixed(2) : factor.value}
+                              </span>
+                              <span style={{ fontWeight: "700", color: isRiskIncrease ? "#dc2626" : "#16a34a" }}>
+                                {isRiskIncrease ? "↑ Increases Failure Risk" : "↓ Reduces Failure Risk"}
+                              </span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
                   )}
-                </MapContainer>
-              </div>
 
-              <div style={{ display: "flex", gap: "8px", marginTop: "8px", fontSize: "0.75rem", color: "#64748b" }}>
-                <span>Distance: <strong>{result.route?.distance_km ?? "—"} km</strong></span>
-                <span>•</span>
-                <span>ETA: <strong>{result.route?.estimated_duration_min ?? "—"} min</strong></span>
-                <span>•</span>
-                <span>Weather: <strong>{result.weather?.midpoint || result.weather?.route_weather || "Clear"}</strong></span>
+                  {/* Human Readable Explanation Reasons */}
+                  {reasonsList.length > 0 && (
+                    <div>
+                      <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>
+                        Explanation Reasons
+                      </span>
+                      <ul style={{ margin: "0 0 0 18px", fontSize: "0.85rem", color: "#475569", lineHeight: "1.5" }}>
+                        {reasonsList.map((r, i) => (
+                          <li key={i}>{r}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
+              );
+            })()}
+
+            {/* Route & Polyline Map */}
+            {polylinePoints.length > 0 && (
+              <div>
+                <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", display: "block", marginBottom: "6px" }}>
+                  Route & Telemetry Preview ({result.route?.estimated_distance_km || "—"} km, ~{result.route?.estimated_duration_min || "—"} min)
+                </span>
+                <div style={{ height: "200px", borderRadius: "8px", overflow: "hidden", border: "1px solid #cbd5e1" }}>
+                  <MapContainer bounds={mapBounds} style={{ height: "100%", width: "100%" }} scrollWheelZoom={false}>
+                    <TileLayer
+                      attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    />
+                    <FitRouteBounds bounds={mapBounds} />
+                    <Marker position={[pickupCoords.lat, pickupCoords.lng]} icon={pickupIcon}>
+                      <Popup>Pickup Hub</Popup>
+                    </Marker>
+                    <Marker position={[deliveryCoords.lat, deliveryCoords.lng]} icon={deliveryIcon}>
+                      <Popup>Delivery Destination</Popup>
+                    </Marker>
+                    <Polyline positions={polylinePoints} color="#2563eb" weight={4} opacity={0.8} />
+                  </MapContainer>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         )}
       </div>
