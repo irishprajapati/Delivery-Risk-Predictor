@@ -61,7 +61,7 @@ const AdminPredictionsHistory = () => {
             ↻ Refresh History
           </button>
           <Link to="/admin/prediction" className="btn-modern btn-modern-primary btn-modern-sm">
-            ⚡ New Prediction
+            New Prediction
           </Link>
         </div>
       </div>

@@ -1,3 +1,9 @@
+import re
+def normalize_name(name: str):
+    name = name.lower()
+    name = re.sub(r'[^a-z0-9]', '', name)  # remove spaces, hyphens, etc.
+    return name
+
 def explain_risk(data):
     reasons = []
 

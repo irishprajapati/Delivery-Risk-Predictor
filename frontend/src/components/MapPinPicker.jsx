@@ -2,6 +2,10 @@ import { useEffect, useState, useRef, useMemo } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import {
+  LOCATION_PRESETS,
+  VALLEY_MAP_CENTER,
+} from "../utils/locationPresets";
 
 // Standard red pin marker
 const defaultIcon = new L.Icon({
@@ -21,15 +25,6 @@ const greenIcon = new L.Icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41],
 });
-
-// Common landmarks in Kathmandu Valley for quick selection
-const QUICK_PRESETS = [
-  { name: "Jawalakhel, Lalitpur", lat: 27.6744, lng: 85.3123 },
-  { name: "Thamel, Kathmandu", lat: 27.7154, lng: 85.3123 },
-  { name: "Lokanthali, Bhaktapur", lat: 27.6749, lng: 85.3601 },
-  { name: "New Baneshwor, Kathmandu", lat: 27.6915, lng: 85.3420 },
-  { name: "Kupondole, Lalitpur", lat: 27.6881, lng: 85.3142 },
-];
 
 function LocationMarker({ position, setPosition, onLocationChange, isPickup = false }) {
   const markerRef = useRef(null);
@@ -93,8 +88,8 @@ function RecenterMap({ position }) {
 }
 
 const MapPinPicker = ({
-  initialLat = 27.6744, // Default to Jawalakhel
-  initialLng = 85.3123,
+  initialLat = VALLEY_MAP_CENTER.lat,
+  initialLng = VALLEY_MAP_CENTER.lng,
   onLocationSelect,
   isPickup = false,
   label = "Delivery Location Pin",
@@ -103,25 +98,31 @@ const MapPinPicker = ({
   const [position, setPosition] = useState({ lat: initialLat, lng: initialLng });
   const [isConfirmed, setIsConfirmed] = useState(false);
 
-  const handlePositionChange = (pos) => {
+  useEffect(() => {
+    setPosition({ lat: initialLat, lng: initialLng });
+  }, [initialLat, initialLng]);
+
+  const notifySelection = (pos, addressLabel = null) => {
+    if (onLocationSelect) {
+      onLocationSelect(pos, addressLabel ? { address: addressLabel } : undefined);
+    }
+  };
+
+  const handlePositionChange = (pos, addressLabel = null) => {
     setPosition(pos);
     setIsConfirmed(false);
-    if (onLocationSelect) {
-      onLocationSelect(pos);
-    }
+    notifySelection(pos, addressLabel);
   };
 
   const handlePresetClick = (preset) => {
     const newPos = { lat: preset.lat, lng: preset.lng };
-    handlePositionChange(newPos);
+    handlePositionChange(newPos, preset.name);
   };
 
   const handleConfirm = (e) => {
     if (e) e.preventDefault();
     setIsConfirmed(true);
-    if (onLocationSelect) {
-      onLocationSelect(position);
-    }
+    notifySelection(position);
   };
 
   return (
@@ -158,19 +159,18 @@ const MapPinPicker = ({
           <LocationMarker
             position={position}
             setPosition={setPosition}
-            onLocationChange={handlePositionChange}
+            onLocationChange={(pos) => handlePositionChange(pos)}
             isPickup={isPickup}
           />
           <RecenterMap position={position} />
         </MapContainer>
       </div>
 
-      {/* Quick Location Presets */}
       <div style={{ display: "flex", gap: "6px", flexWrap: "wrap", marginTop: "2px" }}>
         <span style={{ fontSize: "0.75rem", color: "#94a3b8", alignSelf: "center", marginRight: "4px" }}>
           Presets:
         </span>
-        {QUICK_PRESETS.map((preset) => (
+        {LOCATION_PRESETS.map((preset) => (
           <button
             key={preset.name}
             type="button"
@@ -190,7 +190,6 @@ const MapPinPicker = ({
         ))}
       </div>
 
-      {/* Confirm Location button */}
       <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "4px" }}>
         <button
           type="button"
@@ -198,7 +197,7 @@ const MapPinPicker = ({
           className={`btn-modern btn-modern-sm ${isConfirmed ? "btn-modern-success" : "btn-modern-secondary"}`}
           style={{ padding: "6px 14px" }}
         >
-          {isConfirmed ? "✓ Location Confirmed" : "Confirm Location"}
+          {isConfirmed ? "Location Confirmed" : "Confirm Location"}
         </button>
       </div>
     </div>

@@ -21,14 +21,24 @@ def get_db():
 
 @router.post("/register")
 def register(data: RegisterRequest, db: Session = Depends(get_db)):
-    customer = db.query(Customer).filter(Customer.phone == data.phone).first()
-    if customer:
-        if customer.is_verified:
-            raise HTTPException(status_code=400, detail="User already exists and verified")
-    else:
-        # 2. Create new customer
-        hashed_pw = get_password_hash(data.password)
+    customer = (
+        db.query(Customer)
+        .filter(Customer.phone == data.phone)
+        .first()
+    )
 
+    if customer and customer.is_verified:
+        raise HTTPException(
+            status_code=400,
+            detail="An account with this phone number already exists. Please log in."
+        )
+
+    hashed_pw = get_password_hash(data.password)
+
+    if customer and not customer.is_verified:
+        customer.password_hash = hashed_pw
+        db.commit()
+    else:
         customer = Customer(
             phone=data.phone,
             password_hash=hashed_pw,
@@ -39,7 +49,13 @@ def register(data: RegisterRequest, db: Session = Depends(get_db)):
         db.refresh(customer)
 
     otp_code = generate_otp()
-    old_otp = db.query(OTPCode).filter(OTPCode.phone == data.phone).first()
+
+    old_otp = (
+        db.query(OTPCode)
+        .filter(OTPCode.phone == data.phone)
+        .first()
+    )
+
     if old_otp:
         db.delete(old_otp)
         db.commit()
@@ -47,11 +63,13 @@ def register(data: RegisterRequest, db: Session = Depends(get_db)):
     otp_entry = OTPCode(
         phone=data.phone,
         otp=otp_code,
-        created_at=datetime.utcnow(), 
+        created_at=datetime.utcnow(),
         expires_at=datetime.utcnow() + timedelta(minutes=5)
     )
+
     db.add(otp_entry)
     db.commit()
+
     print(f"[DEV OTP] {data.phone} → {otp_code}")
 
     return {

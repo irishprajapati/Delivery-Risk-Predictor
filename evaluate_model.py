@@ -1,16 +1,3 @@
-#!/usr/bin/env python3
-"""
-Evaluate the trained delivery failure prediction model.
-
-Usage:
-    python evaluate_model.py
-
-Loads app/ml/delivery_model.pkl, evaluates on a held-out test split
-(same random_state=42, test_size=0.2 as train_model.py), and prints:
-  - accuracy, precision, recall, f1-score
-  - confusion matrix
-"""
-
 from __future__ import annotations
 
 import sys
@@ -28,7 +15,7 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 
-from app.utils.feature_engineering import MODEL_FEATURE_COLUMNS, build_model_features
+from app.services.feature_engineering import MODEL_FEATURE_COLUMNS, build_model_features
 
 PROJECT_ROOT = Path(__file__).resolve().parent
 DATA_PATH = PROJECT_ROOT / "app" / "data" / "delivery_data.csv"

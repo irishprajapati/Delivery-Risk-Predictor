@@ -137,7 +137,7 @@ const AdminDispatch = () => {
 
       {successMsg && (
         <div style={{ padding: "12px 16px", background: "#f0fdf4", color: "#16a34a", borderRadius: "8px", border: "1px solid #bbf7d0", marginBottom: "16px", fontWeight: "600" }}>
-          ✓ {successMsg}
+          {successMsg}
         </div>
       )}
 

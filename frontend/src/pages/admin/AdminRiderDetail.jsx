@@ -208,7 +208,7 @@ const AdminRiderDetail = () => {
                       Delivery #{ad.delivery_id}
                     </span>
                     <span style={{ color: "#475569", fontSize: "0.9rem" }}>
-                      📍 {ad.address} ({ad.item_name})
+                      {ad.address} ({ad.item_name})
                     </span>
                   </div>
                   <Link

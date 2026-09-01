@@ -13,6 +13,10 @@ import PlaceOrder from "./pages/customer/PlaceOrder";
 import CustomerOrderDetail from "./pages/customer/CustomerOrderDetail";
 import CustomerProfile from "./pages/customer/CustomerProfile";
 
+// Rider Pages
+import RiderDashboard from "./pages/rider/RiderDashboard";
+import RiderDeliveryDetail from "./pages/rider/RiderDeliveryDetail";
+
 // Admin Pages
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminDeliveries from "./pages/admin/AdminDeliveries";
@@ -21,8 +25,12 @@ import AdminDispatch from "./pages/admin/AdminDispatch";
 import AdminDeliveryLifecycle from "./pages/admin/AdminDeliveryLifecycle";
 import AdminRiders from "./pages/admin/AdminRiders";
 import AdminRiderDetail from "./pages/admin/AdminRiderDetail";
+import AdminCustomers from "./pages/admin/AdminCustomers";
+import AdminCustomerDetail from "./pages/admin/AdminCustomerDetail";
+import AdminProfile from "./pages/admin/AdminProfile";
 import AdminPredictionsHistory from "./pages/admin/AdminPredictionsHistory";
 import RouteDetails from "./pages/RouteDetails";
+import Profile from "./pages/Profile";
 
 function ProtectedRoute() {
   const { token, loading } = useAuth();
@@ -48,7 +56,19 @@ function CustomerRoute() {
   if (loading) return null;
 
   if (!isCustomer) {
-    return <Navigate to="/admin/dashboard" replace />;
+    return <Navigate to="/login" replace />;
+  }
+
+  return <Outlet />;
+}
+
+function RiderRoute() {
+  const { isRider, loading } = useAuth();
+
+  if (loading) return null;
+
+  if (!isRider) {
+    return <Navigate to="/login" replace />;
   }
 
   return <Outlet />;
@@ -60,20 +80,32 @@ function AdminRoute() {
   if (loading) return null;
 
   if (!isAdmin) {
-    return <Navigate to="/customer/dashboard" replace />;
+    return <Navigate to="/login" replace />;
   }
 
   return <Outlet />;
 }
 
 function RoleRootRedirect() {
-  const { isAdmin, isCustomer, token } = useAuth();
+  const { isAdmin, isCustomer, isRider, token } = useAuth();
 
   if (!token) {
     return <Navigate to="/login" replace />;
   }
 
-  return <Navigate to={isAdmin ? "/admin/dashboard" : isCustomer ? "/customer/dashboard" : "/login"} replace />;
+  if (isAdmin) {
+    return <Navigate to="/admin/dashboard" replace />;
+  }
+
+  if (isRider) {
+    return <Navigate to="/rider/dashboard" replace />;
+  }
+
+  if (isCustomer) {
+    return <Navigate to="/customer/dashboard" replace />;
+  }
+
+  return <Navigate to="/login" replace />;
 }
 
 function AppLayout() {
@@ -100,6 +132,9 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<RoleRootRedirect />} />
 
+          {/* Common Role Delegated Profile */}
+          <Route path="/profile" element={<Profile />} />
+
           {/* Customer Only Portal */}
           <Route element={<CustomerRoute />}>
             <Route path="/customer/dashboard" element={<CustomerDashboard />} />
@@ -109,9 +144,20 @@ function App() {
             <Route path="/customer/profile" element={<CustomerProfile />} />
           </Route>
 
+          {/* Rider Only Portal */}
+          <Route element={<RiderRoute />}>
+            <Route path="/rider/dashboard" element={<RiderDashboard />} />
+            <Route path="/rider/deliveries" element={<RiderDashboard />} />
+            <Route path="/rider/deliveries/:id" element={<RiderDeliveryDetail />} />
+            <Route path="/rider/profile" element={<RiderDashboard />} />
+          </Route>
+
           {/* Admin Only Portal */}
           <Route element={<AdminRoute />}>
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/profile" element={<AdminProfile />} />
+            <Route path="/admin/customers" element={<AdminCustomers />} />
+            <Route path="/admin/customers/:id" element={<AdminCustomerDetail />} />
             <Route path="/admin/deliveries" element={<AdminDeliveries />} />
             <Route path="/admin/deliveries/:id" element={<AdminDeliveryLifecycle />} />
             <Route path="/admin/prediction" element={<AdminPrediction />} />

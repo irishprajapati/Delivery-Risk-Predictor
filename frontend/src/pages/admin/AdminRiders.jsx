@@ -85,7 +85,7 @@ const AdminRiders = () => {
                       {rider.name}
                     </h2>
                     <span style={{ fontSize: "0.85rem", color: "#64748b", fontWeight: "500" }}>
-                      📍 {rider.area || "Kathmandu Valley"}
+                      {rider.area || "Kathmandu Valley"}
                     </span>
                   </div>
 

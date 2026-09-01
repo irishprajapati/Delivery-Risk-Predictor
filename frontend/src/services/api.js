@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://127.0.0.1:8000",
+  baseURL: import.meta.env.VITE_API_URL || "http://127.0.0.1:8000",
 });
 
 API.interceptors.request.use((req) => {
@@ -52,6 +52,12 @@ export const login = async (role, identifier, password) => {
       username: identifier,
       password: password,
     };
+  } else if (role === "rider") {
+    endpoint = "/rider/login";
+    params = {
+      phone: identifier,
+      password: password,
+    };
   } else {
     endpoint = "/customer/login";
     params = {
@@ -92,6 +98,19 @@ export const getCustomerProfile = async () => {
   return res.data;
 };
 
+export const updateCustomerProfile = async (profileData) => {
+  const res = await API.put("/customer/profile", profileData);
+  return res.data;
+};
+
+export const changeCustomerPassword = async (currentPassword, newPassword) => {
+  const res = await API.post("/customer/change-password", {
+    current_password: currentPassword,
+    new_password: newPassword,
+  });
+  return res.data;
+};
+
 export const getCustomerOrders = async () => {
   const res = await API.get("/customer/orders");
   return res.data;
@@ -126,8 +145,8 @@ export const getAdminDashboard = async () => {
   return res.data;
 };
 
-export const getAdminDeliveries = async () => {
-  const res = await API.get("/admin/deliveries");
+export const getAdminDeliveries = async (params = {}) => {
+  const res = await API.get("/admin/deliveries", { params });
   return res.data;
 };
 
@@ -187,6 +206,19 @@ export const cancelDelivery = async (deliveryId, reason = "Cancelled by operatio
   return res.data;
 };
 
+export const getAdminProfile = async () => {
+  const res = await API.get("/admin/profile");
+  return res.data;
+};
+
+export const changeAdminPassword = async (currentPassword, newPassword) => {
+  const res = await API.post("/admin/change-password", {
+    current_password: currentPassword,
+    new_password: newPassword,
+  });
+  return res.data;
+};
+
 /* ============================================================
    RIDERS & CUSTOMERS
 ============================================================ */
@@ -201,8 +233,68 @@ export const getRiderDetail = async (riderId) => {
   return res.data;
 };
 
-export const getAdminCustomers = async () => {
-  const res = await API.get("/admin/customers");
+export const getAdminCustomers = async (params = {}) => {
+  const res = await API.get("/admin/customers", { params });
+  return res.data;
+};
+
+export const getAdminCustomerDetail = async (customerId) => {
+  const res = await API.get(`/admin/customers/${customerId}`);
+  return res.data;
+};
+
+export const updateAdminCustomerStatus = async (customerId, isVerified) => {
+  const res = await API.patch(`/admin/customers/${customerId}/status`, {
+    is_verified: isVerified,
+  });
+  return res.data;
+};
+
+/* ============================================================
+   RIDER OPERATIONS
+============================================================ */
+
+export const getRiderProfile = async () => {
+  const res = await API.get("/rider/profile");
+  return res.data;
+};
+
+export const getRiderDeliveries = async (params = {}) => {
+  const res = await API.get("/rider/deliveries", { params });
+  return res.data;
+};
+
+export const getRiderDelivery = async (deliveryId) => {
+  const res = await API.get(`/rider/deliveries/${deliveryId}`);
+  return res.data;
+};
+
+export const riderPickupDelivery = async (deliveryId) => {
+  const res = await API.post(`/rider/deliveries/${deliveryId}/pickup`);
+  return res.data;
+};
+
+export const riderStartDelivery = async (deliveryId) => {
+  const res = await API.post(`/rider/deliveries/${deliveryId}/start`);
+  return res.data;
+};
+
+export const riderCompleteDelivery = async (deliveryId, actualDuration = null) => {
+  const params = actualDuration ? { actual_duration: actualDuration } : {};
+  const res = await API.post(`/rider/deliveries/${deliveryId}/complete`, null, { params });
+  return res.data;
+};
+
+export const riderFailDelivery = async (deliveryId, reasonCode, notes = null) => {
+  const res = await API.post(`/rider/deliveries/${deliveryId}/fail`, {
+    reason_code: reasonCode,
+    notes: notes,
+  });
+  return res.data;
+};
+
+export const getFailureReasons = async () => {
+  const res = await API.get("/rider/failure-reasons");
   return res.data;
 };
 

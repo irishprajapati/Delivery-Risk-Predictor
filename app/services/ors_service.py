@@ -1361,6 +1361,103 @@ def reverse_geocode(
     }
 
 
+def resolve_map_pin_location(
+    latitude: float,
+    longitude: float,
+    address: str | None = None,
+) -> dict:
+    """
+    Resolve a map-pin location from supplied coordinates.
+
+    Coordinates are authoritative. Reverse geocoding is attempted only
+    for optional district/label enrichment. When reverse geocoding is
+    unavailable, prediction and routing continue with the supplied
+    coordinates.
+    """
+
+    _validate_coordinates(
+        latitude,
+        longitude,
+    )
+
+    lat = float(
+        latitude
+    )
+
+    lng = float(
+        longitude
+    )
+
+    try:
+        return reverse_geocode(
+            latitude=lat,
+            longitude=lng,
+        )
+
+    except LocationValidationError as exc:
+
+        # A successful reverse-geocode response that identifies the
+        # location outside the service area must still be rejected.
+        message = str(
+            exc
+        )
+
+        if (
+            VALLEY_ONLY_MESSAGE
+            in message
+            or "outside the supported"
+            in message.lower()
+        ):
+            raise
+
+        logger.warning(
+            "Reverse geocoding could not identify "
+            "(%s, %s); using supplied coordinates: %s",
+            lat,
+            lng,
+            exc,
+        )
+
+    except ORSServiceError as exc:
+
+        logger.warning(
+            "Reverse geocoding unavailable for "
+            "(%s, %s); using supplied coordinates: %s",
+            lat,
+            lng,
+            exc,
+        )
+
+    address_text = (
+        address or ""
+    ).strip()
+
+    district = (
+        _extract_explicit_district(
+            address_text
+        )
+        if address_text
+        else None
+    )
+
+    return {
+        "lat": lat,
+        "lng": lng,
+        "district": district,
+        "label": (
+            address_text
+            if address_text
+            else None
+        ),
+        "matched_area": (
+            address_text
+            if address_text
+            else None
+        ),
+        "raw_properties": None,
+    }
+
+
 # ============================================================
 # BASELINE DRIVING ROUTE
 # ============================================================
@@ -1655,20 +1752,24 @@ def build_route_info(
 
     if pickup_has_lat:
 
-        pickup = reverse_geocode(
+        pickup = resolve_map_pin_location(
             latitude=float(
                 pickup_latitude
             ),
             longitude=float(
                 pickup_longitude
             ),
+            address=pickup_address,
         )
 
-        _validate_address_against_pin(
-            address=pickup_address,
-            resolved_location=pickup,
-            location_name="pickup",
-        )
+        if pickup.get(
+            "district"
+        ):
+            _validate_address_against_pin(
+                address=pickup_address,
+                resolved_location=pickup,
+                location_name="pickup",
+            )
 
         pickup_source = "map_pin"
 
@@ -1712,20 +1813,24 @@ def build_route_info(
 
     if delivery_has_lat:
 
-        delivery = reverse_geocode(
+        delivery = resolve_map_pin_location(
             latitude=float(
                 delivery_latitude
             ),
             longitude=float(
                 delivery_longitude
             ),
+            address=delivery_address,
         )
 
-        _validate_address_against_pin(
-            address=delivery_address,
-            resolved_location=delivery,
-            location_name="delivery",
-        )
+        if delivery.get(
+            "district"
+        ):
+            _validate_address_against_pin(
+                address=delivery_address,
+                resolved_location=delivery,
+                location_name="delivery",
+            )
 
         delivery_source = "map_pin"
 

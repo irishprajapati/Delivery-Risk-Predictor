@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { phone, logout, isAdmin, isCustomer } = useAuth();
+  const { phone, logout, isAdmin, isCustomer, isRider } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -13,6 +13,9 @@ const Navbar = () => {
 
   const isActive = (path) => {
     if (path === "/customer/dashboard" && (location.pathname === "/" || location.pathname === "/customer/dashboard")) {
+      return true;
+    }
+    if (path === "/rider/dashboard" && (location.pathname === "/" || location.pathname === "/rider/dashboard")) {
       return true;
     }
     if (path === "/admin/dashboard" && (location.pathname === "/" || location.pathname === "/admin/dashboard")) {
@@ -26,11 +29,11 @@ const Navbar = () => {
       <div style={styles.container}>
         {/* Brand */}
         <div style={styles.brandGroup}>
-          <Link to={isAdmin ? "/admin/dashboard" : "/customer/dashboard"} style={styles.logo}>
+          <Link to={isAdmin ? "/admin/dashboard" : isRider ? "/rider/dashboard" : "/customer/dashboard"} style={styles.logo}>
             <span style={styles.logoText}>Delivery Failure Prediction</span>
           </Link>
-          <span style={isAdmin ? styles.adminBadge : styles.customerBadge}>
-            {isAdmin ? "Admin" : "Customer"}
+          <span style={isAdmin ? styles.adminBadge : isRider ? styles.riderBadge : styles.customerBadge}>
+            {isAdmin ? "Admin" : isRider ? "Rider" : "Customer"}
           </span>
         </div>
 
@@ -77,6 +80,29 @@ const Navbar = () => {
             </>
           )}
 
+          {isRider && (
+            <>
+              <Link
+                to="/rider/dashboard"
+                style={{
+                  ...styles.link,
+                  ...(isActive("/rider/dashboard") ? styles.activeLink : {}),
+                }}
+              >
+                Operations Dashboard
+              </Link>
+              <Link
+                to="/rider/deliveries"
+                style={{
+                  ...styles.link,
+                  ...(isActive("/rider/deliveries") ? styles.activeLink : {}),
+                }}
+              >
+                My Deliveries
+              </Link>
+            </>
+          )}
+
           {isAdmin && (
             <>
               <Link
@@ -107,6 +133,15 @@ const Navbar = () => {
                 Dispatch
               </Link>
               <Link
+                to="/admin/customers"
+                style={{
+                  ...styles.link,
+                  ...(isActive("/admin/customers") ? styles.activeLink : {}),
+                }}
+              >
+                Customers
+              </Link>
+              <Link
                 to="/admin/riders"
                 style={{
                   ...styles.link,
@@ -125,13 +160,13 @@ const Navbar = () => {
                 Predictions
               </Link>
               <Link
-                to="/admin/predictions"
+                to="/admin/profile"
                 style={{
                   ...styles.link,
-                  ...(isActive("/admin/predictions") ? styles.activeLink : {}),
+                  ...(isActive("/admin/profile") ? styles.activeLink : {}),
                 }}
               >
-                History
+                Profile
               </Link>
             </>
           )}
@@ -139,17 +174,28 @@ const Navbar = () => {
 
         {/* Right side Profile & Logout */}
         <div style={styles.actions}>
-          {isCustomer && phone && (
-            <div style={styles.userPhoneBadge}>
-              <span style={{ color: "#64748b" }}>User:</span>
-              <strong style={{ color: "#0f172a" }}>{phone}</strong>
-            </div>
+          {(isCustomer || isRider) && phone && (
+            <Link
+              to={isCustomer ? "/customer/profile" : "/rider/profile"}
+              style={{ textDecoration: "none" }}
+            >
+              <div style={styles.userPhoneBadge}>
+                <span style={{ color: "#64748b" }}>{isRider ? "Rider:" : "User:"}</span>
+                <strong style={{ color: "#0f172a" }}>{phone}</strong>
+              </div>
+            </Link>
           )}
 
           {isAdmin && (
-            <div style={styles.userPhoneBadge}>
-              <strong style={{ color: "#0f172a" }}>Admin Session</strong>
-            </div>
+            <Link
+              to="/admin/profile"
+              style={{ textDecoration: "none" }}
+            >
+              <div style={styles.userPhoneBadge}>
+                <span style={{ color: "#64748b" }}>Admin:</span>
+                <strong style={{ color: "#0f172a" }}>Profile</strong>
+              </div>
+            </Link>
           )}
 
           <button
@@ -209,6 +255,16 @@ const styles = {
     background: "#f1f5f9",
     color: "#475569",
     border: "1px solid #e2e8f0",
+  },
+  riderBadge: {
+    fontSize: "0.7rem",
+    fontWeight: "700",
+    textTransform: "uppercase",
+    padding: "2px 8px",
+    borderRadius: "4px",
+    background: "#eff6ff",
+    color: "#2563eb",
+    border: "1px solid #bfdbfe",
   },
   customerBadge: {
     fontSize: "0.7rem",

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getItems, placeOrder, getErrorMessage } from "../../services/api";
 import MapPinPicker from "../../components/MapPinPicker";
+import { VALLEY_MAP_CENTER, findPresetByAddress } from "../../utils/locationPresets";
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
@@ -11,8 +12,8 @@ const PlaceOrder = () => {
   const [quantity, setQuantity] = useState(1);
   const [paymentMethod, setPaymentMethod] = useState("cod"); // 'cod' or 'prepaid'
   const [prepaidAmount, setPrepaidAmount] = useState(0);
-  const [address, setAddress] = useState("Jawalakhel, Lalitpur");
-  const [coordinates, setCoordinates] = useState({ lat: 27.6744, lng: 85.3123 });
+  const [address, setAddress] = useState("");
+  const [coordinates, setCoordinates] = useState({ ...VALLEY_MAP_CENTER });
 
   const [loading, setLoading] = useState(false);
   const [itemsLoading, setItemsLoading] = useState(true);
@@ -55,8 +56,19 @@ const PlaceOrder = () => {
     }
   };
 
-  const handleLocationSelect = (pos) => {
+  const handleLocationSelect = (pos, meta) => {
     setCoordinates(pos);
+    if (meta?.address) {
+      setAddress(meta.address);
+    }
+  };
+
+  const handleAddressChange = (value) => {
+    setAddress(value);
+    const preset = findPresetByAddress(value);
+    if (preset) {
+      setCoordinates({ lat: preset.lat, lng: preset.lng });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -268,9 +280,9 @@ const PlaceOrder = () => {
             <input
               type="text"
               className="form-control-modern"
-              placeholder="e.g. Jawalakhel, near Zoo gate, Lalitpur"
+              placeholder="e.g. Thamel, Kathmandu or Kupondole, Lalitpur"
               value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              onChange={(e) => handleAddressChange(e.target.value)}
               required
             />
           </div>

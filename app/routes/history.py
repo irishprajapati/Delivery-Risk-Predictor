@@ -16,11 +16,25 @@ def get_db():
         db.close()
 
 
-def require_admin(current_user: User = Depends(get_current_user)):
-    if current_user.role != "admin":
-        raise HTTPException(status_code=403, detail="Admin access required")
-    return current_user
+def require_admin(
+    current_user=Depends(get_current_user),
+):
+    if isinstance(current_user, dict):
+        role = current_user.get("role")
+    else:
+        role = getattr(
+            current_user,
+            "role",
+            None,
+        )
 
+    if role != "admin":
+        raise HTTPException(
+            status_code=403,
+            detail="Admin access required",
+        )
+
+    return current_user
 
 @router.get("/history")
 def get_history(db: Session = Depends(get_db), current_user: User = Depends(require_admin)):

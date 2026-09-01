@@ -196,7 +196,7 @@ const AdminDeliveryLifecycle = () => {
 
       {successMsg && (
         <div style={{ padding: "12px 16px", background: "#f0fdf4", color: "#16a34a", borderRadius: "8px", border: "1px solid #bbf7d0", marginBottom: "16px", fontWeight: "600" }}>
-          ✓ {successMsg}
+          {successMsg}
         </div>
       )}
 
@@ -252,7 +252,7 @@ const AdminDeliveryLifecycle = () => {
                 Customer Information
               </span>
               <div style={{ fontSize: "1.05rem", fontWeight: "700", color: "#0f172a", marginTop: "4px" }}>
-                📱 {order.customer_phone || "—"}
+                {order.customer_phone || "—"}
               </div>
               <div style={{ fontSize: "0.85rem", color: "#475569", marginTop: "2px" }}>
                 Destination Area: <strong>{order.area || "Kathmandu Valley"}</strong>
@@ -556,9 +556,14 @@ const AdminDeliveryLifecycle = () => {
 
           {/* Operational Admin Action Buttons */}
           <div style={{ marginTop: "20px", borderTop: "1px solid #f1f5f9", paddingTop: "16px" }}>
-            <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase", display: "block", marginBottom: "10px" }}>
-              Operational Controls
-            </span>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px", flexWrap: "wrap", gap: "8px" }}>
+              <span style={{ fontSize: "0.75rem", fontWeight: "700", color: "#64748b", textTransform: "uppercase" }}>
+                Admin Supervisory & Emergency Override Controls
+              </span>
+              <span style={{ fontSize: "0.75rem", color: "#64748b", fontStyle: "italic" }}>
+                * Normal progression is operated by the assigned rider via Rider Operations.
+              </span>
+            </div>
 
             <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
               {isAssigned && (
@@ -566,9 +571,10 @@ const AdminDeliveryLifecycle = () => {
                   type="button"
                   disabled={actionLoading}
                   onClick={() => handleAction(() => startDelivery(id), "Start Delivery (Picked Up)")}
-                  className="btn-modern btn-modern-primary"
+                  className="btn-modern btn-modern-secondary"
+                  style={{ fontSize: "0.825rem" }}
                 >
-                  [ Start Delivery (Picked Up) ]
+                  Admin Override: Mark Picked Up
                 </button>
               )}
 
@@ -577,9 +583,10 @@ const AdminDeliveryLifecycle = () => {
                   type="button"
                   disabled={actionLoading}
                   onClick={() => handleAction(() => markOutForDelivery(id), "Out for Delivery")}
-                  className="btn-modern btn-modern-primary"
+                  className="btn-modern btn-modern-secondary"
+                  style={{ fontSize: "0.825rem" }}
                 >
-                  [ Out for Delivery ]
+                  Admin Override: Mark Out for Delivery
                 </button>
               )}
 
@@ -588,9 +595,10 @@ const AdminDeliveryLifecycle = () => {
                   type="button"
                   disabled={actionLoading}
                   onClick={() => handleAction(() => completeDelivery(id, 25), "Mark Delivered")}
-                  className="btn-modern btn-modern-success"
+                  className="btn-modern btn-modern-secondary"
+                  style={{ fontSize: "0.825rem", color: "#16a34a", borderColor: "#bbf7d0" }}
                 >
-                  ✓ [ Mark Delivered ]
+                  Admin Override: Force Mark Delivered
                 </button>
               )}
 
@@ -600,9 +608,10 @@ const AdminDeliveryLifecycle = () => {
                     type="button"
                     disabled={actionLoading}
                     onClick={() => setShowFailModal(true)}
-                    className="btn-modern btn-modern-danger"
+                    className="btn-modern btn-modern-secondary"
+                    style={{ fontSize: "0.825rem", color: "#dc2626", borderColor: "#fecaca" }}
                   >
-                    ✕ [ Mark Failed ]
+                    Admin Override: Mark Failed
                   </button>
 
                   <button
@@ -610,8 +619,9 @@ const AdminDeliveryLifecycle = () => {
                     disabled={actionLoading}
                     onClick={() => handleFailSubmit(true)}
                     className="btn-modern btn-modern-secondary"
+                    style={{ fontSize: "0.825rem" }}
                   >
-                    [ Mark Unreachable ]
+                    Admin Override: Mark Unreachable
                   </button>
                 </>
               )}
@@ -641,7 +651,7 @@ const AdminDeliveryLifecycle = () => {
 
               {isDelivered && (
                 <div style={{ color: "#16a34a", fontWeight: "700", fontSize: "0.95rem" }}>
-                  ✓ Delivery Successfully Completed
+                  Delivery Successfully Completed
                 </div>
               )}
             </div>

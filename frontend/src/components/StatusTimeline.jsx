@@ -122,7 +122,7 @@ const StatusTimeline = ({ status, compact = false }) => {
           return (
             <div key={step.key} className={stepClass}>
               <div className="timeline-dot">
-                {isCompleted ? "✓" : index + 1}
+                {index + 1}
               </div>
               <span className="timeline-label">{step.label}</span>
             </div>

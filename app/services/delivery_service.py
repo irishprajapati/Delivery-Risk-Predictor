@@ -1618,6 +1618,7 @@ def assign_delivery(
 
     if current_status not in {
         STATUS_UNASSIGNED,
+        STATUS_ASSIGNED,
         STATUS_FAILED,
         STATUS_UNREACHABLE,
     }:
@@ -1716,6 +1717,7 @@ def assign_delivery(
             Rider.id == rider.id
         )
         .with_for_update()
+        .populate_existing()
         .first()
     )
 
@@ -1732,7 +1734,7 @@ def assign_delivery(
         )
 
     # --------------------------------------------------------
-    # Increment active rider workload.
+    # Increment active rider workload and release previous rider.
     # --------------------------------------------------------
 
     rider.current_order_count = (
@@ -1741,6 +1743,10 @@ def assign_delivery(
         )
         + 1
     )
+
+    if old_rider_id is not None and old_rider_id != rider.id:
+        old_rider = db.query(Rider).filter(Rider.id == old_rider_id).first()
+        _release_rider_load(old_rider)
 
     # --------------------------------------------------------
     # Update delivery.
@@ -2317,6 +2323,7 @@ def cancel_delivery(
         )
 
     rider = delivery.rider
+    customer = delivery.order.customer if delivery.order else None
 
     delivery.status = (
         STATUS_CANCELLED
@@ -2331,6 +2338,14 @@ def cancel_delivery(
     _release_rider_load(
         rider
     )
+
+    if customer is not None:
+        customer.cancellation_count = (
+            _safe_int(
+                customer.cancellation_count
+            )
+            + 1
+        )
 
     if delivery.order is not None:
         delivery.order.status = (
@@ -2569,7 +2584,6 @@ def get_delivery_summary(
         "order_id": delivery.order_id,
         "risk_level": (
             (prediction_summary.get("risk") if prediction_summary else None)
-            or delivery.risk_level
             or (order.risk_level if order else "LOW")
         ),
         "status": (
@@ -2701,3 +2715,343 @@ def get_delivery_summary(
             }
         ),
     }
+
+
+# ============================================================
+# AUTOMATIC DISPATCH ENGINE
+# ============================================================
+
+def auto_dispatch_order(
+    db: Session,
+    order_id: int,
+    delivery_id: int,
+) -> dict[str, Any]:
+    """
+    Automated pre-dispatch pipeline triggered after order creation.
+    
+    1. Gathers pre-dispatch features for the order.
+    2. Runs ML failure risk prediction (Logistic Regression).
+    3. Persists Prediction record and saves risk_level on Order.
+    4. Evaluates eligible fleet riders using multi-criteria ranking.
+    5. Automatically assigns the top-ranked eligible rider using row locks.
+    6. If no rider is available, leaves delivery as 'unassigned' safely without raising exceptions.
+    """
+    import logging
+    logger = logging.getLogger(__name__)
+
+    try:
+        from app.model import Order, Delivery, DeliveryLocation, Prediction, Customer
+        from app.services.ors_service import build_route_info
+        from app.services.weather_service import fetch_route_weather
+        from app.services.traffic_service import build_traffic_context
+        from app.services.feature_engineering import build_features
+        from app.ml.predictor import predict, classify_risk
+
+        order = db.query(Order).filter(Order.id == order_id).first()
+        delivery = db.query(Delivery).filter(Delivery.id == delivery_id).first()
+
+        if not order or not delivery:
+            logger.warning(
+                f"auto_dispatch_order: order {order_id} or delivery {delivery_id} not found."
+            )
+            return {
+                "status": "unassigned",
+                "reason": "Order or delivery record not found.",
+            }
+
+        if delivery.status not in {
+            STATUS_UNASSIGNED,
+            STATUS_FAILED,
+            STATUS_UNREACHABLE,
+        }:
+            logger.info(
+                f"auto_dispatch_order: delivery {delivery_id} already in status '{delivery.status}'."
+            )
+            return {
+                "status": delivery.status,
+                "rider_id": delivery.rider_id,
+                "risk_level": order.risk_level,
+            }
+
+        delivery_loc = (
+            order.location
+            or db.query(DeliveryLocation)
+            .filter(DeliveryLocation.order_id == order.id)
+            .first()
+        )
+
+        # --------------------------------------------------------
+        # Step 1: Spatial Route Info
+        # --------------------------------------------------------
+        try:
+            route_info = build_route_info(
+                pickup_address="Balkumari, Lalitpur, Nepal",
+                pickup_latitude=27.6710,
+                pickup_longitude=85.3380,
+                delivery_address=order.address,
+                delivery_latitude=order.latitude,
+                delivery_longitude=order.longitude,
+            )
+        except Exception as exc:
+            logger.warning(
+                f"auto_dispatch_order: ORS routing failed, using fallback: {exc}"
+            )
+            route_info = {
+                "distance_km": 5.0,
+                "estimated_duration_min": 20.0,
+                "pickup_district": "Lalitpur",
+                "delivery_district": (
+                    _infer_delivery_area(
+                        order,
+                        delivery_loc,
+                    )
+                    or "Kathmandu"
+                ),
+            }
+
+        distance_km = float(
+            route_info.get(
+                "distance_km",
+                5.0,
+            )
+        )
+        estimated_duration = float(
+            route_info.get(
+                "estimated_duration_min",
+                20.0,
+            )
+        )
+
+        # Update delivery spatial baseline
+        delivery.distance_km = round(
+            distance_km,
+            2,
+        )
+        delivery.estimated_duration = round(
+            estimated_duration,
+            2,
+        )
+        if delivery_loc:
+            delivery_loc.distance_km = round(
+                distance_km,
+                2,
+            )
+            delivery_loc.estimated_duration = round(
+                estimated_duration,
+                2,
+            )
+
+        # --------------------------------------------------------
+        # Step 2: Weather Info
+        # --------------------------------------------------------
+        try:
+            weather_info = fetch_route_weather(route_info)
+        except Exception as exc:
+            logger.warning(
+                f"auto_dispatch_order: Weather fetch failed, using fallback: {exc}"
+            )
+            weather_info = {
+                "route_weather": "CLEAR",
+                "rainfall": 0.0,
+                "temperature": 22.0,
+            }
+
+        # --------------------------------------------------------
+        # Step 3: Traffic Context
+        # --------------------------------------------------------
+        try:
+            traffic_context = build_traffic_context(
+                route_info=route_info,
+                weather_info=weather_info,
+                order_time=datetime.utcnow(),
+                historical_delay_minutes=None,
+            )
+        except Exception as exc:
+            logger.warning(
+                f"auto_dispatch_order: Traffic estimation failed, using fallback: {exc}"
+            )
+            traffic_context = {
+                "traffic_level": "MEDIUM",
+                "traffic_delay_minutes": 5.0,
+                "baseline_duration_min": estimated_duration,
+                "traffic_delay_ratio": 0.25,
+            }
+
+        # --------------------------------------------------------
+        # Step 4: Assemble 41 Features
+        # --------------------------------------------------------
+        customer = (
+            order.customer
+            or db.query(Customer)
+            .filter(Customer.id == order.customer_id)
+            .first()
+        )
+
+        location_data = {
+            "address_quality": (
+                0.85
+                if order.latitude and order.longitude
+                else 0.50
+            ),
+            "distance_km": distance_km,
+            "estimated_duration": estimated_duration,
+            "location_success_rate": 0.85,
+        }
+
+        environment_data = {
+            "weather": weather_info.get(
+                "route_weather",
+                "CLEAR",
+            ),
+            "rainfall": weather_info.get(
+                "rainfall",
+                0.0,
+            ),
+            "temperature": weather_info.get(
+                "temperature",
+                22.0,
+            ),
+            "traffic_level": traffic_context.get(
+                "traffic_level",
+                "MEDIUM",
+            ),
+            "traffic_delay_minutes": traffic_context.get(
+                "traffic_delay_minutes",
+                0.0,
+            ),
+            "baseline_duration": estimated_duration,
+        }
+
+        operational_data = {
+            "hub_delay_minutes": 0.0,
+            "route_status": "NORMAL",
+            "vehicle_status": "AVAILABLE",
+        }
+
+        features = build_features(
+            customer=customer,
+            quantity=order.quantity,
+            total_price=order.total_price,
+            is_cod=order.is_cod,
+            prepaid_amount=order.prepaid_amount,
+            location_data=location_data,
+            environment_data=environment_data,
+            operational_data=operational_data,
+            order_time=(
+                order.created_at
+                or datetime.utcnow()
+            ),
+        )
+
+        # --------------------------------------------------------
+        # Step 5: Execute ML Prediction
+        # --------------------------------------------------------
+        ml_succeeded = False
+        prob = None
+        risk = "MEDIUM"
+
+        try:
+            pred_result = predict(features)
+            prob = float(
+                pred_result.get(
+                    "probability",
+                    0.35,
+                )
+            )
+            risk = str(
+                pred_result.get(
+                    "risk",
+                    classify_risk(prob),
+                )
+            ).upper()
+            ml_succeeded = True
+        except Exception as exc:
+            logger.error(
+                f"auto_dispatch_order: ML prediction failed ({exc}), falling back to MEDIUM risk policy for dispatch."
+            )
+            prob = None
+            risk = "MEDIUM"
+            ml_succeeded = False
+
+        # --------------------------------------------------------
+        # Step 6: Save Prediction record & Update Order
+        # --------------------------------------------------------
+        if ml_succeeded and prob is not None:
+            order.risk_score = round(prob, 4)
+            order.risk_level = risk
+
+            try:
+                pred_record = Prediction(
+                    order_id=order.id,
+                    input_data=features,
+                    prediction=(
+                        1
+                        if prob >= 0.50
+                        else 0
+                    ),
+                    probability=round(prob, 4),
+                    risk=risk,
+                )
+                db.add(pred_record)
+                db.flush()
+            except Exception as exc:
+                logger.warning(
+                    f"auto_dispatch_order: Failed to persist Prediction record: {exc}"
+                )
+        else:
+            order.risk_score = None
+            order.risk_level = "MEDIUM"
+
+        # --------------------------------------------------------
+        # Step 7: Automatic Rider Assignment via row locking
+        # --------------------------------------------------------
+        try:
+            assign_result = assign_delivery(
+                db=db,
+                delivery_id=delivery.id,
+                rider_id=None,
+                risk_level=risk,
+            )
+            db.commit()
+            logger.info(
+                f"auto_dispatch_order: Order {order.id} automatically assigned to Rider {delivery.rider_id} with risk {risk}."
+            )
+            return {
+                "status": "assigned",
+                "rider_id": delivery.rider_id,
+                "risk_level": risk,
+                "probability": (
+                    round(prob, 4)
+                    if prob is not None
+                    else None
+                ),
+                "assignment": assign_result,
+            }
+        except ValueError as exc:
+            # No eligible rider available or all riders full
+            logger.warning(
+                f"auto_dispatch_order: Could not assign rider for order {order.id}: {exc}"
+            )
+            db.commit()  # commit prediction and route baseline, leave delivery unassigned
+            return {
+                "status": "unassigned",
+                "rider_id": None,
+                "risk_level": risk,
+                "probability": (
+                    round(prob, 4)
+                    if prob is not None
+                    else None
+                ),
+                "reason": str(exc),
+            }
+
+    except Exception as exc:
+        logger.exception(
+            f"auto_dispatch_order: Unexpected error in auto-dispatch: {exc}"
+        )
+        db.rollback()
+        return {
+            "status": "unassigned",
+            "rider_id": None,
+            "error": str(exc),
+        }

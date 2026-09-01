@@ -95,37 +95,47 @@ class Order(Base):
     delivery = relationship("Delivery", back_populates="order", uselist=False)
     location = relationship("DeliveryLocation", back_populates="order", uselist=False)
 
-    environment_snapshots = relationship(
-        "EnvironmentSnapshot",
-        back_populates="order"
-    )
-
-    operational_snapshots = relationship(
-        "OperationalSnapshot",
-        back_populates="order"
-    )
-
     predictions = relationship("Prediction", back_populates="order")
-
-
 class Rider(Base):
     __tablename__ = "riders"
 
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     phone = Column(String, unique=True)
+
+    # Broad service area / zone.
     area = Column(String)
+    current_latitude = Column(Float)
+    current_longitude = Column(Float)
+    last_location_update = Column(DateTime)
 
-    is_active = Column(Boolean, default=True)
-    max_orders_per_day = Column(Integer, default=20)
-    current_order_count = Column(Integer, default=0)
-
-    completed_orders = Column(Integer, default=0)
-    failed_deliveries = Column(Integer, default=0)
+    is_active = Column(Boolean, default=True, nullable=False)
+    max_orders_per_day = Column(Integer, default=20, nullable=False)
+    current_order_count = Column(Integer, default=0, nullable=False)
+    completed_orders = Column(Integer, default=0, nullable=False)
+    failed_deliveries = Column(Integer, default=0, nullable=False)
 
     deliveries = relationship("Delivery", back_populates="rider")
 
+class RiderAreaPerformance(Base):
+    __tablename__ = "rider_area_performance"
 
+    id = Column(Integer, primary_key=True, index=True)
+    rider_id = Column(Integer, ForeignKey("riders.id"), nullable=False, index=True)
+    area = Column(String, nullable=False, index=True)
+
+    total_deliveries = Column(Integer, default=0, nullable=False)
+    successful_deliveries = Column(Integer, default=0, nullable=False)
+    failed_deliveries = Column(Integer, default=0, nullable=False)
+    success_rate = Column(Float, default=0.0, nullable=False)
+
+    updated_at = Column(
+        DateTime,
+        default=datetime.utcnow,
+        onupdate=datetime.utcnow,
+    )
+
+    rider = relationship("Rider")
 class Delivery(Base):
     __tablename__ = "deliveries"
 
@@ -166,36 +176,6 @@ class DeliveryLocation(Base):
 
     order = relationship("Order", back_populates="location")
 
-
-class EnvironmentSnapshot(Base):
-    __tablename__ = "environment_snapshots"
-
-    id = Column(Integer, primary_key=True, index=True)
-    order_id = Column(Integer, ForeignKey("orders.id"), nullable=False)
-
-    weather = Column(String)
-    rainfall = Column(Float)
-    temperature = Column(Float)
-    traffic_level = Column(String)
-
-    recorded_at = Column(DateTime, default=datetime.utcnow)
-
-    order = relationship("Order", back_populates="environment_snapshots")
-
-class OperationalSnapshot(Base):
-    __tablename__ = "operational_snapshots"
-
-    id = Column(Integer, primary_key=True, index=True)
-    order_id = Column(Integer, ForeignKey("orders.id"), nullable=False)
-
-    rider_load = Column(Integer, default=0)
-    hub_delay_minutes = Column(Float, default=0)
-    route_status = Column(String)
-    vehicle_status = Column(String)
-
-    recorded_at = Column(DateTime, default=datetime.utcnow)
-
-    order = relationship("Order", back_populates="operational_snapshots")
 
 class Prediction(Base):
     __tablename__ = "predictions"

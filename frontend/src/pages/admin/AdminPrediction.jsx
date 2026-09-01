@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 import { predictExplain, getAdminCustomers, getErrorMessage } from "../../services/api";
 import MapPinPicker from "../../components/MapPinPicker";
 import RiskBadge from "../../components/RiskBadge";
+import { findPresetByAddress } from "../../utils/locationPresets";
 
 const pickupIcon = new L.Icon({
   iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png",
@@ -53,6 +54,36 @@ const AdminPrediction = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [result, setResult] = useState(null);
+
+  const handlePickupAddressChange = (value) => {
+    setPickupAddress(value);
+    const preset = findPresetByAddress(value);
+    if (preset) {
+      setPickupCoords({ lat: preset.lat, lng: preset.lng });
+    }
+  };
+
+  const handleDeliveryAddressChange = (value) => {
+    setDeliveryAddress(value);
+    const preset = findPresetByAddress(value);
+    if (preset) {
+      setDeliveryCoords({ lat: preset.lat, lng: preset.lng });
+    }
+  };
+
+  const handlePickupLocationSelect = (pos, meta) => {
+    setPickupCoords(pos);
+    if (meta?.address) {
+      setPickupAddress(meta.address);
+    }
+  };
+
+  const handleDeliveryLocationSelect = (pos, meta) => {
+    setDeliveryCoords(pos);
+    if (meta?.address) {
+      setDeliveryAddress(meta.address);
+    }
+  };
 
   useEffect(() => {
     const fetchCustomersList = async () => {
@@ -251,7 +282,7 @@ const AdminPrediction = () => {
                   type="text"
                   className="form-control-modern"
                   value={pickupAddress}
-                  onChange={(e) => setPickupAddress(e.target.value)}
+                  onChange={(e) => handlePickupAddressChange(e.target.value)}
                   required
                 />
               </div>
@@ -261,7 +292,7 @@ const AdminPrediction = () => {
                   type="text"
                   className="form-control-modern"
                   value={deliveryAddress}
-                  onChange={(e) => setDeliveryAddress(e.target.value)}
+                  onChange={(e) => handleDeliveryAddressChange(e.target.value)}
                   required
                 />
               </div>
@@ -309,7 +340,7 @@ const AdminPrediction = () => {
                   key="delivery-pin"
                   initialLat={deliveryCoords.lat}
                   initialLng={deliveryCoords.lng}
-                  onLocationSelect={(pos) => setDeliveryCoords(pos)}
+                  onLocationSelect={handleDeliveryLocationSelect}
                   label="Delivery Destination Pin"
                   height="200px"
                 />
@@ -318,7 +349,7 @@ const AdminPrediction = () => {
                   key="pickup-pin"
                   initialLat={pickupCoords.lat}
                   initialLng={pickupCoords.lng}
-                  onLocationSelect={(pos) => setPickupCoords(pos)}
+                  onLocationSelect={handlePickupLocationSelect}
                   isPickup={true}
                   label="Pickup Hub Location Pin"
                   height="200px"

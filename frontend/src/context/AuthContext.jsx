@@ -111,6 +111,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated: Boolean(token && role),
         isAdmin: role === "admin",
         isCustomer: role === "customer",
+        isRider: role === "rider",
         login: loginUser,
         logout: logoutUser,
         setUser,

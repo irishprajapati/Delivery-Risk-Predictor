@@ -1,10 +1,8 @@
 from datetime import datetime, timedelta
-
 from jose import JWTError, jwt
 from passlib.context import CryptContext
-
 from app.core.config import SECRET_KEY
-
+import random
 # Password hashing setup
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
@@ -33,3 +31,6 @@ def decode_access_token(token: str):
         return payload
     except JWTError:
         return None
+    
+def generate_otp():
+    return str(random.randint(100000, 999999))

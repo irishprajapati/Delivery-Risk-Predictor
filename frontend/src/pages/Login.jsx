@@ -17,7 +17,13 @@ export default function Login() {
 
   const handleRoleChange = (newRole) => {
     setRole(newRole);
-    setIdentifier(newRole === "customer" ? "9841878273" : "admin");
+    if (newRole === "customer") {
+      setIdentifier("9841878273");
+    } else if (newRole === "rider") {
+      setIdentifier("9800000001");
+    } else {
+      setIdentifier("admin");
+    }
     setError("");
   };
 
@@ -29,11 +35,13 @@ export default function Login() {
     try {
       const data = await login(role, identifier, password);
 
-      const phoneVal = role === "customer" ? identifier : "";
+      const phoneVal = (role === "customer" || role === "rider") ? identifier : "";
       authLogin(data.access_token, role, phoneVal);
 
       if (role === "admin") {
         navigate("/admin/dashboard", { replace: true });
+      } else if (role === "rider") {
+        navigate("/rider/dashboard", { replace: true });
       } else {
         navigate("/customer/dashboard", { replace: true });
       }
@@ -50,6 +58,8 @@ export default function Login() {
   };
 
   const isAdmin = role === "admin";
+  const isRider = role === "rider";
+  const isCustomer = role === "customer";
 
   return (
     <div
@@ -66,7 +76,7 @@ export default function Login() {
         className="card-modern animate-fade-in"
         style={{
           width: "100%",
-          maxWidth: "400px",
+          maxWidth: "420px",
           padding: "32px 28px",
           background: "#ffffff",
           border: "1px solid #cbd5e1",
@@ -80,15 +90,15 @@ export default function Login() {
             Delivery Failure Prediction
           </h1>
           <p style={{ color: "#475569", fontSize: "0.9rem", fontWeight: "600", marginTop: "4px" }}>
-            Login
+            Login Portal
           </p>
         </div>
 
-        {/* Role Toggle */}
+        {/* 3-Way Role Toggle */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "1fr 1fr 1fr",
             gap: "4px",
             background: "#f1f5f9",
             padding: "4px",
@@ -100,27 +110,46 @@ export default function Login() {
             type="button"
             onClick={() => handleRoleChange("customer")}
             style={{
-              padding: "8px 12px",
-              fontSize: "0.875rem",
+              padding: "7px 8px",
+              fontSize: "0.8rem",
               fontWeight: "600",
               border: "none",
               borderRadius: "6px",
               cursor: "pointer",
-              background: !isAdmin ? "#ffffff" : "transparent",
-              color: !isAdmin ? "#0f172a" : "#64748b",
-              boxShadow: !isAdmin ? "0 1px 2px rgba(0,0,0,0.08)" : "none",
+              background: isCustomer ? "#ffffff" : "transparent",
+              color: isCustomer ? "#0f172a" : "#64748b",
+              boxShadow: isCustomer ? "0 1px 2px rgba(0,0,0,0.08)" : "none",
               transition: "all 0.15s ease",
             }}
           >
-            Customer Login
+            Customer
+          </button>
+
+          <button
+            type="button"
+            onClick={() => handleRoleChange("rider")}
+            style={{
+              padding: "7px 8px",
+              fontSize: "0.8rem",
+              fontWeight: "600",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              background: isRider ? "#ffffff" : "transparent",
+              color: isRider ? "#0f172a" : "#64748b",
+              boxShadow: isRider ? "0 1px 2px rgba(0,0,0,0.08)" : "none",
+              transition: "all 0.15s ease",
+            }}
+          >
+            Rider
           </button>
 
           <button
             type="button"
             onClick={() => handleRoleChange("admin")}
             style={{
-              padding: "8px 12px",
-              fontSize: "0.875rem",
+              padding: "7px 8px",
+              fontSize: "0.8rem",
               fontWeight: "600",
               border: "none",
               borderRadius: "6px",
@@ -131,7 +160,7 @@ export default function Login() {
               transition: "all 0.15s ease",
             }}
           >
-            Admin Login
+            Admin
           </button>
         </div>
 
@@ -139,12 +168,12 @@ export default function Login() {
           {/* Username / Phone Number */}
           <div className="form-group" style={{ margin: 0 }}>
             <label className="form-label" style={{ color: "#334155" }}>
-              {isAdmin ? "Username" : "Phone Number"}
+              {isAdmin ? "Admin Username" : isRider ? "Rider Phone Number" : "Customer Phone Number"}
             </label>
             <input
               type={isAdmin ? "text" : "tel"}
               className="form-control-modern"
-              placeholder={isAdmin ? "Enter admin username" : "Enter phone number (e.g. 9841878273)"}
+              placeholder={isAdmin ? "Enter admin username" : isRider ? "Enter rider phone (e.g. 9800000001)" : "Enter phone number (e.g. 9841878273)"}
               value={identifier}
               onChange={(e) => setIdentifier(e.target.value)}
               required
@@ -223,7 +252,7 @@ export default function Login() {
             className="btn-modern btn-modern-primary"
             style={{ width: "100%", marginTop: "6px", padding: "10px" }}
           >
-            {loading ? "Logging in..." : `Login as ${isAdmin ? "Admin" : "Customer"}`}
+            {loading ? "Logging in..." : `Login as ${isAdmin ? "Admin" : isRider ? "Rider" : "Customer"}`}
           </button>
         </form>
 
